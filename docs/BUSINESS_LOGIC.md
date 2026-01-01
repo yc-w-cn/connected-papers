@@ -93,6 +93,91 @@ await prisma.paper.update({
 
 #### 相关文件
 - [scripts/process-papers.ts](file:///Volumes/JZAO/j-projects/yc-w-cn/connected-papers/scripts/process-papers.ts)
+- [src/lib/arxiv/fetch-paper.ts](file:///Volumes/JZAO/j-projects/yc-w-cn/connected-papers/src/lib/arxiv/fetch-paper.ts)
+
+### 3. 引用文献获取流程
+
+#### 触发条件
+- 执行 `pnpm run fetch-references <arxivId>` 命令
+- 指定要获取引用文献的论文 arXiv ID
+
+#### 处理步骤
+
+##### 3.1 查找或创建源论文
+```typescript
+let paper = await prisma.paper.findUnique({
+  where: { arxivId }
+});
+
+if (!paper) {
+  paper = await prisma.paper.create({
+    data: {
+      arxivId,
+      arxivUrl: `https://arxiv.org/abs/${arxivId}`,
+      status: 'pending'
+    }
+  });
+}
+```
+
+##### 3.2 从 Semantic Scholar API 获取引用文献
+```typescript
+const response = await fetch(
+  `https://api.semanticscholar.org/graph/v1/paper/arXiv:${arxivId}?fields=references.title,references.authors,references.arxivId,references.year,references.publicationDate`
+);
+```
+
+##### 3.3 处理每篇引用文献
+对每篇引用文献执行以下操作：
+
+**步骤 1: 检查论文是否已存在**
+```typescript
+let refPaper = await prisma.paper.findUnique({
+  where: { arxivId: ref.arxivId }
+});
+```
+
+**步骤 2: 创建或更新引用论文**
+```typescript
+if (!refPaper) {
+  refPaper = await prisma.paper.create({
+    data: {
+      arxivId: ref.arxivId,
+      arxivUrl: ref.arxivUrl,
+      title: ref.title,
+      authors: ref.authors,
+      abstract: ref.abstract,
+      publishedDate: ref.publishedDate,
+      status: 'pending'
+    }
+  });
+}
+```
+
+**步骤 3: 创建引用关系**
+```typescript
+const existingReference = await prisma.reference.findUnique({
+  where: {
+    paperId_referenceId: {
+      paperId: paper.id,
+      referenceId: refPaper.id
+    }
+  }
+});
+
+if (!existingReference) {
+  await prisma.reference.create({
+    data: {
+      paperId: paper.id,
+      referenceId: refPaper.id
+    }
+  });
+}
+```
+
+#### 相关文件
+- [scripts/fetch-references.ts](file:///Volumes/JZAO/j-projects/yc-w-cn/connected-papers/scripts/fetch-references.ts)
+- [src/lib/arxiv/fetch-references.ts](file:///Volumes/JZAO/j-projects/yc-w-cn/connected-papers/src/lib/arxiv/fetch-references.ts)
 
 ## 状态机设计
 
@@ -135,7 +220,7 @@ pending -> processing -> completed
 ```typescript
 {
   id: string;              // UUID
-  arxivId: string;         // arXiv 论文 ID
+  arxivId: string;         // arXiv 论文 ID (唯一)
   arxivUrl: string;        // 完整 URL
   title: string | null;     // 标题
   authors: string | null;  // 作者列表
@@ -147,6 +232,24 @@ pending -> processing -> completed
   updatedAt: Date;         // 更新时间
 }
 ```
+
+### Reference 实体
+
+```typescript
+{
+  id: string;              // UUID
+  paperId: string;        // 源论文 ID
+  referenceId: string;     // 引用论文 ID
+  createdAt: Date;        // 创建时间
+}
+```
+
+### 关系说明
+
+- 一个 `Paper` 可以有多篇引用文献（`references`）
+- 一个 `Paper` 可以被多篇论文引用（`citedBy`）
+- `Reference` 表维护论文之间的引用关系
+- `arxivId` 在 `Paper` 表中是唯一的，确保全局唯一性
 
 ## API 集成
 
@@ -175,6 +278,42 @@ GET https://export.arxiv.org/api/query?id_list=2503.15888
   </author>
 </entry>
 ```
+
+### Semantic Scholar API
+
+**端点**: `https://api.semanticscholar.org/graph/v1/paper/arXiv:{arxivId}?fields={fields}`
+
+**请求示例**:
+```
+GET https://api.semanticscholar.org/graph/v1/paper/arXiv:2503.15888?fields=references.title,references.authors,references.arxivId,references.year,references.publicationDate
+```
+
+**响应格式**: JSON
+
+**响应示例**:
+```json
+{
+  "references": [
+    {
+      "arxivId": "2401.12345",
+      "title": "引用论文标题",
+      "authors": [
+        {"name": "作者1"},
+        {"name": "作者2"}
+      ],
+      "year": 2024,
+      "publicationDate": "2024-01-15"
+    }
+  ]
+}
+```
+
+**字段说明**:
+- `references.arxivId`: 引用论文的 arXiv ID
+- `references.title`: 引用论文标题
+- `references.authors`: 引用论文作者列表
+- `references.year`: 引用论文年份
+- `references.publicationDate`: 引用论文发布日期
 
 ## 错误处理
 
@@ -219,6 +358,16 @@ pnpm run prisma:seed
 ```bash
 # 处理所有待处理的论文
 pnpm run process-papers
+
+# 处理指定的论文
+pnpm run process-paper 2503.15888
+```
+
+### 获取引用文献
+
+```bash
+# 获取指定论文的引用文献
+pnpm run fetch-references 2503.15888
 ```
 
 ### 查看数据
