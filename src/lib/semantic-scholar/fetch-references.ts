@@ -32,6 +32,13 @@ export async function fetchArxivReferences(arxivId: string): Promise<ArxivRefere
     apiUrl,
     () => fetch(apiUrl),
     arxivId,
+    {
+      requestMethod: 'GET',
+      requestHeaders: {
+        'Accept': 'application/json',
+        'User-Agent': 'Connected-Papers/1.0',
+      },
+    },
   );
 
   if (!response.ok) {

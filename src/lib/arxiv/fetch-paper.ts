@@ -34,6 +34,13 @@ export async function fetchArxivPaper(
     apiUrl,
     () => fetch(apiUrl),
     arxivId,
+    {
+      requestMethod: 'GET',
+      requestHeaders: {
+        'Accept': 'application/xml',
+        'User-Agent': 'Connected-Papers/1.0',
+      },
+    },
   );
 
   if (!response.ok) {

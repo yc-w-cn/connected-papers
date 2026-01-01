@@ -46,6 +46,11 @@ export async function recordNetworkRequest(
   requestUrl: string,
   requestFn: () => Promise<Response>,
   arxivPaperId?: string,
+  options?: {
+    requestMethod?: string;
+    requestHeaders?: Record<string, string>;
+    requestBody?: string;
+  },
 ) {
   const startTime = Date.now();
 
@@ -54,12 +59,23 @@ export async function recordNetworkRequest(
     const duration = Date.now() - startTime;
 
     const responseHeaders = JSON.stringify(Object.fromEntries(response.headers.entries()));
+    
+    let responseBody: string | undefined;
+    try {
+      const clonedResponse = response.clone();
+      responseBody = await clonedResponse.text();
+    } catch (error) {
+      console.error('读取响应体失败:', error);
+    }
 
     await saveNetworkRequest({
       requestUrl,
-      requestMethod: 'GET',
+      requestMethod: options?.requestMethod || 'GET',
+      requestBody: options?.requestBody,
+      requestHeaders: options?.requestHeaders ? JSON.stringify(options.requestHeaders) : undefined,
       responseStatus: response.status,
       responseHeaders,
+      responseBody,
       duration,
       success: response.ok,
       errorMessage: response.ok ? undefined : `HTTP ${response.status} ${response.statusText}`,
@@ -74,7 +90,9 @@ export async function recordNetworkRequest(
 
     await saveNetworkRequest({
       requestUrl,
-      requestMethod: 'GET',
+      requestMethod: options?.requestMethod || 'GET',
+      requestBody: options?.requestBody,
+      requestHeaders: options?.requestHeaders ? JSON.stringify(options.requestHeaders) : undefined,
       duration,
       success: false,
       errorMessage,
