@@ -18,7 +18,8 @@
     "process-paper": "tsx scripts/arxiv/process-paper.ts",
     "fetch-reference": "tsx scripts/semantic-scholar/fetch-reference.ts",
     "fetch-references": "tsx scripts/semantic-scholar/fetch-references.ts",
-    "export-data": "tsx scripts/export-data.ts"
+    "export-data": "tsx scripts/export-data.ts",
+    "test-data-loading": "tsx scripts/test-data-loading.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
@@ -29,6 +30,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "d3": "^7.9.0",
+    "dayjs": "^1.11.19",
     "fast-xml-parser": "^5.3.3",
     "lucide-react": "^0.562.0",
     "next": "16.1.1",

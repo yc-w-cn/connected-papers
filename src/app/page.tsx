@@ -100,7 +100,7 @@ export default function Home() {
         </section>
 
         <footer className="mt-12 text-center text-zinc-600">
-          <p>使用 D3.js 和 Next.js 构建</p>
+          <p>版本 {process.env.NEXT_PUBLIC_VERSION} · 构建于 {process.env.NEXT_PUBLIC_BUILD_DATE}</p>
         </footer>
       </div>
     </div>
