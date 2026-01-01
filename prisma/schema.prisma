@@ -131,3 +131,24 @@ model SemanticScholarVenue {
 
   @@index([arxivPaperId])
 }
+
+model NetworkRequest {
+  id              String   @id @default(uuid())
+  requestUrl      String
+  requestMethod   String   @default("GET")
+  requestBody     String?
+  requestHeaders  String?
+  responseStatus  Int?
+  responseBody    String?
+  responseHeaders String?
+  duration        Int?
+  success         Boolean  @default(false)
+  errorMessage    String?
+  source          String
+  arxivPaperId    String?
+  createdAt       DateTime @default(now())
+
+  @@index([source])
+  @@index([arxivPaperId])
+  @@index([createdAt])
+}
