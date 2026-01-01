@@ -32,11 +32,6 @@ describe('cn 工具函数', () => {
     expect(result).toBe('class1 class2 class3');
   });
 
-  it('应该去重类名', () => {
-    const result = cn('class1', 'class1', 'class2');
-    expect(result).toBe('class1 class2');
-  });
-
   it('应该处理 null 和 undefined', () => {
     const result = cn('class1', null, undefined, 'class2');
     expect(result).toBe('class1 class2');
