@@ -13,7 +13,8 @@
     "prisma:seed": "tsx prisma/seed.ts",
     "prisma:studio": "prisma studio",
     "process-papers": "tsx scripts/process-papers.ts",
-    "process-paper": "tsx scripts/process-papers.ts"
+    "process-paper": "tsx scripts/process-papers.ts",
+    "fetch-references": "tsx scripts/fetch-references.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
