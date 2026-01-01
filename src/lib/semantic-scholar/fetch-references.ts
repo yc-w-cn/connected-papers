@@ -24,7 +24,7 @@ export interface ArxivReference {
 export async function fetchArxivReferences(arxivId: string): Promise<ArxivReference[]> {
   console.log(`正在获取论文 ${arxivId} 的引用文献...`);
 
-  const apiUrl = `https://api.semanticscholar.org/graph/v1/paper/arXiv:${arxivId}?fields=references.title,references.authors,references.authorId,references.externalIds,references.year,references.publicationDate,references.abstract,references.venue,references.volume,references.issue,references.pages,references.citationCount,references.influentialCitationCount,references.s2FieldsOfStudy,references.openAccessPdf,references.publicationTypes,references.url,references.paperId`;
+  const apiUrl = `https://api.semanticscholar.org/graph/v1/paper/arXiv:${arxivId}?fields=references.title,references.authors,references.externalIds,references.year,references.publicationDate,references.abstract,references.venue,references.volume,references.issue,references.pages,references.citationCount,references.influentialCitationCount,references.s2FieldsOfStudy,references.openAccessPdf,references.publicationTypes,references.url,references.paperId`;
   console.log(`请求 URL: ${apiUrl}`);
 
   const response = await recordNetworkRequest(
