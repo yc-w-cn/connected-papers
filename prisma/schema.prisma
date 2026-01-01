@@ -7,21 +7,54 @@ datasource db {
   provider = "sqlite"
 }
 
-model Paper {
-  id            String   @id @default(uuid())
-  arxivId       String   @unique
-  arxivUrl      String
-  title         String?
-  authors       String?
-  abstract      String?
-  publishedDate String?
-  status        String   @default("pending")
-  processedAt   DateTime?
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+model ArxivPaper {
+  id                        String                      @id @default(uuid())
+  arxivId                   String                      @unique
+  arxivUrl                  String
+  title                     String?
+  abstract                  String?
+  publishedDate             String?
+  primaryCategory           String?
+  license                   String?
+  updatedAtArxiv            String?
+  comment                   String?
+  journalRef                String?
+  doi                       String?
+  status                    String                      @default("pending")
+  processedAt               DateTime?
+  createdAt                 DateTime                    @default(now())
+  updatedAt                 DateTime                    @updatedAt
 
-  references    Reference[] @relation("PaperReferences")
-  citedBy       Reference[] @relation("PaperCitedBy")
+  authors                   ArxivAuthorName[]
+  categories                ArxivCategory[]
+  references                Reference[]                 @relation("ArxivPaperReferences")
+  citedBy                   Reference[]                 @relation("ArxivPaperCitedBy")
+  semanticScholarPaper      SemanticScholarPaper?
+
+  @@index([arxivId])
+}
+
+model ArxivAuthorName {
+  id          String   @id @default(uuid())
+  name        String
+  affiliation String?
+  arxivPaperId String
+  createdAt   DateTime @default(now())
+
+  arxivPaper  ArxivPaper @relation(fields: [arxivPaperId], references: [id], onDelete: Cascade)
+
+  @@index([arxivPaperId])
+}
+
+model ArxivCategory {
+  id          String   @id @default(uuid())
+  category    String
+  arxivPaperId String
+  createdAt   DateTime @default(now())
+
+  arxivPaper  ArxivPaper @relation(fields: [arxivPaperId], references: [id], onDelete: Cascade)
+
+  @@index([arxivPaperId])
 }
 
 model Reference {
@@ -30,10 +63,71 @@ model Reference {
   referenceId String
   createdAt   DateTime @default(now())
 
-  paper       Paper     @relation("PaperReferences", fields: [paperId], references: [id], onDelete: Cascade)
-  reference   Paper     @relation("PaperCitedBy", fields: [referenceId], references: [id], onDelete: Cascade)
+  paper       ArxivPaper @relation("ArxivPaperReferences", fields: [paperId], references: [id], onDelete: Cascade)
+  reference   ArxivPaper @relation("ArxivPaperCitedBy", fields: [referenceId], references: [id], onDelete: Cascade)
 
   @@unique([paperId, referenceId])
   @@index([paperId])
   @@index([referenceId])
+}
+
+model SemanticScholarPaper {
+  id                        String                      @id @default(uuid())
+  paperId                   String                      @unique
+  url                       String?
+  citationCount             Int?
+  influentialCitationCount  Int?
+  openAccessPdfUrl          String?
+  publicationTypes          String?
+  arxivPaperId              String                      @unique
+  createdAt                 DateTime                    @default(now())
+  updatedAt                 DateTime                    @updatedAt
+
+  authors                   SemanticScholarAuthor[]
+  fieldsOfStudy             SemanticScholarFieldOfStudy[]
+  venue                     SemanticScholarVenue?
+  arxivPaper                ArxivPaper                  @relation(fields: [arxivPaperId], references: [id], onDelete: Cascade)
+
+  @@index([arxivPaperId])
+  @@index([paperId])
+}
+
+model SemanticScholarAuthor {
+  id              String   @id @default(uuid())
+  authorId        String?
+  name            String
+  arxivPaperId    String
+  createdAt       DateTime @default(now())
+
+  semanticScholarPaper SemanticScholarPaper @relation(fields: [arxivPaperId], references: [id], onDelete: Cascade)
+
+  @@index([arxivPaperId])
+  @@index([authorId])
+}
+
+model SemanticScholarFieldOfStudy {
+  id              String   @id @default(uuid())
+  field           String
+  category        String?
+  arxivPaperId    String
+  createdAt       DateTime @default(now())
+
+  semanticScholarPaper SemanticScholarPaper @relation(fields: [arxivPaperId], references: [id], onDelete: Cascade)
+
+  @@index([arxivPaperId])
+  @@index([field])
+}
+
+model SemanticScholarVenue {
+  id              String   @id @default(uuid())
+  venue           String?
+  volume          String?
+  issue           String?
+  pages           String?
+  arxivPaperId    String   @unique
+  createdAt       DateTime @default(now())
+
+  semanticScholarPaper SemanticScholarPaper @relation(fields: [arxivPaperId], references: [id], onDelete: Cascade)
+
+  @@index([arxivPaperId])
 }
