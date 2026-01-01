@@ -4,14 +4,14 @@
   "editor.renderControlCharacters": false,
   "window.title": "${rootName}",
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "editor.formatOnType": false, // required
-  "editor.formatOnPaste": true, // optional
-  "editor.formatOnSave": true, // optional
+  "editor.formatOnType": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "always"
   },
-  "editor.formatOnSaveMode": "file", // required to format on save
-  "files.autoSave": "onFocusChange", // optional but recommended
+  "editor.formatOnSaveMode": "file",
+  "files.autoSave": "onFocusChange",
   "[typescript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
@@ -26,5 +26,12 @@
   },
   "[mdx]": {
     "editor.defaultFormatter": "unifiedjs.vscode-mdx"
+  },
+  "files.associations": {
+    "public/data.json": "plaintext"
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "[plaintext]": {
+    "diffEditor.ignoreTrimWhitespace": false
   }
 }
