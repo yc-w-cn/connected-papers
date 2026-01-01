@@ -13,6 +13,17 @@ pending -> processing -> completed
   failed
 ```
 
+## 引用文献获取状态
+
+除了处理状态外，系统还维护引用文献获取状态：
+
+```
+referencesFetched: false -> true
+```
+
+- `false`: 尚未获取引用文献
+- `true`: 已获取引用文献
+
 ## 状态说明
 
 | 状态 | 说明 | 可转换到 |
@@ -87,6 +98,47 @@ await prisma.arxivPaper.update({
 - [process-paper](../../scripts/arxiv/process-paper.md)
 - [process-papers](../../scripts/arxiv/process-papers.md)
 
+## 引用文献获取状态转换
+
+### 1. referencesFetched: false -> true
+
+**触发条件**: 成功获取论文的引用文献
+
+**操作**: 更新 `referencesFetched` 为 `true`
+
+```typescript
+await prisma.arxivPaper.update({
+  where: { id: paper.id },
+  data: { referencesFetched: true }
+});
+```
+
+**相关脚本**:
+- [fetch-reference](../../scripts/semantic-scholar/fetch-reference.md)
+- [fetch-references](../../scripts/semantic-scholar/fetch-references.md)
+
+### 2. 重置引用文献获取状态
+
+如果需要重新获取论文的引用文献，可以手动重置：
+
+```typescript
+// 将 referencesFetched 改回 false
+await prisma.arxivPaper.update({
+  where: { arxivId: '2503.15888' },
+  data: { referencesFetched: false }
+});
+```
+
+然后重新运行获取引用文献的脚本：
+
+```bash
+# 获取单篇论文的引用文献
+pnpm run fetch-reference 2503.15888
+
+# 批量获取未获取引用文献的论文
+pnpm run fetch-references
+```
+
 ## 状态查询
 
 ### 查询待处理论文
@@ -119,6 +171,23 @@ const completedPapers = await prisma.arxivPaper.findMany({
 ```typescript
 const failedPapers = await prisma.arxivPaper.findMany({
   where: { status: 'failed' }
+});
+```
+
+### 查询未获取引用文献的论文
+
+```typescript
+const unfetchedPapers = await prisma.arxivPaper.findMany({
+  where: { referencesFetched: false },
+  orderBy: { createdAt: 'asc' }
+});
+```
+
+### 查询已获取引用文献的论文
+
+```typescript
+const fetchedPapers = await prisma.arxivPaper.findMany({
+  where: { referencesFetched: true }
 });
 ```
 

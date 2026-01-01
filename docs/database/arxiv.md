@@ -28,6 +28,7 @@ Arxiv 相关数据表用于存储从 arXiv API 获取的论文数据。
 | `doi` | String? | DOI | 可选 |
 | `status` | String | 处理状态 | 默认值: `pending` |
 | `processedAt` | DateTime? | 处理完成时间 | 可选 |
+| `referencesFetched` | Boolean | 引用文献是否已获取 | 默认值: `false` |
 | `createdAt` | DateTime | 创建时间 | 自动生成 |
 | `updatedAt` | DateTime | 更新时间 | 自动更新 |
 
@@ -104,6 +105,16 @@ Arxiv 相关数据表用于存储从 arXiv API 获取的论文数据。
 - 避免重复处理同一篇论文
 - 支持断点续传（从失败或未完成的状态继续）
 - 记录处理时间
+
+### 5. 引用文献获取状态追踪
+
+追踪每篇论文的引用文献获取状态：
+- `referencesFetched`: 标记是否已获取过该论文的引用文献
+- 避免重复获取同一篇论文的引用文献
+- 支持批量获取未获取引用文献的论文
+- 相关脚本：
+  - [fetch-reference](../scripts/semantic-scholar/fetch-reference.md) - 获取单篇论文的引用文献
+  - [fetch-references](../scripts/semantic-scholar/fetch-references.md) - 批量获取未获取引用文献的论文
 
 ## 相关文档
 
