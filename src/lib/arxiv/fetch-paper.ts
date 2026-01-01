@@ -1,10 +1,22 @@
 import { XMLParser } from 'fast-xml-parser';
 
+export interface ArxivAuthor {
+  name: string;
+  affiliation?: string;
+}
+
 export interface ArxivPaperData {
   title: string;
   abstract: string;
-  authors: string;
+  authors: ArxivAuthor[];
   publishedDate: string;
+  primaryCategory?: string;
+  categories: string[];
+  license?: string;
+  updatedAtArxiv?: string;
+  comment?: string;
+  journalRef?: string;
+  doi?: string;
 }
 
 export async function fetchArxivPaper(
@@ -47,15 +59,37 @@ export async function fetchArxivPaper(
   const title = entry.title?.trim();
   const summary = entry.summary?.trim();
   const published = entry.published;
+  const updated = entry.updated;
+  const license = entry.license;
+  const comment = entry.comment;
+  const journalRef = entry['arxiv:journal_ref'];
+  const doi = entry['arxiv:doi'];
 
-  const authors: string[] = [];
+  const primaryCategory = entry['arxiv:primary_category']?.['@_term'];
+  
+  const categories: string[] = [];
+  if (entry.category) {
+    const categoryArray = Array.isArray(entry.category)
+      ? entry.category
+      : [entry.category];
+    categoryArray.forEach((cat: any) => {
+      if (cat['@_term']) {
+        categories.push(cat['@_term']);
+      }
+    });
+  }
+
+  const authors: ArxivAuthor[] = [];
   if (entry.author) {
     const authorArray = Array.isArray(entry.author)
       ? entry.author
       : [entry.author];
     authorArray.forEach((author: any) => {
       if (author.name) {
-        authors.push(author.name);
+        authors.push({
+          name: author.name,
+          affiliation: author['arxiv:affiliation'] || undefined,
+        });
       }
     });
   }
@@ -63,14 +97,25 @@ export async function fetchArxivPaper(
   const resultData: ArxivPaperData = {
     title,
     abstract: summary,
-    authors: authors.join(', '),
+    authors,
     publishedDate: published?.split('T')[0],
+    primaryCategory,
+    categories,
+    license,
+    updatedAtArxiv: updated?.split('T')[0],
+    comment,
+    journalRef,
+    doi,
   };
 
   console.log(`  [3/3] 提取完成:`);
   console.log(`      标题: ${title}`);
-  console.log(`      作者: ${authors.join(', ')}`);
+  console.log(`      作者: ${authors.map(a => a.name).join(', ')}`);
   console.log(`      发布日期: ${resultData.publishedDate}`);
+  console.log(`      主分类: ${primaryCategory || '无'}`);
+  console.log(`      所有分类: ${categories.join(', ') || '无'}`);
+  console.log(`      许可证: ${license || '无'}`);
+  console.log(`      DOI: ${doi || '无'}`);
 
   return resultData;
 }

@@ -5,12 +5,24 @@ export interface ArxivReference {
   authors?: string;
   abstract?: string;
   publishedDate?: string;
+  paperId?: string;
+  url?: string;
+  citationCount?: number;
+  influentialCitationCount?: number;
+  openAccessPdfUrl?: string;
+  publicationTypes?: string;
+  s2FieldsOfStudy?: Array<{ category?: string; field: string }>;
+  venue?: string;
+  volume?: string;
+  issue?: string;
+  pages?: string;
+  authorDetails?: Array<{ authorId?: string; name: string }>;
 }
 
 export async function fetchArxivReferences(arxivId: string): Promise<ArxivReference[]> {
   console.log(`正在获取论文 ${arxivId} 的引用文献...`);
 
-  const apiUrl = `https://api.semanticscholar.org/graph/v1/paper/arXiv:${arxivId}?fields=references.title,references.authors,references.externalIds,references.year,references.publicationDate`;
+  const apiUrl = `https://api.semanticscholar.org/graph/v1/paper/arXiv:${arxivId}?fields=references.title,references.authors,references.authorId,references.externalIds,references.year,references.publicationDate,references.abstract,references.venue,references.volume,references.issue,references.pages,references.citationCount,references.influentialCitationCount,references.s2FieldsOfStudy,references.openAccessPdf,references.publicationTypes,references.url,references.paperId`;
   console.log(`请求 URL: ${apiUrl}`);
 
   const response = await fetch(apiUrl);
@@ -40,6 +52,21 @@ export async function fetchArxivReferences(arxivId: string): Promise<ArxivRefere
         title: ref.title,
         authors: ref.authors?.map((a: any) => a.name).join(', '),
         publishedDate: ref.year ? `${ref.year}-01-01` : undefined,
+        paperId: ref.paperId,
+        url: ref.url,
+        citationCount: ref.citationCount,
+        influentialCitationCount: ref.influentialCitationCount,
+        openAccessPdfUrl: ref.openAccessPdf?.url,
+        publicationTypes: ref.publicationTypes?.join(', '),
+        s2FieldsOfStudy: ref.s2FieldsOfStudy,
+        venue: ref.venue,
+        volume: ref.volume,
+        issue: ref.issue,
+        pages: ref.pages,
+        authorDetails: ref.authors?.map((a: any) => ({
+          authorId: a.authorId,
+          name: a.name
+        })),
       });
     }
   }
