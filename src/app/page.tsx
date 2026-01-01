@@ -14,7 +14,7 @@ export default function Home() {
   useEffect(() => {
     async function loadData() {
       try {
-        const response = await fetch('/data.json', {
+        const response = await fetch('/connected-papers/data.json', {
           cache: 'force-cache',
         });
 
