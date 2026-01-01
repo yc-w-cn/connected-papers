@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Connected Papers
 
-## Getting Started
+学术文献关系网络可视化工具，帮助您探索和理解学术文献之间的关联。
 
-First, run the development server:
+## 功能特性
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **关系网络可视化**: 直观展示作者、文献和期刊之间的关联关系
+- **统计数据展示**: 实时显示数据库中的作者、文献和期刊数量
+- **重要性标识**: 节点大小根据文献引用数量自动调整，突出重要文献
+- **交互式浏览**: 支持拖拽节点和缩放视图，方便探索复杂网络
+- **静态部署**: 无需服务器，可直接部署到静态托管平台
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 使用说明
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. 使用爬取脚本收集学术文献数据
+2. 运行数据导出脚本生成可视化数据
+3. 构建并部署项目
+4. 在浏览器中访问部署的网站查看关系网络
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 数据来源
 
-## Learn More
+- arXiv 论文数据库
+- Semantic Scholar 引用数据
+- 期刊和会议信息
 
-To learn more about Next.js, take a look at the following resources:
+## 可视化说明
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **黑色节点**: 作者
+- **深灰色节点**: 文献
+- **红色节点**: 期刊/会议
+- **节点大小**: 根据引用数量动态调整，引用越多节点越大
+- **连线**: 表示不同类型实体之间的关系
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 许可证
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
