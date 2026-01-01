@@ -63,29 +63,66 @@ const response = await fetch(`https://export.arxiv.org/api/query?id_list=${arxiv
 - 提取以下字段：
   - `title`: 论文标题
   - `summary`: 论文摘要
-  - `authors`: 作者列表
+  - `authors`: 作者列表（包含姓名和机构）
   - `published`: 发布日期
+  - `primary_category`: 主分类
+  - `categories`: 所有分类
+  - `license`: 许可证
+  - `updated`: arXiv 更新时间
+  - `comment`: 评论
+  - `journal_ref`: 期刊引用
+  - `doi`: DOI
 
 **步骤 4: 更新数据库记录**
 ```typescript
-await prisma.paper.update({
+await prisma.arxivPaper.update({
   where: { id: paper.id },
   data: {
     title: arxivData.title,
-    authors: arxivData.authors,
     abstract: arxivData.abstract,
     publishedDate: arxivData.publishedDate,
+    primaryCategory: arxivData.primaryCategory,
+    license: arxivData.license,
+    updatedAtArxiv: arxivData.updatedAtArxiv,
+    comment: arxivData.comment,
+    journalRef: arxivData.journalRef,
+    doi: arxivData.doi,
     status: 'completed',
     processedAt: new Date()
   }
 });
 ```
 
-**步骤 5: 错误处理**
+**步骤 5: 保存作者信息**
+```typescript
+for (const author of arxivData.authors) {
+  await prisma.arxivAuthorName.create({
+    data: {
+      name: author.name,
+      affiliation: author.affiliation,
+      arxivPaperId: paper.id,
+    },
+  });
+}
+```
+
+**步骤 6: 保存分类信息**
+```typescript
+for (const category of arxivData.categories) {
+  await prisma.arxivCategory.create({
+    data: {
+      category,
+      arxivPaperId: paper.id,
+    },
+  });
+}
+```
+
+**步骤 7: 错误处理**
 如果处理过程中出现错误：
 ```typescript
 // 将状态更新为 failed
-await prisma.paper.update({
+await prisma.arxivPaper.update({
   where: { id: paper.id },
   data: { status: 'failed' }
 });
@@ -123,7 +160,7 @@ if (!paper) {
 ##### 3.2 从 Semantic Scholar API 获取引用文献
 ```typescript
 const response = await fetch(
-  `https://api.semanticscholar.org/graph/v1/paper/arXiv:${arxivId}?fields=references.title,references.authors,references.arxivId,references.year,references.publicationDate`
+  `https://api.semanticscholar.org/graph/v1/paper/arXiv:${arxivId}?fields=references.title,references.authors,references.authorId,references.externalIds,references.year,references.publicationDate,references.abstract,references.venue,references.volume,references.issue,references.pages,references.citationCount,references.influentialCitationCount,references.s2FieldsOfStudy,references.openAccessPdf,references.publicationTypes,references.url,references.paperId`
 );
 ```
 
@@ -175,6 +212,69 @@ if (!existingReference) {
 }
 ```
 
+**步骤 4: 保存 Semantic Scholar 数据**
+```typescript
+await saveSemanticScholarData(refPaper.id, ref);
+```
+
+##### 3.4 保存 Semantic Scholar 数据详情
+
+**步骤 1: 创建 SemanticScholarPaper 记录**
+```typescript
+await prisma.semanticScholarPaper.create({
+  data: {
+    paperId: ref.paperId,
+    url: ref.url,
+    citationCount: ref.citationCount,
+    influentialCitationCount: ref.influentialCitationCount,
+    openAccessPdfUrl: ref.openAccessPdfUrl,
+    publicationTypes: ref.publicationTypes,
+    arxivPaperId: arxivPaperId,
+  },
+});
+```
+
+**步骤 2: 保存作者信息**
+```typescript
+for (const author of ref.authorDetails) {
+  await prisma.semanticScholarAuthor.create({
+    data: {
+      authorId: author.authorId,
+      name: author.name,
+      arxivPaperId: arxivPaperId,
+    },
+  });
+}
+```
+
+**步骤 3: 保存研究领域**
+```typescript
+for (const field of ref.s2FieldsOfStudy) {
+  await prisma.semanticScholarFieldOfStudy.create({
+    data: {
+      field: field.field,
+      category: field.category,
+      arxivPaperId: arxivPaperId,
+    },
+  });
+}
+```
+
+**步骤 4: 保存发表场所信息**
+```typescript
+if (ref.venue || ref.volume || ref.issue || ref.pages) {
+  await prisma.semanticScholarVenue.create({
+    data: {
+      venue: ref.venue,
+      volume: ref.volume,
+      issue: ref.issue,
+      pages: ref.pages,
+      arxivPaperId: arxivPaperId,
+    },
+  });
+}
+```
+
 #### 相关文件
 - [scripts/fetch-references.ts](file:///Volumes/JZAO/j-projects/yc-w-cn/connected-papers/scripts/fetch-references.ts)
 - [src/lib/arxiv/fetch-references.ts](file:///Volumes/JZAO/j-projects/yc-w-cn/connected-papers/src/lib/arxiv/fetch-references.ts)
@@ -215,7 +315,7 @@ pending -> processing -> completed
 
 ## 数据结构
 
-### Paper 实体
+### ArxivPaper 实体
 
 ```typescript
 {
@@ -223,13 +323,41 @@ pending -> processing -> completed
   arxivId: string;         // arXiv 论文 ID (唯一)
   arxivUrl: string;        // 完整 URL
   title: string | null;     // 标题
-  authors: string | null;  // 作者列表
   abstract: string | null; // 摘要
   publishedDate: string | null; // 发布日期
+  primaryCategory: string | null; // 主分类
+  license: string | null; // 许可证
+  updatedAtArxiv: string | null; // arXiv 更新时间
+  comment: string | null; // 评论
+  journalRef: string | null; // 期刊引用
+  doi: string | null; // DOI
   status: 'pending' | 'processing' | 'completed' | 'failed';
   processedAt: Date | null; // 处理完成时间
   createdAt: Date;         // 创建时间
   updatedAt: Date;         // 更新时间
+}
+```
+
+### ArxivAuthorName 实体
+
+```typescript
+{
+  id: string;              // UUID
+  name: string;            // 作者姓名
+  affiliation: string | null; // 作者所属机构
+  arxivPaperId: string;    // 关联的论文 ID
+  createdAt: Date;         // 创建时间
+}
+```
+
+### ArxivCategory 实体
+
+```typescript
+{
+  id: string;              // UUID
+  category: string;        // 分类名称
+  arxivPaperId: string;    // 关联的论文 ID
+  createdAt: Date;         // 创建时间
 }
 ```
 
@@ -244,12 +372,74 @@ pending -> processing -> completed
 }
 ```
 
+### SemanticScholarPaper 实体
+
+```typescript
+{
+  id: string;                      // UUID
+  paperId: string;                 // Semantic Scholar 论文 ID（唯一）
+  url: string | null;              // 论文 URL
+  citationCount: number | null;     // 引用次数
+  influentialCitationCount: number | null; // 影响力引用次数
+  openAccessPdfUrl: string | null; // 开放访问 PDF 链接
+  publicationTypes: string | null;   // 发表类型
+  arxivPaperId: string;            // 关联的 arXiv 论文 ID（唯一）
+  createdAt: Date;                 // 创建时间
+  updatedAt: Date;                 // 更新时间
+}
+```
+
+### SemanticScholarAuthor 实体
+
+```typescript
+{
+  id: string;              // UUID
+  authorId: string | null; // Semantic Scholar 作者 ID
+  name: string;            // 作者姓名
+  arxivPaperId: string;    // 关联的 arXiv 论文 ID
+  createdAt: Date;         // 创建时间
+}
+```
+
+### SemanticScholarFieldOfStudy 实体
+
+```typescript
+{
+  id: string;              // UUID
+  field: string;           // 研究领域名称
+  category: string | null; // 分类
+  arxivPaperId: string;    // 关联的 arXiv 论文 ID
+  createdAt: Date;         // 创建时间
+}
+```
+
+### SemanticScholarVenue 实体
+
+```typescript
+{
+  id: string;              // UUID
+  venue: string | null;    // 发表场所
+  volume: string | null;    // 卷号
+  issue: string | null;     // 期号
+  pages: string | null;     // 页码
+  arxivPaperId: string;    // 关联的 arXiv 论文 ID（唯一）
+  createdAt: Date;         // 创建时间
+}
+```
+
 ### 关系说明
 
-- 一个 `Paper` 可以有多篇引用文献（`references`）
-- 一个 `Paper` 可以被多篇论文引用（`citedBy`）
+- 一个 `ArxivPaper` 可以有多位作者（`authors`）
+- 一个 `ArxivPaper` 可以有多个分类（`categories`）
+- 一个 `ArxivPaper` 可以有多篇引用文献（`references`）
+- 一个 `ArxivPaper` 可以被多篇论文引用（`citedBy`）
+- 一个 `ArxivPaper` 可以有一个 Semantic Scholar 数据记录（`semanticScholarPaper`）
 - `Reference` 表维护论文之间的引用关系
-- `arxivId` 在 `Paper` 表中是唯一的，确保全局唯一性
+- `arxivId` 在 `ArxivPaper` 表中是唯一的，确保全局唯一性
+- `SemanticScholarPaper` 与 `ArxivPaper` 是一对一关系
+- `SemanticScholarPaper` 可以有多位作者（`authors`）
+- `SemanticScholarPaper` 可以有多个研究领域（`fieldsOfStudy`）
+- `SemanticScholarPaper` 可以有一个发表场所信息（`venue`）
 
 ## API 集成
 
@@ -270,11 +460,21 @@ GET https://export.arxiv.org/api/query?id_list=2503.15888
   <title>论文标题</title>
   <summary>论文摘要</summary>
   <published>2025-03-25T00:00:00Z</published>
+  <updated>2025-03-26T00:00:00Z</updated>
+  <arxiv:primary_category term="cs.AI"/>
+  <category term="cs.AI"/>
+  <category term="cs.LG"/>
+  <license>http://creativecommons.org/licenses/by/4.0/</license>
+  <arxiv:journal_ref>J. Machine Learning Research, 2025</arxiv:journal_ref>
+  <arxiv:doi>10.1234/example.doi</arxiv:doi>
+  <comment>附加评论信息</comment>
   <author>
     <name>作者1</name>
+    <arxiv:affiliation>机构1</arxiv:affiliation>
   </author>
   <author>
     <name>作者2</name>
+    <arxiv:affiliation>机构2</arxiv:affiliation>
   </author>
 </entry>
 ```
@@ -285,7 +485,7 @@ GET https://export.arxiv.org/api/query?id_list=2503.15888
 
 **请求示例**:
 ```
-GET https://api.semanticscholar.org/graph/v1/paper/arXiv:2503.15888?fields=references.title,references.authors,references.arxivId,references.year,references.publicationDate
+GET https://api.semanticscholar.org/graph/v1/paper/arXiv:2503.15888?fields=references.title,references.authors,references.authorId,references.externalIds,references.year,references.publicationDate,references.abstract,references.venue,references.volume,references.issue,references.pages,references.citationCount,references.influentialCitationCount,references.s2FieldsOfStudy,references.openAccessPdf,references.publicationTypes,references.url,references.paperId
 ```
 
 **响应格式**: JSON
@@ -295,25 +495,54 @@ GET https://api.semanticscholar.org/graph/v1/paper/arXiv:2503.15888?fields=refer
 {
   "references": [
     {
+      "paperId": "abc123",
       "arxivId": "2401.12345",
       "title": "引用论文标题",
       "authors": [
-        {"name": "作者1"},
-        {"name": "作者2"}
+        {"authorId": "author1", "name": "作者1"},
+        {"authorId": "author2", "name": "作者2"}
       ],
       "year": 2024,
-      "publicationDate": "2024-01-15"
+      "publicationDate": "2024-01-15",
+      "abstract": "论文摘要",
+      "venue": "会议/期刊名称",
+      "volume": "10",
+      "issue": "1",
+      "pages": "1-15",
+      "citationCount": 100,
+      "influentialCitationCount": 50,
+      "s2FieldsOfStudy": [
+        {"field": "Computer Science", "category": "Artificial Intelligence"}
+      ],
+      "openAccessPdf": {
+        "url": "https://example.com/paper.pdf"
+      },
+      "publicationTypes": ["JournalArticle"],
+      "url": "https://semanticscholar.org/paper/abc123"
     }
   ]
 }
 ```
 
 **字段说明**:
-- `references.arxivId`: 引用论文的 arXiv ID
-- `references.title`: 引用论文标题
-- `references.authors`: 引用论文作者列表
-- `references.year`: 引用论文年份
-- `references.publicationDate`: 引用论文发布日期
+- `paperId`: Semantic Scholar 论文 ID
+- `arxivId`: arXiv 论文 ID（通过 externalIds.ArXiv 获取）
+- `title`: 引用论文标题
+- `authors.authorId`: Semantic Scholar 作者 ID
+- `authors.name`: 引用论文作者列表
+- `year`: 引用论文年份
+- `publicationDate`: 引用论文发布日期
+- `abstract`: 论文摘要
+- `venue`: 发表场所（会议或期刊名称）
+- `volume`: 卷号
+- `issue`: 期号
+- `pages`: 页码
+- `citationCount`: 引用次数
+- `influentialCitationCount`: 影响力引用次数
+- `s2FieldsOfStudy`: 研究领域列表
+- `openAccessPdf.url`: 开放访问 PDF 链接
+- `publicationTypes`: 发表类型数组
+- `url`: Semantic Scholar 论文链接
 
 ## 错误处理
 
