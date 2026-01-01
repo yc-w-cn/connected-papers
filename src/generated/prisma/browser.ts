@@ -22,3 +22,8 @@ export * from './enums';
  * 
  */
 export type Paper = Prisma.PaperModel
+/**
+ * Model Reference
+ * 
+ */
+export type Reference = Prisma.ReferenceModel

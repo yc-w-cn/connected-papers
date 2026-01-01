@@ -9,4 +9,5 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/Paper'
+export type * from './models/Reference'
 export type * from './commonInputTypes'

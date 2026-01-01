@@ -20,7 +20,7 @@ const config: runtime.GetPrismaClientConfig = {
   "clientVersion": "7.2.0",
   "engineVersion": "0c8ef2ce45c83248ab3df073180d5eda9e8be7a3",
   "activeProvider": "sqlite",
-  "inlineSchema": "generator client {\n  provider = \"prisma-client\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n}\n\nmodel Paper {\n  id            String    @id @default(uuid())\n  arxivId       String    @unique\n  arxivUrl      String\n  title         String?\n  authors       String?\n  abstract      String?\n  publishedDate String?\n  status        String    @default(\"pending\")\n  processedAt   DateTime?\n  createdAt     DateTime  @default(now())\n  updatedAt     DateTime  @updatedAt\n}\n",
+  "inlineSchema": "generator client {\n  provider = \"prisma-client\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n}\n\nmodel Paper {\n  id            String    @id @default(uuid())\n  arxivId       String    @unique\n  arxivUrl      String\n  title         String?\n  authors       String?\n  abstract      String?\n  publishedDate String?\n  status        String    @default(\"pending\")\n  processedAt   DateTime?\n  createdAt     DateTime  @default(now())\n  updatedAt     DateTime  @updatedAt\n\n  references Reference[] @relation(\"PaperReferences\")\n  citedBy    Reference[] @relation(\"PaperCitedBy\")\n}\n\nmodel Reference {\n  id          String   @id @default(uuid())\n  paperId     String\n  referenceId String\n  createdAt   DateTime @default(now())\n\n  paper     Paper @relation(\"PaperReferences\", fields: [paperId], references: [id], onDelete: Cascade)\n  reference Paper @relation(\"PaperCitedBy\", fields: [referenceId], references: [id], onDelete: Cascade)\n\n  @@unique([paperId, referenceId])\n  @@index([paperId])\n  @@index([referenceId])\n}\n",
   "runtimeDataModel": {
     "models": {},
     "enums": {},
@@ -28,7 +28,7 @@ const config: runtime.GetPrismaClientConfig = {
   }
 }
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"Paper\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arxivId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arxivUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"authors\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"abstract\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"publishedDate\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"status\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"processedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"Paper\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arxivId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arxivUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"authors\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"abstract\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"publishedDate\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"status\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"processedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"references\",\"kind\":\"object\",\"type\":\"Reference\",\"relationName\":\"PaperReferences\"},{\"name\":\"citedBy\",\"kind\":\"object\",\"type\":\"Reference\",\"relationName\":\"PaperCitedBy\"}],\"dbName\":null},\"Reference\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"paperId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"referenceId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"paper\",\"kind\":\"object\",\"type\":\"Paper\",\"relationName\":\"PaperReferences\"},{\"name\":\"reference\",\"kind\":\"object\",\"type\":\"Paper\",\"relationName\":\"PaperCitedBy\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 
 async function decodeBase64AsWasm(wasmBase64: string): Promise<WebAssembly.Module> {
   const { Buffer } = await import('node:buffer')
@@ -183,6 +183,16 @@ export interface PrismaClient<
     * ```
     */
   get paper(): Prisma.PaperDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.reference`: Exposes CRUD operations for the **Reference** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more References
+    * const references = await prisma.reference.findMany()
+    * ```
+    */
+  get reference(): Prisma.ReferenceDelegate<ExtArgs, { omit: OmitOpts }>;
 }
 
 export function getPrismaClientClass(): PrismaClientConstructor {

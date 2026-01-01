@@ -44,3 +44,8 @@ export { Prisma }
  * 
  */
 export type Paper = Prisma.PaperModel
+/**
+ * Model Reference
+ * 
+ */
+export type Reference = Prisma.ReferenceModel
