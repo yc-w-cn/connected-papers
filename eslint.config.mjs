@@ -24,6 +24,9 @@ const builtinModules = module.builtinModules.filter(
 );
 
 export default defineConfig(
+  {
+    globalIgnores: ['src/generated/**'],
+  },
   // TypeScript 严格类型检查配置
   tseslint.configs.strictTypeChecked,
   // TypeScript 样式检查配置
