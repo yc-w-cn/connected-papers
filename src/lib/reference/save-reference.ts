@@ -38,7 +38,7 @@ export async function saveSemanticScholarData(arxivPaperId: string, ref: ArxivRe
         data: {
           authorId: author.authorId,
           name: author.name,
-          arxivPaperId: arxivPaperId,
+          arxivPaperId: semanticPaper.id,
         },
       });
     }
@@ -51,21 +51,18 @@ export async function saveSemanticScholarData(arxivPaperId: string, ref: ArxivRe
         data: {
           field: field.field,
           category: field.category,
-          arxivPaperId: arxivPaperId,
+          arxivPaperId: semanticPaper.id,
         },
       });
     }
     console.log(`  已保存 ${ref.s2FieldsOfStudy.length} 个研究领域`);
   }
 
-  if (ref.venue || ref.volume || ref.issue || ref.pages) {
+  if (ref.venue) {
     await prisma.semanticScholarVenue.create({
       data: {
         venue: ref.venue,
-        volume: ref.volume,
-        issue: ref.issue,
-        pages: ref.pages,
-        arxivPaperId: arxivPaperId,
+        arxivPaperId: semanticPaper.id,
       },
     });
     console.log(`  已保存发表场所信息`);
