@@ -9,7 +9,8 @@
 - [arxiv/process-papers.md](./arxiv/process-papers.md) - 批量处理所有待处理的 arXiv 论文
 
 ### Semantic Scholar 脚本
-- [semantic-scholar/fetch-references.md](./semantic-scholar/fetch-references.md) - 获取论文的引用文献
+- [semantic-scholar/fetch-reference.md](./semantic-scholar/fetch-reference.md) - 获取指定论文的引用文献
+- [semantic-scholar/fetch-references.md](./semantic-scholar/fetch-references.md) - 批量获取所有未获取引用文献的论文
 
 ## 前置条件
 
@@ -38,7 +39,8 @@ pnpm run prisma:seed
 |------|------|
 | `pnpm run process-paper <arxivId>` | 处理指定的单个论文 |
 | `pnpm run process-papers` | 处理所有待处理的论文 |
-| `pnpm run fetch-references <arxivId>` | 获取指定论文的引用文献 |
+| `pnpm run fetch-reference <arxivId>` | 获取指定论文的引用文献 |
+| `pnpm run fetch-references` | 批量获取所有未获取引用文献的论文 |
 
 ## 相关文档
 
