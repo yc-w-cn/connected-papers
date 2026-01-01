@@ -10,6 +10,14 @@
 - 智能识别 arXiv 论文并过滤非 arXiv 引用
 - 自动创建不存在的论文记录
 - 建立论文之间的引用关系
+- 保存完整的 Semantic Scholar 数据：
+  - 论文基本信息（标题、摘要、URL）
+  - 作者信息（含 Semantic Scholar 作者 ID）
+  - 研究领域（s2FieldsOfStudy）
+  - 发表场所信息（venue、volume、issue、pages）
+  - 引用统计（citationCount、influentialCitationCount）
+  - 开放访问 PDF 链接
+  - 发表类型
 - 避免重复创建论文和引用关系
 - 详细的处理日志输出
 
@@ -51,7 +59,7 @@ pnpm run fetch-references 2401.12345
 从 Semantic Scholar API 获取论文的引用文献列表：
 
 - API 端点: `https://api.semanticscholar.org/graph/v1/paper/arXiv:{arxivId}`
-- 获取字段: 标题、作者、arXiv ID、年份、发布日期
+- 获取字段: 标题、作者、arXiv ID、年份、发布日期、摘要、发表场所、引用统计、研究领域、开放访问 PDF、发表类型等
 
 ### 3. 处理每篇引用文献
 
@@ -67,6 +75,14 @@ pnpm run fetch-references 2401.12345
 - 检查引用关系是否已存在
 - 如果不存在：创建新的引用关系
 - 如果已存在：跳过创建
+
+#### 3.3 保存 Semantic Scholar 数据
+
+- 检查 Semantic Scholar 数据是否已存在
+- 如果不存在：创建新的 Semantic Scholar 数据记录
+- 保存作者信息（含 Semantic Scholar 作者 ID）
+- 保存研究领域信息
+- 保存发表场所信息（venue、volume、issue、pages）
 
 ### 4. 输出处理结果
 
@@ -125,6 +141,65 @@ pnpm run fetch-references 2401.12345
 }
 ```
 
+### Semantic Scholar 数据
+
+数据库使用多个表存储 Semantic Scholar 数据：
+
+#### SemanticScholarPaper 表
+
+```typescript
+{
+  id: string;                      // UUID
+  paperId: string;                 // Semantic Scholar 论文 ID（唯一）
+  url: string | null;              // 论文 URL
+  citationCount: number | null;     // 引用次数
+  influentialCitationCount: number | null; // 影响力引用次数
+  openAccessPdfUrl: string | null; // 开放访问 PDF 链接
+  publicationTypes: string | null;   // 发表类型
+  arxivPaperId: string;            // 关联的 arXiv 论文 ID（唯一）
+  createdAt: Date;                 // 创建时间
+  updatedAt: Date;                 // 更新时间
+}
+```
+
+#### SemanticScholarAuthor 表
+
+```typescript
+{
+  id: string;              // UUID
+  authorId: string | null; // Semantic Scholar 作者 ID
+  name: string;            // 作者姓名
+  arxivPaperId: string;    // 关联的 arXiv 论文 ID
+  createdAt: Date;         // 创建时间
+}
+```
+
+#### SemanticScholarFieldOfStudy 表
+
+```typescript
+{
+  id: string;              // UUID
+  field: string;           // 研究领域名称
+  category: string | null; // 分类
+  arxivPaperId: string;    // 关联的 arXiv 论文 ID
+  createdAt: Date;         // 创建时间
+}
+```
+
+#### SemanticScholarVenue 表
+
+```typescript
+{
+  id: string;              // UUID
+  venue: string | null;    // 发表场所
+  volume: string | null;    // 卷号
+  issue: string | null;     // 期号
+  pages: string | null;     // 页码
+  arxivPaperId: string;    // 关联的 arXiv 论文 ID（唯一）
+  createdAt: Date;         // 创建时间
+}
+```
+
 ### 关系说明
 
 - `paperId`: 引用其他论文的论文（源论文）
@@ -132,6 +207,10 @@ pnpm run fetch-references 2401.12345
 - 一篇论文可以引用多篇论文
 - 一篇论文可以被多篇论文引用
 - `arxivId` 在 `Paper` 表中是唯一的，确保全局唯一性
+- `SemanticScholarPaper` 与 `ArxivPaper` 是一对一关系
+- `SemanticScholarPaper` 可以有多位作者（`authors`）
+- `SemanticScholarPaper` 可以有多个研究领域（`fieldsOfStudy`）
+- `SemanticScholarPaper` 可以有一个发表场所信息（`venue`）
 
 ## 注意事项
 
