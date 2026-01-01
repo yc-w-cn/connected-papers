@@ -1,11 +1,16 @@
 import { describe, it, expect, beforeEach, jest } from '@jest/globals';
-import { prisma } from '../prisma';
+import { prismaMock } from '@/__mocks__/prisma-mock';
+
+jest.mock('../prisma', () => ({
+  prisma: prismaMock,
+}));
+jest.mock('../network-request', () => ({
+  recordNetworkRequest: jest.fn(),
+}));
+
 import { saveNetworkRequest, recordNetworkRequest } from './save-request';
 
-jest.mock('../prisma');
-
 describe('网络请求记录模块', () => {
-  const mockPrisma = prisma as jest.Mocked<typeof prisma>;
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -19,8 +24,8 @@ describe('网络请求记录模块', () => {
         source: 'arxiv' as const,
       };
 
-      mockPrisma.networkRequest.create.mockResolvedValue({
-        id: 1,
+      prismaMock.networkRequest.create.mockResolvedValue({
+        id: '1',
         ...mockData,
         requestMethod: 'GET',
         createdAt: new Date(),
@@ -28,7 +33,7 @@ describe('网络请求记录模块', () => {
 
       const result = await saveNetworkRequest(mockData);
 
-      expect(mockPrisma.networkRequest.create).toHaveBeenCalledWith({
+      expect(prismaMock.networkRequest.create).toHaveBeenCalledWith({
         data: {
           requestUrl: mockData.requestUrl,
           requestMethod: 'GET',
@@ -46,7 +51,7 @@ describe('网络请求记录模块', () => {
         source: 'arxiv' as const,
       };
 
-      mockPrisma.networkRequest.create.mockRejectedValue(new Error('Database error'));
+      prismaMock.networkRequest.create.mockRejectedValue(new Error('Database error'));
 
       await expect(saveNetworkRequest(mockData)).rejects.toThrow('Database error');
     });
@@ -66,11 +71,11 @@ describe('网络请求记录模块', () => {
         arxivPaperId: '2401.00001',
       };
 
-      mockPrisma.networkRequest.create.mockResolvedValue({ id: 1 } as any);
+      prismaMock.networkRequest.create.mockResolvedValue({ id: '1' } as any);
 
       await saveNetworkRequest(mockData);
 
-      expect(mockPrisma.networkRequest.create).toHaveBeenCalledWith({
+      expect(prismaMock.networkRequest.create).toHaveBeenCalledWith({
         data: mockData,
       });
     });
@@ -86,7 +91,7 @@ describe('网络请求记录模块', () => {
         },
       } as any;
 
-      mockPrisma.networkRequest.create.mockResolvedValue({ id: 1 } as any);
+      prismaMock.networkRequest.create.mockResolvedValue({ id: '1' } as any);
 
       const result = await recordNetworkRequest(
         'arxiv',
@@ -95,13 +100,13 @@ describe('网络请求记录模块', () => {
       );
 
       expect(result).toBe(mockResponse);
-      expect(mockPrisma.networkRequest.create).toHaveBeenCalled();
+      expect(prismaMock.networkRequest.create).toHaveBeenCalled();
     });
 
     it('应该记录失败的请求', async () => {
       const mockError = new Error('Network error');
 
-      mockPrisma.networkRequest.create.mockResolvedValue({ id: 1 } as any);
+      prismaMock.networkRequest.create.mockResolvedValue({ id: '1' } as any);
 
       await expect(
         recordNetworkRequest(
@@ -111,7 +116,7 @@ describe('网络请求记录模块', () => {
         ),
       ).rejects.toThrow('Network error');
 
-      expect(mockPrisma.networkRequest.create).toHaveBeenCalled();
+      expect(prismaMock.networkRequest.create).toHaveBeenCalled();
     });
 
     it('应该计算请求持续时间', async () => {
@@ -123,7 +128,7 @@ describe('网络请求记录模块', () => {
         },
       } as any;
 
-      mockPrisma.networkRequest.create.mockResolvedValue({ id: 1 } as any);
+      prismaMock.networkRequest.create.mockResolvedValue({ id: '1' } as any);
 
       await recordNetworkRequest(
         'semantic-scholar',
@@ -131,7 +136,7 @@ describe('网络请求记录模块', () => {
         () => Promise.resolve(mockResponse),
       );
 
-      const createCall = mockPrisma.networkRequest.create.mock.calls[0];
+      const createCall = prismaMock.networkRequest.create.mock.calls[0];
       expect(createCall[0].data.duration).toBeGreaterThanOrEqual(0);
     });
 
@@ -144,7 +149,7 @@ describe('网络请求记录模块', () => {
         },
       } as any;
 
-      mockPrisma.networkRequest.create.mockResolvedValue({ id: 1 } as any);
+      prismaMock.networkRequest.create.mockResolvedValue({ id: '1' } as any);
 
       await recordNetworkRequest(
         'arxiv',
@@ -153,7 +158,7 @@ describe('网络请求记录模块', () => {
         '2401.00001',
       );
 
-      expect(mockPrisma.networkRequest.create).toHaveBeenCalledWith({
+      expect(prismaMock.networkRequest.create).toHaveBeenCalledWith({
         data: expect.objectContaining({
           arxivPaperId: '2401.00001',
         }),

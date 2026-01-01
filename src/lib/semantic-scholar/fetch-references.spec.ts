@@ -1,7 +1,14 @@
 import { describe, it, expect, beforeEach, jest } from '@jest/globals';
-import { fetchArxivReferences } from './fetch-references';
+import { prismaMock } from '@/__mocks__/prisma-mock';
 
-jest.mock('../network-request');
+jest.mock('../prisma', () => ({
+  prisma: prismaMock,
+}));
+jest.mock('../network-request', () => ({
+  recordNetworkRequest: jest.fn(),
+}));
+
+import { fetchArxivReferences } from './fetch-references';
 
 describe('fetchArxivReferences 函数', () => {
   beforeEach(() => {
@@ -34,7 +41,8 @@ describe('fetchArxivReferences 函数', () => {
       }),
     } as any;
 
-    global.fetch = jest.fn().mockResolvedValue(mockResponse);
+    const { recordNetworkRequest } = require('../network-request');
+    recordNetworkRequest.mockResolvedValue(mockResponse);
 
     const result = await fetchArxivReferences('2401.00001');
 
@@ -49,7 +57,8 @@ describe('fetchArxivReferences 函数', () => {
       json: () => Promise.resolve({ references: [] }),
     } as any;
 
-    global.fetch = jest.fn().mockResolvedValue(mockResponse);
+    const { recordNetworkRequest } = require('../network-request');
+    recordNetworkRequest.mockResolvedValue(mockResponse);
 
     const result = await fetchArxivReferences('2401.00001');
 
@@ -73,7 +82,8 @@ describe('fetchArxivReferences 函数', () => {
       }),
     } as any;
 
-    global.fetch = jest.fn().mockResolvedValue(mockResponse);
+    const { recordNetworkRequest } = require('../network-request');
+    recordNetworkRequest.mockResolvedValue(mockResponse);
 
     const result = await fetchArxivReferences('2401.00001');
 
@@ -99,7 +109,8 @@ describe('fetchArxivReferences 函数', () => {
       }),
     } as any;
 
-    global.fetch = jest.fn().mockResolvedValue(mockResponse);
+    const { recordNetworkRequest } = require('../network-request');
+    recordNetworkRequest.mockResolvedValue(mockResponse);
 
     const result = await fetchArxivReferences('2401.00001');
 
@@ -120,7 +131,8 @@ describe('fetchArxivReferences 函数', () => {
       }),
     } as any;
 
-    global.fetch = jest.fn().mockResolvedValue(mockResponse);
+    const { recordNetworkRequest } = require('../network-request');
+    recordNetworkRequest.mockResolvedValue(mockResponse);
 
     const result = await fetchArxivReferences('2401.00001');
 
@@ -146,7 +158,8 @@ describe('fetchArxivReferences 函数', () => {
       }),
     } as any;
 
-    global.fetch = jest.fn().mockResolvedValue(mockResponse);
+    const { recordNetworkRequest } = require('../network-request');
+    recordNetworkRequest.mockResolvedValue(mockResponse);
 
     const result = await fetchArxivReferences('2401.00001');
 
@@ -170,7 +183,8 @@ describe('fetchArxivReferences 函数', () => {
       }),
     } as any;
 
-    global.fetch = jest.fn().mockResolvedValue(mockResponse);
+    const { recordNetworkRequest } = require('../network-request');
+    recordNetworkRequest.mockResolvedValue(mockResponse);
 
     const result = await fetchArxivReferences('2401.00001');
 
@@ -194,7 +208,8 @@ describe('fetchArxivReferences 函数', () => {
       }),
     } as any;
 
-    global.fetch = jest.fn().mockResolvedValue(mockResponse);
+    const { recordNetworkRequest } = require('../network-request');
+    recordNetworkRequest.mockResolvedValue(mockResponse);
 
     const result = await fetchArxivReferences('2401.00001');
 

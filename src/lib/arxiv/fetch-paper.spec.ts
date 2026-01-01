@@ -1,9 +1,15 @@
 import { describe, it, expect, beforeEach, jest } from '@jest/globals';
 import { XMLParser } from 'fast-xml-parser';
+import { prismaMock } from '@/__mocks__/prisma-mock';
 import { fetchArxivPaper } from './fetch-paper';
 
+jest.mock('../prisma', () => ({
+  prisma: prismaMock,
+}));
 jest.mock('fast-xml-parser');
-jest.mock('../network-request');
+jest.mock('../network-request', () => ({
+  recordNetworkRequest: jest.fn(),
+}));
 
 describe('fetchArxivPaper 函数', () => {
   const mockXMLParser = XMLParser as jest.MockedClass<typeof XMLParser>;
@@ -29,6 +35,16 @@ describe('fetchArxivPaper 函数', () => {
       }),
     }) as any);
 
+    const { recordNetworkRequest } = require('../network-request');
+    recordNetworkRequest.mockResolvedValue({
+      ok: true,
+      status: 200,
+      headers: {
+        entries: () => [],
+      },
+      text: () => Promise.resolve('<feed><entry><title>Test Paper</title><summary>Test abstract</summary><published>2024-01-01T00:00:00Z</published><updated>2024-01-02T00:00:00Z</updated><author><name>Author 1</name></author><category term="cs.AI"></category><arxiv:primary_category term="cs.AI"></arxiv:primary_category></entry></feed>'),
+    } as any);
+
     const result = await fetchArxivPaper('2401.00001');
 
     expect(result).toEqual({
@@ -46,6 +62,16 @@ describe('fetchArxivPaper 函数', () => {
     mockXMLParser.mockImplementation(() => ({
       parse: jest.fn().mockReturnValue({ feed: {} }),
     }) as any);
+
+    const { recordNetworkRequest } = require('../network-request');
+    recordNetworkRequest.mockResolvedValue({
+      ok: true,
+      status: 200,
+      headers: {
+        entries: () => [],
+      },
+      text: () => Promise.resolve('<feed></feed>'),
+    } as any);
 
     await expect(fetchArxivPaper('2401.00001')).rejects.toThrow('未找到论文数据');
   });
@@ -66,6 +92,16 @@ describe('fetchArxivPaper 函数', () => {
         },
       }),
     }) as any);
+
+    const { recordNetworkRequest } = require('../network-request');
+    recordNetworkRequest.mockResolvedValue({
+      ok: true,
+      status: 200,
+      headers: {
+        entries: () => [],
+      },
+      text: () => Promise.resolve('<feed><entry><title>Test Paper</title><summary>Test abstract</summary><published>2024-01-01T00:00:00Z</published><author><name>Author 1</name></author><author><name>Author 2</name></author></entry></feed>'),
+    } as any);
 
     const result = await fetchArxivPaper('2401.00001');
 
@@ -91,6 +127,16 @@ describe('fetchArxivPaper 函数', () => {
       }),
     }) as any);
 
+    const { recordNetworkRequest } = require('../network-request');
+    recordNetworkRequest.mockResolvedValue({
+      ok: true,
+      status: 200,
+      headers: {
+        entries: () => [],
+      },
+      text: () => Promise.resolve('<feed><entry><title>Test Paper</title><summary>Test abstract</summary><published>2024-01-01T00:00:00Z</published><category term="cs.AI"></category><category term="cs.LG"></category></entry></feed>'),
+    } as any);
+
     const result = await fetchArxivPaper('2401.00001');
 
     expect(result.categories).toEqual(['cs.AI', 'cs.LG']);
@@ -113,6 +159,16 @@ describe('fetchArxivPaper 函数', () => {
       }),
     }) as any);
 
+    const { recordNetworkRequest } = require('../network-request');
+    recordNetworkRequest.mockResolvedValue({
+      ok: true,
+      status: 200,
+      headers: {
+        entries: () => [],
+      },
+      text: () => Promise.resolve('<feed><entry><title>Test Paper</title><summary>Test abstract</summary><published>2024-01-01T00:00:00Z</published><author><name>Author 1</name><arxiv:affiliation>Test University</arxiv:affiliation></author></entry></feed>'),
+    } as any);
+
     const result = await fetchArxivPaper('2401.00001');
 
     expect(result.authors[0].affiliation).toBe('Test University');
@@ -134,6 +190,16 @@ describe('fetchArxivPaper 函数', () => {
         },
       }),
     }) as any);
+
+    const { recordNetworkRequest } = require('../network-request');
+    recordNetworkRequest.mockResolvedValue({
+      ok: true,
+      status: 200,
+      headers: {
+        entries: () => [],
+      },
+      text: () => Promise.resolve('<feed><entry><title>Test Paper</title><summary>Test abstract</summary><published>2024-01-01T00:00:00Z</published><license>test license</license><comment>test comment</comment><arxiv:journal_ref>Test Journal</arxiv:journal_ref><arxiv:doi>10.1234/test</arxiv:doi></entry></feed>'),
+    } as any);
 
     const result = await fetchArxivPaper('2401.00001');
 

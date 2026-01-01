@@ -1,11 +1,16 @@
 import { describe, it, expect, beforeEach, jest } from '@jest/globals';
-import { prisma } from '../prisma';
+import { prismaMock } from '@/__mocks__/prisma-mock';
+
+jest.mock('../prisma', () => ({
+  prisma: prismaMock,
+}));
+jest.mock('../network-request', () => ({
+  recordNetworkRequest: jest.fn(),
+}));
+
 import { saveSemanticScholarData, createReferenceRelation } from './save-reference';
 
-jest.mock('../prisma');
-
 describe('引用数据保存模块', () => {
-  const mockPrisma = prisma as jest.Mocked<typeof prisma>;
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -19,8 +24,8 @@ describe('引用数据保存模块', () => {
 
       await saveSemanticScholarData('2401.00001', mockRef);
 
-      expect(mockPrisma.semanticScholarPaper.findUnique).not.toHaveBeenCalled();
-      expect(mockPrisma.semanticScholarPaper.create).not.toHaveBeenCalled();
+      expect(prismaMock.semanticScholarPaper.findUnique).not.toHaveBeenCalled();
+      expect(prismaMock.semanticScholarPaper.create).not.toHaveBeenCalled();
     });
 
     it('应该保存 Semantic Scholar 论文数据', async () => {
@@ -33,12 +38,12 @@ describe('引用数据保存模块', () => {
         publicationTypes: 'JournalArticle',
       } as any;
 
-      mockPrisma.semanticScholarPaper.findUnique.mockResolvedValue(null);
-      mockPrisma.semanticScholarPaper.create.mockResolvedValue({ id: 1 } as any);
+      prismaMock.semanticScholarPaper.findUnique.mockResolvedValue(null);
+      prismaMock.semanticScholarPaper.create.mockResolvedValue({ id: '1' } as any);
 
       await saveSemanticScholarData('2401.00001', mockRef);
 
-      expect(mockPrisma.semanticScholarPaper.create).toHaveBeenCalledWith({
+      expect(prismaMock.semanticScholarPaper.create).toHaveBeenCalledWith({
         data: {
           paperId: mockRef.paperId,
           url: mockRef.url,
@@ -56,11 +61,11 @@ describe('引用数据保存模块', () => {
         paperId: 'test-paper-id',
       } as any;
 
-      mockPrisma.semanticScholarPaper.findUnique.mockResolvedValue({ id: 1 } as any);
+      prismaMock.semanticScholarPaper.findUnique.mockResolvedValue({ id: '1' } as any);
 
       await saveSemanticScholarData('2401.00001', mockRef);
 
-      expect(mockPrisma.semanticScholarPaper.create).not.toHaveBeenCalled();
+      expect(prismaMock.semanticScholarPaper.create).not.toHaveBeenCalled();
     });
 
     it('应该保存作者信息', async () => {
@@ -72,13 +77,13 @@ describe('引用数据保存模块', () => {
         ],
       } as any;
 
-      mockPrisma.semanticScholarPaper.findUnique.mockResolvedValue(null);
-      mockPrisma.semanticScholarPaper.create.mockResolvedValue({ id: 1 } as any);
+      prismaMock.semanticScholarPaper.findUnique.mockResolvedValue(null);
+      prismaMock.semanticScholarPaper.create.mockResolvedValue({ id: '1' } as any);
 
       await saveSemanticScholarData('2401.00001', mockRef);
 
-      expect(mockPrisma.semanticScholarAuthor.create).toHaveBeenCalledTimes(2);
-      expect(mockPrisma.semanticScholarAuthor.create).toHaveBeenCalledWith({
+      expect(prismaMock.semanticScholarAuthor.create).toHaveBeenCalledTimes(2);
+      expect(prismaMock.semanticScholarAuthor.create).toHaveBeenCalledWith({
         data: {
           authorId: 'author-1',
           name: 'Author 1',
@@ -96,12 +101,12 @@ describe('引用数据保存模块', () => {
         ],
       } as any;
 
-      mockPrisma.semanticScholarPaper.findUnique.mockResolvedValue(null);
-      mockPrisma.semanticScholarPaper.create.mockResolvedValue({ id: 1 } as any);
+      prismaMock.semanticScholarPaper.findUnique.mockResolvedValue(null);
+      prismaMock.semanticScholarPaper.create.mockResolvedValue({ id: '1' } as any);
 
       await saveSemanticScholarData('2401.00001', mockRef);
 
-      expect(mockPrisma.semanticScholarFieldOfStudy.create).toHaveBeenCalledTimes(2);
+      expect(prismaMock.semanticScholarFieldOfStudy.create).toHaveBeenCalledTimes(2);
     });
 
     it('应该保存发表场所信息', async () => {
@@ -113,12 +118,12 @@ describe('引用数据保存模块', () => {
         pages: '1-10',
       } as any;
 
-      mockPrisma.semanticScholarPaper.findUnique.mockResolvedValue(null);
-      mockPrisma.semanticScholarPaper.create.mockResolvedValue({ id: 1 } as any);
+      prismaMock.semanticScholarPaper.findUnique.mockResolvedValue(null);
+      prismaMock.semanticScholarPaper.create.mockResolvedValue({ id: '1' } as any);
 
       await saveSemanticScholarData('2401.00001', mockRef);
 
-      expect(mockPrisma.semanticScholarVenue.create).toHaveBeenCalledWith({
+      expect(prismaMock.semanticScholarVenue.create).toHaveBeenCalledWith({
         data: {
           venue: 'Test Journal',
           volume: '1',
@@ -132,13 +137,13 @@ describe('引用数据保存模块', () => {
 
   describe('createReferenceRelation', () => {
     it('应该创建引用关系', async () => {
-      mockPrisma.reference.findUnique.mockResolvedValue(null);
-      mockPrisma.reference.create.mockResolvedValue({ id: 1 } as any);
+      prismaMock.reference.findUnique.mockResolvedValue(null);
+      prismaMock.reference.create.mockResolvedValue({ id: '1' } as any);
 
       const result = await createReferenceRelation('paper-1', 'paper-2');
 
       expect(result).toBe(true);
-      expect(mockPrisma.reference.create).toHaveBeenCalledWith({
+      expect(prismaMock.reference.create).toHaveBeenCalledWith({
         data: {
           paperId: 'paper-1',
           referenceId: 'paper-2',
@@ -147,12 +152,12 @@ describe('引用数据保存模块', () => {
     });
 
     it('应该跳过已存在的引用关系', async () => {
-      mockPrisma.reference.findUnique.mockResolvedValue({ id: 1 } as any);
+      prismaMock.reference.findUnique.mockResolvedValue({ id: '1' } as any);
 
       const result = await createReferenceRelation('paper-1', 'paper-2');
 
       expect(result).toBe(false);
-      expect(mockPrisma.reference.create).not.toHaveBeenCalled();
+      expect(prismaMock.reference.create).not.toHaveBeenCalled();
     });
   });
 });
