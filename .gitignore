@@ -43,3 +43,6 @@ next-env.d.ts
 # prisma
 prisma/connected-papers.db
 prisma/connected-papers.db-journal
+
+# trae
+.trae/documents
