@@ -2,95 +2,107 @@ import { fetchArxivReferences, ArxivReference } from '../../src/lib/semantic-sch
 import { prisma } from '../../src/lib/prisma';
 import { saveSemanticScholarData, createReferenceRelation } from '../../src/lib/reference';
 
-const args = process.argv.slice(2);
-const targetArxivId = args[0];
-
-async function fetchAndStoreReferences(arxivId: string) {
+async function fetchAndStoreReferencesForAll() {
   console.log('='.repeat(60));
-  console.log(`开始获取论文引用文献: ${arxivId}`);
+  console.log('开始批量获取论文引用文献');
   console.log('='.repeat(60));
 
-  let paper = await prisma.arxivPaper.findUnique({
-    where: { arxivId },
+  const papers = await prisma.arxivPaper.findMany({
+    where: { referencesFetched: false },
+    orderBy: { createdAt: 'asc' },
   });
 
-  if (!paper) {
-    console.log(`论文 ${arxivId} 不存在于数据库中，正在创建...`);
-    paper = await prisma.arxivPaper.create({
-      data: {
-        arxivId,
-        arxivUrl: `https://arxiv.org/abs/${arxivId}`,
-        status: 'pending',
-      },
-    });
-    console.log(`论文 ${arxivId} 已创建`);
-  }
-
-  console.log(`\n正在获取引用文献...`);
-  const references = await fetchArxivReferences(arxivId);
-
-  if (references.length === 0) {
-    console.log(`没有找到引用文献`);
+  if (papers.length === 0) {
+    console.log('没有需要获取引用文献的论文');
     return;
   }
 
-  console.log(`\n开始处理 ${references.length} 篇引用文献...`);
+  console.log(`找到 ${papers.length} 篇需要获取引用文献的论文`);
   console.log('='.repeat(60));
 
-  let addedCount = 0;
-  let existingCount = 0;
-  let linkedCount = 0;
+  let totalAddedCount = 0;
+  let totalExistingCount = 0;
+  let totalLinkedCount = 0;
+  let processedCount = 0;
+  let skippedCount = 0;
 
-  for (const ref of references) {
-    console.log(`\n处理引用文献: ${ref.arxivId}`);
+  for (const paper of papers) {
+    console.log(`\n处理论文: ${paper.arxivId}`);
+    console.log('-'.repeat(60));
 
-    let refPaper = await prisma.arxivPaper.findUnique({
-      where: { arxivId: ref.arxivId },
+    const references = await fetchArxivReferences(paper.arxivId);
+
+    if (references.length === 0) {
+      console.log(`  没有找到引用文献`);
+      await prisma.arxivPaper.update({
+        where: { id: paper.id },
+        data: { referencesFetched: true },
+      });
+      skippedCount++;
+      continue;
+    }
+
+    console.log(`  找到 ${references.length} 篇引用文献`);
+
+    let addedCount = 0;
+    let existingCount = 0;
+    let linkedCount = 0;
+
+    for (const ref of references) {
+      let refPaper = await prisma.arxivPaper.findUnique({
+        where: { arxivId: ref.arxivId },
+      });
+
+      if (!refPaper) {
+        refPaper = await prisma.arxivPaper.create({
+          data: {
+            arxivId: ref.arxivId,
+            arxivUrl: ref.arxivUrl,
+            title: ref.title,
+            abstract: ref.abstract,
+            publishedDate: ref.publishedDate,
+            status: 'pending',
+          },
+        });
+        addedCount++;
+      } else {
+        existingCount++;
+      }
+
+      const relationCreated = await createReferenceRelation(paper.id, refPaper.id);
+      if (relationCreated) {
+        linkedCount++;
+      }
+
+      await saveSemanticScholarData(refPaper.id, ref);
+    }
+
+    await prisma.arxivPaper.update({
+      where: { id: paper.id },
+      data: { referencesFetched: true },
     });
 
-    if (!refPaper) {
-      console.log(`  创建新论文记录: ${ref.arxivId}`);
-      refPaper = await prisma.arxivPaper.create({
-        data: {
-          arxivId: ref.arxivId,
-          arxivUrl: ref.arxivUrl,
-          title: ref.title,
-          abstract: ref.abstract,
-          publishedDate: ref.publishedDate,
-          status: 'pending',
-        },
-      });
-      addedCount++;
-      console.log(`  论文 ${ref.arxivId} 已创建`);
-    } else {
-      console.log(`  论文 ${ref.arxivId} 已存在`);
-      existingCount++;
-    }
+    console.log(`  新增论文: ${addedCount}`);
+    console.log(`  已存在论文: ${existingCount}`);
+    console.log(`  新增引用关系: ${linkedCount}`);
 
-    const relationCreated = await createReferenceRelation(paper.id, refPaper.id);
-    if (relationCreated) {
-      linkedCount++;
-    }
-
-    await saveSemanticScholarData(refPaper.id, ref);
+    totalAddedCount += addedCount;
+    totalExistingCount += existingCount;
+    totalLinkedCount += linkedCount;
+    processedCount++;
   }
 
   console.log('\n' + '='.repeat(60));
-  console.log('处理完成');
-  console.log(`  新增论文: ${addedCount}`);
-  console.log(`  已存在论文: ${existingCount}`);
-  console.log(`  新增引用关系: ${linkedCount}`);
+  console.log('批量处理完成');
+  console.log(`  处理论文: ${processedCount}`);
+  console.log(`  跳过论文: ${skippedCount}`);
+  console.log(`  新增论文: ${totalAddedCount}`);
+  console.log(`  已存在论文: ${totalExistingCount}`);
+  console.log(`  新增引用关系: ${totalLinkedCount}`);
   console.log('='.repeat(60));
 }
 
-if (!targetArxivId) {
-  console.error('错误: 请提供 arXiv ID');
-  console.error('用法: pnpm run fetch-references <arxivId>');
-  console.error('示例: pnpm run fetch-references 2503.15888');
-  process.exit(1);
-}
-
-fetchAndStoreReferences(targetArxivId)
+fetchAndStoreReferencesForAll()
   .catch((e: unknown) => {
     console.error('\n发生未捕获的错误:');
     console.error(e);
