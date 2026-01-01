@@ -9,7 +9,7 @@ async function main() {
     throw new Error('无效的 arXiv ID');
   }
 
-  const existingPaper = await prisma.paper.findUnique({
+  const existingPaper = await prisma.arxivPaper.findUnique({
     where: { arxivId },
   });
 
@@ -18,7 +18,7 @@ async function main() {
     return;
   }
 
-  const paper = await prisma.paper.create({
+  const paper = await prisma.arxivPaper.create({
     data: {
       arxivId: arxivId,
       arxivUrl: startPaper,
