@@ -12,7 +12,8 @@
     "prisma:migrate": "prisma migrate dev",
     "prisma:seed": "tsx prisma/seed.ts",
     "prisma:studio": "prisma studio",
-    "process-papers": "tsx scripts/process-papers.ts"
+    "process-papers": "tsx scripts/process-papers.ts",
+    "process-paper": "tsx scripts/process-papers.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
@@ -22,6 +23,7 @@
     "@prisma/client": "^7.2.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "fast-xml-parser": "^5.3.3",
     "lucide-react": "^0.562.0",
     "next": "16.1.1",
     "react": "19.2.3",
