@@ -276,8 +276,151 @@ if (ref.venue || ref.volume || ref.issue || ref.pages) {
 ```
 
 #### 相关文件
-- [scripts/fetch-references.ts](file:///Volumes/JZAO/j-projects/yc-w-cn/connected-papers/scripts/fetch-references.ts)
-- [src/lib/arxiv/fetch-references.ts](file:///Volumes/JZAO/j-projects/yc-w-cn/connected-papers/src/lib/arxiv/fetch-references.ts)
+- [scripts/semantic-scholar/fetch-references.ts](file:///Volumes/JZAO/j-projects/yc-w-cn/connected-papers/scripts/semantic-scholar/fetch-references.ts) - 引用文献获取脚本
+- [src/lib/semantic-scholar/fetch-references.ts](file:///Volumes/JZAO/j-projects/yc-w-cn/connected-papers/src/lib/semantic-scholar/fetch-references.ts) - Semantic Scholar API 调用逻辑
+- [src/lib/reference/save-reference.ts](file:///Volumes/JZAO/j-projects/yc-w-cn/connected-papers/src/lib/reference/save-reference.ts) - 引用关系保存逻辑
+
+### 4. 网络请求记录流程
+
+#### 概述
+
+系统会自动记录所有与外部 API 的网络请求，包括 arXiv API 和 Semantic Scholar API。这些记录用于监控 API 调用、调试问题和分析性能。
+
+#### 记录时机
+
+网络请求记录在以下场景中自动创建：
+
+1. **arXiv API 请求**
+   - 当调用 `fetchArxivPaper` 函数获取论文数据时
+   - 位置：[src/lib/arxiv/fetch-paper.ts](file:///Volumes/JZAO/j-projects/yc-w-cn/connected-papers/src/lib/arxiv/fetch-paper.ts)
+
+2. **Semantic Scholar API 请求**
+   - 当调用 `fetchArxivReferences` 函数获取引用文献时
+   - 位置：[src/lib/semantic-scholar/fetch-references.ts](file:///Volumes/JZAO/j-projects/yc-w-cn/connected-papers/src/lib/semantic-scholar/fetch-references.ts)
+
+#### 记录内容
+
+每次网络请求都会记录以下信息：
+
+- **请求信息**
+  - `requestUrl`: 请求的完整 URL
+  - `requestMethod`: HTTP 请求方法（默认为 GET）
+  - `requestBody`: 请求体内容（如果有）
+  - `requestHeaders`: 请求头信息
+
+- **响应信息**
+  - `responseStatus`: HTTP 响应状态码
+  - `responseBody`: 响应体内容
+  - `responseHeaders`: 响应头信息
+
+- **性能信息**
+  - `duration`: 请求耗时（毫秒）
+  - `success`: 请求是否成功
+
+- **错误信息**
+  - `errorMessage`: 错误信息（如果请求失败）
+
+- **关联信息**
+  - `source`: 请求来源（'arxiv' 或 'semantic-scholar'）
+  - `arxivPaperId`: 关联的 arXiv 论文 ID
+  - `createdAt`: 记录创建时间
+
+#### 实现方式
+
+网络请求记录通过 `recordNetworkRequest` 函数自动完成：
+
+```typescript
+import { recordNetworkRequest } from '../network-request';
+
+const response = await recordNetworkRequest(
+  'arxiv',
+  apiUrl,
+  () => fetch(apiUrl),
+  arxivId,
+);
+```
+
+该函数会：
+1. 记录请求开始时间
+2. 执行实际的网络请求
+3. 计算请求耗时
+4. 记录请求和响应的详细信息
+5. 保存到 `NetworkRequest` 表
+6. 返回原始响应对象
+
+#### 数据示例
+
+**成功的 arXiv API 请求记录：**
+```json
+{
+  "requestUrl": "https://export.arxiv.org/api/query?id_list=2503.15888",
+  "requestMethod": "GET",
+  "responseStatus": 200,
+  "responseBody": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>...",
+  "responseHeaders": "{\"content-type\":\"application/xml;charset=utf-8\"}",
+  "duration": 1234,
+  "success": true,
+  "source": "arxiv",
+  "arxivPaperId": "2503.15888"
+}
+```
+
+**失败的 Semantic Scholar API 请求记录：**
+```json
+{
+  "requestUrl": "https://api.semanticscholar.org/graph/v1/paper/arXiv:invalid-id",
+  "requestMethod": "GET",
+  "responseStatus": 404,
+  "duration": 567,
+  "success": false,
+  "errorMessage": "HTTP 404 Not Found",
+  "source": "semantic-scholar",
+  "arxivPaperId": "invalid-id"
+}
+```
+
+#### 查询网络请求记录
+
+```typescript
+import { prisma } from '@/lib/prisma';
+
+// 查询特定论文的所有请求
+const requests = await prisma.networkRequest.findMany({
+  where: { arxivPaperId: '2503.15888' },
+  orderBy: { createdAt: 'desc' },
+});
+
+// 查询失败的请求
+const failedRequests = await prisma.networkRequest.findMany({
+  where: { success: false },
+  orderBy: { createdAt: 'desc' },
+});
+
+// 查询特定来源的请求
+const arxivRequests = await prisma.networkRequest.findMany({
+  where: { source: 'arxiv' },
+  orderBy: { createdAt: 'desc' },
+});
+```
+
+#### 数据维护
+
+由于网络请求记录会不断增长，建议定期清理旧数据：
+
+```typescript
+// 删除 30 天前的记录
+await prisma.networkRequest.deleteMany({
+  where: {
+    createdAt: {
+      lt: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000),
+    },
+  },
+});
+```
+
+#### 相关文件
+- [src/lib/network-request/save-request.ts](file:///Volumes/JZAO/j-projects/yc-w-cn/connected-papers/src/lib/network-request/save-request.ts) - 网络请求记录核心函数
+- [docs/database/network-request.md](file:///Volumes/JZAO/j-projects/yc-w-cn/connected-papers/docs/database/network-request.md) - NetworkRequest 表详细说明
 
 ## 状态机设计
 
@@ -427,6 +570,27 @@ pending -> processing -> completed
 }
 ```
 
+### NetworkRequest 实体
+
+```typescript
+{
+  id: string;              // UUID
+  requestUrl: string;      // 请求 URL
+  requestMethod: string;   // 请求方法（默认 GET）
+  requestBody: string | null; // 请求体
+  requestHeaders: string | null; // 请求头
+  responseStatus: number | null; // 响应状态码
+  responseBody: string | null; // 响应体
+  responseHeaders: string | null; // 响应头
+  duration: number | null; // 请求耗时（毫秒）
+  success: boolean;        // 是否成功
+  errorMessage: string | null; // 错误信息
+  source: string;          // 请求来源（'arxiv' 或 'semantic-scholar'）
+  arxivPaperId: string | null; // 关联的 arXiv 论文 ID
+  createdAt: Date;         // 创建时间
+}
+```
+
 ### 关系说明
 
 - 一个 `ArxivPaper` 可以有多位作者（`authors`）
@@ -440,6 +604,9 @@ pending -> processing -> completed
 - `SemanticScholarPaper` 可以有多位作者（`authors`）
 - `SemanticScholarPaper` 可以有多个研究领域（`fieldsOfStudy`）
 - `SemanticScholarPaper` 可以有一个发表场所信息（`venue`）
+- 一个 `ArxivPaper` 可以有多条 `NetworkRequest` 记录
+- `NetworkRequest` 记录所有与外部 API 的交互
+- `NetworkRequest` 通过 `arxivPaperId` 关联到 `ArxivPaper`（可选关系）
 
 ## API 集成
 
@@ -688,3 +855,15 @@ pnpm run prisma:studio
 5. **通知机制**
    - 处理完成后发送通知
    - 失败时发送告警
+
+## 相关文档
+
+- [数据库文档](./database/README.md) - 数据库结构和模型说明
+- [Arxiv 数据表说明](./database/arxiv.md) - Arxiv 相关数据表详细说明
+- [Semantic Scholar 数据表说明](./database/semantic-scholar.md) - Semantic Scholar 相关数据表详细说明
+- [引用关系表说明](./database/reference.md) - 引用关系表详细说明
+- [网络请求表说明](./database/network-request.md) - NetworkRequest 表详细说明
+- [脚本文档](./scripts/README.md) - 脚本使用说明
+- [处理单个论文](./scripts/arxiv/process-paper.md) - process-paper 脚本使用说明
+- [批量处理论文](./scripts/arxiv/process-papers.md) - process-papers 脚本使用说明
+- [获取引用文献](./scripts/semantic-scholar/fetch-references.md) - fetch-references 脚本使用说明
