@@ -27,12 +27,12 @@ async function exportData() {
   papers.forEach((paper) => {
     paperMap.set(paper.id, {
       id: paper.id,
-      arxivId: paper.arxivId,
-      title: paper.title,
-      abstract: paper.abstract,
-      publishedDate: paper.publishedDate,
-      citationCount: paper.semanticScholarPaper?.citationCount,
-      journalRef: paper.journalRef,
+      arxivId: paper.arxivId ?? undefined,
+      title: paper.title ?? undefined,
+      abstract: paper.abstract ?? undefined,
+      publishedDate: paper.publishedDate ?? undefined,
+      citationCount: paper.semanticScholarPaper?.citationCount ?? undefined,
+      journalRef: paper.journalRef ?? undefined,
     });
 
     nodes.push({
@@ -47,10 +47,10 @@ async function exportData() {
       if (!venueMap.has(venue.id)) {
         venueMap.set(venue.id, {
           id: venue.id,
-          venue: venue.venue,
-          volume: venue.volume,
-          issue: venue.issue,
-          pages: venue.pages,
+          venue: venue.venue ?? undefined,
+          volume: venue.volume ?? undefined,
+          issue: venue.issue ?? undefined,
+          pages: venue.pages ?? undefined,
         });
 
         nodes.push({
@@ -72,7 +72,7 @@ async function exportData() {
         authorMap.set(author.id, {
           id: author.id,
           name: author.name,
-          affiliation: author.affiliation,
+          affiliation: author.affiliation ?? undefined,
         });
 
         nodes.push({
