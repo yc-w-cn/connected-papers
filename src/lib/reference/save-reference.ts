@@ -47,13 +47,15 @@ export async function saveSemanticScholarData(arxivPaperId: string, ref: ArxivRe
 
   if (ref.s2FieldsOfStudy && ref.s2FieldsOfStudy.length > 0) {
     for (const field of ref.s2FieldsOfStudy) {
-      await prisma.semanticScholarFieldOfStudy.create({
-        data: {
-          field: field.field,
-          category: field.category,
-          arxivPaperId: semanticPaper.id,
-        },
-      });
+      if (field.field) {
+        await prisma.semanticScholarFieldOfStudy.create({
+          data: {
+            field: field.field,
+            category: field.category,
+            arxivPaperId: semanticPaper.id,
+          },
+        });
+      }
     }
     console.log(`  已保存 ${ref.s2FieldsOfStudy.length} 个研究领域`);
   }
