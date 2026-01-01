@@ -19,4 +19,21 @@ model Paper {
   processedAt   DateTime?
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
+
+  references    Reference[] @relation("PaperReferences")
+  citedBy       Reference[] @relation("PaperCitedBy")
+}
+
+model Reference {
+  id          String   @id @default(uuid())
+  paperId     String
+  referenceId String
+  createdAt   DateTime @default(now())
+
+  paper       Paper     @relation("PaperReferences", fields: [paperId], references: [id], onDelete: Cascade)
+  reference   Paper     @relation("PaperCitedBy", fields: [referenceId], references: [id], onDelete: Cascade)
+
+  @@unique([paperId, referenceId])
+  @@index([paperId])
+  @@index([referenceId])
 }
