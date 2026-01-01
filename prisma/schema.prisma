@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Paper {
+  id            String   @id @default(uuid())
+  arxivId       String   @unique
+  arxivUrl      String
+  title         String?
+  authors       String?
+  abstract      String?
+  publishedDate String?
+  status        String   @default("pending")
+  processedAt   DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
