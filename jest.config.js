@@ -5,11 +5,22 @@ export default {
   testMatch: ['**/*.spec.ts'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
+    '^@prisma/adapter-better-sqlite3$': '<rootDir>/src/__mocks__/prisma-adapter.ts',
+    '^@/generated/prisma/client$': '<rootDir>/src/__mocks__/prisma-client.ts',
   },
+  transform: {
+    '^.+\\.tsx?$': ['ts-jest', {
+      useESM: false,
+    }],
+  },
+  transformIgnorePatterns: [
+    'node_modules/(?!(@prisma)/)',
+  ],
   collectCoverageFrom: [
     'src/lib/**/*.{ts,tsx}',
     '!src/lib/**/*.d.ts',
     '!src/lib/**/*.spec.ts',
+    '!src/lib/**/__mocks__/**',
   ],
   coverageThreshold: {
     global: {
