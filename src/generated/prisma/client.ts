@@ -79,3 +79,8 @@ export type SemanticScholarFieldOfStudy = Prisma.SemanticScholarFieldOfStudyMode
  * 
  */
 export type SemanticScholarVenue = Prisma.SemanticScholarVenueModel
+/**
+ * Model NetworkRequest
+ * 
+ */
+export type NetworkRequest = Prisma.NetworkRequestModel

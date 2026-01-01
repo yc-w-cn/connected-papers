@@ -391,7 +391,8 @@ export const ModelName = {
   SemanticScholarPaper: 'SemanticScholarPaper',
   SemanticScholarAuthor: 'SemanticScholarAuthor',
   SemanticScholarFieldOfStudy: 'SemanticScholarFieldOfStudy',
-  SemanticScholarVenue: 'SemanticScholarVenue'
+  SemanticScholarVenue: 'SemanticScholarVenue',
+  NetworkRequest: 'NetworkRequest'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -407,7 +408,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "arxivPaper" | "arxivAuthorName" | "arxivCategory" | "reference" | "semanticScholarPaper" | "semanticScholarAuthor" | "semanticScholarFieldOfStudy" | "semanticScholarVenue"
+    modelProps: "arxivPaper" | "arxivAuthorName" | "arxivCategory" | "reference" | "semanticScholarPaper" | "semanticScholarAuthor" | "semanticScholarFieldOfStudy" | "semanticScholarVenue" | "networkRequest"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1003,6 +1004,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    NetworkRequest: {
+      payload: Prisma.$NetworkRequestPayload<ExtArgs>
+      fields: Prisma.NetworkRequestFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.NetworkRequestFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NetworkRequestPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.NetworkRequestFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NetworkRequestPayload>
+        }
+        findFirst: {
+          args: Prisma.NetworkRequestFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NetworkRequestPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.NetworkRequestFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NetworkRequestPayload>
+        }
+        findMany: {
+          args: Prisma.NetworkRequestFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NetworkRequestPayload>[]
+        }
+        create: {
+          args: Prisma.NetworkRequestCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NetworkRequestPayload>
+        }
+        createMany: {
+          args: Prisma.NetworkRequestCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.NetworkRequestCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NetworkRequestPayload>[]
+        }
+        delete: {
+          args: Prisma.NetworkRequestDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NetworkRequestPayload>
+        }
+        update: {
+          args: Prisma.NetworkRequestUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NetworkRequestPayload>
+        }
+        deleteMany: {
+          args: Prisma.NetworkRequestDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.NetworkRequestUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.NetworkRequestUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NetworkRequestPayload>[]
+        }
+        upsert: {
+          args: Prisma.NetworkRequestUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$NetworkRequestPayload>
+        }
+        aggregate: {
+          args: Prisma.NetworkRequestAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateNetworkRequest>
+        }
+        groupBy: {
+          args: Prisma.NetworkRequestGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.NetworkRequestGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.NetworkRequestCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.NetworkRequestCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1143,6 +1218,26 @@ export const SemanticScholarVenueScalarFieldEnum = {
 export type SemanticScholarVenueScalarFieldEnum = (typeof SemanticScholarVenueScalarFieldEnum)[keyof typeof SemanticScholarVenueScalarFieldEnum]
 
 
+export const NetworkRequestScalarFieldEnum = {
+  id: 'id',
+  requestUrl: 'requestUrl',
+  requestMethod: 'requestMethod',
+  requestBody: 'requestBody',
+  requestHeaders: 'requestHeaders',
+  responseStatus: 'responseStatus',
+  responseBody: 'responseBody',
+  responseHeaders: 'responseHeaders',
+  duration: 'duration',
+  success: 'success',
+  errorMessage: 'errorMessage',
+  source: 'source',
+  arxivPaperId: 'arxivPaperId',
+  createdAt: 'createdAt'
+} as const
+
+export type NetworkRequestScalarFieldEnum = (typeof NetworkRequestScalarFieldEnum)[keyof typeof NetworkRequestScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -1183,6 +1278,13 @@ export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
  * Reference to a field of type 'Int'
  */
 export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+/**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -1295,6 +1397,7 @@ export type GlobalOmitConfig = {
   semanticScholarAuthor?: Prisma.SemanticScholarAuthorOmit
   semanticScholarFieldOfStudy?: Prisma.SemanticScholarFieldOfStudyOmit
   semanticScholarVenue?: Prisma.SemanticScholarVenueOmit
+  networkRequest?: Prisma.NetworkRequestOmit
 }
 
 /* Types for Logging */

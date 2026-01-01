@@ -58,7 +58,8 @@ export const ModelName = {
   SemanticScholarPaper: 'SemanticScholarPaper',
   SemanticScholarAuthor: 'SemanticScholarAuthor',
   SemanticScholarFieldOfStudy: 'SemanticScholarFieldOfStudy',
-  SemanticScholarVenue: 'SemanticScholarVenue'
+  SemanticScholarVenue: 'SemanticScholarVenue',
+  NetworkRequest: 'NetworkRequest'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -176,6 +177,26 @@ export const SemanticScholarVenueScalarFieldEnum = {
 } as const
 
 export type SemanticScholarVenueScalarFieldEnum = (typeof SemanticScholarVenueScalarFieldEnum)[keyof typeof SemanticScholarVenueScalarFieldEnum]
+
+
+export const NetworkRequestScalarFieldEnum = {
+  id: 'id',
+  requestUrl: 'requestUrl',
+  requestMethod: 'requestMethod',
+  requestBody: 'requestBody',
+  requestHeaders: 'requestHeaders',
+  responseStatus: 'responseStatus',
+  responseBody: 'responseBody',
+  responseHeaders: 'responseHeaders',
+  duration: 'duration',
+  success: 'success',
+  errorMessage: 'errorMessage',
+  source: 'source',
+  arxivPaperId: 'arxivPaperId',
+  createdAt: 'createdAt'
+} as const
+
+export type NetworkRequestScalarFieldEnum = (typeof NetworkRequestScalarFieldEnum)[keyof typeof NetworkRequestScalarFieldEnum]
 
 
 export const SortOrder = {
