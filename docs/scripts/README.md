@@ -43,4 +43,4 @@ pnpm run prisma:seed
 ## 相关文档
 
 - [数据库文档](../database/README.md)
-- [业务逻辑说明](../BUSINESS_LOGIC.md)
+- [架构设计文档](../architecture/)

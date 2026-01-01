@@ -320,7 +320,8 @@ npx prisma db execute --stdin
 
 - [处理单个论文](./process-paper.md)
 - [数据库文档](../../database/README.md)
-- [业务逻辑说明](../../BUSINESS_LOGIC.md)
+- [状态机设计](../../database/state-machine.md)
+- [错误处理](../../architecture/error-handling.md)
 
 ## 相关文件
 

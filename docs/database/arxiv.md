@@ -110,3 +110,5 @@ Arxiv 相关数据表用于存储从 arXiv API 获取的论文数据。
 - [Semantic Scholar 数据表说明](./semantic-scholar.md)
 - [引用关系表说明](./reference.md)
 - [数据库总览](./README.md)
+- [状态机设计](./state-machine.md)
+- [API 集成](./api-integration.md)

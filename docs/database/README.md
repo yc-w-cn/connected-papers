@@ -7,6 +7,9 @@
 - [arxiv.md](./arxiv.md) - arXiv 相关数据表说明
 - [semantic-scholar.md](./semantic-scholar.md) - Semantic Scholar 相关数据表说明
 - [reference.md](./reference.md) - 引用关系表说明
+- [network-request.md](./network-request.md) - NetworkRequest 表详细说明
+- [state-machine.md](./state-machine.md) - 论文处理状态机设计
+- [api-integration.md](./api-integration.md) - 外部 API 集成说明
 
 ## 数据库配置
 

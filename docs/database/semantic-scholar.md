@@ -116,3 +116,4 @@ Semantic Scholar 相关数据表用于存储从 Semantic Scholar API 获取的�
 - [Arxiv 数据表说明](./arxiv.md)
 - [引用关系表说明](./reference.md)
 - [数据库总览](./README.md)
+- [API 集成](./api-integration.md)

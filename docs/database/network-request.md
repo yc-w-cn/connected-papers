@@ -178,7 +178,7 @@ const truncatedBody = responseBody.substring(0, 10000);
 
 ## 相关文档
 
-- [业务逻辑说明](../BUSINESS_LOGIC.md) - 包含网络请求记录的业务流程
-- [Arxiv 数据表说明](./arxiv.md) - Arxiv 相关数据表
-- [Semantic Scholar 数据表说明](./semantic-scholar.md) - Semantic Scholar 相关数据表
-- [引用关系表说明](./reference.md) - 引用关系表
+- [Arxiv 数据表说明](./arxiv.md)
+- [Semantic Scholar 数据表说明](./semantic-scholar.md)
+- [引用关系表说明](./reference.md)
+- [API 集成](./api-integration.md)

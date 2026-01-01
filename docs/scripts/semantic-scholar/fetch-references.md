@@ -284,7 +284,7 @@ A: 不是。引用关系是单向的：论文 A 引用论文 B，只表示 A -> 
 ## 相关文档
 
 - [数据库文档](../../database/README.md)
-- [业务逻辑说明](../../BUSINESS_LOGIC.md)
+- [错误处理](../../architecture/error-handling.md)
 
 ## 相关文件
 
