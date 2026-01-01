@@ -120,3 +120,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .swiss-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+
+  .swiss-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 48px;
+  }
+
+  .swiss-text-left {
+    text-align: left;
+  }
+}

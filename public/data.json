@@ -1,0 +1,14 @@
+{
+  "statistics": {
+    "authorCount": 0,
+    "paperCount": 0,
+    "venueCount": 0
+  },
+  "network": {
+    "nodes": [],
+    "links": []
+  },
+  "authors": [],
+  "papers": [],
+  "venues": []
+}
