@@ -1,13 +1,14 @@
 {
   "name": "@yc-w-cn/connected-papers",
   "version": "0.0.1",
+  "description": "使用 D3.js 可视化学术文献、作者和期刊之间的关系网络",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "test": "jest",
-    "predeploy": "pnpm run build",
+    "predeploy": "pnpm run export-data && pnpm run build",
     "deploy": "gh-pages -d out",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
@@ -16,7 +17,8 @@
     "process-papers": "tsx scripts/arxiv/process-papers.ts",
     "process-paper": "tsx scripts/arxiv/process-paper.ts",
     "fetch-reference": "tsx scripts/semantic-scholar/fetch-reference.ts",
-    "fetch-references": "tsx scripts/semantic-scholar/fetch-references.ts"
+    "fetch-references": "tsx scripts/semantic-scholar/fetch-references.ts",
+    "export-data": "tsx scripts/export-data.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
@@ -26,6 +28,7 @@
     "@prisma/client": "^7.2.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "d3": "^7.9.0",
     "fast-xml-parser": "^5.3.3",
     "lucide-react": "^0.562.0",
     "next": "16.1.1",
@@ -38,6 +41,7 @@
     "@jest/globals": "^30.2.0",
     "@next/eslint-plugin-next": "^16.1.1",
     "@tailwindcss/postcss": "^4",
+    "@types/d3": "^7.4.3",
     "@types/jest": "^30.0.0",
     "@types/node": "^25",
     "@types/pg": "^8.16.0",
