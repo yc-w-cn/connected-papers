@@ -15,6 +15,7 @@
     "prisma:studio": "prisma studio",
     "process-papers": "tsx scripts/arxiv/process-papers.ts",
     "process-paper": "tsx scripts/arxiv/process-paper.ts",
+    "fetch-reference": "tsx scripts/semantic-scholar/fetch-reference.ts",
     "fetch-references": "tsx scripts/semantic-scholar/fetch-references.ts"
   },
   "prisma": {
