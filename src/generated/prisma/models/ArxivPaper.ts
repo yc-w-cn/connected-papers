@@ -39,6 +39,7 @@ export type ArxivPaperMinAggregateOutputType = {
   doi: string | null
   status: string | null
   processedAt: Date | null
+  referencesFetched: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -58,6 +59,7 @@ export type ArxivPaperMaxAggregateOutputType = {
   doi: string | null
   status: string | null
   processedAt: Date | null
+  referencesFetched: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -77,6 +79,7 @@ export type ArxivPaperCountAggregateOutputType = {
   doi: number
   status: number
   processedAt: number
+  referencesFetched: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -98,6 +101,7 @@ export type ArxivPaperMinAggregateInputType = {
   doi?: true
   status?: true
   processedAt?: true
+  referencesFetched?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -117,6 +121,7 @@ export type ArxivPaperMaxAggregateInputType = {
   doi?: true
   status?: true
   processedAt?: true
+  referencesFetched?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -136,6 +141,7 @@ export type ArxivPaperCountAggregateInputType = {
   doi?: true
   status?: true
   processedAt?: true
+  referencesFetched?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -228,6 +234,7 @@ export type ArxivPaperGroupByOutputType = {
   doi: string | null
   status: string
   processedAt: Date | null
+  referencesFetched: boolean
   createdAt: Date
   updatedAt: Date
   _count: ArxivPaperCountAggregateOutputType | null
@@ -268,6 +275,7 @@ export type ArxivPaperWhereInput = {
   doi?: Prisma.StringNullableFilter<"ArxivPaper"> | string | null
   status?: Prisma.StringFilter<"ArxivPaper"> | string
   processedAt?: Prisma.DateTimeNullableFilter<"ArxivPaper"> | Date | string | null
+  referencesFetched?: Prisma.BoolFilter<"ArxivPaper"> | boolean
   createdAt?: Prisma.DateTimeFilter<"ArxivPaper"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ArxivPaper"> | Date | string
   authors?: Prisma.ArxivAuthorNameListRelationFilter
@@ -292,6 +300,7 @@ export type ArxivPaperOrderByWithRelationInput = {
   doi?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   processedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  referencesFetched?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   authors?: Prisma.ArxivAuthorNameOrderByRelationAggregateInput
@@ -319,6 +328,7 @@ export type ArxivPaperWhereUniqueInput = Prisma.AtLeast<{
   doi?: Prisma.StringNullableFilter<"ArxivPaper"> | string | null
   status?: Prisma.StringFilter<"ArxivPaper"> | string
   processedAt?: Prisma.DateTimeNullableFilter<"ArxivPaper"> | Date | string | null
+  referencesFetched?: Prisma.BoolFilter<"ArxivPaper"> | boolean
   createdAt?: Prisma.DateTimeFilter<"ArxivPaper"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ArxivPaper"> | Date | string
   authors?: Prisma.ArxivAuthorNameListRelationFilter
@@ -343,6 +353,7 @@ export type ArxivPaperOrderByWithAggregationInput = {
   doi?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   processedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  referencesFetched?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ArxivPaperCountOrderByAggregateInput
@@ -368,6 +379,7 @@ export type ArxivPaperScalarWhereWithAggregatesInput = {
   doi?: Prisma.StringNullableWithAggregatesFilter<"ArxivPaper"> | string | null
   status?: Prisma.StringWithAggregatesFilter<"ArxivPaper"> | string
   processedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"ArxivPaper"> | Date | string | null
+  referencesFetched?: Prisma.BoolWithAggregatesFilter<"ArxivPaper"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"ArxivPaper"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"ArxivPaper"> | Date | string
 }
@@ -387,6 +399,7 @@ export type ArxivPaperCreateInput = {
   doi?: string | null
   status?: string
   processedAt?: Date | string | null
+  referencesFetched?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   authors?: Prisma.ArxivAuthorNameCreateNestedManyWithoutArxivPaperInput
@@ -411,6 +424,7 @@ export type ArxivPaperUncheckedCreateInput = {
   doi?: string | null
   status?: string
   processedAt?: Date | string | null
+  referencesFetched?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   authors?: Prisma.ArxivAuthorNameUncheckedCreateNestedManyWithoutArxivPaperInput
@@ -435,6 +449,7 @@ export type ArxivPaperUpdateInput = {
   doi?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  referencesFetched?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   authors?: Prisma.ArxivAuthorNameUpdateManyWithoutArxivPaperNestedInput
@@ -459,6 +474,7 @@ export type ArxivPaperUncheckedUpdateInput = {
   doi?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  referencesFetched?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   authors?: Prisma.ArxivAuthorNameUncheckedUpdateManyWithoutArxivPaperNestedInput
@@ -483,6 +499,7 @@ export type ArxivPaperCreateManyInput = {
   doi?: string | null
   status?: string
   processedAt?: Date | string | null
+  referencesFetched?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -502,6 +519,7 @@ export type ArxivPaperUpdateManyMutationInput = {
   doi?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  referencesFetched?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -521,6 +539,7 @@ export type ArxivPaperUncheckedUpdateManyInput = {
   doi?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  referencesFetched?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -540,6 +559,7 @@ export type ArxivPaperCountOrderByAggregateInput = {
   doi?: Prisma.SortOrder
   status?: Prisma.SortOrder
   processedAt?: Prisma.SortOrder
+  referencesFetched?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -559,6 +579,7 @@ export type ArxivPaperMaxOrderByAggregateInput = {
   doi?: Prisma.SortOrder
   status?: Prisma.SortOrder
   processedAt?: Prisma.SortOrder
+  referencesFetched?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -578,6 +599,7 @@ export type ArxivPaperMinOrderByAggregateInput = {
   doi?: Prisma.SortOrder
   status?: Prisma.SortOrder
   processedAt?: Prisma.SortOrder
+  referencesFetched?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -597,6 +619,10 @@ export type NullableStringFieldUpdateOperationsInput = {
 
 export type NullableDateTimeFieldUpdateOperationsInput = {
   set?: Date | string | null
+}
+
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
 }
 
 export type DateTimeFieldUpdateOperationsInput = {
@@ -688,6 +714,7 @@ export type ArxivPaperCreateWithoutAuthorsInput = {
   doi?: string | null
   status?: string
   processedAt?: Date | string | null
+  referencesFetched?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   categories?: Prisma.ArxivCategoryCreateNestedManyWithoutArxivPaperInput
@@ -711,6 +738,7 @@ export type ArxivPaperUncheckedCreateWithoutAuthorsInput = {
   doi?: string | null
   status?: string
   processedAt?: Date | string | null
+  referencesFetched?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   categories?: Prisma.ArxivCategoryUncheckedCreateNestedManyWithoutArxivPaperInput
@@ -750,6 +778,7 @@ export type ArxivPaperUpdateWithoutAuthorsInput = {
   doi?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  referencesFetched?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   categories?: Prisma.ArxivCategoryUpdateManyWithoutArxivPaperNestedInput
@@ -773,6 +802,7 @@ export type ArxivPaperUncheckedUpdateWithoutAuthorsInput = {
   doi?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  referencesFetched?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   categories?: Prisma.ArxivCategoryUncheckedUpdateManyWithoutArxivPaperNestedInput
@@ -796,6 +826,7 @@ export type ArxivPaperCreateWithoutCategoriesInput = {
   doi?: string | null
   status?: string
   processedAt?: Date | string | null
+  referencesFetched?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   authors?: Prisma.ArxivAuthorNameCreateNestedManyWithoutArxivPaperInput
@@ -819,6 +850,7 @@ export type ArxivPaperUncheckedCreateWithoutCategoriesInput = {
   doi?: string | null
   status?: string
   processedAt?: Date | string | null
+  referencesFetched?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   authors?: Prisma.ArxivAuthorNameUncheckedCreateNestedManyWithoutArxivPaperInput
@@ -858,6 +890,7 @@ export type ArxivPaperUpdateWithoutCategoriesInput = {
   doi?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  referencesFetched?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   authors?: Prisma.ArxivAuthorNameUpdateManyWithoutArxivPaperNestedInput
@@ -881,6 +914,7 @@ export type ArxivPaperUncheckedUpdateWithoutCategoriesInput = {
   doi?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  referencesFetched?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   authors?: Prisma.ArxivAuthorNameUncheckedUpdateManyWithoutArxivPaperNestedInput
@@ -904,6 +938,7 @@ export type ArxivPaperCreateWithoutReferencesInput = {
   doi?: string | null
   status?: string
   processedAt?: Date | string | null
+  referencesFetched?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   authors?: Prisma.ArxivAuthorNameCreateNestedManyWithoutArxivPaperInput
@@ -927,6 +962,7 @@ export type ArxivPaperUncheckedCreateWithoutReferencesInput = {
   doi?: string | null
   status?: string
   processedAt?: Date | string | null
+  referencesFetched?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   authors?: Prisma.ArxivAuthorNameUncheckedCreateNestedManyWithoutArxivPaperInput
@@ -955,6 +991,7 @@ export type ArxivPaperCreateWithoutCitedByInput = {
   doi?: string | null
   status?: string
   processedAt?: Date | string | null
+  referencesFetched?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   authors?: Prisma.ArxivAuthorNameCreateNestedManyWithoutArxivPaperInput
@@ -978,6 +1015,7 @@ export type ArxivPaperUncheckedCreateWithoutCitedByInput = {
   doi?: string | null
   status?: string
   processedAt?: Date | string | null
+  referencesFetched?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   authors?: Prisma.ArxivAuthorNameUncheckedCreateNestedManyWithoutArxivPaperInput
@@ -1017,6 +1055,7 @@ export type ArxivPaperUpdateWithoutReferencesInput = {
   doi?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  referencesFetched?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   authors?: Prisma.ArxivAuthorNameUpdateManyWithoutArxivPaperNestedInput
@@ -1040,6 +1079,7 @@ export type ArxivPaperUncheckedUpdateWithoutReferencesInput = {
   doi?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  referencesFetched?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   authors?: Prisma.ArxivAuthorNameUncheckedUpdateManyWithoutArxivPaperNestedInput
@@ -1074,6 +1114,7 @@ export type ArxivPaperUpdateWithoutCitedByInput = {
   doi?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  referencesFetched?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   authors?: Prisma.ArxivAuthorNameUpdateManyWithoutArxivPaperNestedInput
@@ -1097,6 +1138,7 @@ export type ArxivPaperUncheckedUpdateWithoutCitedByInput = {
   doi?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  referencesFetched?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   authors?: Prisma.ArxivAuthorNameUncheckedUpdateManyWithoutArxivPaperNestedInput
@@ -1120,6 +1162,7 @@ export type ArxivPaperCreateWithoutSemanticScholarPaperInput = {
   doi?: string | null
   status?: string
   processedAt?: Date | string | null
+  referencesFetched?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   authors?: Prisma.ArxivAuthorNameCreateNestedManyWithoutArxivPaperInput
@@ -1143,6 +1186,7 @@ export type ArxivPaperUncheckedCreateWithoutSemanticScholarPaperInput = {
   doi?: string | null
   status?: string
   processedAt?: Date | string | null
+  referencesFetched?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   authors?: Prisma.ArxivAuthorNameUncheckedCreateNestedManyWithoutArxivPaperInput
@@ -1182,6 +1226,7 @@ export type ArxivPaperUpdateWithoutSemanticScholarPaperInput = {
   doi?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  referencesFetched?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   authors?: Prisma.ArxivAuthorNameUpdateManyWithoutArxivPaperNestedInput
@@ -1205,6 +1250,7 @@ export type ArxivPaperUncheckedUpdateWithoutSemanticScholarPaperInput = {
   doi?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  referencesFetched?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   authors?: Prisma.ArxivAuthorNameUncheckedUpdateManyWithoutArxivPaperNestedInput
@@ -1286,6 +1332,7 @@ export type ArxivPaperSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   doi?: boolean
   status?: boolean
   processedAt?: boolean
+  referencesFetched?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   authors?: boolean | Prisma.ArxivPaper$authorsArgs<ExtArgs>
@@ -1311,6 +1358,7 @@ export type ArxivPaperSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   doi?: boolean
   status?: boolean
   processedAt?: boolean
+  referencesFetched?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["arxivPaper"]>
@@ -1330,6 +1378,7 @@ export type ArxivPaperSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   doi?: boolean
   status?: boolean
   processedAt?: boolean
+  referencesFetched?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["arxivPaper"]>
@@ -1349,11 +1398,12 @@ export type ArxivPaperSelectScalar = {
   doi?: boolean
   status?: boolean
   processedAt?: boolean
+  referencesFetched?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ArxivPaperOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "arxivId" | "arxivUrl" | "title" | "abstract" | "publishedDate" | "primaryCategory" | "license" | "updatedAtArxiv" | "comment" | "journalRef" | "doi" | "status" | "processedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["arxivPaper"]>
+export type ArxivPaperOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "arxivId" | "arxivUrl" | "title" | "abstract" | "publishedDate" | "primaryCategory" | "license" | "updatedAtArxiv" | "comment" | "journalRef" | "doi" | "status" | "processedAt" | "referencesFetched" | "createdAt" | "updatedAt", ExtArgs["result"]["arxivPaper"]>
 export type ArxivPaperInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   authors?: boolean | Prisma.ArxivPaper$authorsArgs<ExtArgs>
   categories?: boolean | Prisma.ArxivPaper$categoriesArgs<ExtArgs>
@@ -1389,6 +1439,7 @@ export type $ArxivPaperPayload<ExtArgs extends runtime.Types.Extensions.Internal
     doi: string | null
     status: string
     processedAt: Date | null
+    referencesFetched: boolean
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["arxivPaper"]>
@@ -1833,6 +1884,7 @@ export interface ArxivPaperFieldRefs {
   readonly doi: Prisma.FieldRef<"ArxivPaper", 'String'>
   readonly status: Prisma.FieldRef<"ArxivPaper", 'String'>
   readonly processedAt: Prisma.FieldRef<"ArxivPaper", 'DateTime'>
+  readonly referencesFetched: Prisma.FieldRef<"ArxivPaper", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"ArxivPaper", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"ArxivPaper", 'DateTime'>
 }

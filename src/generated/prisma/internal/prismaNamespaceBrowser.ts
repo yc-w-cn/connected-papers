@@ -90,6 +90,7 @@ export const ArxivPaperScalarFieldEnum = {
   doi: 'doi',
   status: 'status',
   processedAt: 'processedAt',
+  referencesFetched: 'referencesFetched',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
