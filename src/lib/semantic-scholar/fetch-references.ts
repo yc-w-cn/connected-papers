@@ -24,29 +24,44 @@ export interface ArxivReference {
 export async function fetchArxivReferences(arxivId: string): Promise<ArxivReference[]> {
   console.log(`正在获取论文 ${arxivId} 的引用文献...`);
 
-  const apiUrl = `https://api.semanticscholar.org/graph/v1/paper/arXiv:${arxivId}?fields=references.title,references.authors,references.externalIds,references.year,references.publicationDate,references.abstract,references.venue,references.volume,references.issue,references.pages,references.citationCount,references.influentialCitationCount,references.s2FieldsOfStudy,references.openAccessPdf,references.publicationTypes,references.url,references.paperId`;
+  const apiUrl = `https://api.semanticscholar.org/graph/v1/paper/arXiv:${arxivId}?fields=references.title,references.authors,references.externalIds,references.year,references.publicationDate,references.abstract,references.venue,references.citationCount,references.influentialCitationCount,references.s2FieldsOfStudy,references.openAccessPdf,references.publicationTypes,references.url,references.paperId`;
   console.log(`请求 URL: ${apiUrl}`);
 
-  const response = await recordNetworkRequest(
-    'semantic-scholar',
-    apiUrl,
-    () => fetch(apiUrl),
-    arxivId,
-    {
-      requestMethod: 'GET',
-      requestHeaders: {
-        'Accept': 'application/json',
-        'User-Agent': 'Connected-Papers/1.0',
-      },
-    },
-  );
+  const maxRetries = 3;
+  let retryCount = 0;
+  let response: Response;
 
-  if (!response.ok) {
+  do {
+    response = await recordNetworkRequest(
+      'semantic-scholar',
+      apiUrl,
+      () => fetch(apiUrl),
+      arxivId,
+      {
+        requestMethod: 'GET',
+        requestHeaders: {
+          'Accept': 'application/json',
+          'User-Agent': 'Connected-Papers/1.0',
+        },
+      },
+    );
+
+    if (response.ok) {
+      break;
+    }
+
+    if (response.status === 429 && retryCount < maxRetries) {
+      console.log(`遇到 429 错误，等待 1 秒后重试 (${retryCount + 1}/${maxRetries})...`);
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      retryCount++;
+      continue;
+    }
+
     console.error(`请求失败 URL: ${apiUrl}`);
     throw new Error(
       `Semantic Scholar API 请求失败: ${response.status} ${response.statusText}`,
     );
-  }
+  } while (retryCount <= maxRetries);
 
   const data = await response.json();
 
@@ -74,9 +89,6 @@ export async function fetchArxivReferences(arxivId: string): Promise<ArxivRefere
         publicationTypes: ref.publicationTypes?.join(', '),
         s2FieldsOfStudy: ref.s2FieldsOfStudy,
         venue: ref.venue,
-        volume: ref.volume,
-        issue: ref.issue,
-        pages: ref.pages,
         authorDetails: ref.authors?.map((a: any) => ({
           authorId: a.authorId,
           name: a.name
