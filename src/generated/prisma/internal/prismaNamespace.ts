@@ -384,8 +384,14 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
-  Paper: 'Paper',
-  Reference: 'Reference'
+  ArxivPaper: 'ArxivPaper',
+  ArxivAuthorName: 'ArxivAuthorName',
+  ArxivCategory: 'ArxivCategory',
+  Reference: 'Reference',
+  SemanticScholarPaper: 'SemanticScholarPaper',
+  SemanticScholarAuthor: 'SemanticScholarAuthor',
+  SemanticScholarFieldOfStudy: 'SemanticScholarFieldOfStudy',
+  SemanticScholarVenue: 'SemanticScholarVenue'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -401,81 +407,229 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "paper" | "reference"
+    modelProps: "arxivPaper" | "arxivAuthorName" | "arxivCategory" | "reference" | "semanticScholarPaper" | "semanticScholarAuthor" | "semanticScholarFieldOfStudy" | "semanticScholarVenue"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
-    Paper: {
-      payload: Prisma.$PaperPayload<ExtArgs>
-      fields: Prisma.PaperFieldRefs
+    ArxivPaper: {
+      payload: Prisma.$ArxivPaperPayload<ExtArgs>
+      fields: Prisma.ArxivPaperFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.PaperFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaperPayload> | null
+          args: Prisma.ArxivPaperFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivPaperPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.PaperFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaperPayload>
+          args: Prisma.ArxivPaperFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivPaperPayload>
         }
         findFirst: {
-          args: Prisma.PaperFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaperPayload> | null
+          args: Prisma.ArxivPaperFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivPaperPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.PaperFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaperPayload>
+          args: Prisma.ArxivPaperFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivPaperPayload>
         }
         findMany: {
-          args: Prisma.PaperFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaperPayload>[]
+          args: Prisma.ArxivPaperFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivPaperPayload>[]
         }
         create: {
-          args: Prisma.PaperCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaperPayload>
+          args: Prisma.ArxivPaperCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivPaperPayload>
         }
         createMany: {
-          args: Prisma.PaperCreateManyArgs<ExtArgs>
+          args: Prisma.ArxivPaperCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.PaperCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaperPayload>[]
+          args: Prisma.ArxivPaperCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivPaperPayload>[]
         }
         delete: {
-          args: Prisma.PaperDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaperPayload>
+          args: Prisma.ArxivPaperDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivPaperPayload>
         }
         update: {
-          args: Prisma.PaperUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaperPayload>
+          args: Prisma.ArxivPaperUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivPaperPayload>
         }
         deleteMany: {
-          args: Prisma.PaperDeleteManyArgs<ExtArgs>
+          args: Prisma.ArxivPaperDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.PaperUpdateManyArgs<ExtArgs>
+          args: Prisma.ArxivPaperUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.PaperUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaperPayload>[]
+          args: Prisma.ArxivPaperUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivPaperPayload>[]
         }
         upsert: {
-          args: Prisma.PaperUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaperPayload>
+          args: Prisma.ArxivPaperUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivPaperPayload>
         }
         aggregate: {
-          args: Prisma.PaperAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregatePaper>
+          args: Prisma.ArxivPaperAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateArxivPaper>
         }
         groupBy: {
-          args: Prisma.PaperGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.PaperGroupByOutputType>[]
+          args: Prisma.ArxivPaperGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ArxivPaperGroupByOutputType>[]
         }
         count: {
-          args: Prisma.PaperCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.PaperCountAggregateOutputType> | number
+          args: Prisma.ArxivPaperCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ArxivPaperCountAggregateOutputType> | number
+        }
+      }
+    }
+    ArxivAuthorName: {
+      payload: Prisma.$ArxivAuthorNamePayload<ExtArgs>
+      fields: Prisma.ArxivAuthorNameFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ArxivAuthorNameFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivAuthorNamePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ArxivAuthorNameFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivAuthorNamePayload>
+        }
+        findFirst: {
+          args: Prisma.ArxivAuthorNameFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivAuthorNamePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ArxivAuthorNameFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivAuthorNamePayload>
+        }
+        findMany: {
+          args: Prisma.ArxivAuthorNameFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivAuthorNamePayload>[]
+        }
+        create: {
+          args: Prisma.ArxivAuthorNameCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivAuthorNamePayload>
+        }
+        createMany: {
+          args: Prisma.ArxivAuthorNameCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ArxivAuthorNameCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivAuthorNamePayload>[]
+        }
+        delete: {
+          args: Prisma.ArxivAuthorNameDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivAuthorNamePayload>
+        }
+        update: {
+          args: Prisma.ArxivAuthorNameUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivAuthorNamePayload>
+        }
+        deleteMany: {
+          args: Prisma.ArxivAuthorNameDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ArxivAuthorNameUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ArxivAuthorNameUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivAuthorNamePayload>[]
+        }
+        upsert: {
+          args: Prisma.ArxivAuthorNameUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivAuthorNamePayload>
+        }
+        aggregate: {
+          args: Prisma.ArxivAuthorNameAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateArxivAuthorName>
+        }
+        groupBy: {
+          args: Prisma.ArxivAuthorNameGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ArxivAuthorNameGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ArxivAuthorNameCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ArxivAuthorNameCountAggregateOutputType> | number
+        }
+      }
+    }
+    ArxivCategory: {
+      payload: Prisma.$ArxivCategoryPayload<ExtArgs>
+      fields: Prisma.ArxivCategoryFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ArxivCategoryFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivCategoryPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ArxivCategoryFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivCategoryPayload>
+        }
+        findFirst: {
+          args: Prisma.ArxivCategoryFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivCategoryPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ArxivCategoryFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivCategoryPayload>
+        }
+        findMany: {
+          args: Prisma.ArxivCategoryFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivCategoryPayload>[]
+        }
+        create: {
+          args: Prisma.ArxivCategoryCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivCategoryPayload>
+        }
+        createMany: {
+          args: Prisma.ArxivCategoryCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ArxivCategoryCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivCategoryPayload>[]
+        }
+        delete: {
+          args: Prisma.ArxivCategoryDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivCategoryPayload>
+        }
+        update: {
+          args: Prisma.ArxivCategoryUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivCategoryPayload>
+        }
+        deleteMany: {
+          args: Prisma.ArxivCategoryDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ArxivCategoryUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ArxivCategoryUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivCategoryPayload>[]
+        }
+        upsert: {
+          args: Prisma.ArxivCategoryUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArxivCategoryPayload>
+        }
+        aggregate: {
+          args: Prisma.ArxivCategoryAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateArxivCategory>
+        }
+        groupBy: {
+          args: Prisma.ArxivCategoryGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ArxivCategoryGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ArxivCategoryCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ArxivCategoryCountAggregateOutputType> | number
         }
       }
     }
@@ -553,6 +707,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    SemanticScholarPaper: {
+      payload: Prisma.$SemanticScholarPaperPayload<ExtArgs>
+      fields: Prisma.SemanticScholarPaperFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SemanticScholarPaperFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarPaperPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SemanticScholarPaperFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarPaperPayload>
+        }
+        findFirst: {
+          args: Prisma.SemanticScholarPaperFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarPaperPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SemanticScholarPaperFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarPaperPayload>
+        }
+        findMany: {
+          args: Prisma.SemanticScholarPaperFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarPaperPayload>[]
+        }
+        create: {
+          args: Prisma.SemanticScholarPaperCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarPaperPayload>
+        }
+        createMany: {
+          args: Prisma.SemanticScholarPaperCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SemanticScholarPaperCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarPaperPayload>[]
+        }
+        delete: {
+          args: Prisma.SemanticScholarPaperDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarPaperPayload>
+        }
+        update: {
+          args: Prisma.SemanticScholarPaperUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarPaperPayload>
+        }
+        deleteMany: {
+          args: Prisma.SemanticScholarPaperDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SemanticScholarPaperUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SemanticScholarPaperUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarPaperPayload>[]
+        }
+        upsert: {
+          args: Prisma.SemanticScholarPaperUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarPaperPayload>
+        }
+        aggregate: {
+          args: Prisma.SemanticScholarPaperAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSemanticScholarPaper>
+        }
+        groupBy: {
+          args: Prisma.SemanticScholarPaperGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SemanticScholarPaperGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SemanticScholarPaperCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SemanticScholarPaperCountAggregateOutputType> | number
+        }
+      }
+    }
+    SemanticScholarAuthor: {
+      payload: Prisma.$SemanticScholarAuthorPayload<ExtArgs>
+      fields: Prisma.SemanticScholarAuthorFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SemanticScholarAuthorFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarAuthorPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SemanticScholarAuthorFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarAuthorPayload>
+        }
+        findFirst: {
+          args: Prisma.SemanticScholarAuthorFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarAuthorPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SemanticScholarAuthorFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarAuthorPayload>
+        }
+        findMany: {
+          args: Prisma.SemanticScholarAuthorFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarAuthorPayload>[]
+        }
+        create: {
+          args: Prisma.SemanticScholarAuthorCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarAuthorPayload>
+        }
+        createMany: {
+          args: Prisma.SemanticScholarAuthorCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SemanticScholarAuthorCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarAuthorPayload>[]
+        }
+        delete: {
+          args: Prisma.SemanticScholarAuthorDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarAuthorPayload>
+        }
+        update: {
+          args: Prisma.SemanticScholarAuthorUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarAuthorPayload>
+        }
+        deleteMany: {
+          args: Prisma.SemanticScholarAuthorDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SemanticScholarAuthorUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SemanticScholarAuthorUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarAuthorPayload>[]
+        }
+        upsert: {
+          args: Prisma.SemanticScholarAuthorUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarAuthorPayload>
+        }
+        aggregate: {
+          args: Prisma.SemanticScholarAuthorAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSemanticScholarAuthor>
+        }
+        groupBy: {
+          args: Prisma.SemanticScholarAuthorGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SemanticScholarAuthorGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SemanticScholarAuthorCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SemanticScholarAuthorCountAggregateOutputType> | number
+        }
+      }
+    }
+    SemanticScholarFieldOfStudy: {
+      payload: Prisma.$SemanticScholarFieldOfStudyPayload<ExtArgs>
+      fields: Prisma.SemanticScholarFieldOfStudyFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SemanticScholarFieldOfStudyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarFieldOfStudyPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SemanticScholarFieldOfStudyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarFieldOfStudyPayload>
+        }
+        findFirst: {
+          args: Prisma.SemanticScholarFieldOfStudyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarFieldOfStudyPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SemanticScholarFieldOfStudyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarFieldOfStudyPayload>
+        }
+        findMany: {
+          args: Prisma.SemanticScholarFieldOfStudyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarFieldOfStudyPayload>[]
+        }
+        create: {
+          args: Prisma.SemanticScholarFieldOfStudyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarFieldOfStudyPayload>
+        }
+        createMany: {
+          args: Prisma.SemanticScholarFieldOfStudyCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SemanticScholarFieldOfStudyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarFieldOfStudyPayload>[]
+        }
+        delete: {
+          args: Prisma.SemanticScholarFieldOfStudyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarFieldOfStudyPayload>
+        }
+        update: {
+          args: Prisma.SemanticScholarFieldOfStudyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarFieldOfStudyPayload>
+        }
+        deleteMany: {
+          args: Prisma.SemanticScholarFieldOfStudyDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SemanticScholarFieldOfStudyUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SemanticScholarFieldOfStudyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarFieldOfStudyPayload>[]
+        }
+        upsert: {
+          args: Prisma.SemanticScholarFieldOfStudyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarFieldOfStudyPayload>
+        }
+        aggregate: {
+          args: Prisma.SemanticScholarFieldOfStudyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSemanticScholarFieldOfStudy>
+        }
+        groupBy: {
+          args: Prisma.SemanticScholarFieldOfStudyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SemanticScholarFieldOfStudyGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SemanticScholarFieldOfStudyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SemanticScholarFieldOfStudyCountAggregateOutputType> | number
+        }
+      }
+    }
+    SemanticScholarVenue: {
+      payload: Prisma.$SemanticScholarVenuePayload<ExtArgs>
+      fields: Prisma.SemanticScholarVenueFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SemanticScholarVenueFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarVenuePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SemanticScholarVenueFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarVenuePayload>
+        }
+        findFirst: {
+          args: Prisma.SemanticScholarVenueFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarVenuePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SemanticScholarVenueFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarVenuePayload>
+        }
+        findMany: {
+          args: Prisma.SemanticScholarVenueFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarVenuePayload>[]
+        }
+        create: {
+          args: Prisma.SemanticScholarVenueCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarVenuePayload>
+        }
+        createMany: {
+          args: Prisma.SemanticScholarVenueCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SemanticScholarVenueCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarVenuePayload>[]
+        }
+        delete: {
+          args: Prisma.SemanticScholarVenueDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarVenuePayload>
+        }
+        update: {
+          args: Prisma.SemanticScholarVenueUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarVenuePayload>
+        }
+        deleteMany: {
+          args: Prisma.SemanticScholarVenueDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SemanticScholarVenueUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SemanticScholarVenueUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarVenuePayload>[]
+        }
+        upsert: {
+          args: Prisma.SemanticScholarVenueUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SemanticScholarVenuePayload>
+        }
+        aggregate: {
+          args: Prisma.SemanticScholarVenueAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSemanticScholarVenue>
+        }
+        groupBy: {
+          args: Prisma.SemanticScholarVenueGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SemanticScholarVenueGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SemanticScholarVenueCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SemanticScholarVenueCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -589,21 +1039,47 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const PaperScalarFieldEnum = {
+export const ArxivPaperScalarFieldEnum = {
   id: 'id',
   arxivId: 'arxivId',
   arxivUrl: 'arxivUrl',
   title: 'title',
-  authors: 'authors',
   abstract: 'abstract',
   publishedDate: 'publishedDate',
+  primaryCategory: 'primaryCategory',
+  license: 'license',
+  updatedAtArxiv: 'updatedAtArxiv',
+  comment: 'comment',
+  journalRef: 'journalRef',
+  doi: 'doi',
   status: 'status',
   processedAt: 'processedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
 
-export type PaperScalarFieldEnum = (typeof PaperScalarFieldEnum)[keyof typeof PaperScalarFieldEnum]
+export type ArxivPaperScalarFieldEnum = (typeof ArxivPaperScalarFieldEnum)[keyof typeof ArxivPaperScalarFieldEnum]
+
+
+export const ArxivAuthorNameScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  affiliation: 'affiliation',
+  arxivPaperId: 'arxivPaperId',
+  createdAt: 'createdAt'
+} as const
+
+export type ArxivAuthorNameScalarFieldEnum = (typeof ArxivAuthorNameScalarFieldEnum)[keyof typeof ArxivAuthorNameScalarFieldEnum]
+
+
+export const ArxivCategoryScalarFieldEnum = {
+  id: 'id',
+  category: 'category',
+  arxivPaperId: 'arxivPaperId',
+  createdAt: 'createdAt'
+} as const
+
+export type ArxivCategoryScalarFieldEnum = (typeof ArxivCategoryScalarFieldEnum)[keyof typeof ArxivCategoryScalarFieldEnum]
 
 
 export const ReferenceScalarFieldEnum = {
@@ -614,6 +1090,57 @@ export const ReferenceScalarFieldEnum = {
 } as const
 
 export type ReferenceScalarFieldEnum = (typeof ReferenceScalarFieldEnum)[keyof typeof ReferenceScalarFieldEnum]
+
+
+export const SemanticScholarPaperScalarFieldEnum = {
+  id: 'id',
+  paperId: 'paperId',
+  url: 'url',
+  citationCount: 'citationCount',
+  influentialCitationCount: 'influentialCitationCount',
+  openAccessPdfUrl: 'openAccessPdfUrl',
+  publicationTypes: 'publicationTypes',
+  arxivPaperId: 'arxivPaperId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SemanticScholarPaperScalarFieldEnum = (typeof SemanticScholarPaperScalarFieldEnum)[keyof typeof SemanticScholarPaperScalarFieldEnum]
+
+
+export const SemanticScholarAuthorScalarFieldEnum = {
+  id: 'id',
+  authorId: 'authorId',
+  name: 'name',
+  arxivPaperId: 'arxivPaperId',
+  createdAt: 'createdAt'
+} as const
+
+export type SemanticScholarAuthorScalarFieldEnum = (typeof SemanticScholarAuthorScalarFieldEnum)[keyof typeof SemanticScholarAuthorScalarFieldEnum]
+
+
+export const SemanticScholarFieldOfStudyScalarFieldEnum = {
+  id: 'id',
+  field: 'field',
+  category: 'category',
+  arxivPaperId: 'arxivPaperId',
+  createdAt: 'createdAt'
+} as const
+
+export type SemanticScholarFieldOfStudyScalarFieldEnum = (typeof SemanticScholarFieldOfStudyScalarFieldEnum)[keyof typeof SemanticScholarFieldOfStudyScalarFieldEnum]
+
+
+export const SemanticScholarVenueScalarFieldEnum = {
+  id: 'id',
+  venue: 'venue',
+  volume: 'volume',
+  issue: 'issue',
+  pages: 'pages',
+  arxivPaperId: 'arxivPaperId',
+  createdAt: 'createdAt'
+} as const
+
+export type SemanticScholarVenueScalarFieldEnum = (typeof SemanticScholarVenueScalarFieldEnum)[keyof typeof SemanticScholarVenueScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -656,6 +1183,13 @@ export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
  * Reference to a field of type 'Int'
  */
 export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+/**
+ * Reference to a field of type 'Float'
+ */
+export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
     
 
 /**
@@ -753,8 +1287,14 @@ export type PrismaClientOptions = ({
   comments?: runtime.SqlCommenterPlugin[]
 }
 export type GlobalOmitConfig = {
-  paper?: Prisma.PaperOmit
+  arxivPaper?: Prisma.ArxivPaperOmit
+  arxivAuthorName?: Prisma.ArxivAuthorNameOmit
+  arxivCategory?: Prisma.ArxivCategoryOmit
   reference?: Prisma.ReferenceOmit
+  semanticScholarPaper?: Prisma.SemanticScholarPaperOmit
+  semanticScholarAuthor?: Prisma.SemanticScholarAuthorOmit
+  semanticScholarFieldOfStudy?: Prisma.SemanticScholarFieldOfStudyOmit
+  semanticScholarVenue?: Prisma.SemanticScholarVenueOmit
 }
 
 /* Types for Logging */

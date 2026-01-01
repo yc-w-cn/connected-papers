@@ -8,6 +8,12 @@
  *
  * 🟢 You can import this file directly.
  */
-export type * from './models/Paper'
+export type * from './models/ArxivPaper'
+export type * from './models/ArxivAuthorName'
+export type * from './models/ArxivCategory'
 export type * from './models/Reference'
+export type * from './models/SemanticScholarPaper'
+export type * from './models/SemanticScholarAuthor'
+export type * from './models/SemanticScholarFieldOfStudy'
+export type * from './models/SemanticScholarVenue'
 export type * from './commonInputTypes'

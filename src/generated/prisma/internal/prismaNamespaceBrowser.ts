@@ -51,8 +51,14 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  Paper: 'Paper',
-  Reference: 'Reference'
+  ArxivPaper: 'ArxivPaper',
+  ArxivAuthorName: 'ArxivAuthorName',
+  ArxivCategory: 'ArxivCategory',
+  Reference: 'Reference',
+  SemanticScholarPaper: 'SemanticScholarPaper',
+  SemanticScholarAuthor: 'SemanticScholarAuthor',
+  SemanticScholarFieldOfStudy: 'SemanticScholarFieldOfStudy',
+  SemanticScholarVenue: 'SemanticScholarVenue'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -68,21 +74,47 @@ export const TransactionIsolationLevel = {
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const PaperScalarFieldEnum = {
+export const ArxivPaperScalarFieldEnum = {
   id: 'id',
   arxivId: 'arxivId',
   arxivUrl: 'arxivUrl',
   title: 'title',
-  authors: 'authors',
   abstract: 'abstract',
   publishedDate: 'publishedDate',
+  primaryCategory: 'primaryCategory',
+  license: 'license',
+  updatedAtArxiv: 'updatedAtArxiv',
+  comment: 'comment',
+  journalRef: 'journalRef',
+  doi: 'doi',
   status: 'status',
   processedAt: 'processedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
 
-export type PaperScalarFieldEnum = (typeof PaperScalarFieldEnum)[keyof typeof PaperScalarFieldEnum]
+export type ArxivPaperScalarFieldEnum = (typeof ArxivPaperScalarFieldEnum)[keyof typeof ArxivPaperScalarFieldEnum]
+
+
+export const ArxivAuthorNameScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  affiliation: 'affiliation',
+  arxivPaperId: 'arxivPaperId',
+  createdAt: 'createdAt'
+} as const
+
+export type ArxivAuthorNameScalarFieldEnum = (typeof ArxivAuthorNameScalarFieldEnum)[keyof typeof ArxivAuthorNameScalarFieldEnum]
+
+
+export const ArxivCategoryScalarFieldEnum = {
+  id: 'id',
+  category: 'category',
+  arxivPaperId: 'arxivPaperId',
+  createdAt: 'createdAt'
+} as const
+
+export type ArxivCategoryScalarFieldEnum = (typeof ArxivCategoryScalarFieldEnum)[keyof typeof ArxivCategoryScalarFieldEnum]
 
 
 export const ReferenceScalarFieldEnum = {
@@ -93,6 +125,57 @@ export const ReferenceScalarFieldEnum = {
 } as const
 
 export type ReferenceScalarFieldEnum = (typeof ReferenceScalarFieldEnum)[keyof typeof ReferenceScalarFieldEnum]
+
+
+export const SemanticScholarPaperScalarFieldEnum = {
+  id: 'id',
+  paperId: 'paperId',
+  url: 'url',
+  citationCount: 'citationCount',
+  influentialCitationCount: 'influentialCitationCount',
+  openAccessPdfUrl: 'openAccessPdfUrl',
+  publicationTypes: 'publicationTypes',
+  arxivPaperId: 'arxivPaperId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SemanticScholarPaperScalarFieldEnum = (typeof SemanticScholarPaperScalarFieldEnum)[keyof typeof SemanticScholarPaperScalarFieldEnum]
+
+
+export const SemanticScholarAuthorScalarFieldEnum = {
+  id: 'id',
+  authorId: 'authorId',
+  name: 'name',
+  arxivPaperId: 'arxivPaperId',
+  createdAt: 'createdAt'
+} as const
+
+export type SemanticScholarAuthorScalarFieldEnum = (typeof SemanticScholarAuthorScalarFieldEnum)[keyof typeof SemanticScholarAuthorScalarFieldEnum]
+
+
+export const SemanticScholarFieldOfStudyScalarFieldEnum = {
+  id: 'id',
+  field: 'field',
+  category: 'category',
+  arxivPaperId: 'arxivPaperId',
+  createdAt: 'createdAt'
+} as const
+
+export type SemanticScholarFieldOfStudyScalarFieldEnum = (typeof SemanticScholarFieldOfStudyScalarFieldEnum)[keyof typeof SemanticScholarFieldOfStudyScalarFieldEnum]
+
+
+export const SemanticScholarVenueScalarFieldEnum = {
+  id: 'id',
+  venue: 'venue',
+  volume: 'volume',
+  issue: 'issue',
+  pages: 'pages',
+  arxivPaperId: 'arxivPaperId',
+  createdAt: 'createdAt'
+} as const
+
+export type SemanticScholarVenueScalarFieldEnum = (typeof SemanticScholarVenueScalarFieldEnum)[keyof typeof SemanticScholarVenueScalarFieldEnum]
 
 
 export const SortOrder = {

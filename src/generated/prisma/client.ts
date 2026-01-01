@@ -29,8 +29,8 @@ export * from "./enums"
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Papers
- * const papers = await prisma.paper.findMany()
+ * // Fetch zero or more ArxivPapers
+ * const arxivPapers = await prisma.arxivPaper.findMany()
  * ```
  * 
  * Read more in our [docs](https://pris.ly/d/client).
@@ -40,12 +40,42 @@ export type PrismaClient<LogOpts extends Prisma.LogLevel = never, OmitOpts exten
 export { Prisma }
 
 /**
- * Model Paper
+ * Model ArxivPaper
  * 
  */
-export type Paper = Prisma.PaperModel
+export type ArxivPaper = Prisma.ArxivPaperModel
+/**
+ * Model ArxivAuthorName
+ * 
+ */
+export type ArxivAuthorName = Prisma.ArxivAuthorNameModel
+/**
+ * Model ArxivCategory
+ * 
+ */
+export type ArxivCategory = Prisma.ArxivCategoryModel
 /**
  * Model Reference
  * 
  */
 export type Reference = Prisma.ReferenceModel
+/**
+ * Model SemanticScholarPaper
+ * 
+ */
+export type SemanticScholarPaper = Prisma.SemanticScholarPaperModel
+/**
+ * Model SemanticScholarAuthor
+ * 
+ */
+export type SemanticScholarAuthor = Prisma.SemanticScholarAuthorModel
+/**
+ * Model SemanticScholarFieldOfStudy
+ * 
+ */
+export type SemanticScholarFieldOfStudy = Prisma.SemanticScholarFieldOfStudyModel
+/**
+ * Model SemanticScholarVenue
+ * 
+ */
+export type SemanticScholarVenue = Prisma.SemanticScholarVenueModel

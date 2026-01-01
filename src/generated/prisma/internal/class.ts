@@ -20,7 +20,7 @@ const config: runtime.GetPrismaClientConfig = {
   "clientVersion": "7.2.0",
   "engineVersion": "0c8ef2ce45c83248ab3df073180d5eda9e8be7a3",
   "activeProvider": "sqlite",
-  "inlineSchema": "generator client {\n  provider = \"prisma-client\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n}\n\nmodel Paper {\n  id            String    @id @default(uuid())\n  arxivId       String    @unique\n  arxivUrl      String\n  title         String?\n  authors       String?\n  abstract      String?\n  publishedDate String?\n  status        String    @default(\"pending\")\n  processedAt   DateTime?\n  createdAt     DateTime  @default(now())\n  updatedAt     DateTime  @updatedAt\n\n  references Reference[] @relation(\"PaperReferences\")\n  citedBy    Reference[] @relation(\"PaperCitedBy\")\n}\n\nmodel Reference {\n  id          String   @id @default(uuid())\n  paperId     String\n  referenceId String\n  createdAt   DateTime @default(now())\n\n  paper     Paper @relation(\"PaperReferences\", fields: [paperId], references: [id], onDelete: Cascade)\n  reference Paper @relation(\"PaperCitedBy\", fields: [referenceId], references: [id], onDelete: Cascade)\n\n  @@unique([paperId, referenceId])\n  @@index([paperId])\n  @@index([referenceId])\n}\n",
+  "inlineSchema": "generator client {\n  provider = \"prisma-client\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n}\n\nmodel ArxivPaper {\n  id              String    @id @default(uuid())\n  arxivId         String    @unique\n  arxivUrl        String\n  title           String?\n  abstract        String?\n  publishedDate   String?\n  primaryCategory String?\n  license         String?\n  updatedAtArxiv  String?\n  comment         String?\n  journalRef      String?\n  doi             String?\n  status          String    @default(\"pending\")\n  processedAt     DateTime?\n  createdAt       DateTime  @default(now())\n  updatedAt       DateTime  @updatedAt\n\n  authors              ArxivAuthorName[]\n  categories           ArxivCategory[]\n  references           Reference[]           @relation(\"ArxivPaperReferences\")\n  citedBy              Reference[]           @relation(\"ArxivPaperCitedBy\")\n  semanticScholarPaper SemanticScholarPaper?\n\n  @@index([arxivId])\n}\n\nmodel ArxivAuthorName {\n  id           String   @id @default(uuid())\n  name         String\n  affiliation  String?\n  arxivPaperId String\n  createdAt    DateTime @default(now())\n\n  arxivPaper ArxivPaper @relation(fields: [arxivPaperId], references: [id], onDelete: Cascade)\n\n  @@index([arxivPaperId])\n}\n\nmodel ArxivCategory {\n  id           String   @id @default(uuid())\n  category     String\n  arxivPaperId String\n  createdAt    DateTime @default(now())\n\n  arxivPaper ArxivPaper @relation(fields: [arxivPaperId], references: [id], onDelete: Cascade)\n\n  @@index([arxivPaperId])\n}\n\nmodel Reference {\n  id          String   @id @default(uuid())\n  paperId     String\n  referenceId String\n  createdAt   DateTime @default(now())\n\n  paper     ArxivPaper @relation(\"ArxivPaperReferences\", fields: [paperId], references: [id], onDelete: Cascade)\n  reference ArxivPaper @relation(\"ArxivPaperCitedBy\", fields: [referenceId], references: [id], onDelete: Cascade)\n\n  @@unique([paperId, referenceId])\n  @@index([paperId])\n  @@index([referenceId])\n}\n\nmodel SemanticScholarPaper {\n  id                       String   @id @default(uuid())\n  paperId                  String   @unique\n  url                      String?\n  citationCount            Int?\n  influentialCitationCount Int?\n  openAccessPdfUrl         String?\n  publicationTypes         String?\n  arxivPaperId             String   @unique\n  createdAt                DateTime @default(now())\n  updatedAt                DateTime @updatedAt\n\n  authors       SemanticScholarAuthor[]\n  fieldsOfStudy SemanticScholarFieldOfStudy[]\n  venue         SemanticScholarVenue?\n  arxivPaper    ArxivPaper                    @relation(fields: [arxivPaperId], references: [id], onDelete: Cascade)\n\n  @@index([arxivPaperId])\n  @@index([paperId])\n}\n\nmodel SemanticScholarAuthor {\n  id           String   @id @default(uuid())\n  authorId     String?\n  name         String\n  arxivPaperId String\n  createdAt    DateTime @default(now())\n\n  semanticScholarPaper SemanticScholarPaper @relation(fields: [arxivPaperId], references: [id], onDelete: Cascade)\n\n  @@index([arxivPaperId])\n  @@index([authorId])\n}\n\nmodel SemanticScholarFieldOfStudy {\n  id           String   @id @default(uuid())\n  field        String\n  category     String?\n  arxivPaperId String\n  createdAt    DateTime @default(now())\n\n  semanticScholarPaper SemanticScholarPaper @relation(fields: [arxivPaperId], references: [id], onDelete: Cascade)\n\n  @@index([arxivPaperId])\n  @@index([field])\n}\n\nmodel SemanticScholarVenue {\n  id           String   @id @default(uuid())\n  venue        String?\n  volume       String?\n  issue        String?\n  pages        String?\n  arxivPaperId String   @unique\n  createdAt    DateTime @default(now())\n\n  semanticScholarPaper SemanticScholarPaper @relation(fields: [arxivPaperId], references: [id], onDelete: Cascade)\n\n  @@index([arxivPaperId])\n}\n",
   "runtimeDataModel": {
     "models": {},
     "enums": {},
@@ -28,7 +28,7 @@ const config: runtime.GetPrismaClientConfig = {
   }
 }
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"Paper\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arxivId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arxivUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"authors\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"abstract\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"publishedDate\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"status\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"processedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"references\",\"kind\":\"object\",\"type\":\"Reference\",\"relationName\":\"PaperReferences\"},{\"name\":\"citedBy\",\"kind\":\"object\",\"type\":\"Reference\",\"relationName\":\"PaperCitedBy\"}],\"dbName\":null},\"Reference\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"paperId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"referenceId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"paper\",\"kind\":\"object\",\"type\":\"Paper\",\"relationName\":\"PaperReferences\"},{\"name\":\"reference\",\"kind\":\"object\",\"type\":\"Paper\",\"relationName\":\"PaperCitedBy\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"ArxivPaper\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arxivId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arxivUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"abstract\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"publishedDate\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"primaryCategory\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"license\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"updatedAtArxiv\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"comment\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"journalRef\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"doi\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"status\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"processedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"authors\",\"kind\":\"object\",\"type\":\"ArxivAuthorName\",\"relationName\":\"ArxivAuthorNameToArxivPaper\"},{\"name\":\"categories\",\"kind\":\"object\",\"type\":\"ArxivCategory\",\"relationName\":\"ArxivCategoryToArxivPaper\"},{\"name\":\"references\",\"kind\":\"object\",\"type\":\"Reference\",\"relationName\":\"ArxivPaperReferences\"},{\"name\":\"citedBy\",\"kind\":\"object\",\"type\":\"Reference\",\"relationName\":\"ArxivPaperCitedBy\"},{\"name\":\"semanticScholarPaper\",\"kind\":\"object\",\"type\":\"SemanticScholarPaper\",\"relationName\":\"ArxivPaperToSemanticScholarPaper\"}],\"dbName\":null},\"ArxivAuthorName\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"affiliation\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arxivPaperId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"arxivPaper\",\"kind\":\"object\",\"type\":\"ArxivPaper\",\"relationName\":\"ArxivAuthorNameToArxivPaper\"}],\"dbName\":null},\"ArxivCategory\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"category\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arxivPaperId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"arxivPaper\",\"kind\":\"object\",\"type\":\"ArxivPaper\",\"relationName\":\"ArxivCategoryToArxivPaper\"}],\"dbName\":null},\"Reference\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"paperId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"referenceId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"paper\",\"kind\":\"object\",\"type\":\"ArxivPaper\",\"relationName\":\"ArxivPaperReferences\"},{\"name\":\"reference\",\"kind\":\"object\",\"type\":\"ArxivPaper\",\"relationName\":\"ArxivPaperCitedBy\"}],\"dbName\":null},\"SemanticScholarPaper\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"paperId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"url\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"citationCount\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"influentialCitationCount\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"openAccessPdfUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"publicationTypes\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arxivPaperId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"authors\",\"kind\":\"object\",\"type\":\"SemanticScholarAuthor\",\"relationName\":\"SemanticScholarAuthorToSemanticScholarPaper\"},{\"name\":\"fieldsOfStudy\",\"kind\":\"object\",\"type\":\"SemanticScholarFieldOfStudy\",\"relationName\":\"SemanticScholarFieldOfStudyToSemanticScholarPaper\"},{\"name\":\"venue\",\"kind\":\"object\",\"type\":\"SemanticScholarVenue\",\"relationName\":\"SemanticScholarPaperToSemanticScholarVenue\"},{\"name\":\"arxivPaper\",\"kind\":\"object\",\"type\":\"ArxivPaper\",\"relationName\":\"ArxivPaperToSemanticScholarPaper\"}],\"dbName\":null},\"SemanticScholarAuthor\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"authorId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arxivPaperId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"semanticScholarPaper\",\"kind\":\"object\",\"type\":\"SemanticScholarPaper\",\"relationName\":\"SemanticScholarAuthorToSemanticScholarPaper\"}],\"dbName\":null},\"SemanticScholarFieldOfStudy\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"field\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"category\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arxivPaperId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"semanticScholarPaper\",\"kind\":\"object\",\"type\":\"SemanticScholarPaper\",\"relationName\":\"SemanticScholarFieldOfStudyToSemanticScholarPaper\"}],\"dbName\":null},\"SemanticScholarVenue\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"venue\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"volume\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"issue\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"pages\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arxivPaperId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"semanticScholarPaper\",\"kind\":\"object\",\"type\":\"SemanticScholarPaper\",\"relationName\":\"SemanticScholarPaperToSemanticScholarVenue\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 
 async function decodeBase64AsWasm(wasmBase64: string): Promise<WebAssembly.Module> {
   const { Buffer } = await import('node:buffer')
@@ -58,8 +58,8 @@ export interface PrismaClientConstructor {
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Papers
-   * const papers = await prisma.paper.findMany()
+   * // Fetch zero or more ArxivPapers
+   * const arxivPapers = await prisma.arxivPaper.findMany()
    * ```
    * 
    * Read more in our [docs](https://pris.ly/d/client).
@@ -80,8 +80,8 @@ export interface PrismaClientConstructor {
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Papers
- * const papers = await prisma.paper.findMany()
+ * // Fetch zero or more ArxivPapers
+ * const arxivPapers = await prisma.arxivPaper.findMany()
  * ```
  * 
  * Read more in our [docs](https://pris.ly/d/client).
@@ -175,14 +175,34 @@ export interface PrismaClient<
   }>>
 
       /**
-   * `prisma.paper`: Exposes CRUD operations for the **Paper** model.
+   * `prisma.arxivPaper`: Exposes CRUD operations for the **ArxivPaper** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Papers
-    * const papers = await prisma.paper.findMany()
+    * // Fetch zero or more ArxivPapers
+    * const arxivPapers = await prisma.arxivPaper.findMany()
     * ```
     */
-  get paper(): Prisma.PaperDelegate<ExtArgs, { omit: OmitOpts }>;
+  get arxivPaper(): Prisma.ArxivPaperDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.arxivAuthorName`: Exposes CRUD operations for the **ArxivAuthorName** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ArxivAuthorNames
+    * const arxivAuthorNames = await prisma.arxivAuthorName.findMany()
+    * ```
+    */
+  get arxivAuthorName(): Prisma.ArxivAuthorNameDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.arxivCategory`: Exposes CRUD operations for the **ArxivCategory** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ArxivCategories
+    * const arxivCategories = await prisma.arxivCategory.findMany()
+    * ```
+    */
+  get arxivCategory(): Prisma.ArxivCategoryDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
    * `prisma.reference`: Exposes CRUD operations for the **Reference** model.
@@ -193,6 +213,46 @@ export interface PrismaClient<
     * ```
     */
   get reference(): Prisma.ReferenceDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.semanticScholarPaper`: Exposes CRUD operations for the **SemanticScholarPaper** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SemanticScholarPapers
+    * const semanticScholarPapers = await prisma.semanticScholarPaper.findMany()
+    * ```
+    */
+  get semanticScholarPaper(): Prisma.SemanticScholarPaperDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.semanticScholarAuthor`: Exposes CRUD operations for the **SemanticScholarAuthor** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SemanticScholarAuthors
+    * const semanticScholarAuthors = await prisma.semanticScholarAuthor.findMany()
+    * ```
+    */
+  get semanticScholarAuthor(): Prisma.SemanticScholarAuthorDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.semanticScholarFieldOfStudy`: Exposes CRUD operations for the **SemanticScholarFieldOfStudy** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SemanticScholarFieldOfStudies
+    * const semanticScholarFieldOfStudies = await prisma.semanticScholarFieldOfStudy.findMany()
+    * ```
+    */
+  get semanticScholarFieldOfStudy(): Prisma.SemanticScholarFieldOfStudyDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.semanticScholarVenue`: Exposes CRUD operations for the **SemanticScholarVenue** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SemanticScholarVenues
+    * const semanticScholarVenues = await prisma.semanticScholarVenue.findMany()
+    * ```
+    */
+  get semanticScholarVenue(): Prisma.SemanticScholarVenueDelegate<ExtArgs, { omit: OmitOpts }>;
 }
 
 export function getPrismaClientClass(): PrismaClientConstructor {

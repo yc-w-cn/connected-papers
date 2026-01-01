@@ -174,8 +174,8 @@ export type ReferenceWhereInput = {
   paperId?: Prisma.StringFilter<"Reference"> | string
   referenceId?: Prisma.StringFilter<"Reference"> | string
   createdAt?: Prisma.DateTimeFilter<"Reference"> | Date | string
-  paper?: Prisma.XOR<Prisma.PaperScalarRelationFilter, Prisma.PaperWhereInput>
-  reference?: Prisma.XOR<Prisma.PaperScalarRelationFilter, Prisma.PaperWhereInput>
+  paper?: Prisma.XOR<Prisma.ArxivPaperScalarRelationFilter, Prisma.ArxivPaperWhereInput>
+  reference?: Prisma.XOR<Prisma.ArxivPaperScalarRelationFilter, Prisma.ArxivPaperWhereInput>
 }
 
 export type ReferenceOrderByWithRelationInput = {
@@ -183,8 +183,8 @@ export type ReferenceOrderByWithRelationInput = {
   paperId?: Prisma.SortOrder
   referenceId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  paper?: Prisma.PaperOrderByWithRelationInput
-  reference?: Prisma.PaperOrderByWithRelationInput
+  paper?: Prisma.ArxivPaperOrderByWithRelationInput
+  reference?: Prisma.ArxivPaperOrderByWithRelationInput
 }
 
 export type ReferenceWhereUniqueInput = Prisma.AtLeast<{
@@ -196,8 +196,8 @@ export type ReferenceWhereUniqueInput = Prisma.AtLeast<{
   paperId?: Prisma.StringFilter<"Reference"> | string
   referenceId?: Prisma.StringFilter<"Reference"> | string
   createdAt?: Prisma.DateTimeFilter<"Reference"> | Date | string
-  paper?: Prisma.XOR<Prisma.PaperScalarRelationFilter, Prisma.PaperWhereInput>
-  reference?: Prisma.XOR<Prisma.PaperScalarRelationFilter, Prisma.PaperWhereInput>
+  paper?: Prisma.XOR<Prisma.ArxivPaperScalarRelationFilter, Prisma.ArxivPaperWhereInput>
+  reference?: Prisma.XOR<Prisma.ArxivPaperScalarRelationFilter, Prisma.ArxivPaperWhereInput>
 }, "id" | "paperId_referenceId">
 
 export type ReferenceOrderByWithAggregationInput = {
@@ -223,8 +223,8 @@ export type ReferenceScalarWhereWithAggregatesInput = {
 export type ReferenceCreateInput = {
   id?: string
   createdAt?: Date | string
-  paper: Prisma.PaperCreateNestedOneWithoutReferencesInput
-  reference: Prisma.PaperCreateNestedOneWithoutCitedByInput
+  paper: Prisma.ArxivPaperCreateNestedOneWithoutReferencesInput
+  reference: Prisma.ArxivPaperCreateNestedOneWithoutCitedByInput
 }
 
 export type ReferenceUncheckedCreateInput = {
@@ -237,8 +237,8 @@ export type ReferenceUncheckedCreateInput = {
 export type ReferenceUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  paper?: Prisma.PaperUpdateOneRequiredWithoutReferencesNestedInput
-  reference?: Prisma.PaperUpdateOneRequiredWithoutCitedByNestedInput
+  paper?: Prisma.ArxivPaperUpdateOneRequiredWithoutReferencesNestedInput
+  reference?: Prisma.ArxivPaperUpdateOneRequiredWithoutCitedByNestedInput
 }
 
 export type ReferenceUncheckedUpdateInput = {
@@ -390,7 +390,7 @@ export type ReferenceUncheckedUpdateManyWithoutReferenceNestedInput = {
 export type ReferenceCreateWithoutPaperInput = {
   id?: string
   createdAt?: Date | string
-  reference: Prisma.PaperCreateNestedOneWithoutCitedByInput
+  reference: Prisma.ArxivPaperCreateNestedOneWithoutCitedByInput
 }
 
 export type ReferenceUncheckedCreateWithoutPaperInput = {
@@ -411,7 +411,7 @@ export type ReferenceCreateManyPaperInputEnvelope = {
 export type ReferenceCreateWithoutReferenceInput = {
   id?: string
   createdAt?: Date | string
-  paper: Prisma.PaperCreateNestedOneWithoutReferencesInput
+  paper: Prisma.ArxivPaperCreateNestedOneWithoutReferencesInput
 }
 
 export type ReferenceUncheckedCreateWithoutReferenceInput = {
@@ -486,7 +486,7 @@ export type ReferenceCreateManyReferenceInput = {
 export type ReferenceUpdateWithoutPaperInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  reference?: Prisma.PaperUpdateOneRequiredWithoutCitedByNestedInput
+  reference?: Prisma.ArxivPaperUpdateOneRequiredWithoutCitedByNestedInput
 }
 
 export type ReferenceUncheckedUpdateWithoutPaperInput = {
@@ -504,7 +504,7 @@ export type ReferenceUncheckedUpdateManyWithoutPaperInput = {
 export type ReferenceUpdateWithoutReferenceInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  paper?: Prisma.PaperUpdateOneRequiredWithoutReferencesNestedInput
+  paper?: Prisma.ArxivPaperUpdateOneRequiredWithoutReferencesNestedInput
 }
 
 export type ReferenceUncheckedUpdateWithoutReferenceInput = {
@@ -526,8 +526,8 @@ export type ReferenceSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   paperId?: boolean
   referenceId?: boolean
   createdAt?: boolean
-  paper?: boolean | Prisma.PaperDefaultArgs<ExtArgs>
-  reference?: boolean | Prisma.PaperDefaultArgs<ExtArgs>
+  paper?: boolean | Prisma.ArxivPaperDefaultArgs<ExtArgs>
+  reference?: boolean | Prisma.ArxivPaperDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["reference"]>
 
 export type ReferenceSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -535,8 +535,8 @@ export type ReferenceSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   paperId?: boolean
   referenceId?: boolean
   createdAt?: boolean
-  paper?: boolean | Prisma.PaperDefaultArgs<ExtArgs>
-  reference?: boolean | Prisma.PaperDefaultArgs<ExtArgs>
+  paper?: boolean | Prisma.ArxivPaperDefaultArgs<ExtArgs>
+  reference?: boolean | Prisma.ArxivPaperDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["reference"]>
 
 export type ReferenceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -544,8 +544,8 @@ export type ReferenceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   paperId?: boolean
   referenceId?: boolean
   createdAt?: boolean
-  paper?: boolean | Prisma.PaperDefaultArgs<ExtArgs>
-  reference?: boolean | Prisma.PaperDefaultArgs<ExtArgs>
+  paper?: boolean | Prisma.ArxivPaperDefaultArgs<ExtArgs>
+  reference?: boolean | Prisma.ArxivPaperDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["reference"]>
 
 export type ReferenceSelectScalar = {
@@ -557,23 +557,23 @@ export type ReferenceSelectScalar = {
 
 export type ReferenceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "paperId" | "referenceId" | "createdAt", ExtArgs["result"]["reference"]>
 export type ReferenceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  paper?: boolean | Prisma.PaperDefaultArgs<ExtArgs>
-  reference?: boolean | Prisma.PaperDefaultArgs<ExtArgs>
+  paper?: boolean | Prisma.ArxivPaperDefaultArgs<ExtArgs>
+  reference?: boolean | Prisma.ArxivPaperDefaultArgs<ExtArgs>
 }
 export type ReferenceIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  paper?: boolean | Prisma.PaperDefaultArgs<ExtArgs>
-  reference?: boolean | Prisma.PaperDefaultArgs<ExtArgs>
+  paper?: boolean | Prisma.ArxivPaperDefaultArgs<ExtArgs>
+  reference?: boolean | Prisma.ArxivPaperDefaultArgs<ExtArgs>
 }
 export type ReferenceIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  paper?: boolean | Prisma.PaperDefaultArgs<ExtArgs>
-  reference?: boolean | Prisma.PaperDefaultArgs<ExtArgs>
+  paper?: boolean | Prisma.ArxivPaperDefaultArgs<ExtArgs>
+  reference?: boolean | Prisma.ArxivPaperDefaultArgs<ExtArgs>
 }
 
 export type $ReferencePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Reference"
   objects: {
-    paper: Prisma.$PaperPayload<ExtArgs>
-    reference: Prisma.$PaperPayload<ExtArgs>
+    paper: Prisma.$ArxivPaperPayload<ExtArgs>
+    reference: Prisma.$ArxivPaperPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -974,8 +974,8 @@ readonly fields: ReferenceFieldRefs;
  */
 export interface Prisma__ReferenceClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  paper<T extends Prisma.PaperDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PaperDefaultArgs<ExtArgs>>): Prisma.Prisma__PaperClient<runtime.Types.Result.GetResult<Prisma.$PaperPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  reference<T extends Prisma.PaperDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PaperDefaultArgs<ExtArgs>>): Prisma.Prisma__PaperClient<runtime.Types.Result.GetResult<Prisma.$PaperPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  paper<T extends Prisma.ArxivPaperDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ArxivPaperDefaultArgs<ExtArgs>>): Prisma.Prisma__ArxivPaperClient<runtime.Types.Result.GetResult<Prisma.$ArxivPaperPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  reference<T extends Prisma.ArxivPaperDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ArxivPaperDefaultArgs<ExtArgs>>): Prisma.Prisma__ArxivPaperClient<runtime.Types.Result.GetResult<Prisma.$ArxivPaperPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
