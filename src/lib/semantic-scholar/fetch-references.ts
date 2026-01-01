@@ -1,3 +1,5 @@
+import { recordNetworkRequest } from '../network-request';
+
 export interface ArxivReference {
   arxivId: string;
   arxivUrl: string;
@@ -25,7 +27,12 @@ export async function fetchArxivReferences(arxivId: string): Promise<ArxivRefere
   const apiUrl = `https://api.semanticscholar.org/graph/v1/paper/arXiv:${arxivId}?fields=references.title,references.authors,references.authorId,references.externalIds,references.year,references.publicationDate,references.abstract,references.venue,references.volume,references.issue,references.pages,references.citationCount,references.influentialCitationCount,references.s2FieldsOfStudy,references.openAccessPdf,references.publicationTypes,references.url,references.paperId`;
   console.log(`请求 URL: ${apiUrl}`);
 
-  const response = await fetch(apiUrl);
+  const response = await recordNetworkRequest(
+    'semantic-scholar',
+    apiUrl,
+    () => fetch(apiUrl),
+    arxivId,
+  );
 
   if (!response.ok) {
     console.error(`请求失败 URL: ${apiUrl}`);

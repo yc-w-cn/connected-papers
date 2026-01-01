@@ -1,4 +1,5 @@
 import { XMLParser } from 'fast-xml-parser';
+import { recordNetworkRequest } from '../network-request';
 
 export interface ArxivAuthor {
   name: string;
@@ -23,12 +24,16 @@ export async function fetchArxivPaper(
   arxivId: string,
 ): Promise<ArxivPaperData> {
   console.log(`  [1/3] 正在从 arXiv API 获取论文数据...`);
+  const apiUrl = `https://export.arxiv.org/api/query?id_list=${arxivId}`;
   console.log(
-    `  [1/3] 请求 URL: https://export.arxiv.org/api/query?id_list=${arxivId}`,
+    `  [1/3] 请求 URL: ${apiUrl}`,
   );
 
-  const response = await fetch(
-    `https://export.arxiv.org/api/query?id_list=${arxivId}`,
+  const response = await recordNetworkRequest(
+    'arxiv',
+    apiUrl,
+    () => fetch(apiUrl),
+    arxivId,
   );
 
   if (!response.ok) {
