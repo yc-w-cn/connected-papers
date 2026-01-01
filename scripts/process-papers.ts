@@ -16,13 +16,13 @@ async function processPendingPapers() {
   let papersToProcess;
 
   if (targetArxivId) {
-    const paper = await prisma.paper.findUnique({
+    const paper = await prisma.arxivPaper.findUnique({
       where: { arxivId: targetArxivId },
     });
 
     if (!paper) {
       console.log(`论文 ${targetArxivId} 不存在于数据库中，正在创建...`);
-      const newPaper = await prisma.paper.create({
+      const newPaper = await prisma.arxivPaper.create({
         data: {
           arxivId: targetArxivId,
           arxivUrl: `https://arxiv.org/abs/${targetArxivId}`,
@@ -35,7 +35,7 @@ async function processPendingPapers() {
       papersToProcess = [paper];
     }
   } else {
-    papersToProcess = await prisma.paper.findMany({
+    papersToProcess = await prisma.arxivPaper.findMany({
       where: {
         status: 'pending',
       },
@@ -61,7 +61,7 @@ async function processPendingPapers() {
 
     try {
       console.log(`更新状态为: processing`);
-      await prisma.paper.update({
+      await prisma.arxivPaper.update({
         where: { id: paper.id },
         data: { status: 'processing' },
       });
@@ -69,24 +69,50 @@ async function processPendingPapers() {
       const arxivData = await fetchArxivPaper(paper.arxivId);
 
       console.log(`保存论文数据到数据库...`);
-      await prisma.paper.update({
+      await prisma.arxivPaper.update({
         where: { id: paper.id },
         data: {
           title: arxivData.title,
-          authors: arxivData.authors,
           abstract: arxivData.abstract,
           publishedDate: arxivData.publishedDate,
+          primaryCategory: arxivData.primaryCategory,
+          license: arxivData.license,
+          updatedAtArxiv: arxivData.updatedAtArxiv,
+          comment: arxivData.comment,
+          journalRef: arxivData.journalRef,
+          doi: arxivData.doi,
           status: 'completed',
           processedAt: new Date(),
         },
       });
+
+      console.log(`保存作者信息...`);
+      for (const author of arxivData.authors) {
+        await prisma.arxivAuthorName.create({
+          data: {
+            name: author.name,
+            affiliation: author.affiliation,
+            arxivPaperId: paper.id,
+          },
+        });
+      }
+
+      console.log(`保存分类信息...`);
+      for (const category of arxivData.categories) {
+        await prisma.arxivCategory.create({
+          data: {
+            category,
+            arxivPaperId: paper.id,
+          },
+        });
+      }
 
       console.log(`论文处理完成: ${paper.arxivId}`);
     } catch (error) {
       console.error(`\n论文处理失败: ${paper.arxivId}`);
       console.error(`错误信息:`, error);
 
-      await prisma.paper.update({
+      await prisma.arxivPaper.update({
         where: { id: paper.id },
         data: { status: 'failed' },
       });
