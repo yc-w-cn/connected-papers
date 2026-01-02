@@ -21,7 +21,7 @@ export function LoadingStatCards({ progress, targetValues }: LoadingStatCardsPro
     paperCount: 0,
     venueCount: 0,
   });
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     const animate = () => {
