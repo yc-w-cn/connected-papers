@@ -4,26 +4,31 @@ import { useEffect, useState } from 'react';
 import { StatCard } from '@/components/stat-card';
 import { NetworkGraph, NODE_COLORS } from '@/components/network-graph';
 import { LoadingBar } from '@/components/loading-bar';
+import { DataLoader } from '@/lib/data-loader';
 import type { ExportedData } from '@/types/data';
 
 export default function Home() {
   const [data, setData] = useState<ExportedData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [progress, setProgress] = useState(0);
+  const [currentChunk, setCurrentChunk] = useState('');
 
   useEffect(() => {
     async function loadData() {
       try {
-        const response = await fetch('/connected-papers/data.json', {
-          cache: 'force-cache',
+        const loader = new DataLoader();
+        const result = await loader.load({
+          onProgress: (progressValue, chunkName) => {
+            setProgress(progressValue);
+            setCurrentChunk(chunkName);
+          },
+          onError: (err) => {
+            console.error('加载数据失败:', err);
+            setError('数据加载失败');
+          },
         });
-
-        if (!response.ok) {
-          throw new Error('数据加载失败');
-        }
-
-        const result = await response.json();
-        setData(result);
+        setData(result.data);
       } catch (err) {
         console.error('加载数据失败:', err);
         setError('数据加载失败，请确保已运行导出脚本');
@@ -38,7 +43,7 @@ export default function Home() {
   if (isLoading) {
     return (
       <div className="flex min-h-screen flex-col bg-zinc-50">
-        <LoadingBar isLoading={isLoading} />
+        <LoadingBar isLoading={isLoading} progress={progress} />
         <div className="flex flex-1 items-center justify-center">
           <div className="text-center">
             <div className="mb-4">
@@ -48,7 +53,7 @@ export default function Home() {
               正在加载数据...
             </h2>
             <p className="text-lg text-zinc-600">
-              文件较大，请稍候
+              {Math.round(progress)}% - {currentChunk}
             </p>
           </div>
         </div>

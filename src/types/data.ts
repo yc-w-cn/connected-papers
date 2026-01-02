@@ -58,3 +58,23 @@ export interface ExportedData {
   papers: PaperData[];
   venues: VenueData[];
 }
+
+export interface DataChunk {
+  filename: string;
+  size: number;
+  count: number;
+}
+
+export interface DataManifest {
+  version: string;
+  statistics: Statistics;
+  chunks: {
+    statistics: DataChunk;
+    networkNodes: DataChunk[];
+    networkLinks: DataChunk[];
+    authors: DataChunk[];
+    papers: DataChunk[];
+    venues: DataChunk[];
+  };
+  totalSize: number;
+}

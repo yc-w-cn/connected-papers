@@ -1,7 +1,28 @@
 import { prisma } from '@/lib/prisma';
 import fs from 'fs';
 import path from 'path';
-import type { ExportedData, Node, Link, AuthorData, PaperData, VenueData } from '@/types/data';
+import type { Node, Link, AuthorData, PaperData, VenueData, DataManifest } from '@/types/data';
+
+function chunkArray<T>(array: T[], chunkSize: number): T[][] {
+  const chunks: T[][] = [];
+  for (let i = 0; i < array.length; i += chunkSize) {
+    chunks.push(array.slice(i, i + chunkSize));
+  }
+  return chunks;
+}
+
+function writeChunkFile(
+  filename: string,
+  data: unknown,
+  outputDir: string,
+): { filename: string; size: number; count: number } {
+  const filePath = path.join(outputDir, filename);
+  const jsonString = JSON.stringify(data, null, 2);
+  fs.writeFileSync(filePath, jsonString, 'utf-8');
+  const size = Buffer.byteLength(jsonString, 'utf-8');
+  const count = Array.isArray(data) ? data.length : 1;
+  return { filename, size, count };
+}
 
 async function exportData() {
   const papers = await prisma.arxivPaper.findMany({
@@ -106,30 +127,81 @@ async function exportData() {
     });
   });
 
-  const exportedData: ExportedData = {
-    statistics: {
-      authorCount: authorMap.size,
-      paperCount: paperMap.size,
-      venueCount: venueMap.size,
-    },
-    network: {
-      nodes,
-      links,
-    },
-    authors: Array.from(authorMap.values()),
-    papers: Array.from(paperMap.values()),
-    venues: Array.from(venueMap.values()),
+  const statistics = {
+    authorCount: authorMap.size,
+    paperCount: paperMap.size,
+    venueCount: venueMap.size,
   };
 
-  const outputPath = path.join(process.cwd(), 'public', 'data.json');
-  fs.writeFileSync(outputPath, JSON.stringify(exportedData, null, 2), 'utf-8');
+  const outputDir = path.join(process.cwd(), 'public', 'data-chunks');
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
 
-  console.log(`数据已导出到: ${outputPath}`);
-  console.log(`作者数量: ${exportedData.statistics.authorCount}`);
-  console.log(`论文数量: ${exportedData.statistics.paperCount}`);
-  console.log(`期刊数量: ${exportedData.statistics.venueCount}`);
-  console.log(`节点数量: ${exportedData.network.nodes.length}`);
-  console.log(`连接数量: ${exportedData.network.links.length}`);
+  const statisticsChunk = writeChunkFile('statistics.json', statistics, outputDir);
+
+  const nodeChunks = chunkArray(nodes, 5000);
+  const networkNodesChunks = nodeChunks.map((chunk, index) =>
+    writeChunkFile(`network-nodes-${index}.json`, chunk, outputDir),
+  );
+
+  const linkChunks = chunkArray(links, 10000);
+  const networkLinksChunks = linkChunks.map((chunk, index) =>
+    writeChunkFile(`network-links-${index}.json`, chunk, outputDir),
+  );
+
+  const authors = Array.from(authorMap.values());
+  const authorChunks = chunkArray(authors, 2000);
+  const authorsChunks = authorChunks.map((chunk, index) =>
+    writeChunkFile(`authors-${index}.json`, chunk, outputDir),
+  );
+
+  const papersArray = Array.from(paperMap.values());
+  const paperChunks = chunkArray(papersArray, 500);
+  const papersChunks = paperChunks.map((chunk, index) =>
+    writeChunkFile(`papers-${index}.json`, chunk, outputDir),
+  );
+
+  const venues = Array.from(venueMap.values());
+  const venueChunks = chunkArray(venues, 500);
+  const venuesChunks = venueChunks.map((chunk, index) =>
+    writeChunkFile(`venues-${index}.json`, chunk, outputDir),
+  );
+
+  const totalSize =
+    statisticsChunk.size +
+    networkNodesChunks.reduce((sum, c) => sum + c.size, 0) +
+    networkLinksChunks.reduce((sum, c) => sum + c.size, 0) +
+    authorsChunks.reduce((sum, c) => sum + c.size, 0) +
+    papersChunks.reduce((sum, c) => sum + c.size, 0) +
+    venuesChunks.reduce((sum, c) => sum + c.size, 0);
+
+  const manifest: DataManifest = {
+    version: '1.0.0',
+    statistics,
+    chunks: {
+      statistics: statisticsChunk,
+      networkNodes: networkNodesChunks,
+      networkLinks: networkLinksChunks,
+      authors: authorsChunks,
+      papers: papersChunks,
+      venues: venuesChunks,
+    },
+    totalSize,
+  };
+
+  const manifestPath = path.join(process.cwd(), 'public', 'data-manifest.json');
+  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf-8');
+
+  console.log(`数据已导出到: ${outputDir}`);
+  console.log(`Manifest 已导出到: ${manifestPath}`);
+  console.log(`作者数量: ${statistics.authorCount}`);
+  console.log(`论文数量: ${statistics.paperCount}`);
+  console.log(`期刊数量: ${statistics.venueCount}`);
+  console.log(`节点数量: ${nodes.length}`);
+  console.log(`连接数量: ${links.length}`);
+  console.log(`总分片数量: ${1 + networkNodesChunks.length + networkLinksChunks.length + authorsChunks.length + papersChunks.length + venuesChunks.length}`);
+  console.log(`总大小: ${(totalSize / 1024 / 1024).toFixed(2)} MB`);
 }
 
 exportData()
