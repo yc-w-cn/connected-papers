@@ -5,10 +5,9 @@ import { useEffect, useState } from 'react';
 interface LoadingBarProps {
   isLoading: boolean;
   progress?: number;
-  currentChunk?: string;
 }
 
-export function LoadingBar({ isLoading, progress, currentChunk }: LoadingBarProps) {
+export function LoadingBar({ isLoading, progress }: LoadingBarProps) {
   const [displayProgress, setDisplayProgress] = useState(0);
 
   useEffect(() => {
