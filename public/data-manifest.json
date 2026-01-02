@@ -1,0 +1,121 @@
+{
+  "version": "1.0.0",
+  "statistics": {
+    "authorCount": 12534,
+    "paperCount": 1281,
+    "venueCount": 1264
+  },
+  "chunks": {
+    "statistics": {
+      "filename": "statistics.json",
+      "size": 70,
+      "count": 1
+    },
+    "networkNodes": [
+      {
+        "filename": "network-nodes-0.json",
+        "size": 581928,
+        "count": 5000
+      },
+      {
+        "filename": "network-nodes-1.json",
+        "size": 598984,
+        "count": 5000
+      },
+      {
+        "filename": "network-nodes-2.json",
+        "size": 596594,
+        "count": 5000
+      },
+      {
+        "filename": "network-nodes-3.json",
+        "size": 10256,
+        "count": 79
+      }
+    ],
+    "networkLinks": [
+      {
+        "filename": "network-links-0.json",
+        "size": 1398244,
+        "count": 10000
+      },
+      {
+        "filename": "network-links-1.json",
+        "size": 1105478,
+        "count": 7854
+      }
+    ],
+    "authors": [
+      {
+        "filename": "authors-0.json",
+        "size": 193629,
+        "count": 2000
+      },
+      {
+        "filename": "authors-1.json",
+        "size": 172397,
+        "count": 2000
+      },
+      {
+        "filename": "authors-2.json",
+        "size": 172418,
+        "count": 2000
+      },
+      {
+        "filename": "authors-3.json",
+        "size": 172361,
+        "count": 2000
+      },
+      {
+        "filename": "authors-4.json",
+        "size": 170848,
+        "count": 2000
+      },
+      {
+        "filename": "authors-5.json",
+        "size": 184492,
+        "count": 2000
+      },
+      {
+        "filename": "authors-6.json",
+        "size": 46148,
+        "count": 534
+      }
+    ],
+    "papers": [
+      {
+        "filename": "papers-0.json",
+        "size": 752103,
+        "count": 500
+      },
+      {
+        "filename": "papers-1.json",
+        "size": 751057,
+        "count": 500
+      },
+      {
+        "filename": "papers-2.json",
+        "size": 409778,
+        "count": 281
+      }
+    ],
+    "venues": [
+      {
+        "filename": "venues-0.json",
+        "size": 58712,
+        "count": 500
+      },
+      {
+        "filename": "venues-1.json",
+        "size": 58165,
+        "count": 500
+      },
+      {
+        "filename": "venues-2.json",
+        "size": 30625,
+        "count": 264
+      }
+    ]
+  },
+  "totalSize": 7464287
+}

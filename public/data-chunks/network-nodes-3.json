@@ -1,0 +1,410 @@
+[
+  {
+    "id": "1deb41cd-6518-4d2b-8e86-47a7748d24ed",
+    "type": "author",
+    "label": "Shashi Narayan"
+  },
+  {
+    "id": "b3f49edb-83ca-49e8-abfe-8a57f9a887fd",
+    "type": "author",
+    "label": "Thibault Sellam"
+  },
+  {
+    "id": "21d0c3f5-0bb8-4be1-8c90-fe1d7e084753",
+    "type": "author",
+    "label": "Ankur P. Parikh"
+  },
+  {
+    "id": "a41dc6a2-285e-4f66-b654-780c8f6badfb",
+    "type": "paper",
+    "label": "MultiFC: A Real-World Multi-Domain Dataset for Evidence-Based Fact Checking of Claims",
+    "citationCount": 286
+  },
+  {
+    "id": "2a0f3bef-9c49-4f01-8ab0-c8f761ccc145",
+    "type": "venue",
+    "label": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "7602c404-c009-455e-9ecf-3b1eaf0c0e8f",
+    "type": "author",
+    "label": "Isabelle Augenstein"
+  },
+  {
+    "id": "f424c4c8-870a-4773-940b-7be75fdc7b2d",
+    "type": "author",
+    "label": "Christina Lioma"
+  },
+  {
+    "id": "e4a18dd0-48d2-4e8a-ab49-080c0baa8139",
+    "type": "author",
+    "label": "Dongsheng Wang"
+  },
+  {
+    "id": "dca85683-04bd-4204-901f-5b5523c417db",
+    "type": "author",
+    "label": "Lucas Chaves Lima"
+  },
+  {
+    "id": "db627420-4b6c-4f75-8bd5-b5439d01013e",
+    "type": "author",
+    "label": "Casper Hansen"
+  },
+  {
+    "id": "91e56f83-a23e-4d9e-98bc-12dfdf650681",
+    "type": "author",
+    "label": "Christian Hansen"
+  },
+  {
+    "id": "34c63b9f-ea0b-4836-8222-95e929be56e7",
+    "type": "author",
+    "label": "Jakob Grue Simonsen"
+  },
+  {
+    "id": "f316c7f3-bb07-48e2-bc27-7f8de9753b84",
+    "type": "paper",
+    "label": "A Richly Annotated Corpus for Different Tasks in Automated Fact-Checking",
+    "citationCount": 130
+  },
+  {
+    "id": "e12d4922-0aa4-45b0-a901-cea6bc9d79e3",
+    "type": "venue",
+    "label": "Conference on Computational Natural Language Learning"
+  },
+  {
+    "id": "55e1042e-2785-4acc-8009-a3c9a75f9b36",
+    "type": "author",
+    "label": "Andreas Hanselowski"
+  },
+  {
+    "id": "d49e6025-6872-4393-8113-ab516d5c6d6e",
+    "type": "author",
+    "label": "Christian Stab"
+  },
+  {
+    "id": "25a2db51-3daf-43aa-bfb9-2d3822070b2c",
+    "type": "author",
+    "label": "Claudia Schulz"
+  },
+  {
+    "id": "ebaa966e-50f6-4cc3-ad0c-57386a1a43db",
+    "type": "author",
+    "label": "Zile Li"
+  },
+  {
+    "id": "9e242f04-9e73-4eeb-9fb6-e443c835f45f",
+    "type": "author",
+    "label": "Iryna Gurevych"
+  },
+  {
+    "id": "8d030c62-3cf0-475c-916c-885baf0e7bdf",
+    "type": "paper",
+    "label": "On NMT Search Errors and Model Errors: Cat Got Your Tongue?",
+    "citationCount": 160
+  },
+  {
+    "id": "9bd3d2b5-f726-4fd5-95d3-d9f2ff030a24",
+    "type": "venue",
+    "label": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "b30fe329-95f1-4479-9e3c-856145f9d9d8",
+    "type": "author",
+    "label": "Felix Stahlberg"
+  },
+  {
+    "id": "fc41c369-10ca-400b-b434-9cddc5b6cd6f",
+    "type": "author",
+    "label": "Bill Byrne"
+  },
+  {
+    "id": "b7e93d46-4c93-41d3-b9ed-b92685b12613",
+    "type": "paper",
+    "label": "Reinforcement Learning Based Graph-to-Sequence Model for Natural Question Generation",
+    "citationCount": 163
+  },
+  {
+    "id": "b4b557e0-a6f1-49e2-be5a-208eb05d743c",
+    "type": "venue",
+    "label": "International Conference on Learning Representations"
+  },
+  {
+    "id": "a5b0f528-7fa9-41f2-a179-5e58c9dda40e",
+    "type": "author",
+    "label": "Yu Chen"
+  },
+  {
+    "id": "9e356d97-c605-44cb-8ec5-f60aa53f0755",
+    "type": "author",
+    "label": "Lingfei Wu"
+  },
+  {
+    "id": "bbcef654-9ebd-4685-acf6-8cfa629ce51d",
+    "type": "author",
+    "label": "Mohammed J. Zaki"
+  },
+  {
+    "id": "0d492354-09a0-4d2e-b419-985de3238fe1",
+    "type": "paper",
+    "label": "Neural Text Generation with Unlikelihood Training",
+    "citationCount": 642
+  },
+  {
+    "id": "f4be837d-7e83-49e9-8764-d5949315ba6f",
+    "type": "venue",
+    "label": "International Conference on Learning Representations"
+  },
+  {
+    "id": "e9fc5cfa-536c-4e4d-ab1c-d9415950d086",
+    "type": "author",
+    "label": "Sean Welleck"
+  },
+  {
+    "id": "e1e994b5-d405-421f-b567-e21e9f72d393",
+    "type": "author",
+    "label": "Ilia Kulikov"
+  },
+  {
+    "id": "58905169-4fd6-4b8a-ba66-41ecaeb4caa7",
+    "type": "author",
+    "label": "Stephen Roller"
+  },
+  {
+    "id": "7f00ed9d-7ce5-4305-a1c0-4798587861ba",
+    "type": "author",
+    "label": "Emily Dinan"
+  },
+  {
+    "id": "1349d890-b84b-4945-bffa-87b9854431d4",
+    "type": "author",
+    "label": "Kyunghyun Cho"
+  },
+  {
+    "id": "bf1edce5-9905-4a54-a01e-2bb8c57da562",
+    "type": "author",
+    "label": "Jason Weston"
+  },
+  {
+    "id": "a723d37f-39f6-4596-b77f-8d96adb94fff",
+    "type": "paper",
+    "label": "Theoretical Limitations of Self-Attention in Neural Sequence Models",
+    "citationCount": 333
+  },
+  {
+    "id": "8c1226b9-68d7-4a6e-be3c-6d176970979f",
+    "type": "venue",
+    "label": "Transactions of the Association for Computational Linguistics"
+  },
+  {
+    "id": "1d733e75-3a40-4a42-bffc-62d3b6be4bdc",
+    "type": "author",
+    "label": "Michael Hahn"
+  },
+  {
+    "id": "aaceee7d-d283-4c97-81f6-5d4964a93502",
+    "type": "paper",
+    "label": "Assessing The Factual Accuracy of Generated Text",
+    "citationCount": 205
+  },
+  {
+    "id": "ebd257e9-7300-4f5a-a552-b20018af0c09",
+    "type": "venue",
+    "label": "Knowledge Discovery and Data Mining"
+  },
+  {
+    "id": "3d19f490-e9ea-4ba4-8c4d-92d5c7f1abe0",
+    "type": "author",
+    "label": "Ben Goodrich"
+  },
+  {
+    "id": "e81f8282-1fee-4dbf-84da-007c814ab4ae",
+    "type": "author",
+    "label": "Vinay Rao"
+  },
+  {
+    "id": "81ed10da-67e4-4a3c-a8a7-4c7283dccb2e",
+    "type": "author",
+    "label": "Mohammad Saleh"
+  },
+  {
+    "id": "d9e22543-891b-468e-b22d-96cb52f18951",
+    "type": "author",
+    "label": "Peter J Liu"
+  },
+  {
+    "id": "08450b33-9f8b-4509-bc8b-fbaa25672afd",
+    "type": "paper",
+    "label": "Analyzing Multi-Head Self-Attention: Specialized Heads Do the Heavy Lifting, the Rest Can Be Pruned",
+    "citationCount": 1318
+  },
+  {
+    "id": "ceb5318e-51d1-465c-8b78-6dfdd029d9aa",
+    "type": "venue",
+    "label": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "b7624bea-5224-4479-bb30-ffa5b73311c5",
+    "type": "author",
+    "label": "Elena Voita"
+  },
+  {
+    "id": "4a22ff27-4d69-471d-8e40-ec9c9e1ac05f",
+    "type": "author",
+    "label": "David Talbot"
+  },
+  {
+    "id": "d9039758-aaf1-44a8-805f-ce9c05092a72",
+    "type": "author",
+    "label": "Fedor Moiseev"
+  },
+  {
+    "id": "7f099b48-ce0c-4612-a958-6c2c0a0d8192",
+    "type": "author",
+    "label": "Rico Sennrich"
+  },
+  {
+    "id": "b1691432-fdab-4e05-8773-bd015bcd4465",
+    "type": "author",
+    "label": "Ivan Titov"
+  },
+  {
+    "id": "18ca1ef5-a99d-41b4-8b2f-66fac7c580ae",
+    "type": "paper",
+    "label": "From Recognition to Cognition: Visual Commonsense Reasoning",
+    "citationCount": 985
+  },
+  {
+    "id": "d2c38c2d-4486-470a-bd4d-821cb183203b",
+    "type": "venue",
+    "label": "Computer Vision and Pattern Recognition"
+  },
+  {
+    "id": "c3ac658a-8867-4562-bf64-a4416baa63e0",
+    "type": "author",
+    "label": "Rowan Zellers"
+  },
+  {
+    "id": "40ac7f46-9286-4d3c-9616-ea4940249d5d",
+    "type": "author",
+    "label": "Yonatan Bisk"
+  },
+  {
+    "id": "51f37488-e09c-4711-965c-b8624a7d6ffc",
+    "type": "author",
+    "label": "Ali Farhadi"
+  },
+  {
+    "id": "9340c06c-4564-4cc1-aacd-5157fec10be3",
+    "type": "author",
+    "label": "Yejin Choi"
+  },
+  {
+    "id": "b5ef6c31-8354-4533-9ce0-bdfc2c20f709",
+    "type": "paper",
+    "label": "Breaking the Softmax Bottleneck: A High-Rank RNN Language Model",
+    "citationCount": 398
+  },
+  {
+    "id": "02fd97c5-17d6-425a-8752-4bb603e62876",
+    "type": "venue",
+    "label": "International Conference on Learning Representations"
+  },
+  {
+    "id": "1ef5fac9-45d6-4f6f-a475-680fd263cb05",
+    "type": "author",
+    "label": "Zhilin Yang"
+  },
+  {
+    "id": "4ce047db-b830-4d5b-98e6-c14a20044dac",
+    "type": "author",
+    "label": "Zihang Dai"
+  },
+  {
+    "id": "7c560052-e6c7-46df-a65b-46bededf32f5",
+    "type": "author",
+    "label": "Ruslan Salakhutdinov"
+  },
+  {
+    "id": "4af63439-b1b6-498f-aac3-125ba78e1e76",
+    "type": "author",
+    "label": "William W. Cohen"
+  },
+  {
+    "id": "04672a8e-bdd6-483a-9267-3d15275facfb",
+    "type": "paper",
+    "label": "Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles",
+    "citationCount": 6694
+  },
+  {
+    "id": "633075ef-fc5f-4ae1-b59c-7b374f4243a9",
+    "type": "venue",
+    "label": "Neural Information Processing Systems"
+  },
+  {
+    "id": "7dd9352f-7cc7-440a-90bb-91675da6e65f",
+    "type": "author",
+    "label": "Balaji Lakshminarayanan"
+  },
+  {
+    "id": "dff655f1-9af1-447a-89f0-2b1a32c33d07",
+    "type": "author",
+    "label": "Alexander Pritzel"
+  },
+  {
+    "id": "66204c07-4503-480c-8c1c-94dbf25ea894",
+    "type": "author",
+    "label": "Charles Blundell"
+  },
+  {
+    "id": "46996a32-c16f-4dac-a9fa-9d58c9025a1b",
+    "type": "paper",
+    "label": "Scheduled Sampling for Sequence Prediction with Recurrent Neural Networks",
+    "citationCount": 2181
+  },
+  {
+    "id": "8746b35a-7566-4cac-b181-1f1d16ab5fc3",
+    "type": "venue",
+    "label": "Neural Information Processing Systems"
+  },
+  {
+    "id": "f2eeafc7-84d0-46a7-a9e5-23a46b4407ff",
+    "type": "author",
+    "label": "Samy Bengio"
+  },
+  {
+    "id": "b6a5c927-c33a-4e14-8e71-406e26e9f159",
+    "type": "author",
+    "label": "Oriol Vinyals"
+  },
+  {
+    "id": "ef120902-5f24-4057-bd54-dfcbbf62d71c",
+    "type": "author",
+    "label": "Navdeep Jaitly"
+  },
+  {
+    "id": "5e6c7243-9185-475f-b96c-2be314161593",
+    "type": "author",
+    "label": "Noam Shazeer"
+  },
+  {
+    "id": "0469bde9-3f4f-481e-ac99-5a4e95e4d49f",
+    "type": "paper",
+    "label": "Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning",
+    "citationCount": 10610
+  },
+  {
+    "id": "6297abd5-73f1-4449-828e-60d66cdac5ed",
+    "type": "venue",
+    "label": "International Conference on Machine Learning"
+  },
+  {
+    "id": "81569829-17f0-409b-b460-e3ce48fd93a5",
+    "type": "author",
+    "label": "Yarin Gal"
+  },
+  {
+    "id": "bdae78b1-9250-4044-8922-b680052961e5",
+    "type": "author",
+    "label": "Zoubin Ghahramani"
+  }
+]

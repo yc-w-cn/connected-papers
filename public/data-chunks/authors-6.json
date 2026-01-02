@@ -1,0 +1,2138 @@
+[
+  {
+    "id": "1d4549cd-c092-4007-b833-5e504f865f96",
+    "name": "Pascale Fung"
+  },
+  {
+    "id": "d20b43db-aa97-434b-b4b8-3f9de8fa8164",
+    "name": "Jie Huang"
+  },
+  {
+    "id": "7b9e22ac-8ec3-4223-8246-72d98aa0674c",
+    "name": "Xinyun Chen"
+  },
+  {
+    "id": "7aa731ed-6e85-4f76-a5a8-18b7a9e10235",
+    "name": "Swaroop Mishra"
+  },
+  {
+    "id": "567d138f-9431-486f-83da-4d5a87bd2a1a",
+    "name": "Huaixiu Steven Zheng"
+  },
+  {
+    "id": "86b0e68b-e9b1-4b50-94ed-2938a69ca473",
+    "name": "Adams Wei Yu"
+  },
+  {
+    "id": "90755e9d-5d81-433b-99d4-eec708164fe9",
+    "name": "Xinying Song"
+  },
+  {
+    "id": "e5632f93-c099-4bae-8776-75e1b7f5b5e4",
+    "name": "Denny Zhou"
+  },
+  {
+    "id": "abd688a4-c9b3-4e25-8332-b8b755c61e13",
+    "name": "Amanda Bertsch"
+  },
+  {
+    "id": "732d7284-3363-4299-aacd-37c00a4a586b",
+    "name": "Alex Xie"
+  },
+  {
+    "id": "845e7a1e-9e06-4087-8590-21316eaaf17f",
+    "name": "Graham Neubig"
+  },
+  {
+    "id": "3fac91e2-fbf4-4204-8bc6-fa41b7d7a25e",
+    "name": "Matthew R. Gormley"
+  },
+  {
+    "id": "a701a6c4-516a-4f0c-bac5-0f7877e5a65d",
+    "name": "Lorenzo Pacchiardi"
+  },
+  {
+    "id": "620fa504-092a-41f3-8687-6deb4c04078f",
+    "name": "Alex J. Chan"
+  },
+  {
+    "id": "199a0944-7c0c-4e54-8efe-e0ecec4c9d9c",
+    "name": "Sören Mindermann"
+  },
+  {
+    "id": "1d75dd6e-950e-4c50-ac0f-78a82824d9df",
+    "name": "Ilan Moscovitz"
+  },
+  {
+    "id": "1b6381c1-5d7a-4939-ad91-3765445d5afb",
+    "name": "Alexa Y. Pan"
+  },
+  {
+    "id": "875d3d3d-c48d-4e7e-b14b-5ca051138e9d",
+    "name": "Yarin Gal"
+  },
+  {
+    "id": "58225b16-df36-4476-885c-62c7468534c9",
+    "name": "Owain Evans"
+  },
+  {
+    "id": "a4bd50a7-c897-4a69-9179-56b42621c8f8",
+    "name": "Jan Brauner"
+  },
+  {
+    "id": "d267a5da-3da0-4eb1-9a94-bb3be3082624",
+    "name": "Lukas Berglund"
+  },
+  {
+    "id": "6fb4c895-afea-49b5-970b-954711d17676",
+    "name": "Meg Tong"
+  },
+  {
+    "id": "aff8903c-4b0e-40c8-a143-0117e072f421",
+    "name": "Max Kaufmann"
+  },
+  {
+    "id": "07ad358e-44c5-4004-800d-0331c6e2b9de",
+    "name": "Mikita Balesni"
+  },
+  {
+    "id": "64225606-a38d-42a6-9385-e1ba70f1506f",
+    "name": "Asa Cooper Stickland"
+  },
+  {
+    "id": "0546fa6f-6590-4274-83e4-485441d75e7e",
+    "name": "Tomasz Korbak"
+  },
+  {
+    "id": "bce95483-1fcf-47dc-a89d-45eae505ee59",
+    "name": "Owain Evans"
+  },
+  {
+    "id": "ca19bf93-5b18-4bb6-8435-3ca508728cd7",
+    "name": "Vipula Rawte"
+  },
+  {
+    "id": "86ad5fe4-3106-40ac-8963-90b806adbb62",
+    "name": "Amit Sheth"
+  },
+  {
+    "id": "a69ad64c-1cd5-423e-ad80-af8f165fc3fe",
+    "name": "Amitava Das"
+  },
+  {
+    "id": "523cac6a-c466-4d4d-9f68-9785b84d79d7",
+    "name": "Yijie Chen"
+  },
+  {
+    "id": "86707277-ab73-44b5-a8ea-fe32e96c441d",
+    "name": "Yijin Liu"
+  },
+  {
+    "id": "6f19a561-99b9-4f47-b532-472bfadaf3ab",
+    "name": "Fandong Meng"
+  },
+  {
+    "id": "7c875c76-3606-42ed-b465-6392d2ae1911",
+    "name": "Yufeng Chen"
+  },
+  {
+    "id": "7c8e7415-fce4-462d-9cbf-af901dea824a",
+    "name": "Jinan Xu"
+  },
+  {
+    "id": "7402ee0c-7708-4d9f-93fa-452338a9131a",
+    "name": "Jie Zhou"
+  },
+  {
+    "id": "a3f3d51a-6e50-4827-80ae-5f5eb2597075",
+    "name": "Shengyu Zhang"
+  },
+  {
+    "id": "251dc99c-67dd-4618-a44e-35e476c7e1a2",
+    "name": "Linfeng Dong"
+  },
+  {
+    "id": "81c4a7c1-c1c4-4df9-8cee-642fb8180bd8",
+    "name": "Xiaoya Li"
+  },
+  {
+    "id": "6c51c63d-6518-4183-b828-ca44a7f78e70",
+    "name": "Sen Zhang"
+  },
+  {
+    "id": "2c884c61-2e69-4c0b-a4ba-4493e2227423",
+    "name": "Xiaofei Sun"
+  },
+  {
+    "id": "4bdb8d7c-deb1-4f23-9b28-5734e051e647",
+    "name": "Shuhe Wang"
+  },
+  {
+    "id": "d4742525-9bc9-4ace-9dc0-6f2e321ee527",
+    "name": "Jiwei Li"
+  },
+  {
+    "id": "87428636-7054-44bf-80cf-412c9f343ba3",
+    "name": "Runyi Hu"
+  },
+  {
+    "id": "eb26dd19-37fd-4b6c-bc22-52c22ed9390f",
+    "name": "Tianwei Zhang"
+  },
+  {
+    "id": "dc3f9031-e69c-4b8e-bb3e-1ae6bdafe930",
+    "name": "Fei Wu"
+  },
+  {
+    "id": "e5b1c375-4814-4285-bef2-c6f01553b97d",
+    "name": "Guoyin Wang"
+  },
+  {
+    "id": "4de23877-a7c8-4e8b-a632-7f3e83921674",
+    "name": "Zhixiao Qi"
+  },
+  {
+    "id": "57509398-4d66-42ee-881b-9ba5ec5e3d4c",
+    "name": "Yijiong Yu"
+  },
+  {
+    "id": "1b290a56-d8ec-411b-bc35-b7d354588337",
+    "name": "Meiqi Tu"
+  },
+  {
+    "id": "f54357a8-b372-487b-bb76-0f646900edc1",
+    "name": "Junyi Tan"
+  },
+  {
+    "id": "31e49cea-1621-405f-a83a-bb72ef95e294",
+    "name": "Yongfeng Huang"
+  },
+  {
+    "id": "d314955d-cd7f-4911-8264-2e02086a7fbd",
+    "name": "Suhang Wu"
+  },
+  {
+    "id": "db5bb4b7-a2c1-4b61-9aae-a271a8e7bcce",
+    "name": "Ante Wang"
+  },
+  {
+    "id": "9ac5cf67-bc85-4202-9ad3-aadf2c595007",
+    "name": "Minlong Peng"
+  },
+  {
+    "id": "a67904ed-4d09-4788-8a5c-2ba00c90e72e",
+    "name": "Yujie Lin"
+  },
+  {
+    "id": "5727df8c-cde7-40e6-815a-43aee5e4c7e6",
+    "name": "Wenbo Li"
+  },
+  {
+    "id": "a2ab5c21-6a21-4010-9aed-f4c3b0863db3",
+    "name": "Mingming Sun"
+  },
+  {
+    "id": "a7d746c0-828a-4d1f-b6d1-8933ab21e6b4",
+    "name": "Jinsong Su"
+  },
+  {
+    "id": "66aed6e0-d6a0-4d2b-be5b-bb28bb11e914",
+    "name": "Liangming Pan"
+  },
+  {
+    "id": "398ffd12-ce61-41dd-b113-b629bcd8ca83",
+    "name": "Michael Saxon"
+  },
+  {
+    "id": "cf946c6b-9ea2-465c-98b5-2f2b69910b9f",
+    "name": "Wenda Xu"
+  },
+  {
+    "id": "b1169a76-83e4-4e2d-9a4b-003cdaaa2035",
+    "name": "Deepak Nathani"
+  },
+  {
+    "id": "6abe7199-f226-4ae0-84e7-224fbe42be1d",
+    "name": "Xinyi Wang"
+  },
+  {
+    "id": "9298b6d9-d1b5-4db1-ae3c-ee6fefb3b32b",
+    "name": "William Yang Wang"
+  },
+  {
+    "id": "fc82d4b4-362e-4b1b-b0a7-3aed27f3328b",
+    "name": "Vaibhav Adlakha"
+  },
+  {
+    "id": "c23d655d-8f32-46c7-91ed-c0f579e5d5ec",
+    "name": "Parishad BehnamGhader"
+  },
+  {
+    "id": "15c554d8-388f-4f91-a685-50c92159d1bf",
+    "name": "Xing Han Lu"
+  },
+  {
+    "id": "eb6eaa9e-3fba-4870-9979-8b8f98fec075",
+    "name": "Nicholas Meade"
+  },
+  {
+    "id": "14572c41-cb56-4c58-9f4d-637001cf8b11",
+    "name": "Siva Reddy"
+  },
+  {
+    "id": "b9f53832-b479-4ee0-ac59-e931e0ab1955",
+    "name": "B. A. Levinstein"
+  },
+  {
+    "id": "35c2dc31-5bb9-4da5-8f9a-6871551e2189",
+    "name": "Daniel A. Herrmann"
+  },
+  {
+    "id": "ab2264de-6fc9-4af7-9539-6d44bc83fc5a",
+    "name": "Fuxiao Liu"
+  },
+  {
+    "id": "e21cf276-850a-4e27-a16e-23cfb4aa8bb0",
+    "name": "Kevin Lin"
+  },
+  {
+    "id": "6f4cab72-2e9e-468b-913d-53e91b956e82",
+    "name": "Linjie Li"
+  },
+  {
+    "id": "b6f8685c-2f42-454c-a333-aef0581d4aba",
+    "name": "Jianfeng Wang"
+  },
+  {
+    "id": "ddae066f-c650-4bea-b0f5-826b302c6ddc",
+    "name": "Yaser Yacoob"
+  },
+  {
+    "id": "57fbba06-0487-4990-87d1-7980eca3f47f",
+    "name": "Lijuan Wang"
+  },
+  {
+    "id": "590a945c-e762-4572-b55e-3f600fe5b45d",
+    "name": "Siqing Huo"
+  },
+  {
+    "id": "4b1381e3-4848-4759-90e2-83ac01ed4b06",
+    "name": "Negar Arabzadeh"
+  },
+  {
+    "id": "5b26530d-3733-4c3b-ab08-fea0141dfd6f",
+    "name": "Charles L. A. Clarke"
+  },
+  {
+    "id": "9a2b986c-1fc7-4279-89e8-670902c19e98",
+    "name": "Jinheon Baek"
+  },
+  {
+    "id": "58a0d397-2c00-47d0-a0aa-e3d916749636",
+    "name": "Alham Fikri Aji"
+  },
+  {
+    "id": "42f63963-d2f4-4c3a-8996-16901873384c",
+    "name": "Amir Saffari"
+  },
+  {
+    "id": "bd23fadc-28c9-4a04-ad08-aac1185ef709",
+    "name": "Anirban Mukherjee"
+  },
+  {
+    "id": "8509f871-9ca0-49a2-8ed3-cc7ebeffa71f",
+    "name": "Hannah Chang"
+  },
+  {
+    "id": "6d23d953-9f19-4942-8f41-d8a08b36b685",
+    "name": "Sameer Jain"
+  },
+  {
+    "id": "8ce53f7a-aa1b-4d41-9150-90f2516a348e",
+    "name": "Vaishakh Keshava"
+  },
+  {
+    "id": "63f6c988-f43a-4025-a7b0-c30f45c95cbd",
+    "name": "Swarnashree Mysore Sathyendra"
+  },
+  {
+    "id": "5c21584e-949e-4141-aa04-222a8764a381",
+    "name": "Patrick Fernandes"
+  },
+  {
+    "id": "89e6f3f3-0e07-4d6a-9534-b8a35da173a4",
+    "name": "Pengfei Liu"
+  },
+  {
+    "id": "3cc6dad3-7841-4c22-b4dd-75005a160423",
+    "name": "Graham Neubig"
+  },
+  {
+    "id": "db7276e5-eb99-4c3c-a3da-4618364d4a70",
+    "name": "Chunting Zhou"
+  },
+  {
+    "id": "29f2bf20-9fd6-44f5-9eaa-e44bcf712539",
+    "name": "Bingbin Liu"
+  },
+  {
+    "id": "ccdb8be6-6e4a-4c75-ad91-92546b86c8e7",
+    "name": "Jordan T. Ash"
+  },
+  {
+    "id": "bd3805b5-728f-497d-b751-b9446f152521",
+    "name": "Surbhi Goel"
+  },
+  {
+    "id": "b5facb12-2530-4afa-b65e-f7eba058e1ae",
+    "name": "Akshay Krishnamurthy"
+  },
+  {
+    "id": "36a9af31-9a44-4247-940b-a79fc7f1e3a0",
+    "name": "Cyril Zhang"
+  },
+  {
+    "id": "b6de2cb4-235f-4d0a-8974-3ba08e8946a0",
+    "name": "Guilherme Penedo"
+  },
+  {
+    "id": "4fcb66e2-4c02-4dfe-a7a6-793fb8fad0bb",
+    "name": "Quentin Malartic"
+  },
+  {
+    "id": "381abe19-aec4-41a0-882b-4fb1d73f1bca",
+    "name": "Daniel Hesslow"
+  },
+  {
+    "id": "0ff72d55-ab18-4290-933d-d392b78f11ac",
+    "name": "Ruxandra Cojocaru"
+  },
+  {
+    "id": "44a671ee-0f8b-4015-a899-1f13e18eb6a0",
+    "name": "Alessandro Cappelli"
+  },
+  {
+    "id": "7bedc7cb-e680-4672-9f8b-2b9bf5c72c7f",
+    "name": "Hamza Alobeidli"
+  },
+  {
+    "id": "ca9d42a9-981c-4428-815c-f2494d3e9164",
+    "name": "Baptiste Pannier"
+  },
+  {
+    "id": "e19f1b54-7248-43cd-8966-50ff544c1e02",
+    "name": "Ebtesam Almazrouei"
+  },
+  {
+    "id": "14416c29-180c-4f6d-a5a9-ee9dd4d6a4a9",
+    "name": "Julien Launay"
+  },
+  {
+    "id": "b90a7f8a-0115-403d-9bad-a31ac7f6d18b",
+    "name": "Weiqi Wang"
+  },
+  {
+    "id": "274e85a9-76b6-4fc8-81b4-d6abba6b6720",
+    "name": "Tianqing Fang"
+  },
+  {
+    "id": "64bc8e40-a375-49fb-90e8-44c25bec15af",
+    "name": "Wenxuan Ding"
+  },
+  {
+    "id": "c2cc7aa4-d37c-461f-938a-e8f9d11e3312",
+    "name": "Baixuan Xu"
+  },
+  {
+    "id": "fdde93d4-e9cf-4f39-b6e7-94d1787686c9",
+    "name": "Xin Liu"
+  },
+  {
+    "id": "ec244e82-148e-41d8-8d2f-7ec146cc04d4",
+    "name": "Yangqiu Song"
+  },
+  {
+    "id": "aa7364f6-4834-4ae8-a0da-8c9e52f791be",
+    "name": "Antoine Bosselut"
+  },
+  {
+    "id": "59612c8d-a92e-45be-9a0a-249973a6d1a9",
+    "name": "Anthony Chen"
+  },
+  {
+    "id": "d1c14d83-eebf-4fcf-a843-35b332fe4969",
+    "name": "Panupong Pasupat"
+  },
+  {
+    "id": "a37303d1-7e4b-4df9-92a8-042830a0e72f",
+    "name": "Sameer Singh"
+  },
+  {
+    "id": "0e31cb18-ecfa-410a-bad6-f16183567f02",
+    "name": "Hongrae Lee"
+  },
+  {
+    "id": "ef894a91-f391-402f-88a2-5a4a99e81680",
+    "name": "Kelvin Guu"
+  },
+  {
+    "id": "08ff8601-6e55-461c-9c07-658a047357e7",
+    "name": "Philippe Laban"
+  },
+  {
+    "id": "b6cfec73-deb3-4afa-822c-f804e8265d82",
+    "name": "Wojciech Kryściński"
+  },
+  {
+    "id": "0936d1da-a8a4-44d8-b39e-10d7c3579bff",
+    "name": "Divyansh Agarwal"
+  },
+  {
+    "id": "4989c21e-4372-482d-9074-b1a283ad466b",
+    "name": "Alexander R. Fabbri"
+  },
+  {
+    "id": "657be4c6-f8ef-4c90-90d5-70db64b9ae60",
+    "name": "Caiming Xiong"
+  },
+  {
+    "id": "7af4a062-34c3-4e77-ac13-f8195a8ecb28",
+    "name": "Shafiq Joty"
+  },
+  {
+    "id": "073ba2ca-cee1-4aa0-9b0c-37a8616a2c42",
+    "name": "Chien-Sheng Wu"
+  },
+  {
+    "id": "69efc214-1b70-483b-b891-e94e18369eaa",
+    "name": "Roi Cohen"
+  },
+  {
+    "id": "f83dd4e3-c516-45bc-a7c2-105ae8f7bff0",
+    "name": "May Hamri"
+  },
+  {
+    "id": "4bfaed82-5611-45d7-8b4f-b524ccd50ccf",
+    "name": "Mor Geva"
+  },
+  {
+    "id": "af889acf-37ac-439d-bf89-c9fb8e4aa55d",
+    "name": "Amir Globerson"
+  },
+  {
+    "id": "cff3aaef-0153-4dd0-8eff-46f4824166b8",
+    "name": "Haw-Shiuan Chang"
+  },
+  {
+    "id": "2b026851-e751-4a5f-ba43-c18ab7b52a17",
+    "name": "Zonghai Yao"
+  },
+  {
+    "id": "35208e71-cbc5-4347-a746-55878fa02bae",
+    "name": "Alolika Gon"
+  },
+  {
+    "id": "3d1d7267-4866-4bf3-826b-3150642379d3",
+    "name": "Hong Yu"
+  },
+  {
+    "id": "a5157fb9-a3fd-44bb-9182-4f6302e9dbb0",
+    "name": "Andrew McCallum"
+  },
+  {
+    "id": "05485a86-10e2-4d95-8102-9b4cc672984f",
+    "name": "Jifan Chen"
+  },
+  {
+    "id": "e36e4598-a4b8-4f5d-874f-6c6da04bf0bf",
+    "name": "Grace Kim"
+  },
+  {
+    "id": "19515d2e-d78a-4294-a7e7-564f77c360d4",
+    "name": "Aniruddh Sriram"
+  },
+  {
+    "id": "53bb4f65-35bc-4e76-a9d6-bc4a9dd7a359",
+    "name": "Greg Durrett"
+  },
+  {
+    "id": "535f55ef-3fbf-44ae-a0ec-c8bc09c80399",
+    "name": "Eunsol Choi"
+  },
+  {
+    "id": "543a42a8-63b5-4d11-bf82-5935f00be0c3",
+    "name": "Zhibin Gou"
+  },
+  {
+    "id": "9130b130-580e-42e9-b130-300fe01d9b2e",
+    "name": "Zhihong Shao"
+  },
+  {
+    "id": "c72cb172-9888-46ce-b685-551cb64d1c45",
+    "name": "Yeyun Gong"
+  },
+  {
+    "id": "2c656b2e-76d4-4b6f-836d-c89fd8b59c5d",
+    "name": "Yelong Shen"
+  },
+  {
+    "id": "f8ec57dd-39e1-437d-830f-48909e9795dd",
+    "name": "Yujiu Yang"
+  },
+  {
+    "id": "9b7502e6-e070-4807-a247-9537b76dd45f",
+    "name": "Nan Duan"
+  },
+  {
+    "id": "2bcba4be-3183-42de-9b29-0d28636e51ad",
+    "name": "Weizhu Chen"
+  },
+  {
+    "id": "b03ed9dd-e9b4-4117-baca-d0232fbaa199",
+    "name": "Chaojun Wang"
+  },
+  {
+    "id": "c3c710ab-a8b5-4486-b4f3-a45b615363b8",
+    "name": "Yang Liu"
+  },
+  {
+    "id": "2d105340-2fbf-46d1-8011-893534fbed4a",
+    "name": "Wai Lam"
+  },
+  {
+    "id": "221d2ce7-b549-4de3-857e-fda09b417292",
+    "name": "Yujia Qin"
+  },
+  {
+    "id": "69271c76-a5b6-4e6d-b2d8-1cb2fd5747b0",
+    "name": "Zihan Cai"
+  },
+  {
+    "id": "3a22a060-4d9b-486a-a44f-0b617a0899f6",
+    "name": "Dian Jin"
+  },
+  {
+    "id": "e59ee147-c05a-4a63-be3d-2919f7b5627f",
+    "name": "Lan Yan"
+  },
+  {
+    "id": "95816142-64c1-48cb-8154-7665921baf36",
+    "name": "Shihao Liang"
+  },
+  {
+    "id": "b49b90cd-9c8b-4dc5-aeb6-603520b10b66",
+    "name": "Kunlun Zhu"
+  },
+  {
+    "id": "84d0c319-ba6e-4c6e-a606-fbc023442a37",
+    "name": "Yankai Lin"
+  },
+  {
+    "id": "72c2532f-60fb-4a6c-bed4-f5153e4dd679",
+    "name": "Xu Han"
+  },
+  {
+    "id": "e9d5af3f-b4cc-46dd-900d-fb843d7c70a2",
+    "name": "Ning Ding"
+  },
+  {
+    "id": "b909f42f-3b7c-4a1a-abd6-694884414745",
+    "name": "Huadong Wang"
+  },
+  {
+    "id": "2dbd6f52-27f9-4d87-92ce-60f6e0c5107f",
+    "name": "Ruobing Xie"
+  },
+  {
+    "id": "5312d38d-0992-4349-b42e-13b5f49641bd",
+    "name": "Fanchao Qi"
+  },
+  {
+    "id": "d76b4215-265a-45bb-994c-1a9d3036fa0a",
+    "name": "Zhiyuan Liu"
+  },
+  {
+    "id": "f6789ac5-33b2-4b87-b3f8-ec412057bfdc",
+    "name": "Maosong Sun"
+  },
+  {
+    "id": "589e5721-ae1e-4c3e-99f1-7b44010b21ac",
+    "name": "Jie Zhou"
+  },
+  {
+    "id": "ffcfa32e-fad5-4603-8ad5-cd362812ca30",
+    "name": "Cheng-Han Chiang"
+  },
+  {
+    "id": "2f7e3e90-9c1d-42ff-8a00-22abf3c428ed",
+    "name": "Hung-yi Lee"
+  },
+  {
+    "id": "1105e016-4fe2-4d6a-8ef8-77a75ff88793",
+    "name": "Peifeng Wang"
+  },
+  {
+    "id": "9667bb94-51a0-4143-98ae-9e30116f4a85",
+    "name": "Zhengyang Wang"
+  },
+  {
+    "id": "2133e6e9-2d83-4f3f-9113-469fda2f0639",
+    "name": "Zheng Li"
+  },
+  {
+    "id": "f5858610-4e4f-4af0-9832-9718f158ec90",
+    "name": "Yifan Gao"
+  },
+  {
+    "id": "bdf0de9e-ce0d-426b-b43d-2b4a4a2cd05b",
+    "name": "Bing Yin"
+  },
+  {
+    "id": "9936f97a-9ee5-4ec1-8432-4a7f9ea15c5c",
+    "name": "Xiang Ren"
+  },
+  {
+    "id": "8776eb7a-7ebe-4cf4-8172-2a7f83eb1105",
+    "name": "Mingqi Gao"
+  },
+  {
+    "id": "d594380c-78d1-4249-a899-8359e1a4ad9f",
+    "name": "Jie Ruan"
+  },
+  {
+    "id": "c9d76ce3-d838-4664-82c3-9fe9207aa5ec",
+    "name": "Renliang Sun"
+  },
+  {
+    "id": "ed9be5bd-2c56-40ac-a369-ce74cdf4416e",
+    "name": "Xunjian Yin"
+  },
+  {
+    "id": "f0ed50fd-76b0-42c5-a5e5-8d3ce026c994",
+    "name": "Shiping Yang"
+  },
+  {
+    "id": "41c7abb1-5e08-4e7b-84a2-8ba358127d3c",
+    "name": "Xiaojun Wan"
+  },
+  {
+    "id": "f2947253-b0a6-4430-8067-9eb1d789bfbb",
+    "name": "Zheheng Luo"
+  },
+  {
+    "id": "28b027b9-1c74-4e95-a64a-d3b8454972b1",
+    "name": "Qianqian Xie"
+  },
+  {
+    "id": "2fb90c5b-6915-48b6-9b05-3ba198c38b8d",
+    "name": "Sophia Ananiadou"
+  },
+  {
+    "id": "bf41d4b0-0d20-4863-8eaf-46e12681c5ac",
+    "name": "Amro Abbas"
+  },
+  {
+    "id": "57941731-3d6c-4bea-beb6-3e143ee14d3a",
+    "name": "Kushal Tirumala"
+  },
+  {
+    "id": "f0ddbb87-ce1a-4e59-99bd-9c3a3c44701e",
+    "name": "Dániel Simig"
+  },
+  {
+    "id": "5b6b9e56-1d6e-4e51-a9e5-8dd64de23d45",
+    "name": "Surya Ganguli"
+  },
+  {
+    "id": "2b9e4d70-81ef-4f41-ab66-413cc4bcae33",
+    "name": "Ari S. Morcos"
+  },
+  {
+    "id": "f5c7e541-6bd8-40a9-8c90-a15cc48d07dd",
+    "name": "Jiaan Wang"
+  },
+  {
+    "id": "30923446-41af-420b-b417-c2ab52aa08ff",
+    "name": "Yunlong Liang"
+  },
+  {
+    "id": "e8484d54-cb5d-4fed-83d6-01a1cf2c181d",
+    "name": "Fandong Meng"
+  },
+  {
+    "id": "5ff04657-2d1c-4c86-ba72-150fd9da6ddc",
+    "name": "Zengkui Sun"
+  },
+  {
+    "id": "3307deeb-d699-471c-bf84-79c7dca24452",
+    "name": "Haoxiang Shi"
+  },
+  {
+    "id": "f8d026ea-4760-4bff-b9a5-957ea1cd6f8d",
+    "name": "Zhixu Li"
+  },
+  {
+    "id": "32d23b7f-431c-476a-aedb-7e5956715edc",
+    "name": "Jinan Xu"
+  },
+  {
+    "id": "6590711d-a94b-4158-a4d5-f64b78566784",
+    "name": "Jianfeng Qu"
+  },
+  {
+    "id": "ab4c6618-320e-4803-a358-e6cda8a00a1a",
+    "name": "Jie Zhou"
+  },
+  {
+    "id": "844f609c-efca-446e-8973-a688f79cb064",
+    "name": "Weihong Zhong"
+  },
+  {
+    "id": "221ffba7-af62-48d0-9b4d-f564455d1f46",
+    "name": "Mao Zheng"
+  },
+  {
+    "id": "c5608d65-d16e-44de-84ea-f3144ed7d1b7",
+    "name": "Duyu Tang"
+  },
+  {
+    "id": "bc8e408c-d298-4e6e-a3d9-afc397c3ae5e",
+    "name": "Xuan Luo"
+  },
+  {
+    "id": "b483f7d7-5db8-4df3-a76c-c400fe154828",
+    "name": "Heng Gong"
+  },
+  {
+    "id": "3ba14fe5-6bcd-4286-8513-a51d3d8e586c",
+    "name": "Xiaocheng Feng"
+  },
+  {
+    "id": "9b0ab3d3-f763-474f-b255-b2ad36ee6b18",
+    "name": "Bing Qin"
+  },
+  {
+    "id": "bddaf0a0-c338-46c7-84c9-49541c5fa15e",
+    "name": "Danilo Ribeiro"
+  },
+  {
+    "id": "f9e9a35b-c3e5-400c-b74e-e1999992128c",
+    "name": "Shen Wang"
+  },
+  {
+    "id": "01599ee6-7eea-4497-81ca-14a8bfaf2620",
+    "name": "Xiaofei Ma"
+  },
+  {
+    "id": "0e69fc71-4ace-4936-96f2-b85323068e7a",
+    "name": "Henry Zhu"
+  },
+  {
+    "id": "1cee121a-111a-4379-ba36-dc669e9c7ea7",
+    "name": "Rui Dong"
+  },
+  {
+    "id": "fa875b4e-4917-494f-8b9f-871cc6d7983d",
+    "name": "Deguang Kong"
+  },
+  {
+    "id": "c8edafb9-8692-4c63-a59a-d97ce25fbf6a",
+    "name": "Juliette Burger"
+  },
+  {
+    "id": "a1188e46-f481-4fc4-a746-593e37c0d29f",
+    "name": "Anjelica Ramos"
+  },
+  {
+    "id": "f6fe5a82-ac63-4ec5-b78e-5c54e16cf16f",
+    "name": "William Wang"
+  },
+  {
+    "id": "cd4f806f-0a09-4ac3-92b7-ad24cae1284e",
+    "name": "Zhiheng Huang"
+  },
+  {
+    "id": "1e613d59-e1ba-45d3-b62d-d6cce60cffb9",
+    "name": "George Karypis"
+  },
+  {
+    "id": "bc08e910-7fd6-407c-b92e-c47a4f3b14e8",
+    "name": "Bing Xiang"
+  },
+  {
+    "id": "2c01d652-5395-4202-9138-388617568ca5",
+    "name": "Dan Roth"
+  },
+  {
+    "id": "825c4ec9-77fb-4b91-be43-bb83bf0ab062",
+    "name": "Tianyi Zhang"
+  },
+  {
+    "id": "682571c6-0c53-4a49-8fe8-c919444508cb",
+    "name": "Faisal Ladhak"
+  },
+  {
+    "id": "37a3e4f8-0ba9-4ba2-a51e-88ddc89bc032",
+    "name": "Esin Durmus"
+  },
+  {
+    "id": "43efbb37-2ef8-4076-a620-497376fbed6a",
+    "name": "Percy Liang"
+  },
+  {
+    "id": "2fa902a4-9c73-48ea-9767-21d9828c4498",
+    "name": "Kathleen McKeown"
+  },
+  {
+    "id": "390be11c-943f-4617-9d70-19e469616836",
+    "name": "Tatsunori B. Hashimoto"
+  },
+  {
+    "id": "177ee490-9d4c-492f-8c00-fa6f2c568653",
+    "name": "Qing Lyu"
+  },
+  {
+    "id": "e32e366b-9a4b-42ee-9bea-c0cab4f93871",
+    "name": "Shreya Havaldar"
+  },
+  {
+    "id": "21093082-0f56-4b54-939e-c7bbb2174c6f",
+    "name": "Adam Stein"
+  },
+  {
+    "id": "ae1cb5bc-53ec-4156-a1b5-a5e8b86e143e",
+    "name": "Li Zhang"
+  },
+  {
+    "id": "37b33afe-eca0-472b-aeff-2fd3a62eec7a",
+    "name": "Delip Rao"
+  },
+  {
+    "id": "3304d2eb-5f71-4d5b-bd47-1343365cff0c",
+    "name": "Eric Wong"
+  },
+  {
+    "id": "7c1b8b3a-2f23-4977-ad62-faa19404234d",
+    "name": "Marianna Apidianaki"
+  },
+  {
+    "id": "ba056311-7d41-473a-bef6-77bcf958aab5",
+    "name": "Chris Callison-Burch"
+  },
+  {
+    "id": "8490c015-1a7b-45da-8ad2-153b1b19b0fb",
+    "name": "Hangfeng He"
+  },
+  {
+    "id": "b26d92b4-6b04-4d56-964f-74004adad9fb",
+    "name": "Hongming Zhang"
+  },
+  {
+    "id": "b445a52a-e218-4bbb-817d-f67a7dde34fa",
+    "name": "Dan Roth"
+  },
+  {
+    "id": "83ee1017-13cd-4f15-afeb-d77dae84c93e",
+    "name": "Shuofei Qiao"
+  },
+  {
+    "id": "47c0086d-5f5e-4ec2-aaae-e983b31d2276",
+    "name": "Yixin Ou"
+  },
+  {
+    "id": "f8bd7167-0031-4a8f-879b-c62e8599c6e7",
+    "name": "Ningyu Zhang"
+  },
+  {
+    "id": "200876fd-3646-4192-afad-33ba260c8a2e",
+    "name": "Xiang Chen"
+  },
+  {
+    "id": "1916d067-b9d2-453f-be6d-e0e56a9b77ae",
+    "name": "Yunzhi Yao"
+  },
+  {
+    "id": "ddfbf10f-98fb-454c-8350-12c62a4ea89a",
+    "name": "Shumin Deng"
+  },
+  {
+    "id": "b3289a6d-1889-407b-b570-739071e10794",
+    "name": "Chuanqi Tan"
+  },
+  {
+    "id": "479b6b29-2e85-4a39-a653-ca717cb77f3a",
+    "name": "Fei Huang"
+  },
+  {
+    "id": "bff466cc-0c8f-4014-b874-a184c4165f76",
+    "name": "Huajun Chen"
+  },
+  {
+    "id": "f380b2c8-5164-4473-ad0f-678adf818b08",
+    "name": "Yuxuan Gu"
+  },
+  {
+    "id": "3c9247d2-2dc9-4d73-a624-f0a81c1cba04",
+    "name": "Xiaocheng Feng"
+  },
+  {
+    "id": "1afd639c-91f8-4395-8484-46c2a5162fe8",
+    "name": "Sicheng Ma"
+  },
+  {
+    "id": "afe79080-fdc3-4dd3-aa4b-d9908b5d9fd6",
+    "name": "Lingyuan Zhang"
+  },
+  {
+    "id": "7c21b868-af49-4c62-8f71-e9febd34264e",
+    "name": "Heng Gong"
+  },
+  {
+    "id": "c7817d6b-9f7d-440f-b51e-6e1501f79e56",
+    "name": "Weihong Zhong"
+  },
+  {
+    "id": "8160b00b-548f-44b6-8018-cec42d8e5173",
+    "name": "Bing Qin"
+  },
+  {
+    "id": "157fb03c-50eb-4121-b959-2866a02408fa",
+    "name": "Olga Golovneva"
+  },
+  {
+    "id": "bba20440-735a-451c-8914-b9d8354372a4",
+    "name": "Moya Chen"
+  },
+  {
+    "id": "a9b2a524-81e0-4eee-92b4-4e8d6a768e27",
+    "name": "Spencer Poff"
+  },
+  {
+    "id": "762d9a5c-555e-4bfe-a945-9eacb27b962b",
+    "name": "Martin Corredor"
+  },
+  {
+    "id": "63559756-e0da-4622-b060-3a94394f43de",
+    "name": "Luke Zettlemoyer"
+  },
+  {
+    "id": "b5a8f820-191d-486e-bf29-92f905cf452b",
+    "name": "Maryam Fazel-Zarandi"
+  },
+  {
+    "id": "ecac13aa-ed1c-4868-9256-ac79040d6802",
+    "name": "Asli Celikyilmaz"
+  },
+  {
+    "id": "a2d485db-2128-477e-982f-02c4d910d771",
+    "name": "Wayne Xin Zhao"
+  },
+  {
+    "id": "7cee3cc0-01f0-4c48-81fe-86f52c3dce4c",
+    "name": "Jing Liu"
+  },
+  {
+    "id": "59735786-864b-4810-b4cd-bd6b331f9638",
+    "name": "Ruiyang Ren"
+  },
+  {
+    "id": "e2ddeecc-fc9e-48a2-844e-5037c96d7e2d",
+    "name": "Ji-Rong Wen"
+  },
+  {
+    "id": "16c8c566-1c29-421d-b45f-069831133a1d",
+    "name": "Ross Taylor"
+  },
+  {
+    "id": "b50c994f-ace5-424d-b025-7ac668a7bda6",
+    "name": "Marcin Kardas"
+  },
+  {
+    "id": "0a23d98c-5758-41bc-978b-bdd667a7a392",
+    "name": "Guillem Cucurull"
+  },
+  {
+    "id": "b3f16a5c-a066-4997-9c29-bd73b017b7a3",
+    "name": "Thomas Scialom"
+  },
+  {
+    "id": "a84fbdcb-30e4-461a-8bbb-2d736a9edd7f",
+    "name": "Anthony Hartshorn"
+  },
+  {
+    "id": "f3497f54-cdcf-449d-b014-c58edebbe16a",
+    "name": "Elvis Saravia"
+  },
+  {
+    "id": "828dd7b7-740e-414f-a494-ad05bcbe3ae8",
+    "name": "Andrew Poulton"
+  },
+  {
+    "id": "2c4cb0a8-c871-4edb-a7fd-837324c1ba38",
+    "name": "Viktor Kerkez"
+  },
+  {
+    "id": "1ec84c9a-9496-4723-a900-e4260b306999",
+    "name": "Robert Stojnic"
+  },
+  {
+    "id": "f53aff8f-70da-4751-9f14-40b3c64d02ca",
+    "name": "Liam van der Poel"
+  },
+  {
+    "id": "eeef3566-b30b-4b74-89d1-e9237d9e3120",
+    "name": "Ryan Cotterell"
+  },
+  {
+    "id": "a4f62d64-ce06-4a75-a8d4-a16f5ad7d447",
+    "name": "Clara Meister"
+  },
+  {
+    "id": "cee777c6-52ee-46ce-a5c8-d557620185e1",
+    "name": "Ofir Press"
+  },
+  {
+    "id": "85269681-478d-46be-bf16-0cf272f185e2",
+    "name": "Muru Zhang"
+  },
+  {
+    "id": "66676fef-5551-4306-be45-6ea83f7434e1",
+    "name": "Sewon Min"
+  },
+  {
+    "id": "4d5f8d52-2e03-4dfa-937b-25111cea568b",
+    "name": "Ludwig Schmidt"
+  },
+  {
+    "id": "7ae54511-acf9-4ca0-a9d8-b152e271d12d",
+    "name": "Noah A. Smith"
+  },
+  {
+    "id": "23565623-bc48-4816-bd24-dfc549c7a874",
+    "name": "Mike Lewis"
+  },
+  {
+    "id": "26768512-f30d-40ef-905e-4c64f68b621f",
+    "name": "Yuxuan Gu"
+  },
+  {
+    "id": "0d2e37a0-40a4-4108-a6bb-615ac8c5140e",
+    "name": "Xiaocheng Feng"
+  },
+  {
+    "id": "153a5347-958a-4464-8fe5-c29dd5387c0a",
+    "name": "Sicheng Ma"
+  },
+  {
+    "id": "7c8d32fb-bee4-4319-aa60-93dc3c9f4221",
+    "name": "Lingyuan Zhang"
+  },
+  {
+    "id": "3cefa0fb-5ea8-4008-b175-2115ce90f4e5",
+    "name": "Heng Gong"
+  },
+  {
+    "id": "03a81c8d-239f-4a3f-9d80-5bdb3e109db4",
+    "name": "Bing Qin"
+  },
+  {
+    "id": "ed8c045b-8d65-46da-aa77-89efaa1b396c",
+    "name": "Tushar Khot"
+  },
+  {
+    "id": "17a6ace8-27f2-42ae-a969-ebf6d1df2883",
+    "name": "Harsh Trivedi"
+  },
+  {
+    "id": "df78fcef-5e9a-45f9-830d-7cb32053551b",
+    "name": "Matthew Finlayson"
+  },
+  {
+    "id": "2c2d84e1-cbea-49ab-b709-fa848581417b",
+    "name": "Yao Fu"
+  },
+  {
+    "id": "d80b680c-4471-4c7f-b1c2-d02f637e55a4",
+    "name": "Kyle Richardson"
+  },
+  {
+    "id": "ba1545f9-928b-4f0f-92c4-6fca8982adfd",
+    "name": "Peter Clark"
+  },
+  {
+    "id": "251a718b-1079-4ef9-8a67-006a81e299ca",
+    "name": "Ashish Sabharwal"
+  },
+  {
+    "id": "c0f5a5df-d9e2-4d99-8600-2b13220b944f",
+    "name": "Xiuying Chen"
+  },
+  {
+    "id": "84856416-68d9-4499-901e-711c42d3bfc4",
+    "name": "Mingzhe Li"
+  },
+  {
+    "id": "aa076cc8-a02d-43da-9d99-521446e0030b",
+    "name": "Xin Gao"
+  },
+  {
+    "id": "52d7a06a-f62d-4fcd-ba3a-3f24f7f5cdd6",
+    "name": "Xiangliang Zhang"
+  },
+  {
+    "id": "41395a82-7878-4f47-bb44-1d017b8e022a",
+    "name": "Luca Moschella"
+  },
+  {
+    "id": "8a62d00a-893a-4c9c-b37a-f44f56044f00",
+    "name": "Valentino Maiorca"
+  },
+  {
+    "id": "43ef3221-f747-41b7-b95f-4a7de3e0e46e",
+    "name": "Marco Fumero"
+  },
+  {
+    "id": "8ee512b4-9e8b-439a-9695-f8918089ce40",
+    "name": "Antonio Norelli"
+  },
+  {
+    "id": "cfcce35e-7ed7-41a8-a61b-736dab4785d4",
+    "name": "Francesco Locatello"
+  },
+  {
+    "id": "2d3d4857-911d-446a-bd6e-0b24db5f8882",
+    "name": "Emanuele Rodolà"
+  },
+  {
+    "id": "537373cc-10ac-4575-8745-e15f8b6e6a7b",
+    "name": "Damai Dai"
+  },
+  {
+    "id": "bfdc35fb-0f7e-459d-913d-ef1f1d72d972",
+    "name": "Wenbin Jiang"
+  },
+  {
+    "id": "08bbf445-e057-4602-8248-c18a9769a1cb",
+    "name": "Qingxiu Dong"
+  },
+  {
+    "id": "4602567c-1ad2-44ee-a37e-8db7b9dee18b",
+    "name": "Yajuan Lyu"
+  },
+  {
+    "id": "7541f879-667c-42b0-ab65-c2f92c0c062e",
+    "name": "Qiaoqiao She"
+  },
+  {
+    "id": "6a759b41-c5ca-4666-bace-a4a2562036c0",
+    "name": "Zhifang Sui"
+  },
+  {
+    "id": "05238e0f-0821-4c64-bd65-f95ff0618bb1",
+    "name": "Liyan Tang"
+  },
+  {
+    "id": "99e681e7-bf40-4dfa-a517-f8cc17d55c9c",
+    "name": "Tanya Goyal"
+  },
+  {
+    "id": "d02ab877-797c-48f5-9f4c-a954aa6c0e83",
+    "name": "Alexander R. Fabbri"
+  },
+  {
+    "id": "15ad6f76-79a7-49d1-afeb-1ec4b0898b04",
+    "name": "Philippe Laban"
+  },
+  {
+    "id": "77baa011-1376-49e4-87c5-eaffe73b0eec",
+    "name": "Jiacheng Xu"
+  },
+  {
+    "id": "62e5d858-80b1-41e0-9533-fc89604282dd",
+    "name": "Semih Yavuz"
+  },
+  {
+    "id": "876ff951-55a9-45b3-b4ec-8784e1531c78",
+    "name": "Wojciech Kryściński"
+  },
+  {
+    "id": "205a43fe-f221-4df2-8695-9f2f41761010",
+    "name": "Justin F. Rousseau"
+  },
+  {
+    "id": "c2da22e5-07de-442b-86ce-355d4e87d965",
+    "name": "Greg Durrett"
+  },
+  {
+    "id": "856fb6d1-0088-4999-a1fe-41edf5dfe970",
+    "name": "Danny Hernandez"
+  },
+  {
+    "id": "d3f02e15-0ae0-4f83-b561-8387891e3201",
+    "name": "Tom Brown"
+  },
+  {
+    "id": "4d8e04a6-72ee-4a98-a7ef-4a6f8bdd011a",
+    "name": "Tom Conerly"
+  },
+  {
+    "id": "b9f77218-1e6f-414c-9f84-247a91e46ea0",
+    "name": "Nova DasSarma"
+  },
+  {
+    "id": "89974eb6-0d57-424a-8e48-76165d16662d",
+    "name": "Dawn Drain"
+  },
+  {
+    "id": "4a1deedc-218b-4e5e-9b31-6e8ae7fba803",
+    "name": "Sheer El-Showk"
+  },
+  {
+    "id": "ed6851cd-fa66-4bc9-a0fa-f3993e095525",
+    "name": "Nelson Elhage"
+  },
+  {
+    "id": "d9dbea27-3bef-4f17-8f82-4b51f3e3c556",
+    "name": "Zac Hatfield-Dodds"
+  },
+  {
+    "id": "e1f9ea6b-b027-4129-b889-5667432f4b79",
+    "name": "Tom Henighan"
+  },
+  {
+    "id": "badcdbd3-4d03-4a1d-90ac-0b27736c40f4",
+    "name": "Tristan Hume"
+  },
+  {
+    "id": "db13d9fa-5b29-47b4-82c3-00186b7bb9fa",
+    "name": "Scott Johnston"
+  },
+  {
+    "id": "e54d8874-01e0-4c8e-9ff0-ae756b575f4e",
+    "name": "Ben Mann"
+  },
+  {
+    "id": "57046b74-209b-41e8-82cd-537e10df83bf",
+    "name": "Chris Olah"
+  },
+  {
+    "id": "3c43b439-b87d-4dea-84f2-ee4195042473",
+    "name": "Catherine Olsson"
+  },
+  {
+    "id": "89284c59-08dd-452e-a1e5-36f31ff0b95a",
+    "name": "Dario Amodei"
+  },
+  {
+    "id": "3b383709-cc0f-42eb-b671-46aea2f11e64",
+    "name": "Nicholas Joseph"
+  },
+  {
+    "id": "ba36a1a4-eb96-47b1-8ef5-db18ac96b31c",
+    "name": "Jared Kaplan"
+  },
+  {
+    "id": "3f117541-8749-43aa-98ba-dd9a2ff59aa0",
+    "name": "Sam McCandlish"
+  },
+  {
+    "id": "d8ea5e4e-dca7-4272-bce3-2e10a694145f",
+    "name": "Yasumasa Onoe"
+  },
+  {
+    "id": "fc186825-b7f6-49ba-ac6f-fc44ae9a9030",
+    "name": "Michael J. Q. Zhang"
+  },
+  {
+    "id": "488ea41a-d4ed-47ce-9fc1-bf2f0d48a915",
+    "name": "Eunsol Choi"
+  },
+  {
+    "id": "d238a0f0-5193-472d-895f-d723ac1c6385",
+    "name": "Greg Durrett"
+  },
+  {
+    "id": "8b1d3215-c503-4864-be76-f5812123bbcc",
+    "name": "Kushal Arora"
+  },
+  {
+    "id": "862ebb2b-acde-4278-9990-994b765d5eb9",
+    "name": "Layla El Asri"
+  },
+  {
+    "id": "e3bdb3d7-febc-4fe6-9242-b26e844c2910",
+    "name": "Hareesh Bahuleyan"
+  },
+  {
+    "id": "53304a1f-84ca-4c91-b9a8-18118b711f31",
+    "name": "Jackie Chi Kit Cheung"
+  },
+  {
+    "id": "4043d270-9828-4f0f-a1b5-7e31df86e01d",
+    "name": "David Chiang"
+  },
+  {
+    "id": "54442285-a35b-4312-a267-e10b2261ea54",
+    "name": "Peter Cholak"
+  },
+  {
+    "id": "c8eac0f7-7a05-4871-b918-7e06baa97b3f",
+    "name": "Hannah Rashkin"
+  },
+  {
+    "id": "c0b5e90c-2506-47ca-ba77-4aa4a59586e2",
+    "name": "Vitaly Nikolaev"
+  },
+  {
+    "id": "89a31bcc-ad2c-4391-97bb-26e361e670ab",
+    "name": "Matthew Lamm"
+  },
+  {
+    "id": "89b63281-5e09-4d48-8042-7a8c2f15988e",
+    "name": "Lora Aroyo"
+  },
+  {
+    "id": "b6a6a925-196b-4582-bd4d-c72a10549605",
+    "name": "Michael Collins"
+  },
+  {
+    "id": "242f9410-908b-4f6c-96c8-f60ba6375837",
+    "name": "Dipanjan Das"
+  },
+  {
+    "id": "04e21852-aa0d-4a07-b1af-6c42e7b0340e",
+    "name": "Slav Petrov"
+  },
+  {
+    "id": "532f45fb-9433-476c-b09e-9dcedacd35e3",
+    "name": "Gaurav Singh Tomar"
+  },
+  {
+    "id": "7b77e755-6bc3-490a-b322-1b92efc7e7db",
+    "name": "Iulia Turc"
+  },
+  {
+    "id": "637d21e1-9b22-4a5e-a5fd-a0244fec5e74",
+    "name": "David Reitter"
+  },
+  {
+    "id": "4267ad54-46e5-48ba-861c-949a1bf867df",
+    "name": "Alexander R. Fabbri"
+  },
+  {
+    "id": "c0cf7539-02f6-4e18-a90b-11f1799312e2",
+    "name": "Chien-Sheng Wu"
+  },
+  {
+    "id": "1c42ab83-89f2-4bea-8399-ae74359df675",
+    "name": "Wenhao Liu"
+  },
+  {
+    "id": "2aff9e94-d339-48c5-ae1a-4d6f29bc39f9",
+    "name": "Caiming Xiong"
+  },
+  {
+    "id": "8b608b68-b090-4b38-a577-c83c6118b522",
+    "name": "Sashank Santhanam"
+  },
+  {
+    "id": "94c341f5-e442-4749-8137-a69368a2a5ce",
+    "name": "Behnam Hedayatnia"
+  },
+  {
+    "id": "0c0811f1-e3c2-498b-9824-c85f515623cc",
+    "name": "Spandana Gella"
+  },
+  {
+    "id": "d6a47cd0-cefa-4f0d-a85f-fd7dde6883f5",
+    "name": "Aishwarya Padmakumar"
+  },
+  {
+    "id": "f895ff71-4c31-4e56-a62b-8bba8901c9e4",
+    "name": "Seokhwan Kim"
+  },
+  {
+    "id": "92f83be6-47c8-449e-a89f-bb483ae65729",
+    "name": "Yang Liu"
+  },
+  {
+    "id": "b17ee163-dde5-4192-bfde-72af28e471f3",
+    "name": "Dilek Hakkani-Tur"
+  },
+  {
+    "id": "7b4e3e7b-842d-48d7-a8a9-19f98c24c072",
+    "name": "Weijiang Yu"
+  },
+  {
+    "id": "5f72cb59-eb14-4414-af45-9a4f608ad12c",
+    "name": "Jian Liang"
+  },
+  {
+    "id": "bd70297a-d2ca-4ef6-ba76-b3166c449122",
+    "name": "Lei Ji"
+  },
+  {
+    "id": "9be39710-2f05-4525-87c2-8ee3c8d21ac5",
+    "name": "Lu Li"
+  },
+  {
+    "id": "21c3066f-988c-45f4-a934-4dc00673b273",
+    "name": "Yuejian Fang"
+  },
+  {
+    "id": "1baa6e1d-1434-474c-87a8-d99656366778",
+    "name": "Nong Xiao"
+  },
+  {
+    "id": "68957f31-eca4-46c0-a80f-6c398daba330",
+    "name": "Nan Duan"
+  },
+  {
+    "id": "2f96c8c6-146b-4cf2-b9b4-ee0d9222e835",
+    "name": "Katherine Lee"
+  },
+  {
+    "id": "549b2da1-bbbb-4383-b96f-8afe1e228cb9",
+    "name": "Daphne Ippolito"
+  },
+  {
+    "id": "db06d1cf-65ca-4868-b539-68dff9394b01",
+    "name": "Andrew Nystrom"
+  },
+  {
+    "id": "a750061d-8357-44f3-97e5-661ebcf98604",
+    "name": "Chiyuan Zhang"
+  },
+  {
+    "id": "acbc0e63-0df5-40e7-8545-4881f01a6723",
+    "name": "Douglas Eck"
+  },
+  {
+    "id": "6074088d-c665-4fe2-b2d6-6375eca01ae9",
+    "name": "Chris Callison-Burch"
+  },
+  {
+    "id": "860e0f30-9bbb-4409-975a-a7ac0ea8ece3",
+    "name": "Nicholas Carlini"
+  },
+  {
+    "id": "5bbe1e5c-bc7a-4415-b03d-5cb2dece88a3",
+    "name": "Yichong Huang"
+  },
+  {
+    "id": "b0c2a3ed-98b0-44b6-98b9-136bf1a0c292",
+    "name": "Xiachong Feng"
+  },
+  {
+    "id": "c35f7f7a-698b-473e-8ef1-ae0cd449e161",
+    "name": "Xiaocheng Feng"
+  },
+  {
+    "id": "cc4a0850-8b92-4e6f-85b0-040208e6bf65",
+    "name": "Bing Qin"
+  },
+  {
+    "id": "789d2675-5d89-4df6-86b0-a0510b4a2c14",
+    "name": "Or Honovich"
+  },
+  {
+    "id": "5badd703-e0ea-4a7d-915e-d69b6ab2dc82",
+    "name": "Leshem Choshen"
+  },
+  {
+    "id": "fe578d7d-84ae-490f-b4f2-636147458d69",
+    "name": "Roee Aharoni"
+  },
+  {
+    "id": "b15fbf29-8dee-4d86-a046-09722e4c8db6",
+    "name": "Ella Neeman"
+  },
+  {
+    "id": "24b6d8fb-6e79-4866-9a48-7dd3b49990c1",
+    "name": "Idan Szpektor"
+  },
+  {
+    "id": "431709b8-b5c5-4d16-9ea3-974ae66ee2ea",
+    "name": "Omri Abend"
+  },
+  {
+    "id": "7f1c3888-1e76-4d63-80ea-a2483112c4c6",
+    "name": "Zexuan Zhong"
+  },
+  {
+    "id": "7d23995e-f55c-4e3c-9b50-fb6694b46492",
+    "name": "Dan Friedman"
+  },
+  {
+    "id": "7a96df2a-9956-435d-b480-238eeb138289",
+    "name": "Danqi Chen"
+  },
+  {
+    "id": "703bdfaf-0e9c-4505-9004-2ecd904fb844",
+    "name": "Tanya Goyal"
+  },
+  {
+    "id": "72a6e5c6-19ef-4bc3-b0af-81e79397b6bc",
+    "name": "Greg Durrett"
+  },
+  {
+    "id": "354cb881-91a1-4e17-8385-ce7195fb79e5",
+    "name": "Feng Nan"
+  },
+  {
+    "id": "3df0363b-974b-4b0d-9de8-e895b2b75dde",
+    "name": "Ramesh Nallapati"
+  },
+  {
+    "id": "995953c0-758c-4f90-94d0-f2b7a7eef3ba",
+    "name": "Zhiguo Wang"
+  },
+  {
+    "id": "398314ee-ca41-4422-9333-73b46f81de36",
+    "name": "Cicero Nogueira dos Santos"
+  },
+  {
+    "id": "9a5e370b-c16f-4753-a78f-24f174e0dc1b",
+    "name": "Henghui Zhu"
+  },
+  {
+    "id": "07fddca9-4b44-4132-9e14-4cac35daab90",
+    "name": "Dejiao Zhang"
+  },
+  {
+    "id": "224e6a6e-fe0c-4102-b670-31566e13d5aa",
+    "name": "Kathleen McKeown"
+  },
+  {
+    "id": "f1be19d1-957c-46c3-a5c2-8a05d4f8e752",
+    "name": "Bing Xiang"
+  },
+  {
+    "id": "f115dd28-7f56-494a-abed-ba7d9fcec796",
+    "name": "Leo Gao"
+  },
+  {
+    "id": "99d1e046-b80c-4f9a-9784-85aca565d179",
+    "name": "Stella Biderman"
+  },
+  {
+    "id": "c4a65303-73e5-4743-8284-63510d08e1f8",
+    "name": "Sid Black"
+  },
+  {
+    "id": "583f43f9-f8f3-4ec1-987e-04305cc46d1b",
+    "name": "Laurence Golding"
+  },
+  {
+    "id": "4f888bf0-386c-4bf1-bf16-2c2d30976608",
+    "name": "Travis Hoppe"
+  },
+  {
+    "id": "bc41517c-0370-4350-848f-06a39fadcb13",
+    "name": "Charles Foster"
+  },
+  {
+    "id": "b68c3f1c-61da-47bd-a348-a59d03f0a378",
+    "name": "Jason Phang"
+  },
+  {
+    "id": "94cc6e56-c825-4cfd-8dbe-11fc37112c1e",
+    "name": "Horace He"
+  },
+  {
+    "id": "62488fd7-c1e8-4efe-a5af-39724925e3a3",
+    "name": "Anish Thite"
+  },
+  {
+    "id": "aa5f44f7-32dd-42b8-a9bc-e43943bea798",
+    "name": "Noa Nabeshima"
+  },
+  {
+    "id": "f2cbbadb-98c7-463a-ad15-3aece616f04c",
+    "name": "Shawn Presser"
+  },
+  {
+    "id": "7ca87c4c-c3fa-4a10-9906-6ce7edaef641",
+    "name": "Connor Leahy"
+  },
+  {
+    "id": "e3e0cac2-459c-410d-89f7-ab89ab686624",
+    "name": "Nicholas Carlini"
+  },
+  {
+    "id": "c0f64e87-4d4f-418d-9fdf-25e0f398d4a9",
+    "name": "Florian Tramer"
+  },
+  {
+    "id": "b34be72c-7d91-467a-b86f-8755c7869310",
+    "name": "Eric Wallace"
+  },
+  {
+    "id": "f97188bb-be7c-4adc-920f-1d186d325484",
+    "name": "Matthew Jagielski"
+  },
+  {
+    "id": "d01aa8b3-a112-417b-b19c-2e45df3a304c",
+    "name": "Ariel Herbert-Voss"
+  },
+  {
+    "id": "ad8eb4d6-10a3-4610-b103-244559ec250d",
+    "name": "Katherine Lee"
+  },
+  {
+    "id": "539abda1-df80-4b92-a2e2-f55de43a8c07",
+    "name": "Adam Roberts"
+  },
+  {
+    "id": "0b0a1997-83e9-4916-a7dd-3a548484770d",
+    "name": "Tom Brown"
+  },
+  {
+    "id": "68d36dbf-baef-4cf6-91cc-1de845267e22",
+    "name": "Dawn Song"
+  },
+  {
+    "id": "9caba62b-0356-460d-b199-b626b45b4ff5",
+    "name": "Ulfar Erlingsson"
+  },
+  {
+    "id": "4e9487ee-6403-44e3-ab82-ea952bef8686",
+    "name": "Alina Oprea"
+  },
+  {
+    "id": "44571665-975c-4eeb-8fc5-c2aa5ac3cae2",
+    "name": "Colin Raffel"
+  },
+  {
+    "id": "ac7b08ca-46a2-49d4-b4a1-f0c6c2ee0197",
+    "name": "Jiacheng Xu"
+  },
+  {
+    "id": "cf0bc653-4fe7-4e31-9765-12506314f65d",
+    "name": "Shrey Desai"
+  },
+  {
+    "id": "7a566313-1323-43f3-b1ce-ee923d9f7457",
+    "name": "Greg Durrett"
+  },
+  {
+    "id": "686047a7-96d6-45ed-9c44-f12ecd009e07",
+    "name": "Zhengbao Jiang"
+  },
+  {
+    "id": "b06261c8-e699-4230-9c76-eb18ead76a81",
+    "name": "Antonios Anastasopoulos"
+  },
+  {
+    "id": "720a4262-c6be-462a-b306-b9ba182082e8",
+    "name": "Jun Araki"
+  },
+  {
+    "id": "46f1280e-8e40-4432-a6c0-af2e5ba87684",
+    "name": "Haibo Ding"
+  },
+  {
+    "id": "df7a5132-3c38-46e1-abe6-10bae2d4d1f9",
+    "name": "Graham Neubig"
+  },
+  {
+    "id": "56b0630c-eb62-4b1f-acee-836aa6a3a88d",
+    "name": "Katja Filippova"
+  },
+  {
+    "id": "3aaa9640-2af7-4e6a-bf09-eef0e6e36698",
+    "name": "Clara Meister"
+  },
+  {
+    "id": "e07f3993-0fde-45b7-b018-ac28d19661d6",
+    "name": "Tim Vieira"
+  },
+  {
+    "id": "3946f1a8-9849-478c-840e-b2d016d3718c",
+    "name": "Ryan Cotterell"
+  },
+  {
+    "id": "4b311efb-4eff-46d1-98e6-d8eb5194309b",
+    "name": "Mario Barrantes"
+  },
+  {
+    "id": "983a4899-fea7-471f-801d-ee76e13890a3",
+    "name": "Benedikt Herudek"
+  },
+  {
+    "id": "b3c8084a-1372-40a4-aea6-7c90e9aa97aa",
+    "name": "Richard Wang"
+  },
+  {
+    "id": "092e5a56-1087-4593-b1a0-9c3ef1bec1bf",
+    "name": "Chaojun Wang"
+  },
+  {
+    "id": "77611ff1-a467-4a5f-b23b-ea89b5492729",
+    "name": "Rico Sennrich"
+  },
+  {
+    "id": "d40cbbb4-7865-49a9-b013-bd77cdee0c1e",
+    "name": "Zhenyi Wang"
+  },
+  {
+    "id": "f6f99394-ac6d-4a53-87a6-d679261c6559",
+    "name": "Xiaoyang Wang"
+  },
+  {
+    "id": "ed23163d-ac1f-472f-b596-c627a62cb5a5",
+    "name": "Bang An"
+  },
+  {
+    "id": "bfabce44-5202-47b3-bd1f-756db768485e",
+    "name": "Dong Yu"
+  },
+  {
+    "id": "d7aaf955-9d4c-4cac-bf43-2e2adae70f4b",
+    "name": "Changyou Chen"
+  },
+  {
+    "id": "e5384463-be81-4d2e-bcd9-964a03712379",
+    "name": "Ankur P. Parikh"
+  },
+  {
+    "id": "7be356fb-b5eb-4064-8b8b-46ef0ae1bb64",
+    "name": "Xuezhi Wang"
+  },
+  {
+    "id": "15fff485-1d5d-49e9-9d87-0f8b4b846999",
+    "name": "Sebastian Gehrmann"
+  },
+  {
+    "id": "6f992652-619d-46b5-aa1d-30f52d0d1fc3",
+    "name": "Manaal Faruqui"
+  },
+  {
+    "id": "52a2ee5a-29bc-41e2-8d47-210a4575e0ba",
+    "name": "Bhuwan Dhingra"
+  },
+  {
+    "id": "b4a6fd84-2d4a-45ad-a6e6-34651100b9d1",
+    "name": "Diyi Yang"
+  },
+  {
+    "id": "d11484e1-0c8f-46f9-8d61-eb7953a617dc",
+    "name": "Dipanjan Das"
+  },
+  {
+    "id": "c7b7ee4f-de51-4c7a-8656-c12119d6c70c",
+    "name": "Hugh Zhang"
+  },
+  {
+    "id": "1ea6b657-9682-4cd4-ae2b-894cec0906b3",
+    "name": "Daniel Duckworth"
+  },
+  {
+    "id": "7a4140d4-5295-432f-bcbd-76d68b4e35e7",
+    "name": "Daphne Ippolito"
+  },
+  {
+    "id": "9c61ba4a-01ee-43db-a69e-1a0567516169",
+    "name": "Arvind Neelakantan"
+  },
+  {
+    "id": "b7ef4a20-0e7c-4450-83dd-fe4e17b4eefe",
+    "name": "Pepa Atanasova"
+  },
+  {
+    "id": "1d721475-1032-4441-8df5-dd907c9af5c5",
+    "name": "Jakob Grue Simonsen"
+  },
+  {
+    "id": "53533371-dcf9-4d3f-a75c-9188b92651b3",
+    "name": "Christina Lioma"
+  },
+  {
+    "id": "dc3be02b-6a43-4e2a-9710-f82439832329",
+    "name": "Isabelle Augenstein"
+  },
+  {
+    "id": "656b3b6d-94a0-4fcc-bd84-36b5b468de15",
+    "name": "Huaishao Luo"
+  },
+  {
+    "id": "595540b6-d728-49e2-a9fe-190b07e9b78d",
+    "name": "Lei Ji"
+  },
+  {
+    "id": "630935d0-642e-41e1-a272-06d16fe3e5e8",
+    "name": "Botian Shi"
+  },
+  {
+    "id": "5e1c69f8-be87-4f7a-8535-3d20f7bf3703",
+    "name": "Haoyang Huang"
+  },
+  {
+    "id": "72ec5de0-e6ee-4ef2-a98e-119b2ced373c",
+    "name": "Nan Duan"
+  },
+  {
+    "id": "29dbb9e4-5973-49b9-b64d-f43a90dc7a74",
+    "name": "Tianrui Li"
+  },
+  {
+    "id": "e5f28d32-8eb5-48de-b3bb-2150c438b10d",
+    "name": "Jason Li"
+  },
+  {
+    "id": "e37aded5-61a8-4fda-a78b-9c6347f3676a",
+    "name": "Taroon Bharti"
+  },
+  {
+    "id": "0452cf65-8a2e-41f2-ae0e-3d83b3196091",
+    "name": "Ming Zhou"
+  },
+  {
+    "id": "e860b3c6-cf16-4500-8073-992f2081280b",
+    "name": "Jingqing Zhang"
+  },
+  {
+    "id": "822b0eaa-4823-4544-b628-b2242a6e7487",
+    "name": "Yao Zhao"
+  },
+  {
+    "id": "7aabdc4d-5497-473b-8cdc-4fca4a97c380",
+    "name": "Mohammad Saleh"
+  },
+  {
+    "id": "ebf375c0-dd61-4a3f-b15f-d4cbb10ede8f",
+    "name": "Peter J. Liu"
+  },
+  {
+    "id": "602422e8-2ae5-4f3d-b199-6c9d2973c0ad",
+    "name": "Wojciech Kryściński"
+  },
+  {
+    "id": "5bab4aa5-5878-4459-af2f-dad1cee24d75",
+    "name": "Bryan McCann"
+  },
+  {
+    "id": "1a91291e-9e56-47e5-9ca4-f435c32a74e1",
+    "name": "Caiming Xiong"
+  },
+  {
+    "id": "3ff72b85-4d59-4a5d-abfd-c3d1f6564f4f",
+    "name": "Richard Socher"
+  },
+  {
+    "id": "22f9e0b6-c43f-4e18-8cfd-74e6f3ac8116",
+    "name": "Ran Tian"
+  },
+  {
+    "id": "1deb41cd-6518-4d2b-8e86-47a7748d24ed",
+    "name": "Shashi Narayan"
+  },
+  {
+    "id": "b3f49edb-83ca-49e8-abfe-8a57f9a887fd",
+    "name": "Thibault Sellam"
+  },
+  {
+    "id": "21d0c3f5-0bb8-4be1-8c90-fe1d7e084753",
+    "name": "Ankur P. Parikh"
+  },
+  {
+    "id": "7602c404-c009-455e-9ecf-3b1eaf0c0e8f",
+    "name": "Isabelle Augenstein"
+  },
+  {
+    "id": "f424c4c8-870a-4773-940b-7be75fdc7b2d",
+    "name": "Christina Lioma"
+  },
+  {
+    "id": "e4a18dd0-48d2-4e8a-ab49-080c0baa8139",
+    "name": "Dongsheng Wang"
+  },
+  {
+    "id": "dca85683-04bd-4204-901f-5b5523c417db",
+    "name": "Lucas Chaves Lima"
+  },
+  {
+    "id": "db627420-4b6c-4f75-8bd5-b5439d01013e",
+    "name": "Casper Hansen"
+  },
+  {
+    "id": "91e56f83-a23e-4d9e-98bc-12dfdf650681",
+    "name": "Christian Hansen"
+  },
+  {
+    "id": "34c63b9f-ea0b-4836-8222-95e929be56e7",
+    "name": "Jakob Grue Simonsen"
+  },
+  {
+    "id": "55e1042e-2785-4acc-8009-a3c9a75f9b36",
+    "name": "Andreas Hanselowski"
+  },
+  {
+    "id": "d49e6025-6872-4393-8113-ab516d5c6d6e",
+    "name": "Christian Stab"
+  },
+  {
+    "id": "25a2db51-3daf-43aa-bfb9-2d3822070b2c",
+    "name": "Claudia Schulz"
+  },
+  {
+    "id": "ebaa966e-50f6-4cc3-ad0c-57386a1a43db",
+    "name": "Zile Li"
+  },
+  {
+    "id": "9e242f04-9e73-4eeb-9fb6-e443c835f45f",
+    "name": "Iryna Gurevych"
+  },
+  {
+    "id": "b30fe329-95f1-4479-9e3c-856145f9d9d8",
+    "name": "Felix Stahlberg"
+  },
+  {
+    "id": "fc41c369-10ca-400b-b434-9cddc5b6cd6f",
+    "name": "Bill Byrne"
+  },
+  {
+    "id": "a5b0f528-7fa9-41f2-a179-5e58c9dda40e",
+    "name": "Yu Chen"
+  },
+  {
+    "id": "9e356d97-c605-44cb-8ec5-f60aa53f0755",
+    "name": "Lingfei Wu"
+  },
+  {
+    "id": "bbcef654-9ebd-4685-acf6-8cfa629ce51d",
+    "name": "Mohammed J. Zaki"
+  },
+  {
+    "id": "e9fc5cfa-536c-4e4d-ab1c-d9415950d086",
+    "name": "Sean Welleck"
+  },
+  {
+    "id": "e1e994b5-d405-421f-b567-e21e9f72d393",
+    "name": "Ilia Kulikov"
+  },
+  {
+    "id": "58905169-4fd6-4b8a-ba66-41ecaeb4caa7",
+    "name": "Stephen Roller"
+  },
+  {
+    "id": "7f00ed9d-7ce5-4305-a1c0-4798587861ba",
+    "name": "Emily Dinan"
+  },
+  {
+    "id": "1349d890-b84b-4945-bffa-87b9854431d4",
+    "name": "Kyunghyun Cho"
+  },
+  {
+    "id": "bf1edce5-9905-4a54-a01e-2bb8c57da562",
+    "name": "Jason Weston"
+  },
+  {
+    "id": "1d733e75-3a40-4a42-bffc-62d3b6be4bdc",
+    "name": "Michael Hahn"
+  },
+  {
+    "id": "3d19f490-e9ea-4ba4-8c4d-92d5c7f1abe0",
+    "name": "Ben Goodrich"
+  },
+  {
+    "id": "e81f8282-1fee-4dbf-84da-007c814ab4ae",
+    "name": "Vinay Rao"
+  },
+  {
+    "id": "81ed10da-67e4-4a3c-a8a7-4c7283dccb2e",
+    "name": "Mohammad Saleh"
+  },
+  {
+    "id": "d9e22543-891b-468e-b22d-96cb52f18951",
+    "name": "Peter J Liu"
+  },
+  {
+    "id": "b7624bea-5224-4479-bb30-ffa5b73311c5",
+    "name": "Elena Voita"
+  },
+  {
+    "id": "4a22ff27-4d69-471d-8e40-ec9c9e1ac05f",
+    "name": "David Talbot"
+  },
+  {
+    "id": "d9039758-aaf1-44a8-805f-ce9c05092a72",
+    "name": "Fedor Moiseev"
+  },
+  {
+    "id": "7f099b48-ce0c-4612-a958-6c2c0a0d8192",
+    "name": "Rico Sennrich"
+  },
+  {
+    "id": "b1691432-fdab-4e05-8773-bd015bcd4465",
+    "name": "Ivan Titov"
+  },
+  {
+    "id": "c3ac658a-8867-4562-bf64-a4416baa63e0",
+    "name": "Rowan Zellers"
+  },
+  {
+    "id": "40ac7f46-9286-4d3c-9616-ea4940249d5d",
+    "name": "Yonatan Bisk"
+  },
+  {
+    "id": "51f37488-e09c-4711-965c-b8624a7d6ffc",
+    "name": "Ali Farhadi"
+  },
+  {
+    "id": "9340c06c-4564-4cc1-aacd-5157fec10be3",
+    "name": "Yejin Choi"
+  },
+  {
+    "id": "1ef5fac9-45d6-4f6f-a475-680fd263cb05",
+    "name": "Zhilin Yang"
+  },
+  {
+    "id": "4ce047db-b830-4d5b-98e6-c14a20044dac",
+    "name": "Zihang Dai"
+  },
+  {
+    "id": "7c560052-e6c7-46df-a65b-46bededf32f5",
+    "name": "Ruslan Salakhutdinov"
+  },
+  {
+    "id": "4af63439-b1b6-498f-aac3-125ba78e1e76",
+    "name": "William W. Cohen"
+  },
+  {
+    "id": "7dd9352f-7cc7-440a-90bb-91675da6e65f",
+    "name": "Balaji Lakshminarayanan"
+  },
+  {
+    "id": "dff655f1-9af1-447a-89f0-2b1a32c33d07",
+    "name": "Alexander Pritzel"
+  },
+  {
+    "id": "66204c07-4503-480c-8c1c-94dbf25ea894",
+    "name": "Charles Blundell"
+  },
+  {
+    "id": "f2eeafc7-84d0-46a7-a9e5-23a46b4407ff",
+    "name": "Samy Bengio"
+  },
+  {
+    "id": "b6a5c927-c33a-4e14-8e71-406e26e9f159",
+    "name": "Oriol Vinyals"
+  },
+  {
+    "id": "ef120902-5f24-4057-bd54-dfcbbf62d71c",
+    "name": "Navdeep Jaitly"
+  },
+  {
+    "id": "5e6c7243-9185-475f-b96c-2be314161593",
+    "name": "Noam Shazeer"
+  },
+  {
+    "id": "81569829-17f0-409b-b460-e3ce48fd93a5",
+    "name": "Yarin Gal"
+  },
+  {
+    "id": "bdae78b1-9250-4044-8922-b680052961e5",
+    "name": "Zoubin Ghahramani"
+  }
+]

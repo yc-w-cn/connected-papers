@@ -1,0 +1,2002 @@
+[
+  {
+    "id": "7d045a73-204e-498f-b7dd-0e98dc017583",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "95a70891-3071-4623-9456-d6ed80b4036e",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "c8195162-d204-45b5-84b3-7a017adb83c5",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "ac78a973-162c-4014-9797-06d26da98350",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "81686066-54e2-426c-892f-52a8f520a8e9",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "ad027cd5-c468-4b58-88ed-b06a12ce6315",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "dee7e9f7-a1c1-4a0c-9c25-ba4696ac5040",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "f8d5e281-b626-43b7-9f76-73128dedd701",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "e6bf8d1d-9375-4351-af77-004f6f97ec85",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "5649617c-740a-47dd-aee0-390aa7fa3eaf",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "e414c949-443c-4891-ac96-305475fa8dfe",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "ca72ce0d-4059-4003-adcd-a541683f62f3",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "3a6ed004-d764-4d0b-9a6a-10f2a203ed54",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "84fda2c9-d0af-44ea-94a8-4b8ee31e7eb7",
+    "venue": "International Conference on Computational Linguistics"
+  },
+  {
+    "id": "8163d745-9658-44fb-b06b-0fea7793f3aa",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "6475838e-7f56-4421-8315-6be71c37378b",
+    "venue": "Knowledge Discovery and Data Mining"
+  },
+  {
+    "id": "35a892e3-5c15-4c0c-a6e9-feb25a283596",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "64552258-0624-466e-bdb6-52040e416e46",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "fc8a1b39-a797-41d3-a62b-b62c1f90ebfa",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "db8e60aa-7453-4bb6-a692-300e3e839cca",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "d09a8408-672f-432e-88f5-098ab8c819b4",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "d6e7b043-e86c-450a-b1f6-26b6133fb012",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "3069fc7e-bf21-4db9-a6c4-909dad12708f",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "c7bc22bf-3b67-42cc-96d4-af70316aa48c",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "8760892f-7d7c-4ddd-a54a-7b562f9ea018",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "6c12bfe4-450b-4b2f-a370-a8aeb77161a0",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "e87b22a5-cc81-4581-9bf6-c2122de013f4",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "525ff9e2-2ed9-4651-8d08-60666a484017",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "9cdb3959-6789-4eb2-bfa7-73dee7005fc6",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "4904aafc-e110-4747-b0bd-3d334f4105de",
+    "venue": "ACM Trans. Inf. Syst."
+  },
+  {
+    "id": "3ccacbe1-3b35-4bd2-9d01-049a06d391f7",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "e91be3a3-648a-439a-9d3d-bf3b11f10dea",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "a255b5ed-5d15-41a8-a702-90ae1dd81052",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "b18c6185-0b48-4095-a15e-fb8852b7ef83",
+    "venue": "AAAI Conference on Artificial Intelligence"
+  },
+  {
+    "id": "5afd6b45-f6f0-488f-8205-f68341c565d0",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "5c5caccb-9779-48ea-8647-bd31f1880b0e",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "eeff4d1d-c81c-480b-bdab-ab3e306ece9a",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "7c2a6fb7-15b7-4d6d-8ee0-612ac3244a6b",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "aa8885a5-2ef3-4ef0-87ca-aa1f7f133bc1",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "9c842c29-8e2b-4ccc-a0a4-e429391b38fe",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "a8ec88e3-2e59-4361-8608-afbddbebe927",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "43cf78fe-edfc-4914-a22b-1b2e5bf72d6b",
+    "venue": "ACM Computing Surveys"
+  },
+  {
+    "id": "8fbb9b3e-9ecf-48e2-9030-e6de54fa29f5",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "eaf746f9-1429-4191-be88-fb7ed1a56f74",
+    "venue": "Transactions of the Association for Computational Linguistics"
+  },
+  {
+    "id": "eda25ee5-3e2e-4355-9fc3-7f621268589c",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "2dba0bf7-4da3-4ace-a7ee-5e5119491d93",
+    "venue": "Conference of the European Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "0db2955a-de1a-45a2-823c-13acd0744bf4",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "f70c8be0-8b86-43b3-a4fe-7c5e16402d41",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "f5459ddd-8df8-4432-ace4-ba2379a54b73",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "6eaeaaef-a7e1-4a34-a61d-acc3a9f4e6cd",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "87718c11-9e84-4a72-b279-62cd5152c704",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "771311a6-8d15-41bd-851c-516d7c919d04",
+    "venue": "Conference of the European Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "5da868c0-c1c4-45eb-ab0b-a8078156e82c",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "43020a1d-2156-41fd-adba-f49b03caabe4",
+    "venue": "Conference of the European Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "138b3eba-21c2-47c2-b362-480b757fed2a",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "d5d484e8-1aef-4bca-99a5-8d6b0d3f24ae",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "2265e994-ce30-4a87-92c3-2bf11bb08b4c",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "e6c5311a-6326-435d-a4e8-4d58ea459570",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "bf06ca4c-c46d-4d77-995e-d5c1d012daed",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "9d6c6ff4-3405-4ca8-8663-ba4878d50468",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "93e67adf-03c9-42b0-aa21-cdeef600a810",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "d08d113a-0b36-4161-b57c-76ea3157177a",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "bf8ff1f4-67ab-4b48-bc85-4ade772544c2",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "cabc7327-27ed-40a0-8798-699377a4d7a9",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "8d7472f1-c9a9-4576-8707-ffce9c915d94",
+    "venue": "International Conference on Computational Linguistics"
+  },
+  {
+    "id": "a6fa0767-7801-4f2d-b3cb-3152b27f95ce",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "e1a12e20-a779-46ea-9525-7eca97e5f4f7",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "c5417299-f93f-42ef-baf7-f585c3fac24e",
+    "venue": "China National Conference on Chinese Computational Linguistics"
+  },
+  {
+    "id": "c57ade1f-f6b3-44aa-b50c-99863e8e6fac",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "bf34948b-fcb0-4729-894e-97eca4f99067",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "0ffa1ec3-9f8b-4d14-9e03-a815a3c3b392",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "1c4fdbac-abd9-4b34-a51d-8d8c7a2d107f",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "0bb018b3-cae1-4122-b655-20e3ab68eca4",
+    "venue": "International Conference on Language Resources and Evaluation"
+  },
+  {
+    "id": "e3dbcc13-0dbc-4036-84c5-482b2ab2b3ae",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "96adbc68-cdbe-461b-9cf8-79f17e7ea976",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "43a31b61-7ba7-498f-a4e3-f106dc52b0c2",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "9f8b224e-f531-4aab-bf56-51296a506912",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "98616530-5656-44ca-976b-09a9b77b6035",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "c5858bd8-172d-44bb-a161-85004eb831c7",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "61ad44bb-6129-4128-8faf-ee321ff139bd",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "db54e3fb-fe71-44c3-a5a6-96091ee96419",
+    "venue": "ACM Transactions on Intelligent Systems and Technology"
+  },
+  {
+    "id": "a5d1a4f5-1d59-4ffe-b8a5-c6bb67a7be7a",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "e588f23e-7bc1-4eeb-9a7e-f9c9fcc0ec9c",
+    "venue": "NAACL-HLT"
+  },
+  {
+    "id": "bbbd2af9-0e31-474e-945a-523e3899fe2f",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "48fcf59a-4e1f-4149-8267-0eadcaf272ce",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "86683bdf-5e6a-43c6-b9d4-1eba8b4145e6",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "52c21fa7-6947-465b-a659-879985758c9b",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "63675cdd-c26a-448c-867b-824b79957d09",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "e0060564-75ea-413e-a0f6-56ec990f7fd3",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "a9701292-ed3b-4965-a42b-9b828a4bb207",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "5c56ade9-de0b-496a-b211-66f1a89754be",
+    "venue": "Trans. Mach. Learn. Res."
+  },
+  {
+    "id": "8a7ebb04-8520-49d1-8328-80951db2ee5f",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "add93e13-9a25-410a-9b59-5fbea4afbe44",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "952aa00c-1131-4ba4-9ed1-416c1f234ef5",
+    "venue": "ACM Computing Surveys"
+  },
+  {
+    "id": "f03e62bf-e89a-4f32-9bc3-5a126249aa82",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "d07d92b9-7bef-40f2-80fa-383526e27f99",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "2fbb9f3b-fcfe-4bf8-949b-36c8b5f906dc",
+    "venue": "Transactions of the Association for Computational Linguistics"
+  },
+  {
+    "id": "e4b08473-d973-4cf5-be0d-7bd44cdad6be",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "fe7b74e0-374f-4ed5-ac03-d6e5b32046e9",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "e75da48f-ce23-447b-a5e2-7915bfd94ab8",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "387614d7-a641-47ec-a89e-e5c2266a420d",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "bf8d2282-c39d-4ae7-9e0e-0f422acacdd8",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "c8e69bbd-83b1-442d-9527-dbd12fb633ea",
+    "venue": "Rep4NLP@ACL"
+  },
+  {
+    "id": "82750261-1f14-4f53-b1a9-1f09f080e727",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "9757e5e1-52ad-409f-9f7f-6adcb5ad97b1",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "703f3e46-240e-4cbb-823d-b95b283990b8",
+    "venue": "China Conference on Information Retrieval"
+  },
+  {
+    "id": "a8793b58-a69a-42d0-b6d4-96554dd44f42",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "db526db0-5350-4a4b-8f50-41f281578346",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "787652b9-316c-415f-b554-570573483df4",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "1fd886cc-6fc5-49b9-8091-bb9f9b2707d1",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "d698d8ae-b3cb-411b-b1aa-409b366965a1",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "c53554a6-cf93-41c8-a0fd-8010c72af58a",
+    "venue": "Trans. Mach. Learn. Res."
+  },
+  {
+    "id": "3d907c61-77e9-4f94-a6bd-78a223b5b726",
+    "venue": "Transactions of the Association for Computational Linguistics"
+  },
+  {
+    "id": "35aeaed1-ecd2-46af-bff4-6c0f0526e307",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "5d31946e-1523-4402-ad54-03a84f512cb1",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "e9af9cd6-9748-40a2-82b1-9db796365e98",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "7f958869-bae5-49b6-b698-047b8831d668",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "0d07f0d5-cdfa-4801-88af-78860c6b50e8",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "011bf79d-c41b-4c2e-b0ed-1c903b43edb7",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "77829c66-ece3-44e1-8361-0eb9b3af9f69",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "43615e51-0df2-4775-a8e9-289cd3fdafe5",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "7f7bc956-b296-4733-b170-0f1c0bbf9e4e",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "6d997e76-627b-4f45-975d-fad69f04ff83",
+    "venue": "VLDB Workshops"
+  },
+  {
+    "id": "dee5d067-8a53-4b32-beaf-b4248378b43a",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "4462d25c-0ac2-46ae-b6b8-e78cd534cb80",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "3c83cd58-11f3-4fe3-950f-91794fa99380",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "6e32205f-97c5-4135-9b51-90118f93a20f",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "786f7215-ba8b-448f-b97a-39296413d048",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "7d4ffbfd-37ba-48d0-b18b-657cd84136c1",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "9355e798-118d-404a-82a5-557a00b46906",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "d393aa57-2744-4170-bab3-f58a374e2dec",
+    "venue": "AAAI Conference on Artificial Intelligence"
+  },
+  {
+    "id": "b25d2d52-9906-4db8-8839-9ca2140916cd",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "d1640281-fc2a-4071-a8ba-de2272c96799",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "8447f1b4-c6dd-4650-853d-84b499e837ca",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "3b3887aa-0be5-49d9-9918-c8eee1803d43",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "45bdfed0-734d-4531-8cd7-a78f3903104b",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "bba4534c-ef25-4650-a387-0600e4930686",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "3bfd16f7-f6b6-4729-b876-307ab436eb47",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "8a56f5c2-ec53-4431-a01b-618b666871a7",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "d0bc4bca-8918-488d-9335-8e1fad2d013f",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "3c11cd79-1c0c-41da-8c2e-2a9e8db0c070",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "6760684a-bbbb-4bc8-bbac-331dd58940c7",
+    "venue": "Transactions of the Association for Computational Linguistics"
+  },
+  {
+    "id": "792b23e9-b711-4767-b90f-f08d3f95cfe8",
+    "venue": "BlackboxNLP@EMNLP"
+  },
+  {
+    "id": "7fe4593e-3399-4a34-9b92-b9dea137a090",
+    "venue": "IEEE Signal Processing Magazine"
+  },
+  {
+    "id": "d50f544f-904b-4645-a4b1-e2e6b17358c4",
+    "venue": "Conference on Computational Natural Language Learning"
+  },
+  {
+    "id": "b07e6e80-80b7-4ca5-aac8-d2e299034c55",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "287091a6-1f13-4c02-b727-4d23ebf72892",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "2ef7c9c2-1053-4ae2-a48a-cc230cb34c3b",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "3d360da6-ad4f-4586-8ef8-e225f8cfa84e",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "b7d4d5b4-d97a-40c4-99ec-2210b73db84f",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "622fe7db-9b1a-4bb5-a2e6-cba33abe51ac",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "be006858-884d-4e2f-9c41-eecd4e4861ad",
+    "venue": "Journal of Legal Analysis"
+  },
+  {
+    "id": "db4bd7e9-1c7d-4138-af76-0c3fd7ecb5d0",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "80f1968e-9ed5-45e2-bac7-8e8f5b6ac7b0",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "941f21ec-b3bd-474c-9396-4e68c05642a5",
+    "venue": "Trans. Mach. Learn. Res."
+  },
+  {
+    "id": "1179d35b-c561-406b-b01f-06263e6e3b8d",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "6f8ba9b5-0d13-4e7e-a974-6f1226b7f608",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "2429befb-5a8c-45c5-900c-75507a0cd358",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "04ab3c63-e541-432b-8989-c4af7aa08362",
+    "venue": "Trans. Mach. Learn. Res."
+  },
+  {
+    "id": "31c1ac48-1b82-4a61-ab15-a67b46fd4ef5",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "4491e868-435b-4245-b8f1-2342f651de51",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "f0abebc5-5917-41d3-a61f-a70267a14fd2",
+    "venue": "Conference of the European Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "14ae8a91-d661-44b2-bb05-0324051537fb",
+    "venue": "Information Fusion"
+  },
+  {
+    "id": "5d276921-787b-42b6-8de3-90f49d2eae31",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "b383d1b7-b9fa-4480-a7d0-7d2ecb989cad",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "05cf793a-01cf-47e1-a067-0a424b6557f4",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "7299626b-331b-4b28-a6fc-b8a7d3ad5fca",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "6e4ce673-d0e4-4be3-86a3-613f5689e582",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "ff353141-5803-40d5-ae9b-29d63105e0c4",
+    "venue": "Workshop on Biomedical Natural Language Processing"
+  },
+  {
+    "id": "1e22f3c3-5bb5-4cb2-9600-763137ce72f9",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "2d113034-74bb-4941-ab9b-307de5259049",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "5de81adb-07f3-4066-ae7d-22c3f4c7196c",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "02da4267-623c-4301-a80f-a458a501c1cb",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "a7ad9848-38ee-4f8e-8906-122e18027d0b",
+    "venue": "Transactions of the Association for Computational Linguistics"
+  },
+  {
+    "id": "0db64dc2-8ed7-4faf-bb99-1ff5ae6958af",
+    "venue": "IEEE Transactions on Knowledge and Data Engineering"
+  },
+  {
+    "id": "74ed29ad-1094-4c46-a552-e9e679bd18d7",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "4cba3195-44ee-4b5c-8a44-a6ea3fc4b59c",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "e8a83ce8-313d-4fcf-9a29-2c7c9925c444",
+    "venue": "Conference on Automated Knowledge Base Construction"
+  },
+  {
+    "id": "73e701b5-1b9a-41c0-8c25-bcaf1046a5d2",
+    "venue": "AAAI Conference on Artificial Intelligence"
+  },
+  {
+    "id": "42fe5ac1-b761-4dba-9c0d-14c85eed21ca",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "cccc909f-0515-4b0b-bd33-cf8d5fb1e181",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "97ecf9f7-f0e4-49a7-b3c3-d5bc7cdf93c6",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "d8cb5ca4-ca26-47fc-aea4-d531a34de328",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "9ba9429a-1f75-4e68-86c6-80fb72dbce16",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "2506e1e4-ad19-49af-8d18-139853e5a950",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "2cc6b2a1-2b67-44f4-b996-072c9a074b52",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "bc361767-c71e-47c7-b3ae-67781cb21196",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "44d147e9-0b56-48e8-a5d3-3f18866f3e39",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "85435c41-8f51-4008-b4a3-229735a92983",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "033cb3ce-30cc-4aac-bd06-ebb89c6bedfe",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "ea7ebcbf-4218-4ee7-8616-53d82e4b647e",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "8193d23b-28fb-44af-8c7b-647c99372f6d",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "815cb94d-8d8a-4432-96c0-95f7fc45d9b4",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "14de0711-b832-4e1e-a7ef-a229ad10d809",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "17a727a9-d341-4c50-976f-48bb17886491",
+    "venue": "Conference of the European Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "315e5822-b2fb-43a7-a196-24c275b7579e",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "1b6a87c4-4d54-4c07-8a35-15149af67eef",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "fa516870-a0ac-4fa2-b02c-53916bff68a8",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "87fdeae5-cb88-44f7-98a7-a7fdff177c89",
+    "venue": "International Conference on Artificial Intelligence and Statistics"
+  },
+  {
+    "id": "edb7cd30-79b3-423c-8b7d-cefc9bd4d990",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "a65568ab-7e58-4f2e-b5a6-d19c8c822794",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "2d8c9729-3b99-461b-8a9d-49a449736b1c",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "b333a38f-e7f7-44e1-be1c-d675ef11cc0c",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "bfffccd9-0371-4896-9650-7f5769faea63",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "afce4af7-a185-4ab5-879d-d6745d468c51",
+    "venue": "Trans. Mach. Learn. Res."
+  },
+  {
+    "id": "4cfc6041-9228-45aa-b5c4-0d34e24d8c36",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "576c1b2a-b82d-43d2-82ab-542f44c67afb",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "fc79295c-80e7-4d7e-a896-0ccc4d385033",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "4d24d63c-2395-484b-92a2-af89d9af766c",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "536869f8-0013-4db2-99e0-143aff77603b",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "881e582c-802d-4682-850b-3d72da06e67f",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "ae2411e0-2ddf-4a67-9828-46ace83a3174",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "45115207-797f-4606-b962-dcd5c42f4864",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "af197906-7683-48e9-9c9e-1eb0c5b71597",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "84aa817a-e6e3-4e46-b8b5-e8f5f1de46f8",
+    "venue": "IEEE Workshop/Winter Conference on Applications of Computer Vision"
+  },
+  {
+    "id": "d2a15958-f407-44fa-b754-47fab696e323",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "9e35d90d-909e-43bc-9641-0d221fa82d8e",
+    "venue": "NeurIPS Datasets and Benchmarks"
+  },
+  {
+    "id": "49076192-0bfa-4feb-8add-f0de6afccb4a",
+    "venue": "Computer Vision and Pattern Recognition"
+  },
+  {
+    "id": "5829e940-1446-4f6a-b6f4-2c6f804824c3",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "13f3bd34-0264-4e7d-9e2f-bfedc5701162",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "3bd21176-5386-45e1-aa86-cf190efc2593",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "9fc4ddfd-1d26-43dd-865b-500e66d61ba1",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "69770105-a44b-4ff0-a1a3-3d88ae671b46",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "47dd955d-847c-499e-89cd-cda7b28aeaa0",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "b758001b-4408-4035-af8c-de528684709e",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "34f71fab-bbfe-4118-984d-de1662dcf926",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "a2833cc6-7d7a-4497-b16d-1e65fa7cac7b",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "3a1e8eec-8dd0-43a2-934a-a8ddfdbb773a",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "4e5e4125-7b8b-4889-a66b-68bddb82b4f4",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "3e0609af-d7a9-4b6b-bcdb-0493379dd20d",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "5e68ae96-2e2b-4d51-88be-a7d88374b093",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "96ac125f-dfd4-459d-93d7-04ea6a6bc758",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "4c4f3083-ec0d-4dee-8418-e601896a311e",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "ec28cc34-dc03-45fa-9972-74e203b9025f",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "613a2d3c-df83-4bd7-a9ae-572df4936bc7",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "5328fa41-03bd-4492-b793-c97a6be41232",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "5dc1a8d1-459f-467a-98d3-7e50ea2a268a",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "89e1b296-0286-4362-91c7-c2af29532a9c",
+    "venue": "Annual International ACM SIGIR Conference on Research and Development in Information Retrieval"
+  },
+  {
+    "id": "ccf04f97-fb3f-447b-886f-defbe4596422",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "e31b6cdc-3767-4d5b-b2d3-06fa359d7840",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "9820fdd9-4398-492b-a93e-cf32f001f586",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "19ace4a6-7db9-46de-bf3b-b3d3f2fbad26",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "2eed941a-369d-417f-bccd-836a8815c343",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "fe422f7b-28c8-4ee8-b79a-dd66bc528b49",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "3e4c0594-7126-40f5-8608-ada243d47419",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "751c695a-e889-4df5-a840-788b22db08d7",
+    "venue": "AAAI Conference on Artificial Intelligence"
+  },
+  {
+    "id": "837ad3e4-09b9-4de0-896a-1eb0ea24695b",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "14dab270-dad2-44c7-aee2-7f152f0e884b",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "6e4e839b-19dd-4f93-bf3e-250818db8420",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "c45f6fcf-e83f-4324-80d6-70bb84f28694",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "c1221d52-09c6-4246-9ae8-50dd854d9775",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "5cda42c8-6ebb-4e4f-95ca-2c7d61b56fe1",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "468ebe1b-3639-4ae0-919a-85c08d35eb01",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "3a62b156-2895-45f5-a053-0c913dab4f77",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "17b3e92d-b00f-4156-9212-b7edb5dd7a22",
+    "venue": "NeurIPS Datasets and Benchmarks"
+  },
+  {
+    "id": "2d0e1419-3ae3-4f57-b65a-4e8aa5834030",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "f5fe15ed-e9b6-4359-89ee-526809ca738c",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "3795d965-0a87-4335-a674-6a5c3009d6b0",
+    "venue": "International Joint Conference on Artificial Intelligence"
+  },
+  {
+    "id": "0ad77e94-62f4-426a-b51b-ca301564260b",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "c58c5f89-d850-4a4a-9ce8-32b6f65b0c39",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "af17914c-eb45-48d0-a2c3-30efa0cc76b8",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "dc4dcd61-d31c-4f7b-8796-9affd632bd3b",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "3b03bc57-c182-4117-85b1-d231de7f18e1",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "5ec83b0f-9cf7-4f6e-8cc1-ebb7749c0a61",
+    "venue": "AAAI Conference on Artificial Intelligence"
+  },
+  {
+    "id": "7d5d82fd-e640-4740-b271-e0ba613e2fb3",
+    "venue": "ACM Computing Surveys"
+  },
+  {
+    "id": "5154daa4-bcdb-41fd-b56c-a72d11c6e7a0",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "5cd43bb8-98be-4c6e-b934-d01192dc2e23",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "ba4498cb-3e83-4abd-9025-70f62dac2020",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "d3b8096b-24d6-4fbf-bddd-9a3511a3531f",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "0e3dddae-ca05-4452-9e3d-4c0e708f7bd2",
+    "venue": "Computer Vision and Pattern Recognition"
+  },
+  {
+    "id": "d41b4d2c-6290-47f3-b6f5-0b8b45a65604",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "7cd1a6e8-59b0-46fc-b318-70418349149e",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "1432c828-3a77-4a81-9447-8c65f1098631",
+    "venue": "International Conference on Artificial Intelligence and Statistics"
+  },
+  {
+    "id": "7036f88d-d414-4081-8613-7663a62a8a11",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "06d4657c-4cf2-44f0-8428-e689cf110484",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "70dce90c-395d-47ca-96b2-ba8dd58641d7",
+    "venue": "Nature Machine Intelligence"
+  },
+  {
+    "id": "358eedc6-567b-4786-a0af-df2bdcf9365d",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "a524cdb2-ddd2-4714-b710-233b10df5890",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "a44747e3-e9f6-490b-a55b-517cf198f278",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "e71f2b43-b870-493c-8662-9a540324d6e9",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "6c516fa9-ae2f-4a92-b71e-b6aecdb1dba8",
+    "venue": "Advanced Theory and Simulations"
+  },
+  {
+    "id": "09c92f3f-2a55-4e8c-8351-747f9b03c93a",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "dbeeef0f-b15b-471f-88d2-0388372ddbef",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "1ac19362-f3af-4405-8868-aa7fd100a7fa",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "b3d23b04-c613-43ee-a35e-b38cf4ec9c36",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "e8343cb6-3533-4774-bd41-72d8771ea22d",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "01104cef-14a3-43d5-bc13-812a0200b382",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "f7c1372d-149c-4f43-bb78-4244b8b86245",
+    "venue": "ACM Computing Surveys"
+  },
+  {
+    "id": "469f85d7-45f0-4ace-84ec-781aa7cc84fd",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "f32630f2-f15d-48a2-8282-94b1ba5053c6",
+    "venue": "AAAI/ACM Conference on AI, Ethics, and Society"
+  },
+  {
+    "id": "c3e597ba-587f-4eb7-b0d3-72674a879769",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "96fcc0f2-48c1-4e9c-8b0c-60041e9975fe",
+    "venue": "Tiny Papers @ ICLR"
+  },
+  {
+    "id": "c7313b4c-df55-416e-b7eb-3f5a4f126d76",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "a8dcc05a-4934-478b-bb11-dea62349c4b0",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "35967138-f57f-4fe3-aa9d-eb37c652a313",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "92eacb4b-97d8-4707-abdd-d8fc8b328a80",
+    "venue": "Trans. Mach. Learn. Res."
+  },
+  {
+    "id": "7eb070c0-ceb1-42da-abe7-aa61be977220",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "583acaa0-12f0-455e-be54-01b474e0d1d2",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "9180f608-e2ac-46d4-9ca3-11d38ad528ed",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "2ffa18fe-29a4-4fd1-8836-fadaf33ba5f9",
+    "venue": "2023 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)"
+  },
+  {
+    "id": "a9d6cc6b-012e-4da3-a342-66c509c2bff0",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "1af31587-920f-42d1-8250-0ca6fc267d11",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "3c5412d4-af61-4400-80f4-a7651b172775",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "fd3239ab-7402-4ad4-9ce8-6c891d288cdc",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "111acbbc-5a57-47c1-8df4-59d600b7034f",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "f2f43b03-61bb-4d4b-8843-61680d1d2497",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "b28dffee-edca-4db6-b3c8-0ec2b2aaa5fc",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "5ded68d3-d975-475a-b7bd-ddb0e71e33a2",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "9aff4074-5a17-43db-8793-45071a8101d8",
+    "venue": "Conference on Fairness, Accountability and Transparency"
+  },
+  {
+    "id": "fddb515b-83d6-419d-a060-a50c41ba094f",
+    "venue": "Machine Intelligence Research"
+  },
+  {
+    "id": "cc0a53e7-5111-42db-8929-cfcf258968dc",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "5b32c35d-cfac-4dc9-bb48-0ed907dbc379",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "ebd81cf3-4226-450c-b45b-b8d0462c4f32",
+    "venue": "IEEE International Conference on Computer Vision"
+  },
+  {
+    "id": "3e2649c4-0c45-4cd8-b3cd-99ed83a76510",
+    "venue": "ACM Transactions on Graphics"
+  },
+  {
+    "id": "a50def17-e2df-46be-9a4b-81a1b41b6127",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "6658bb48-3516-4c97-8236-35324009d9ec",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "b7247b63-1dd6-4fc1-86ac-f847aad3d4e0",
+    "venue": "Computer Vision and Pattern Recognition"
+  },
+  {
+    "id": "9b9a3a64-9a63-4fbf-930c-a31bcddb2968",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "7af3e348-0c0e-4d44-9790-78298d4cd7c1",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "589c7f42-d1ab-4737-8e81-f304971cfb50",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "39c9edf9-1e94-4857-8635-c05f5d517c51",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "5a7dafee-c9a1-4ea4-9c89-f405383c233d",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "395a4bf9-2d71-4daa-a475-7bd981df2e8c",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "f221c5be-67dd-4274-b5d8-e3e55871a677",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "90d6abc6-5c43-4a78-8d5a-874c06a503d2",
+    "venue": "Volume 1"
+  },
+  {
+    "id": "59a43549-61ff-405e-bf7b-064968aabf4c",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "6cec0157-f7a2-4303-bac9-84b477557267",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "03d4fb55-e2eb-43dd-8ffa-7178632dcae3",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "28f17805-e87f-4b50-aba5-70b9a40d3fb6",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "423702fc-c302-4d79-b64b-e5be79308e59",
+    "venue": "Transactions of the Association for Computational Linguistics"
+  },
+  {
+    "id": "6aa7b77f-edcf-4e27-852a-ef8b4a698999",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "cc477780-17bc-46f1-a3b9-3821311616f1",
+    "venue": "Trans. Mach. Learn. Res."
+  },
+  {
+    "id": "1d99c207-267a-447c-8a83-731171b71617",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "67ddb761-4c38-4221-aea4-cdfa22fccbf1",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "91b8c989-ce84-479f-b3fa-3e3a146049f2",
+    "venue": "Trans. Mach. Learn. Res."
+  },
+  {
+    "id": "e7e90eaa-cd7a-46e7-8969-65fae8609551",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "8de8ae60-1eba-44f7-b31f-9987d541b980",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "940e8f3e-6e05-4c7d-928d-b99550aaa447",
+    "venue": "International Conference on Computational Linguistics"
+  },
+  {
+    "id": "3eb75b30-90d6-4803-beda-4c5d08450e41",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "d7cfcc8b-9bc5-4432-be59-a188baf232c5",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "558f219d-8e5a-472c-be28-b58be5bd9e73",
+    "venue": "Transactions of the Association for Computational Linguistics"
+  },
+  {
+    "id": "ffcb33cf-4a1b-4b55-9ebd-9454cbdb8768",
+    "venue": "AAAI Conference on Artificial Intelligence"
+  },
+  {
+    "id": "d51c70d8-a3d9-4ec9-ab1d-7a9d364c153f",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "a232860b-c0ae-44f2-ac44-bcbb4f031fe7",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "8c03713f-fd5b-4e8e-88ab-d5202f6c5bcc",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "0f07ff5d-6da8-49f0-9fd7-2fb956979067",
+    "venue": "Computational Linguistics"
+  },
+  {
+    "id": "cc9b9884-e52f-43d8-a618-a4331d2e9943",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "4f5ada04-3c44-4cbb-960b-cfc83581d642",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "4ea248f8-9a8d-4a37-be76-55a3a6323918",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "25cfdc97-64f8-4153-b598-1bb20dd0e264",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "0719c4a8-9e26-4b17-ad34-43f7707797d7",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "bff3ae97-7ac2-4670-b7b5-27a6013eb304",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "7e01218e-9113-4f50-a8c1-3a4fe06b4879",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "e44cfe17-d836-43cc-b7c7-0fb5903733b1",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "a7338740-f74e-448f-b15f-43e259d5204d",
+    "venue": "ACM Computing Surveys"
+  },
+  {
+    "id": "0bca215d-0915-4f16-8472-1d646831c347",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "a01eb8e0-50ac-4668-ae19-d0408079a946",
+    "venue": "AAAI Conference on Artificial Intelligence"
+  },
+  {
+    "id": "bc7f90cb-b80e-4a38-8dd3-0e3c24718920",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "6960d65a-f207-4f6b-92ff-6dae5fa01976",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "3245809b-8846-4258-8cf7-f2f554e1f05d",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "7c21cd7e-9166-4b1a-89a2-5204a48cf5c7",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "b19a1780-a7b3-417f-9c03-088b2b26032a",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "bd0d5ad4-7f32-477d-8aef-df60f57c94fe",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "c900e23f-ada5-4c7a-af1c-080bfbc503f8",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "6f7a0519-0362-49b6-b8a6-2d1d21d99a66",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "d1fe91c9-add0-46ab-928e-9e6d1cbbaa72",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "d30a2d65-a5af-4109-a317-11e1f3853ea6",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "463c0a27-7c97-4396-95f3-24f74916f108",
+    "venue": "SIGIR-AP"
+  },
+  {
+    "id": "b5c6f822-81e3-4306-ae88-17c41e990859",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "77124cde-7dd9-4414-ae17-8883e837e0d2",
+    "venue": "Conference of the European Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "5e4f7d2b-ccb8-44c4-b192-1c72df5edc1f",
+    "venue": "The Web Conference"
+  },
+  {
+    "id": "14c5f28d-98f7-49c1-bc37-42d24839a26d",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "b4c2bd7b-496b-4631-800d-7f08375323df",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "3e789e65-0415-40a4-bc22-2c770633970b",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "e2edc14e-76cf-4a88-bcc8-4130e5dc3442",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "52d0a133-815b-4084-920e-fc72dbb417de",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "58fa6e07-8ba7-4d94-883f-0c9d855659e8",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "a8dfc216-7e91-42c2-bc20-2054fd1abf9d",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "da835fe8-4121-4859-b720-d75600b74ee1",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "2afc954f-9607-41a0-a6b2-c8364b8dc6f0",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "9c786090-678f-4f15-9f19-59477c1540f4",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "ad7411ee-b7dc-4cc7-975e-bd4a1f5342f4",
+    "venue": "Journal of machine learning research"
+  },
+  {
+    "id": "7c2b9c00-abbe-4ab3-9d0e-446ed3373af1",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "08fc9532-4f67-4566-9895-4c618c6039e9",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "0fcee85d-de03-4ddc-ab7d-87fa6c5d5a14",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "1e1bd06a-1df1-4452-8136-5f1aa36ddfc5",
+    "venue": "AAAI Conference on Artificial Intelligence"
+  },
+  {
+    "id": "b4178d35-98a4-419a-b9e6-ffb64cb7284a",
+    "venue": "Journal of Empirical Legal Studies"
+  },
+  {
+    "id": "744369e5-0ab2-4a21-8bcc-875eb345f52c",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "ee7fbbcc-9ab2-4603-8f00-070c9ed3cf7c",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "fd65f52e-7c8f-412e-8b92-48b6b85ad68b",
+    "venue": "The Web Conference"
+  },
+  {
+    "id": "09040af2-64b2-4f23-aec1-a813f5011b20",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "bb6a0593-df17-458c-9ba0-e5aa41a11dfa",
+    "venue": "ACM Transactions on Software Engineering and Methodology"
+  },
+  {
+    "id": "b05cb9a6-b19b-47cf-88bf-efa6a21f5b89",
+    "venue": "ACM Transactions on Computer Systems"
+  },
+  {
+    "id": "984d3758-a4a4-4d86-9cb4-5d5b31424df6",
+    "venue": "International Conference on Language Resources and Evaluation"
+  },
+  {
+    "id": "a3576b93-e7ea-4f4e-9d5f-6244cc1c01b7",
+    "venue": "International Conference on Language Resources and Evaluation"
+  },
+  {
+    "id": "d0c66e3e-c41c-4a9d-a6b6-cbea686246c1",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "c2047e7f-2a5b-47f2-bd90-2a4bcbe2749b",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "167dc5b1-5d02-4ca4-9f19-0f390743b0ac",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "4762754d-6b2e-4041-8cf5-3bb9bf6dd902",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "af2313cf-d600-4762-9861-fd55821b5978",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "db2863d8-91f8-4334-b59c-69da2c1e5824",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "3e19568f-41d8-41cc-a341-f50a36f79c75",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "ed08fe8a-d556-4b63-99c9-4f58c0dd8469",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "3c0be440-eafb-4401-b3a2-e81ee0d0f0be",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "e6b32365-6436-411c-9e53-36925bc78b32",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "c481f17e-3b8e-4a1d-a993-7947c6f4c4cf",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "021bd305-52f2-4108-845a-e555826c724e",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "8bdab736-0d79-4683-9158-c83eeca3bc13",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "ae32bccd-7ee1-46da-bc6d-58bb9d01d70f",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "800cc49d-05be-4c12-bec2-41e6110d11c9",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "7ed8684d-a674-4cd0-bde1-118f30002dea",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "6ad9ac3e-2095-4445-9dfc-e645bfdd4ace",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "1deabbb9-b0b5-43fd-a9e9-2a0f38230a8f",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "5bdc3937-4575-4612-b378-fe21bf56ccbb",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "a507cc3b-298a-401f-bdf2-c27573f295a6",
+    "venue": "Symposium on Operating Systems Principles"
+  },
+  {
+    "id": "cdd46b3e-d248-44b4-9496-e2fccea6d58d",
+    "venue": "Computational Linguistics"
+  },
+  {
+    "id": "d9775f78-e5ea-4865-af2a-00110b89e76d",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "d35fc4d5-b4f7-4845-b197-0140e1bab947",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "df88988d-03bf-41fa-b258-68fc4a8aadce",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "588ad56f-9cfe-409c-a7ef-609c7c9ccd1d",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "86a06e5a-0083-4877-8afb-aa5492296385",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "36581c45-e7e9-4ef8-a6ac-f5db85c08bff",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "3effb5af-bfa2-4315-9a93-22bab31b5229",
+    "venue": "International Conference on Machine Learning"
+  },
+  {
+    "id": "e3943827-b8c1-400d-aa1f-7e44bc1245ec",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "aaedacdd-c83a-49d5-afa2-0d1668f91341",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "ffccc1fe-e4e6-4c01-b295-e3dab0547113",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "50a6a79d-ca35-47f4-b417-9e3d7465a484",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "763de27c-b873-42ff-94c5-68521b6e58a1",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "1cc30376-e101-4859-8f1f-600c57e161c7",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "4ca780c9-4ee0-47b4-bcc2-b70dac136a4c",
+    "venue": "Nature"
+  },
+  {
+    "id": "d30626ba-392c-40d0-8f23-265c6b00fa51",
+    "venue": "AAAI Conference on Artificial Intelligence"
+  },
+  {
+    "id": "e92f5d5b-673b-4269-a675-0ebbe50d2697",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "fef42b5f-6a4f-499d-bfb2-f4d53d3cd280",
+    "venue": "Transactions of the Association for Computational Linguistics"
+  },
+  {
+    "id": "5b4588df-4d2c-4ee9-982e-61f6f646e2a7",
+    "venue": "Journal of machine learning research"
+  },
+  {
+    "id": "721c2d44-5769-4b4e-9986-4ece0c1506a4",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "4d13a909-a782-48ff-a8c7-395ab7b7a3ca",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "415866db-4d49-4482-ad9e-60cd978bce96",
+    "venue": "Neural Information Processing Systems"
+  },
+  {
+    "id": "aa095411-153a-4e2e-8343-27d6ea3e7b6a",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "0472b010-98be-4d85-8d76-9676232e2a5b",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "6acbda50-37a9-4a96-a1f3-31bbbb82f658",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "c14dd03b-69bc-42a2-b0c0-78d24a63be1a",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "10b3923d-9ff9-4869-9e4d-4317aa5730bc",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "cee6eab8-6441-410a-b07c-af0a00eb229f",
+    "venue": "AI Open"
+  },
+  {
+    "id": "b179a159-c33d-44e1-a207-3665d1d0a351",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "5b7ed9a5-1b32-47bb-9b35-6d1940471735",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "6504b610-8965-4730-9ad4-e702d9ea007d",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "b43e490f-d825-4e5f-9593-4f6306c23ee7",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "0b7a5bce-3d8f-40f2-b1ae-2054db2d04fe",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "fead68fa-82ec-4c25-a5fa-293b1824500c",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "222015ea-be62-44ec-9559-587875b2e35b",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "b85a74e2-d7ac-422a-a406-5257315ffb16",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "6349f252-ca64-4b22-9d78-e7d99c476f96",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "041b8420-b397-436a-8fed-8aea29ddaa43",
+    "venue": "International Conference on Computational Linguistics"
+  },
+  {
+    "id": "7d42dee0-548a-4064-8293-9f4b5db1b59c",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "689550bd-2c78-4357-8ed2-9bbf9d94b20d",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "69654da4-158a-4295-b7a5-913ffadb2c98",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "843346fe-04ba-4650-aa8f-12aacbbe924e",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "2993d212-82ce-4d6b-815b-6524df8f5c47",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "863860c4-df59-4638-ba65-7b7c6892bde9",
+    "venue": "AIxPAC@AI*IA"
+  },
+  {
+    "id": "082e4a95-6409-4998-8f1c-9672fac56779",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "e117ee12-458c-4d0c-a87f-1cb05b4bf58b",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "8a37f9b2-245f-4639-bfdc-f57a3c591ea3",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "8fb11b3c-1591-4a1c-9c24-f163cca35738",
+    "venue": "2025 IEEE Conference on Secure and Trustworthy Machine Learning (SaTML)"
+  },
+  {
+    "id": "4590c047-71e8-42a0-b2b3-5009d6107908",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "28a0a2a2-f9e8-46fa-bdd9-f96279ca0b40",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "a57ce64f-31aa-4707-a284-414cb051f0ba",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "b42af6c1-2383-4f14-b142-60f041bbba4a",
+    "venue": "International Conference on Learning Representations"
+  },
+  {
+    "id": "b18b6f59-1d20-420b-9656-f77d32fd7c57",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "f62a077c-deac-4943-8e16-feae69a297f7",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "607c47ab-1139-4fbc-9787-9eb14b70910b",
+    "venue": "Transactions of the Association for Computational Linguistics"
+  },
+  {
+    "id": "3ad377ae-bd00-4a33-b357-ef5297e75580",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "11c88f50-abb4-4fc3-9f89-97a358d994ec",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "010aa7b6-a7ce-440b-a245-44b202d35088",
+    "venue": "International Conference on Information and Knowledge Management"
+  },
+  {
+    "id": "af41b44a-7663-4184-976d-2cf815e24f5b",
+    "venue": "International Conference on Information and Knowledge Management"
+  },
+  {
+    "id": "bf6f0b5d-27ab-46d7-9ce2-02cd11c2cb99",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "db4309e1-92da-4713-be11-ff298d2cb7a1",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "79e97d68-160c-47fd-92ed-4ae834aedae3",
+    "venue": "The AI Magazine"
+  },
+  {
+    "id": "f52e3a3c-3851-4c05-969b-d318a9b88a97",
+    "venue": "IEEE International Conference on Acoustics, Speech, and Signal Processing"
+  },
+  {
+    "id": "c178dcfe-e848-4199-b5a2-cbcea7cedcb2",
+    "venue": "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 3: System Demonstrations)"
+  },
+  {
+    "id": "1a7c45aa-5203-4b49-b503-3fdb94b61ec4",
+    "venue": "IEEE Transactions on Knowledge and Data Engineering"
+  },
+  {
+    "id": "e5ce8b55-eddd-458d-97ba-772083b6118d",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "dec8839e-0cf5-4695-a489-0d75160ca7e2",
+    "venue": "International Conference on Language Resources and Evaluation"
+  },
+  {
+    "id": "61808a5c-ced3-4936-916e-c7218503f6a0",
+    "venue": "Knowledge Discovery and Data Mining"
+  },
+  {
+    "id": "8c640682-f148-47f2-8f2b-643db93776fe",
+    "venue": "The Web Conference"
+  },
+  {
+    "id": "032feeb9-ba32-46e5-adba-d8f3ce4b561f",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "7418add5-af24-43d8-8852-caeab69cd7ab",
+    "venue": "The Web Conference"
+  },
+  {
+    "id": "02e8b670-aeb6-402e-85ab-3a5fdf0e200d",
+    "venue": "North American Chapter of the Association for Computational Linguistics"
+  },
+  {
+    "id": "d2ab0f35-efb3-4092-af01-4357109c3474",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "2cadc976-ffa3-4525-87c1-88fb37367fe3",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "ef5542db-8c4f-4a51-bc1d-031e4ef5e67d",
+    "venue": "Proceedings 2024 Workshop on AI Systems with Confidential COmputing"
+  },
+  {
+    "id": "4bcd39e3-4085-45c8-b6b5-1082092e0350",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "d698bd62-a007-492b-a2e9-ca3d64d08be8",
+    "venue": "arXiv.org"
+  },
+  {
+    "id": "9fb36cb2-1d22-4ec0-8fbd-f189a442ca9e",
+    "venue": "Conference on Empirical Methods in Natural Language Processing"
+  },
+  {
+    "id": "1e2a257c-da63-4d0e-ab31-e9d79f96e4b5",
+    "venue": "International Conference on AI in Finance"
+  },
+  {
+    "id": "84b5c6d6-5bd8-4389-b107-a3ecb8a87379",
+    "venue": "International Conference on AI-ML-Systems"
+  },
+  {
+    "id": "72fccc25-10c1-4c7d-aafa-34fa1714db0b",
+    "venue": "GENBENCH"
+  },
+  {
+    "id": "0eb04b7c-455e-4d10-8efc-abac90955ece",
+    "venue": "IEEE Transactions on Knowledge and Data Engineering"
+  },
+  {
+    "id": "499aaf2a-4e5b-4604-bcd2-25514461ad66",
+    "venue": "IEEE Transactions on Knowledge and Data Engineering"
+  },
+  {
+    "id": "4fd12582-7134-43a4-9f51-088efb9e7443",
+    "venue": "Annual Meeting of the Association for Computational Linguistics"
+  },
+  {
+    "id": "acbab2f9-e820-4a7d-b9be-a73b833f5cf1",
+    "venue": "arXiv.org"
+  }
+]
