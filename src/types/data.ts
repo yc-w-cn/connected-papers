@@ -1,6 +1,8 @@
+import type { SimulationNodeDatum } from 'd3';
+
 export type NodeType = 'author' | 'paper' | 'venue';
 
-export interface Node {
+export interface Node extends SimulationNodeDatum {
   id: string;
   type: NodeType;
   label: string;
@@ -9,8 +11,8 @@ export interface Node {
 }
 
 export interface Link {
-  source: string;
-  target: string;
+  source: string | Node;
+  target: string | Node;
   type: 'published' | 'cited' | 'appeared_in';
 }
 
