@@ -1,6 +1,6 @@
 {
   "name": "@yc-w-cn/connected-papers",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "使用 D3.js 可视化学术文献、作者和期刊之间的关系网络",
   "scripts": {
     "dev": "next dev",

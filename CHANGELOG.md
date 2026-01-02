@@ -2,6 +2,11 @@
 
 本项目遵循[语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [1.1.1] - 2026-01-02
+
+### 修复
+- 修复 LoadingStatCards 组件中 animationRef 类型定义不完整的问题
+
 ## [1.1.0] - 2026-01-02
 
 ### 新增
