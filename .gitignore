@@ -46,6 +46,3 @@ prisma/connected-papers.db-journal
 
 # trae
 .trae/documents
-
-# data
-public/data.json
