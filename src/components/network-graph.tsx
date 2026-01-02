@@ -16,9 +16,9 @@ interface EnrichedNode extends Node {
   averageCitation: number;
 }
 
-interface EnrichedLink {
-  source: string;
-  target: string;
+interface NetworkLink {
+  source: string | EnrichedNode;
+  target: string | EnrichedNode;
   type: 'published' | 'cited' | 'appeared_in';
 }
 
@@ -138,11 +138,7 @@ export function NetworkGraph({ data, visibleNodeTypes = ['paper'] }: NetworkGrap
 
     const simulation = d3
       .forceSimulation<EnrichedNode>(enrichedNodes)
-      .force('link', d3.forceLink<EnrichedNode, EnrichedLink>(filteredData.links.map(link => ({
-        ...link,
-        source: typeof link.source === 'string' ? link.source : (link.source as Node).id,
-        target: typeof link.target === 'string' ? link.target : (link.target as Node).id
-      }))).id((d) => d.id))
+      .force('link', d3.forceLink<EnrichedNode, NetworkLink>(filteredData.links as NetworkLink[]).id((d) => d.id))
       .force('charge', d3.forceManyBody<EnrichedNode>().strength(-300))
       .force('center', d3.forceCenter<EnrichedNode>(width / 2, height / 2))
       .force('collision', d3.forceCollide<EnrichedNode>().radius((d) => getNodeSize(d.averageCitation, d.type) + 2));
