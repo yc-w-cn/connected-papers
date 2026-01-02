@@ -4,24 +4,32 @@ import { useEffect, useState } from 'react';
 import { StatCard } from '@/components/stat-card';
 import { NetworkGraph, NODE_COLORS } from '@/components/network-graph';
 import { LoadingBar } from '@/components/loading-bar';
+import { LoadingStatCards } from '@/components/loading-stat-cards';
 import { DataLoader } from '@/lib/data-loader';
-import type { ExportedData } from '@/types/data';
+import type { ExportedData, NodeType } from '@/types/data';
 
 export default function Home() {
   const [data, setData] = useState<ExportedData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [progress, setProgress] = useState(0);
-  const [currentChunk, setCurrentChunk] = useState('');
+  const [visibleNodeTypes, setVisibleNodeTypes] = useState<NodeType[]>(['paper']);
+  const [targetStats, setTargetStats] = useState({
+    authorCount: 0,
+    paperCount: 0,
+    venueCount: 0,
+  });
 
   useEffect(() => {
     async function loadData() {
       try {
         const loader = new DataLoader();
         const result = await loader.load({
-          onProgress: (progressValue, chunkName) => {
+          onProgress: (progressValue, _chunkName, statistics) => {
             setProgress(progressValue);
-            setCurrentChunk(chunkName);
+            if (statistics) {
+              setTargetStats(statistics);
+            }
           },
           onError: (err) => {
             console.error('加载数据失败:', err);
@@ -29,6 +37,7 @@ export default function Home() {
           },
         });
         setData(result.data);
+        setTargetStats(result.data.statistics);
       } catch (err) {
         console.error('加载数据失败:', err);
         setError('数据加载失败，请确保已运行导出脚本');
@@ -45,16 +54,17 @@ export default function Home() {
       <div className="flex min-h-screen flex-col bg-zinc-50">
         <LoadingBar isLoading={isLoading} progress={progress} />
         <div className="flex flex-1 items-center justify-center">
-          <div className="text-center">
-            <div className="mb-4">
-              <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-black border-t-transparent" />
-            </div>
-            <h2 className="text-2xl font-semibold text-black mb-2">
-              正在加载数据...
-            </h2>
-            <p className="text-lg text-zinc-600">
-              {Math.round(progress)}% - {currentChunk}
-            </p>
+          <div className="swiss-container w-full">
+            <header className="mb-12">
+              <h1 className="text-6xl font-semibold text-black swiss-text-left mb-4">
+                Connected Papers
+              </h1>
+              <p className="text-xl text-zinc-600 swiss-text-left">
+                学术文献关系网络可视化
+              </p>
+            </header>
+
+            <LoadingStatCards progress={progress} targetValues={targetStats} />
           </div>
         </div>
       </div>
@@ -90,9 +100,39 @@ export default function Home() {
         </header>
 
         <section className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <StatCard label="作者" value={data.statistics.authorCount} color={NODE_COLORS.author} />
-          <StatCard label="文献" value={data.statistics.paperCount} color={NODE_COLORS.paper} />
-          <StatCard label="期刊" value={data.statistics.venueCount} color={NODE_COLORS.venue} />
+          <StatCard
+            label="作者"
+            value={data.statistics.authorCount}
+            color={NODE_COLORS.author}
+            switchChecked={visibleNodeTypes.includes('author')}
+            onSwitchChange={(checked) => {
+              setVisibleNodeTypes(prev =>
+                checked ? [...prev, 'author'] : prev.filter(t => t !== 'author')
+              );
+            }}
+          />
+          <StatCard
+            label="文献"
+            value={data.statistics.paperCount}
+            color={NODE_COLORS.paper}
+            switchChecked={visibleNodeTypes.includes('paper')}
+            onSwitchChange={(checked) => {
+              setVisibleNodeTypes(prev =>
+                checked ? [...prev, 'paper'] : prev.filter(t => t !== 'paper')
+              );
+            }}
+          />
+          <StatCard
+            label="期刊"
+            value={data.statistics.venueCount}
+            color={NODE_COLORS.venue}
+            switchChecked={visibleNodeTypes.includes('venue')}
+            onSwitchChange={(checked) => {
+              setVisibleNodeTypes(prev =>
+                checked ? [...prev, 'venue'] : prev.filter(t => t !== 'venue')
+              );
+            }}
+          />
         </section>
 
         <section className="bg-white border border-black p-8">
@@ -100,7 +140,7 @@ export default function Home() {
             关系网络
           </h2>
           <div className="h-[800px]">
-            <NetworkGraph data={data.network} />
+            <NetworkGraph data={data.network} visibleNodeTypes={visibleNodeTypes} />
           </div>
         </section>
 

@@ -1,39 +1,57 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 interface LoadingBarProps {
   isLoading: boolean;
   progress?: number;
 }
 
+function easeOutCubic(t: number): number {
+  return 1 - Math.pow(1 - t, 3);
+}
+
 export function LoadingBar({ isLoading, progress }: LoadingBarProps) {
   const [displayProgress, setDisplayProgress] = useState(0);
+  const animationRef = useRef<number>();
+  const targetProgressRef = useRef(0);
 
   useEffect(() => {
     if (!isLoading) {
-      setDisplayProgress(100);
-      return;
+      targetProgressRef.current = 100;
+    } else if (progress !== undefined) {
+      targetProgressRef.current = progress;
     }
 
-    if (progress !== undefined) {
-      setDisplayProgress(progress);
-    } else {
-      const interval = setInterval(() => {
-        setDisplayProgress((prev) => {
-          if (prev >= 90) return prev;
-          return prev + Math.random() * 10;
-        });
-      }, 200);
+    const animate = () => {
+      setDisplayProgress((current) => {
+        const diff = targetProgressRef.current - current;
+        
+        if (Math.abs(diff) < 0.1) {
+          return targetProgressRef.current;
+        }
 
-      return () => clearInterval(interval);
-    }
+        const speed = isLoading ? 0.05 : 0.15;
+        const newValue = current + diff * speed;
+        return newValue;
+      });
+
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
   }, [isLoading, progress]);
 
   return (
     <div className="w-full h-1 bg-zinc-200">
       <div
-        className="h-full bg-black transition-all duration-300 ease-out"
+        className="h-full bg-black"
         style={{ width: `${displayProgress}%` }}
       />
     </div>

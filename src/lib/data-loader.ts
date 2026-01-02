@@ -1,7 +1,7 @@
-import type { ExportedData, DataManifest, Node, Link, AuthorData, PaperData, VenueData } from '@/types/data';
+import type { ExportedData, DataManifest, Node, Link, AuthorData, PaperData, VenueData, Statistics } from '@/types/data';
 
 export interface DataLoaderOptions {
-  onProgress?: (progress: number, currentChunk: string) => void;
+  onProgress?: (progress: number, currentChunk: string, statistics?: Statistics) => void;
   onError?: (error: Error) => void;
 }
 
@@ -24,14 +24,14 @@ export class DataLoader {
       this.totalChunks = this.calculateTotalChunks();
 
       const statistics = await this.loadStatistics();
-      this.updateProgress(0, 'statistics', onProgress);
+      this.updateProgress(0, 'statistics', onProgress, statistics);
 
       const [nodes, links, authors, papers, venues] = await Promise.all([
-        this.loadNetworkNodes(onProgress),
-        this.loadNetworkLinks(onProgress),
-        this.loadAuthors(onProgress),
-        this.loadPapers(onProgress),
-        this.loadVenues(onProgress),
+        this.loadNetworkNodes(onProgress, statistics),
+        this.loadNetworkLinks(onProgress, statistics),
+        this.loadAuthors(onProgress, statistics),
+        this.loadPapers(onProgress, statistics),
+        this.loadVenues(onProgress, statistics),
       ]);
 
       const data: ExportedData = {
@@ -45,7 +45,7 @@ export class DataLoader {
         venues: venues.flat(),
       };
 
-      onProgress?.(100, '完成');
+      onProgress?.(100, '完成', statistics);
 
       return {
         data,
@@ -59,7 +59,7 @@ export class DataLoader {
   }
 
   private async loadManifest(): Promise<void> {
-    const response = await fetch('/data-manifest.json', {
+    const response = await fetch('/connected-papers/data-manifest.json', {
       cache: 'force-cache',
     });
 
@@ -86,7 +86,7 @@ export class DataLoader {
   private async loadStatistics() {
     if (!this.manifest) throw new Error('Manifest 未加载');
 
-    const response = await fetch(`/data-chunks/${this.manifest.chunks.statistics.filename}`, {
+    const response = await fetch(`/connected-papers/data-chunks/${this.manifest.chunks.statistics.filename}`, {
       cache: 'force-cache',
     });
 
@@ -100,7 +100,7 @@ export class DataLoader {
     return response.json();
   }
 
-  private async loadNetworkNodes(onProgress?: (progress: number, currentChunk: string) => void): Promise<Node[][]> {
+  private async loadNetworkNodes(onProgress?: (progress: number, currentChunk: string, statistics?: Statistics) => void, statistics?: Statistics): Promise<Node[][]> {
     if (!this.manifest) throw new Error('Manifest 未加载');
 
     const chunks = this.manifest.chunks.networkNodes;
@@ -108,7 +108,7 @@ export class DataLoader {
 
     for (let i = 0; i < chunks.length; i++) {
       const chunk = chunks[i];
-      const response = await fetch(`/data-chunks/${chunk.filename}`, {
+      const response = await fetch(`/connected-papers/data-chunks/${chunk.filename}`, {
         cache: 'force-cache',
       });
 
@@ -119,13 +119,13 @@ export class DataLoader {
       results.push(await response.json());
       this.loadedChunks.add(chunk.filename);
       this.loadedSize += chunk.size;
-      this.updateProgress(this.loadedSize / this.manifest.totalSize * 100, chunk.filename, onProgress);
+      this.updateProgress(this.loadedSize / this.manifest.totalSize * 100, chunk.filename, onProgress, statistics);
     }
 
     return results;
   }
 
-  private async loadNetworkLinks(onProgress?: (progress: number, currentChunk: string) => void): Promise<Link[][]> {
+  private async loadNetworkLinks(onProgress?: (progress: number, currentChunk: string, statistics?: Statistics) => void, statistics?: Statistics): Promise<Link[][]> {
     if (!this.manifest) throw new Error('Manifest 未加载');
 
     const chunks = this.manifest.chunks.networkLinks;
@@ -133,7 +133,7 @@ export class DataLoader {
 
     for (let i = 0; i < chunks.length; i++) {
       const chunk = chunks[i];
-      const response = await fetch(`/data-chunks/${chunk.filename}`, {
+      const response = await fetch(`/connected-papers/data-chunks/${chunk.filename}`, {
         cache: 'force-cache',
       });
 
@@ -144,13 +144,13 @@ export class DataLoader {
       results.push(await response.json());
       this.loadedChunks.add(chunk.filename);
       this.loadedSize += chunk.size;
-      this.updateProgress(this.loadedSize / this.manifest.totalSize * 100, chunk.filename, onProgress);
+      this.updateProgress(this.loadedSize / this.manifest.totalSize * 100, chunk.filename, onProgress, statistics);
     }
 
     return results;
   }
 
-  private async loadAuthors(onProgress?: (progress: number, currentChunk: string) => void): Promise<AuthorData[][]> {
+  private async loadAuthors(onProgress?: (progress: number, currentChunk: string, statistics?: Statistics) => void, statistics?: Statistics): Promise<AuthorData[][]> {
     if (!this.manifest) throw new Error('Manifest 未加载');
 
     const chunks = this.manifest.chunks.authors;
@@ -158,7 +158,7 @@ export class DataLoader {
 
     for (let i = 0; i < chunks.length; i++) {
       const chunk = chunks[i];
-      const response = await fetch(`/data-chunks/${chunk.filename}`, {
+      const response = await fetch(`/connected-papers/data-chunks/${chunk.filename}`, {
         cache: 'force-cache',
       });
 
@@ -169,13 +169,13 @@ export class DataLoader {
       results.push(await response.json());
       this.loadedChunks.add(chunk.filename);
       this.loadedSize += chunk.size;
-      this.updateProgress(this.loadedSize / this.manifest.totalSize * 100, chunk.filename, onProgress);
+      this.updateProgress(this.loadedSize / this.manifest.totalSize * 100, chunk.filename, onProgress, statistics);
     }
 
     return results;
   }
 
-  private async loadPapers(onProgress?: (progress: number, currentChunk: string) => void): Promise<PaperData[][]> {
+  private async loadPapers(onProgress?: (progress: number, currentChunk: string, statistics?: Statistics) => void, statistics?: Statistics): Promise<PaperData[][]> {
     if (!this.manifest) throw new Error('Manifest 未加载');
 
     const chunks = this.manifest.chunks.papers;
@@ -183,7 +183,7 @@ export class DataLoader {
 
     for (let i = 0; i < chunks.length; i++) {
       const chunk = chunks[i];
-      const response = await fetch(`/data-chunks/${chunk.filename}`, {
+      const response = await fetch(`/connected-papers/data-chunks/${chunk.filename}`, {
         cache: 'force-cache',
       });
 
@@ -194,13 +194,13 @@ export class DataLoader {
       results.push(await response.json());
       this.loadedChunks.add(chunk.filename);
       this.loadedSize += chunk.size;
-      this.updateProgress(this.loadedSize / this.manifest.totalSize * 100, chunk.filename, onProgress);
+      this.updateProgress(this.loadedSize / this.manifest.totalSize * 100, chunk.filename, onProgress, statistics);
     }
 
     return results;
   }
 
-  private async loadVenues(onProgress?: (progress: number, currentChunk: string) => void): Promise<VenueData[][]> {
+  private async loadVenues(onProgress?: (progress: number, currentChunk: string, statistics?: Statistics) => void, statistics?: Statistics): Promise<VenueData[][]> {
     if (!this.manifest) throw new Error('Manifest 未加载');
 
     const chunks = this.manifest.chunks.venues;
@@ -208,7 +208,7 @@ export class DataLoader {
 
     for (let i = 0; i < chunks.length; i++) {
       const chunk = chunks[i];
-      const response = await fetch(`/data-chunks/${chunk.filename}`, {
+      const response = await fetch(`/connected-papers/data-chunks/${chunk.filename}`, {
         cache: 'force-cache',
       });
 
@@ -219,14 +219,14 @@ export class DataLoader {
       results.push(await response.json());
       this.loadedChunks.add(chunk.filename);
       this.loadedSize += chunk.size;
-      this.updateProgress(this.loadedSize / this.manifest.totalSize * 100, chunk.filename, onProgress);
+      this.updateProgress(this.loadedSize / this.manifest.totalSize * 100, chunk.filename, onProgress, statistics);
     }
 
     return results;
   }
 
-  private updateProgress(progress: number, currentChunk: string, onProgress?: (progress: number, currentChunk: string) => void) {
+  private updateProgress(progress: number, currentChunk: string, onProgress?: (progress: number, currentChunk: string, statistics?: Statistics) => void, statistics?: Statistics) {
     const clampedProgress = Math.min(Math.max(progress, 0), 100);
-    onProgress?.(clampedProgress, currentChunk);
+    onProgress?.(clampedProgress, currentChunk, statistics);
   }
 }
