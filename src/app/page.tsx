@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { StatCard } from '@/components/stat-card';
-import { NetworkGraph } from '@/components/network-graph';
+import { NetworkGraph, NODE_COLORS } from '@/components/network-graph';
 import { LoadingBar } from '@/components/loading-bar';
 import type { ExportedData } from '@/types/data';
 
@@ -85,9 +85,9 @@ export default function Home() {
         </header>
 
         <section className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <StatCard label="作者" value={data.statistics.authorCount} />
-          <StatCard label="文献" value={data.statistics.paperCount} />
-          <StatCard label="期刊" value={data.statistics.venueCount} />
+          <StatCard label="作者" value={data.statistics.authorCount} color={NODE_COLORS.author} />
+          <StatCard label="文献" value={data.statistics.paperCount} color={NODE_COLORS.paper} />
+          <StatCard label="期刊" value={data.statistics.venueCount} color={NODE_COLORS.venue} />
         </section>
 
         <section className="bg-white border border-black p-8">

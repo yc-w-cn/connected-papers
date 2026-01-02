@@ -11,10 +11,16 @@ interface NetworkGraphProps {
   };
 }
 
-const NODE_COLORS: Record<NodeType, string> = {
-  author: '#000000',
-  paper: '#333333',
+export const NODE_COLORS: Record<NodeType, string> = {
+  author: '#007AFF',
+  paper: '#FF9500',
   venue: '#FF3B30',
+};
+
+export const NODE_LABELS: Record<NodeType, string> = {
+  author: '作者',
+  paper: '论文',
+  venue: '期刊/会议',
 };
 
 const NODE_SIZE_BASE = 5;
