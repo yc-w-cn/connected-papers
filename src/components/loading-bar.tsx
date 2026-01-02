@@ -13,7 +13,7 @@ function easeOutCubic(t: number): number {
 
 export function LoadingBar({ isLoading, progress }: LoadingBarProps) {
   const [displayProgress, setDisplayProgress] = useState(0);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
   const targetProgressRef = useRef(0);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export function LoadingBar({ isLoading, progress }: LoadingBarProps) {
       targetProgressRef.current = progress;
     }
 
-    const animate = () => {
+    const animate = (timestamp: number) => {
       setDisplayProgress((current) => {
         const diff = targetProgressRef.current - current;
         
