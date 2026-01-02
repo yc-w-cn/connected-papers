@@ -56,9 +56,9 @@ export function NetworkGraph({ data }: NetworkGraphProps) {
     const simulation = d3
       .forceSimulation<Node>(data.nodes)
       .force('link', d3.forceLink<Node, Link>(data.links).id((d) => d.id))
-      .force('charge', d3.forceManyBody().strength(-300))
-      .force('center', d3.forceCenter(width / 2, height / 2))
-      .force('collision', d3.forceCollide().radius((d) => getNodeSize(d.citationCount) + 2));
+      .force('charge', d3.forceManyBody<Node>().strength(-300))
+      .force('center', d3.forceCenter<Node>(width / 2, height / 2))
+      .force('collision', d3.forceCollide<Node>().radius((d) => getNodeSize(d.citationCount) + 2));
 
     const link = g
       .append('g')
@@ -111,18 +111,18 @@ export function NetworkGraph({ data }: NetworkGraphProps) {
       labels.attr('x', (d) => d.x!).attr('y', (d) => d.y!);
     });
 
-    function dragstarted(event: d3.D3DragEvent<SVGCircleElement, Node, unknown>) {
+    function dragstarted(event: d3.D3DragEvent<SVGCircleElement, Node, Node>) {
       if (!event.active) simulation.alphaTarget(0.3).restart();
       event.subject.fx = event.subject.x;
       event.subject.fy = event.subject.y;
     }
 
-    function dragged(event: d3.D3DragEvent<SVGCircleElement, Node, unknown>) {
+    function dragged(event: d3.D3DragEvent<SVGCircleElement, Node, Node>) {
       event.subject.fx = event.x;
       event.subject.fy = event.y;
     }
 
-    function dragended(event: d3.D3DragEvent<SVGCircleElement, Node, unknown>) {
+    function dragended(event: d3.D3DragEvent<SVGCircleElement, Node, Node>) {
       if (!event.active) simulation.alphaTarget(0);
       event.subject.fx = null;
       event.subject.fy = null;
