@@ -66,11 +66,11 @@ export default defineConfig(
       // 解析器选项
       parserOptions: {
         projectService: {
-          // 为了支持 projectService，需要把文件加入在这里
           allowDefaultProject: [
             '*.js',
             'eslint.config.mjs',
             'postcss.config.mjs',
+            'prettier.config.mjs',
           ],
         },
         tsconfigRootDir: import.meta.dirname,
