@@ -240,12 +240,12 @@ export function NetworkGraph({
 
     simulation.on('tick', () => {
       link
-        .attr('x1', (d) => (d.source as EnrichedNode).x!)
-        .attr('y1', (d) => (d.source as EnrichedNode).y!)
-        .attr('x2', (d) => (d.target as EnrichedNode).x!)
-        .attr('y2', (d) => (d.target as EnrichedNode).y!);
+        .attr('x1', (d) => (d.source as EnrichedNode).x ?? 0)
+        .attr('y1', (d) => (d.source as EnrichedNode).y ?? 0)
+        .attr('x2', (d) => (d.target as EnrichedNode).x ?? 0)
+        .attr('y2', (d) => (d.target as EnrichedNode).y ?? 0);
 
-      node.attr('cx', (d) => d.x!).attr('cy', (d) => d.y!);
+      node.attr('cx', (d) => d.x ?? 0).attr('cy', (d) => d.y ?? 0);
 
       if (hoveredNode) {
         tooltip.attr(

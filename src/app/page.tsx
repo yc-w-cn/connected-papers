@@ -49,7 +49,7 @@ export default function Home() {
       }
     }
 
-    loadData();
+    void loadData();
   }, []);
 
   if (isLoading) {
