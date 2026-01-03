@@ -1,31 +1,31 @@
 import { fetchArxivPaper } from '../../src/lib/arxiv';
 import { prisma } from '../../src/lib/prisma';
 
-async function processPendingPapers() {
+async function fetchPapers() {
   console.log('='.repeat(60));
-  console.log('开始处理待处理论文...');
+  console.log('开始批量获取论文 arXiv 数据...');
   console.log('='.repeat(60));
 
-  const papersToProcess = await prisma.arxivPaper.findMany({
+  const papersToFetch = await prisma.arxivPaper.findMany({
     where: {
-      status: 'pending',
+      arxivDataStatus: 'pending',
     },
     orderBy: {
       createdAt: 'asc',
     },
   });
 
-  if (papersToProcess.length === 0) {
-    console.log('没有待处理的论文');
+  if (papersToFetch.length === 0) {
+    console.log('没有待获取 arXiv 数据的论文');
     return;
   }
 
-  console.log(`找到 ${papersToProcess.length} 篇待处理论文`);
+  console.log(`找到 ${papersToFetch.length} 篇待获取 arXiv 数据的论文`);
   console.log('='.repeat(60));
 
-  for (const paper of papersToProcess) {
+  for (const paper of papersToFetch) {
     console.log(
-      `\n[${papersToProcess.indexOf(paper) + 1}/${papersToProcess.length}] 处理论文: ${paper.arxivId}`,
+      `\n[${papersToFetch.indexOf(paper) + 1}/${papersToFetch.length}] 获取论文 arXiv 数据: ${paper.arxivId}`,
     );
     console.log('-'.repeat(60));
 
@@ -33,7 +33,7 @@ async function processPendingPapers() {
       console.log(`更新状态为: processing`);
       await prisma.arxivPaper.update({
         where: { id: paper.id },
-        data: { status: 'processing' },
+        data: { arxivDataStatus: 'processing' },
       });
 
       const arxivData = await fetchArxivPaper(paper.arxivId);
@@ -51,8 +51,8 @@ async function processPendingPapers() {
           comment: arxivData.comment,
           journalRef: arxivData.journalRef,
           doi: arxivData.doi,
-          status: 'completed',
-          processedAt: new Date(),
+          arxivDataStatus: 'completed',
+          arxivDataFetchedAt: new Date(),
         },
       });
 
@@ -77,14 +77,14 @@ async function processPendingPapers() {
         });
       }
 
-      console.log(`论文处理完成: ${paper.arxivId}`);
+      console.log(`论文 arXiv 数据获取完成: ${paper.arxivId}`);
     } catch (error) {
-      console.error(`\n论文处理失败: ${paper.arxivId}`);
+      console.error(`\n论文 arXiv 数据获取失败: ${paper.arxivId}`);
       console.error(`错误信息:`, error);
 
       await prisma.arxivPaper.update({
         where: { id: paper.id },
-        data: { status: 'failed' },
+        data: { arxivDataStatus: 'failed' },
       });
 
       console.error(`状态已更新为: failed`);
@@ -94,11 +94,11 @@ async function processPendingPapers() {
   }
 
   console.log('\n' + '='.repeat(60));
-  console.log('所有论文处理完成');
+  console.log('所有论文 arXiv 数据获取完成');
   console.log('='.repeat(60));
 }
 
-processPendingPapers()
+fetchPapers()
   .catch((e: unknown) => {
     console.error('\n发生未捕获的错误:');
     console.error(e);

@@ -4,9 +4,9 @@ import { prisma } from '../../src/lib/prisma';
 const args = process.argv.slice(2);
 const targetArxivId = args[0];
 
-async function processPaper(arxivId: string) {
+async function fetchPaper(arxivId: string) {
   console.log('='.repeat(60));
-  console.log(`开始处理论文: ${arxivId}`);
+  console.log(`开始获取论文 arXiv 数据: ${arxivId}`);
   console.log('='.repeat(60));
 
   let paper = await prisma.arxivPaper.findUnique({
@@ -19,20 +19,20 @@ async function processPaper(arxivId: string) {
       data: {
         arxivId,
         arxivUrl: `https://arxiv.org/abs/${arxivId}`,
-        status: 'pending',
+        arxivDataStatus: 'pending',
       },
     });
     console.log(`论文 ${arxivId} 已创建`);
   }
 
-  console.log(`\n[${1}/1] 处理论文: ${paper.arxivId}`);
+  console.log(`\n[${1}/1] 获取论文 arXiv 数据: ${paper.arxivId}`);
   console.log('-'.repeat(60));
 
   try {
     console.log(`更新状态为: processing`);
     await prisma.arxivPaper.update({
       where: { id: paper.id },
-      data: { status: 'processing' },
+      data: { arxivDataStatus: 'processing' },
     });
 
     const arxivData = await fetchArxivPaper(paper.arxivId);
@@ -50,8 +50,8 @@ async function processPaper(arxivId: string) {
         comment: arxivData.comment,
         journalRef: arxivData.journalRef,
         doi: arxivData.doi,
-        status: 'completed',
-        processedAt: new Date(),
+        arxivDataStatus: 'completed',
+        arxivDataFetchedAt: new Date(),
       },
     });
 
@@ -76,14 +76,14 @@ async function processPaper(arxivId: string) {
       });
     }
 
-    console.log(`论文处理完成: ${paper.arxivId}`);
+    console.log(`论文 arXiv 数据获取完成: ${paper.arxivId}`);
   } catch (error) {
-    console.error(`\n论文处理失败: ${paper.arxivId}`);
+    console.error(`\n论文 arXiv 数据获取失败: ${paper.arxivId}`);
     console.error(`错误信息:`, error);
 
     await prisma.arxivPaper.update({
       where: { id: paper.id },
-      data: { status: 'failed' },
+      data: { arxivDataStatus: 'failed' },
     });
 
     console.error(`状态已更新为: failed`);
@@ -91,18 +91,18 @@ async function processPaper(arxivId: string) {
 
   console.log('-'.repeat(60));
   console.log('\n' + '='.repeat(60));
-  console.log('论文处理完成');
+  console.log('论文 arXiv 数据获取完成');
   console.log('='.repeat(60));
 }
 
 if (!targetArxivId) {
   console.error('错误: 请提供 arXiv ID');
-  console.error('用法: pnpm run process-paper <arxivId>');
-  console.error('示例: pnpm run process-paper 2503.15888');
+  console.error('用法: pnpm run fetch-paper <arxivId>');
+  console.error('示例: pnpm run fetch-paper 2503.15888');
   process.exit(1);
 }
 
-processPaper(targetArxivId)
+fetchPaper(targetArxivId)
   .catch((e: unknown) => {
     console.error('\n发生未捕获的错误:');
     console.error(e);
