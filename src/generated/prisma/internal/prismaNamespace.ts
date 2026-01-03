@@ -1127,9 +1127,12 @@ export const ArxivPaperScalarFieldEnum = {
   comment: 'comment',
   journalRef: 'journalRef',
   doi: 'doi',
-  status: 'status',
-  processedAt: 'processedAt',
-  referencesFetched: 'referencesFetched',
+  arxivDataStatus: 'arxivDataStatus',
+  arxivDataFetchedAt: 'arxivDataFetchedAt',
+  referencesStatus: 'referencesStatus',
+  referencesFetchedAt: 'referencesFetchedAt',
+  citationsStatus: 'citationsStatus',
+  citationsFetchedAt: 'citationsFetchedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -1276,16 +1279,16 @@ export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
 
 
 /**
- * Reference to a field of type 'Boolean'
+ * Reference to a field of type 'Int'
  */
-export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
     
 
 
 /**
- * Reference to a field of type 'Int'
+ * Reference to a field of type 'Boolean'
  */
-export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
