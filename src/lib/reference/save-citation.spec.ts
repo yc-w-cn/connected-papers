@@ -87,7 +87,7 @@ describe('被引用数据保存模块', () => {
         data: {
           authorId: 'author-1',
           name: 'Author 1',
-          arxivPaperId: '2401.00001',
+          arxivPaperId: '1',
         },
       });
     });
@@ -129,7 +129,7 @@ describe('被引用数据保存模块', () => {
           volume: '1',
           issue: '1',
           pages: '1-10',
-          arxivPaperId: '2401.00001',
+          arxivPaperId: '1',
         },
       });
     });

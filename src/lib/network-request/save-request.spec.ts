@@ -89,6 +89,9 @@ describe('网络请求记录模块', () => {
         headers: {
           entries: () => [['content-type', 'application/json']],
         },
+        clone: () => ({
+          text: () => Promise.resolve('{"success": true}'),
+        }),
       } as any;
 
       prismaMock.networkRequest.create.mockResolvedValue({ id: '1' } as any);
@@ -126,6 +129,9 @@ describe('网络请求记录模块', () => {
         headers: {
           entries: () => [],
         },
+        clone: () => ({
+          text: () => Promise.resolve(''),
+        }),
       } as any;
 
       prismaMock.networkRequest.create.mockResolvedValue({ id: '1' } as any);
@@ -147,6 +153,9 @@ describe('网络请求记录模块', () => {
         headers: {
           entries: () => [],
         },
+        clone: () => ({
+          text: () => Promise.resolve(''),
+        }),
       } as any;
 
       prismaMock.networkRequest.create.mockResolvedValue({ id: '1' } as any);
