@@ -20,9 +20,12 @@ model ArxivPaper {
   comment                   String?
   journalRef                String?
   doi                       String?
-  status                    String                      @default("pending")
-  processedAt               DateTime?
-  referencesFetched         Boolean                     @default(false)
+  arxivDataStatus           String                      @default("pending")
+  arxivDataFetchedAt        DateTime?
+  referencesStatus          String                      @default("pending")
+  referencesFetchedAt       DateTime?
+  citationsStatus           String                      @default("pending")
+  citationsFetchedAt        DateTime?
   createdAt                 DateTime                    @default(now())
   updatedAt                 DateTime                    @updatedAt
 
