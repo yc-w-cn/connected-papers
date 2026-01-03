@@ -8,7 +8,7 @@ import module from 'node:module';
 import js from '@eslint/js';
 import nextPlugin from '@next/eslint-plugin-next';
 import tsParser from '@typescript-eslint/parser';
-import { defineConfig, globalIgnores } from 'eslint/config';
+import { defineConfig } from 'eslint/config';
 import prettierConfig from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
@@ -25,7 +25,13 @@ const builtinModules = module.builtinModules.filter(
 
 export default defineConfig(
   {
-    globalIgnores: ['src/generated/**'],
+    ignores: [
+      'src/generated/**',
+      '.next/**',
+      'out/**',
+      'build/**',
+      'next-env.d.ts',
+    ],
   },
   // TypeScript 严格类型检查配置
   tseslint.configs.strictTypeChecked,
@@ -37,14 +43,6 @@ export default defineConfig(
   prettierConfig,
   // 在 ESLint 中运行 Prettier 进行格式化检查
   eslintPluginPrettierRecommended,
-  // Next.js 默认忽略规则
-  globalIgnores([
-    // Default ignores of eslint-config-next:
-    '.next/**',
-    'out/**',
-    'build/**',
-    'next-env.d.ts',
-  ]),
   {
     // 忽略指定目录
     ignores: ['src/services/**/api'],
