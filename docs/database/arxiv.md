@@ -27,19 +27,37 @@ Arxiv 相关数据表用于存储从 arXiv API 获取的论文数据。
 | `journalRef` | String? | 期刊引用 | 可选 |
 | `doi` | String? | DOI | 可选 |
 | `status` | String | 处理状态 | 默认值: `pending` |
-| `processedAt` | DateTime? | 处理完成时间 | 可选 |
-| `referencesFetched` | Boolean | 引用文献是否已获取 | 默认值: `false` |
+| `arxivDataStatus` | String | arXiv 数据获取状态 | 默认值: `pending` |
+| `arxivDataFetchedAt` | DateTime? | arXiv 数据获取完成时间 | 可选 |
+| `referencesStatus` | String | 引用文献获取状态 | 默认值: `pending` |
+| `referencesFetchedAt` | DateTime? | 引用文献获取完成时间 | 可选 |
+| `citationsStatus` | String | 被引用情况获取状态 | 默认值: `pending` |
+| `citationsFetchedAt` | DateTime? | 被引用情况获取完成时间 | 可选 |
 | `createdAt` | DateTime | 创建时间 | 自动生成 |
 | `updatedAt` | DateTime | 更新时间 | 自动更新 |
 
 #### 状态枚举
 
-`status` 字段支持以下值：
+`arxivDataStatus` 字段支持以下值：
 
-- **`pending`**: 待处理 - 论文已添加到数据库，但尚未开始处理
-- **`processing`**: 处理中 - 正在从 arXiv API 获取论文数据
-- **`completed`**: 已完成 - 论文数据已成功获取并保存
-- **`failed`**: 失败 - 处理过程中出现错误
+- **`pending`**: 待获取 arXiv 详细信息 - 论文已添加到数据库，但尚未开始获取 arXiv 详细信息
+- **`processing`**: 正在获取 arXiv 详细信息 - 正在从 arXiv API 获取论文详细信息
+- **`completed`**: arXiv 详细信息已获取 - 论文详细信息已成功获取并保存
+- **`failed`**: arXiv 详细信息获取失败 - 获取 arXiv 详细信息过程中出现错误
+
+`referencesStatus` 字段支持以下值：
+
+- **`pending`**: 待获取引用文献 - 论文已添加到数据库，但尚未开始获取引用文献
+- **`processing`**: 正在获取引用文献 - 正在从 Semantic Scholar API 获取引用文献
+- **`completed`**: 引用文献已获取 - 引用文献已成功获取并保存
+- **`failed`**: 引用文献获取失败 - 获取引用文献过程中出现错误
+
+`citationsStatus` 字段支持以下值：
+
+- **`pending`**: 待获取被引用情况 - 论文已添加到数据库，但尚未开始获取被引用情况
+- **`processing`**: 正在获取被引用情况 - 正在从 Semantic Scholar API 获取被引用情况
+- **`completed`**: 被引用情况已获取 - 被引用情况已成功获取并保存
+- **`failed`**: 被引用情况获取失败 - 获取被引用情况过程中出现错误
 
 ### ArxivAuthorName 模型
 
@@ -108,13 +126,25 @@ Arxiv 相关数据表用于存储从 arXiv API 获取的论文数据。
 
 ### 5. 引用文献获取状态追踪
 
-追踪每篇论文的引用文献获取状态：
-- `referencesFetched`: 标记是否已获取过该论文的引用文献
+追踪每篇论文的引用文献获取进度：
+- `referencesStatus`: 标记引用文献的获取状态（`pending`、`processing`、`completed`、`failed`）
+- `referencesFetchedAt`: 记录最后一次成功获取引用文献的时间戳
 - 避免重复获取同一篇论文的引用文献
 - 支持批量获取未获取引用文献的论文
 - 相关脚本：
   - [fetch-reference](../scripts/semantic-scholar/fetch-reference.md) - 获取单篇论文的引用文献
   - [fetch-references](../scripts/semantic-scholar/fetch-references.md) - 批量获取未获取引用文献的论文
+
+### 6. 被引用情况获取状态追踪
+
+追踪每篇论文的被引用情况获取进度：
+- `citationsStatus`: 标记被引用情况的获取状态（`pending`、`processing`、`completed`、`failed`）
+- `citationsFetchedAt`: 记录最后一次成功获取被引用情况的时间戳
+- 避免重复获取同一篇论文的被引用情况
+- 支持批量获取未获取被引用情况的论文
+- 相关脚本：
+  - [fetch-citation](../scripts/semantic-scholar/fetch-citation.md) - 获取单篇论文的被引用情况
+  - [fetch-citations](../scripts/semantic-scholar/fetch-citations.md) - 批量获取未获取被引用情况的论文
 
 ## 相关文档
 

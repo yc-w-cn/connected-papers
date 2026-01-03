@@ -7,22 +7,40 @@
 ## 状态转换图
 
 ```
-pending -> processing -> completed
-    |
-    v
-  failed
+arxivDataStatus: pending -> processing -> completed
+                    |
+                    v
+                  failed
+
+referencesStatus: pending -> processing -> completed
+                    |
+                    v
+                  failed
+
+citationsStatus: pending -> processing -> completed
+                    |
+                    v
+                  failed
 ```
 
 ## 引用文献获取状态
 
-除了处理状态外，系统还维护引用文献获取状态：
+除了处理状态外，系统还维护引用文献和被引用情况的获取状态：
 
 ```
-referencesFetched: false -> true
+referencesStatus: pending -> processing -> completed
+referencesFetchedAt: DateTime
+
+citationsStatus: pending -> processing -> completed
+citationsFetchedAt: DateTime
 ```
 
-- `false`: 尚未获取引用文献
-- `true`: 已获取引用文献
+- `pending`: 尚未获取
+- `processing`: 正在获取中
+- `completed`: 已成功获取
+- `failed`: 获取失败
+- `referencesFetchedAt`: 成功获取引用文献的时间戳
+- `citationsFetchedAt`: 成功获取被引用情况的时间戳
 
 ## 状态说明
 
@@ -33,30 +51,57 @@ referencesFetched: false -> true
 | `completed` | 数据获取成功，处理完成 | - |
 | `failed` | 处理过程中出现错误 | - |
 
+### arXiv 数据获取状态
+
+| 状态 | 说明 | 可转换到 |
+|------|------|----------|
+| `pending` | 等待获取 arXiv 详细信息 | `processing` |
+| `processing` | 正在从 arXiv API 获取详细信息 | `completed`, `failed` |
+| `completed` | arXiv 详细信息获取成功 | - |
+| `failed` | arXiv 详细信息获取失败 | - |
+
+### 引用文献获取状态
+
+| 状态 | 说明 | 可转换到 |
+|------|------|----------|
+| `pending` | 等待获取引用文献 | `processing` |
+| `processing` | 正在从 Semantic Scholar API 获取引用文献 | `completed`, `failed` |
+| `completed` | 引用文献获取成功 | - |
+| `failed` | 引用文献获取失败 | - |
+
+### 被引用情况获取状态
+
+| 状态 | 说明 | 可转换到 |
+|------|------|----------|
+| `pending` | 等待获取被引用情况 | `processing` |
+| `processing` | 正在从 Semantic Scholar API 获取被引用情况 | `completed`, `failed` |
+| `completed` | 被引用情况获取成功 | - |
+| `failed` | 被引用情况获取失败 | - |
+
 ## 状态转换规则
 
-### 1. pending → processing
+### 1. arxivDataStatus: pending → processing
 
-**触发条件**: 开始处理论文
+**触发条件**: 开始获取论文 arXiv 详细信息
 
-**操作**: 更新 `status` 为 `processing`
+**操作**: 更新 `arxivDataStatus` 为 `processing`
 
 ```typescript
 await prisma.arxivPaper.update({
   where: { id: paper.id },
-  data: { status: 'processing' }
+  data: { arxivDataStatus: 'processing' }
 });
 ```
 
 **相关脚本**:
-- [process-paper](../../scripts/arxiv/process-paper.md)
-- [process-papers](../../scripts/arxiv/process-papers.md)
+- [fetch-paper](../../scripts/arxiv/fetch-paper.md)
+- [fetch-papers](../../scripts/arxiv/fetch-papers.md)
 
-### 2. processing → completed
+### 2. arxivDataStatus: processing → completed
 
 **触发条件**: 成功从 arXiv API 获取数据
 
-**操作**: 更新论文元数据，设置 `status` 为 `completed`，记录 `processedAt`
+**操作**: 更新论文元数据，设置 `arxivDataStatus` 为 `completed`，记录 `arxivDataFetchedAt`
 
 ```typescript
 await prisma.arxivPaper.update({
@@ -71,45 +116,43 @@ await prisma.arxivPaper.update({
     comment: arxivData.comment,
     journalRef: arxivData.journalRef,
     doi: arxivData.doi,
-    status: 'completed',
-    processedAt: new Date()
+    arxivDataStatus: 'completed',
+    arxivDataFetchedAt: new Date()
   }
 });
 ```
 
 **相关脚本**:
-- [process-paper](../../scripts/arxiv/process-paper.md)
-- [process-papers](../../scripts/arxiv/process-papers.md)
+- [fetch-paper](../../scripts/arxiv/fetch-paper.md)
+- [fetch-papers](../../scripts/arxiv/fetch-papers.md)
 
-### 3. processing → failed
+### 3. arxivDataStatus: processing → failed
 
-**触发条件**: 处理过程中出现错误
+**触发条件**: 获取 arXiv 详细信息过程中出现错误
 
-**操作**: 设置 `status` 为 `failed`
+**操作**: 设置 `arxivDataStatus` 为 `failed`
 
 ```typescript
 await prisma.arxivPaper.update({
   where: { id: paper.id },
-  data: { status: 'failed' }
+  data: { arxivDataStatus: 'failed' }
 });
 ```
 
 **相关脚本**:
-- [process-paper](../../scripts/arxiv/process-paper.md)
-- [process-papers](../../scripts/arxiv/process-papers.md)
+- [fetch-paper](../../scripts/arxiv/fetch-paper.md)
+- [fetch-papers](../../scripts/arxiv/fetch-papers.md)
 
-## 引用文献获取状态转换
+### 4. referencesStatus: pending → processing
 
-### 1. referencesFetched: false -> true
+**触发条件**: 开始获取论文引用文献
 
-**触发条件**: 成功获取论文的引用文献
-
-**操作**: 更新 `referencesFetched` 为 `true`
+**操作**: 更新 `referencesStatus` 为 `processing`
 
 ```typescript
 await prisma.arxivPaper.update({
   where: { id: paper.id },
-  data: { referencesFetched: true }
+  data: { referencesStatus: 'processing' }
 });
 ```
 
@@ -117,15 +160,153 @@ await prisma.arxivPaper.update({
 - [fetch-reference](../../scripts/semantic-scholar/fetch-reference.md)
 - [fetch-references](../../scripts/semantic-scholar/fetch-references.md)
 
-### 2. 重置引用文献获取状态
+### 5. referencesStatus: processing → completed
+
+**触发条件**: 成功获取论文引用文献
+
+**操作**: 更新 `referencesStatus` 为 `completed`，记录 `referencesFetchedAt`
+
+```typescript
+await prisma.arxivPaper.update({
+  where: { id: paper.id },
+  data: { referencesStatus: 'completed', referencesFetchedAt: new Date() }
+});
+```
+
+**相关脚本**:
+- [fetch-reference](../../scripts/semantic-scholar/fetch-reference.md)
+- [fetch-references](../../scripts/semantic-scholar/fetch-references.md)
+
+### 6. referencesStatus: processing → failed
+
+**触发条件**: 获取引用文献过程中出现错误
+
+**操作**: 设置 `referencesStatus` 为 `failed`
+
+```typescript
+await prisma.arxivPaper.update({
+  where: { id: paper.id },
+  data: { referencesStatus: 'failed' }
+});
+```
+
+**相关脚本**:
+- [fetch-reference](../../scripts/semantic-scholar/fetch-reference.md)
+- [fetch-references](../../scripts/semantic-scholar/fetch-references.md)
+
+### 7. citationsStatus: pending → processing
+
+**触发条件**: 开始获取论文被引用情况
+
+**操作**: 更新 `citationsStatus` 为 `processing`
+
+```typescript
+await prisma.arxivPaper.update({
+  where: { id: paper.id },
+  data: { citationsStatus: 'processing' }
+});
+```
+
+**相关脚本**:
+- [fetch-citation](../../scripts/semantic-scholar/fetch-citation.md)
+- [fetch-citations](../../scripts/semantic-scholar/fetch-citations.md)
+
+### 8. citationsStatus: processing → completed
+
+**触发条件**: 成功获取论文被引用情况
+
+**操作**: 更新 `citationsStatus` 为 `completed`，记录 `citationsFetchedAt`
+
+```typescript
+await prisma.arxivPaper.update({
+  where: { id: paper.id },
+  data: { citationsStatus: 'completed', citationsFetchedAt: new Date() }
+});
+```
+
+**相关脚本**:
+- [fetch-citation](../../scripts/semantic-scholar/fetch-citation.md)
+- [fetch-citations](../../scripts/semantic-scholar/fetch-citations.md)
+
+### 9. citationsStatus: processing → failed
+
+**触发条件**: 获取被引用情况过程中出现错误
+
+**操作**: 设置 `citationsStatus` 为 `failed`
+
+```typescript
+await prisma.arxivPaper.update({
+  where: { id: paper.id },
+  data: { citationsStatus: 'failed' }
+});
+```
+
+**相关脚本**:
+- [fetch-citation](../../scripts/semantic-scholar/fetch-citation.md)
+- [fetch-citations](../../scripts/semantic-scholar/fetch-citations.md)
+
+## 引用文献获取状态转换
+
+### 1. referencesStatus: pending -> processing
+
+**触发条件**: 开始获取论文引用文献
+
+**操作**: 更新 `referencesStatus` 为 `processing`
+
+```typescript
+await prisma.arxivPaper.update({
+  where: { id: paper.id },
+  data: { referencesStatus: 'processing' }
+});
+```
+
+**相关脚本**:
+- [fetch-reference](../../scripts/semantic-scholar/fetch-reference.md)
+- [fetch-references](../../scripts/semantic-scholar/fetch-references.md)
+
+### 2. referencesStatus: processing -> completed
+
+**触发条件**: 成功获取论文引用文献
+
+**操作**: 更新 `referencesStatus` 为 `completed`，记录 `referencesFetchedAt`
+
+```typescript
+await prisma.arxivPaper.update({
+  where: { id: paper.id },
+  data: { referencesStatus: 'completed', referencesFetchedAt: new Date() }
+});
+```
+
+**相关脚本**:
+- [fetch-reference](../../scripts/semantic-scholar/fetch-reference.md)
+- [fetch-references](../../scripts/semantic-scholar/fetch-references.md)
+
+### 3. referencesStatus: processing -> failed
+
+**触发条件**: 获取引用文献过程中出现错误
+
+**操作**: 设置 `referencesStatus` 为 `failed`
+
+```typescript
+await prisma.arxivPaper.update({
+  where: { id: paper.id },
+  data: { referencesStatus: 'failed' }
+});
+```
+
+**相关脚本**:
+- [fetch-reference](../../scripts/semantic-scholar/fetch-reference.md)
+- [fetch-references](../../scripts/semantic-scholar/fetch-references.md)
+
+### 4. 重置引用文献获取状态
 
 如果需要重新获取论文的引用文献，可以手动重置：
 
 ```typescript
-// 将 referencesFetched 改回 false
+// 将 referencesStatus 改回 pending
 await prisma.arxivPaper.update({
   where: { arxivId: '2503.15888' },
-  data: { referencesFetched: false }
+  data: { referencesStatus: 'pending' }
 });
 ```
 
@@ -137,6 +318,81 @@ pnpm run fetch-reference 2503.15888
 
 # 批量获取未获取引用文献的论文
 pnpm run fetch-references
+```
+
+## 被引用情况获取状态转换
+
+### 1. citationsStatus: pending -> processing
+
+**触发条件**: 开始获取论文被引用情况
+
+**操作**: 更新 `citationsStatus` 为 `processing`
+
+```typescript
+await prisma.arxivPaper.update({
+  where: { id: paper.id },
+  data: { citationsStatus: 'processing' }
+});
+```
+
+**相关脚本**:
+- [fetch-citation](../../scripts/semantic-scholar/fetch-citation.md)
+- [fetch-citations](../../scripts/semantic-scholar/fetch-citations.md)
+
+### 2. citationsStatus: processing -> completed
+
+**触发条件**: 成功获取论文被引用情况
+
+**操作**: 更新 `citationsStatus` 为 `completed`，记录 `citationsFetchedAt`
+
+```typescript
+await prisma.arxivPaper.update({
+  where: { id: paper.id },
+  data: { citationsStatus: 'completed', citationsFetchedAt: new Date() }
+});
+```
+
+**相关脚本**:
+- [fetch-citation](../../scripts/semantic-scholar/fetch-citation.md)
+- [fetch-citations](../../scripts/semantic-scholar/fetch-citations.md)
+
+### 3. citationsStatus: processing -> failed
+
+**触发条件**: 获取被引用情况过程中出现错误
+
+**操作**: 设置 `citationsStatus` 为 `failed`
+
+```typescript
+await prisma.arxivPaper.update({
+  where: { id: paper.id },
+  data: { citationsStatus: 'failed' }
+});
+```
+
+**相关脚本**:
+- [fetch-citation](../../scripts/semantic-scholar/fetch-citation.md)
+- [fetch-citations](../../scripts/semantic-scholar/fetch-citations.md)
+
+### 4. 重置被引用情况获取状态
+
+如果需要重新获取论文的被引用情况，可以手动重置：
+
+```typescript
+// 将 citationsStatus 改回 pending
+await prisma.arxivPaper.update({
+  where: { arxivId: '2503.15888' },
+  data: { citationsStatus: 'pending' }
+});
+```
+
+然后重新运行获取被引用情况的脚本：
+
+```bash
+# 获取单篇论文的被引用情况
+pnpm run fetch-citation 2503.15888
+
+# 批量获取未获取被引用情况的论文
+pnpm run fetch-citations
 ```
 
 ## 状态查询
