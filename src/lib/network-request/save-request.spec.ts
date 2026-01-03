@@ -9,7 +9,7 @@ jest.mock('../prisma', () => ({
   prisma: prismaMock,
 }));
 jest.mock('../network-request', () => ({
-  recordNetworkRequest: jest.fn(),
+  recordNetworkRequest: () => jest.fn(),
 }));
 
 describe('网络请求记录模块', () => {
