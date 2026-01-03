@@ -1,8 +1,10 @@
 'use client';
 
-import { useEffect, useRef, useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
+
 import * as d3 from 'd3';
-import type { Node, Link, NodeType } from '@/types/data';
+
+import type { Link, Node, NodeType } from '@/types/data';
 
 interface NetworkGraphProps {
   data: {
@@ -42,22 +44,24 @@ const NODE_SIZE_BASE: Record<NodeType, number> = {
 
 const NODE_SIZE_MULTIPLIER = 0.5;
 
-function getNodeSize(citationCount: number = 0, nodeType: NodeType = 'paper'): number {
-  return NODE_SIZE_BASE[nodeType] + Math.sqrt(citationCount) * NODE_SIZE_MULTIPLIER;
+function getNodeSize(citationCount = 0, nodeType: NodeType = 'paper'): number {
+  return (
+    NODE_SIZE_BASE[nodeType] + Math.sqrt(citationCount) * NODE_SIZE_MULTIPLIER
+  );
 }
 
 function calculateAverageCitations(
   node: Node,
   nodes: Node[],
   links: Link[],
-  nodeType: NodeType
+  nodeType: NodeType,
 ): number {
   if (nodeType === 'paper') {
     return node.citationCount || 0;
   }
 
   const relatedLinks = links.filter(
-    (link) => link.source === node.id || link.target === node.id
+    (link) => link.source === node.id || link.target === node.id,
   );
 
   const paperIds = relatedLinks
@@ -92,27 +96,37 @@ function calculateAverageCitations(
   return Math.round(sum / citations.length);
 }
 
-export function NetworkGraph({ data, visibleNodeTypes = ['paper'] }: NetworkGraphProps) {
+export function NetworkGraph({
+  data,
+  visibleNodeTypes = ['paper'],
+}: NetworkGraphProps) {
   const svgRef = useRef<SVGSVGElement>(null);
 
   const filteredData = useMemo(() => {
     const visibleNodeSet = new Set(visibleNodeTypes);
-    const filteredNodes = data.nodes.filter((node) => visibleNodeSet.has(node.type));
-    const visibleNodeIds = new Set(filteredNodes.map((node) => node.id));
-    const filteredLinks = data.links.filter(
-      (link) => {
-        const sourceId = typeof link.source === 'string' ? link.source : link.source.id;
-        const targetId = typeof link.target === 'string' ? link.target : link.target.id;
-        return visibleNodeIds.has(sourceId) && visibleNodeIds.has(targetId);
-      }
+    const filteredNodes = data.nodes.filter((node) =>
+      visibleNodeSet.has(node.type),
     );
+    const visibleNodeIds = new Set(filteredNodes.map((node) => node.id));
+    const filteredLinks = data.links.filter((link) => {
+      const sourceId =
+        typeof link.source === 'string' ? link.source : link.source.id;
+      const targetId =
+        typeof link.target === 'string' ? link.target : link.target.id;
+      return visibleNodeIds.has(sourceId) && visibleNodeIds.has(targetId);
+    });
     return { nodes: filteredNodes, links: filteredLinks };
   }, [data, visibleNodeTypes]);
 
   const enrichedNodes: EnrichedNode[] = useMemo(() => {
     return filteredData.nodes.map((node) => ({
       ...node,
-      averageCitation: calculateAverageCitations(node, filteredData.nodes, filteredData.links, node.type),
+      averageCitation: calculateAverageCitations(
+        node,
+        filteredData.nodes,
+        filteredData.links,
+        node.type,
+      ),
     }));
   }, [filteredData]);
 
@@ -138,10 +152,23 @@ export function NetworkGraph({ data, visibleNodeTypes = ['paper'] }: NetworkGrap
 
     const simulation = d3
       .forceSimulation<EnrichedNode>(enrichedNodes)
-      .force('link', d3.forceLink<EnrichedNode, NetworkLink>(filteredData.links as NetworkLink[]).id((d) => d.id))
+      .force(
+        'link',
+        d3
+          .forceLink<
+            EnrichedNode,
+            NetworkLink
+          >(filteredData.links as NetworkLink[])
+          .id((d) => d.id),
+      )
       .force('charge', d3.forceManyBody<EnrichedNode>().strength(-300))
       .force('center', d3.forceCenter<EnrichedNode>(width / 2, height / 2))
-      .force('collision', d3.forceCollide<EnrichedNode>().radius((d) => getNodeSize(d.averageCitation, d.type) + 2));
+      .force(
+        'collision',
+        d3
+          .forceCollide<EnrichedNode>()
+          .radius((d) => getNodeSize(d.averageCitation, d.type) + 2),
+      );
 
     const link = g
       .append('g')
@@ -166,7 +193,7 @@ export function NetworkGraph({ data, visibleNodeTypes = ['paper'] }: NetworkGrap
           .drag<SVGCircleElement, EnrichedNode>()
           .on('start', dragstarted)
           .on('drag', dragged)
-          .on('end', dragended)
+          .on('end', dragended),
       );
 
     const tooltip = g
@@ -191,23 +218,25 @@ export function NetworkGraph({ data, visibleNodeTypes = ['paper'] }: NetworkGrap
 
     let hoveredNode: EnrichedNode | null = null;
 
-    node.on('mouseenter', function (event, d) {
-      hoveredNode = d;
-      tooltipText.text(d.label);
-      const textWidth = (tooltipText.node() as SVGTextElement)?.getComputedTextLength() || 0;
-      tooltipBackground
-        .attr('width', textWidth + 16)
-        .attr('height', 24)
-        .attr('x', -textWidth / 2 - 8)
-        .attr('y', -getNodeSize(d.averageCitation, d.type) - 34);
-      tooltipText
-        .attr('x', 0)
-        .attr('y', -getNodeSize(d.averageCitation, d.type) - 20);
-      tooltip.style('opacity', 1);
-    }).on('mouseleave', function () {
-      hoveredNode = null;
-      tooltip.style('opacity', 0);
-    });
+    node
+      .on('mouseenter', function (event, d) {
+        hoveredNode = d;
+        tooltipText.text(d.label);
+        const textWidth = tooltipText.node()?.getComputedTextLength() || 0;
+        tooltipBackground
+          .attr('width', textWidth + 16)
+          .attr('height', 24)
+          .attr('x', -textWidth / 2 - 8)
+          .attr('y', -getNodeSize(d.averageCitation, d.type) - 34);
+        tooltipText
+          .attr('x', 0)
+          .attr('y', -getNodeSize(d.averageCitation, d.type) - 20);
+        tooltip.style('opacity', 1);
+      })
+      .on('mouseleave', function () {
+        hoveredNode = null;
+        tooltip.style('opacity', 0);
+      });
 
     simulation.on('tick', () => {
       link
@@ -219,7 +248,10 @@ export function NetworkGraph({ data, visibleNodeTypes = ['paper'] }: NetworkGrap
       node.attr('cx', (d) => d.x!).attr('cy', (d) => d.y!);
 
       if (hoveredNode) {
-        tooltip.attr('transform', `translate(${hoveredNode.x || 0}, ${hoveredNode.y || 0})`);
+        tooltip.attr(
+          'transform',
+          `translate(${hoveredNode.x || 0}, ${hoveredNode.y || 0})`,
+        );
       }
     });
 

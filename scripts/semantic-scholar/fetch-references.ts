@@ -1,6 +1,9 @@
-import { fetchArxivReferences } from '../../src/lib/semantic-scholar';
 import { prisma } from '../../src/lib/prisma';
-import { saveSemanticScholarData, createReferenceRelation } from '../../src/lib/reference';
+import {
+  createReferenceRelation,
+  saveSemanticScholarData,
+} from '../../src/lib/reference';
+import { fetchArxivReferences } from '../../src/lib/semantic-scholar';
 
 async function fetchAndStoreReferencesForAll() {
   console.log('='.repeat(60));
@@ -41,7 +44,10 @@ async function fetchAndStoreReferencesForAll() {
       console.log(`  没有找到引用文献`);
       await prisma.arxivPaper.update({
         where: { id: paper.id },
-        data: { referencesStatus: 'completed', referencesFetchedAt: new Date() },
+        data: {
+          referencesStatus: 'completed',
+          referencesFetchedAt: new Date(),
+        },
       });
       skippedCount++;
       continue;
@@ -74,7 +80,10 @@ async function fetchAndStoreReferencesForAll() {
         existingCount++;
       }
 
-      const relationCreated = await createReferenceRelation(paper.id, refPaper.id);
+      const relationCreated = await createReferenceRelation(
+        paper.id,
+        refPaper.id,
+      );
       if (relationCreated) {
         linkedCount++;
       }

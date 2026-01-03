@@ -1,6 +1,12 @@
-import { fetchArxivCitations, ArxivCitation } from '../../src/lib/semantic-scholar';
 import { prisma } from '../../src/lib/prisma';
-import { saveCitationSemanticScholarData, createCitationRelation } from '../../src/lib/reference';
+import {
+  createCitationRelation,
+  saveCitationSemanticScholarData,
+} from '../../src/lib/reference';
+import {
+  ArxivCitation,
+  fetchArxivCitations,
+} from '../../src/lib/semantic-scholar';
 
 async function fetchAndStoreCitationsForAll() {
   console.log('='.repeat(60));
@@ -74,7 +80,10 @@ async function fetchAndStoreCitationsForAll() {
         existingCount++;
       }
 
-      const relationCreated = await createCitationRelation(citPaper.id, paper.id);
+      const relationCreated = await createCitationRelation(
+        citPaper.id,
+        paper.id,
+      );
       if (relationCreated) {
         linkedCount++;
       }

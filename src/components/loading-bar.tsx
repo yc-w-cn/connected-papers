@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface LoadingBarProps {
   isLoading: boolean;
@@ -26,7 +26,7 @@ export function LoadingBar({ isLoading, progress }: LoadingBarProps) {
     const animate = (timestamp: number) => {
       setDisplayProgress((current) => {
         const diff = targetProgressRef.current - current;
-        
+
         if (Math.abs(diff) < 0.1) {
           return targetProgressRef.current;
         }

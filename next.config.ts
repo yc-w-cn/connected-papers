@@ -1,10 +1,12 @@
-import type { NextConfig } from 'next';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+
+import type { NextConfig } from 'next';
+
 import dayjs from 'dayjs';
 
 const packageJson = JSON.parse(
-  readFileSync(join(process.cwd(), 'package.json'), 'utf-8')
+  readFileSync(join(process.cwd(), 'package.json'), 'utf-8'),
 );
 
 const buildDate = dayjs().format('YYYY-MM-DD');

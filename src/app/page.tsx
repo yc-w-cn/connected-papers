@@ -1,10 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { StatCard } from '@/components/stat-card';
-import { NetworkGraph, NODE_COLORS } from '@/components/network-graph';
+
 import { LoadingBar } from '@/components/loading-bar';
 import { LoadingStatCards } from '@/components/loading-stat-cards';
+import { NetworkGraph, NODE_COLORS } from '@/components/network-graph';
+import { StatCard } from '@/components/stat-card';
 import { DataLoader } from '@/lib/data-loader';
 import type { ExportedData, NodeType } from '@/types/data';
 
@@ -13,7 +14,9 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [progress, setProgress] = useState(0);
-  const [visibleNodeTypes, setVisibleNodeTypes] = useState<NodeType[]>(['paper']);
+  const [visibleNodeTypes, setVisibleNodeTypes] = useState<NodeType[]>([
+    'paper',
+  ]);
   const [targetStats, setTargetStats] = useState({
     authorCount: 0,
     paperCount: 0,
@@ -75,9 +78,7 @@ export default function Home() {
     return (
       <div className="flex min-h-screen items-center justify-center bg-zinc-50">
         <div className="text-center">
-          <h1 className="text-3xl font-semibold text-black mb-4">
-            数据未找到
-          </h1>
+          <h1 className="text-3xl font-semibold text-black mb-4">数据未找到</h1>
           <p className="text-lg text-zinc-600 mb-4">
             {error || '请先运行数据导出脚本: pnpm run export-data'}
           </p>
@@ -106,8 +107,10 @@ export default function Home() {
             color={NODE_COLORS.author}
             switchChecked={visibleNodeTypes.includes('author')}
             onSwitchChange={(checked) => {
-              setVisibleNodeTypes(prev =>
-                checked ? [...prev, 'author'] : prev.filter(t => t !== 'author')
+              setVisibleNodeTypes((prev) =>
+                checked
+                  ? [...prev, 'author']
+                  : prev.filter((t) => t !== 'author'),
               );
             }}
           />
@@ -117,8 +120,10 @@ export default function Home() {
             color={NODE_COLORS.paper}
             switchChecked={visibleNodeTypes.includes('paper')}
             onSwitchChange={(checked) => {
-              setVisibleNodeTypes(prev =>
-                checked ? [...prev, 'paper'] : prev.filter(t => t !== 'paper')
+              setVisibleNodeTypes((prev) =>
+                checked
+                  ? [...prev, 'paper']
+                  : prev.filter((t) => t !== 'paper'),
               );
             }}
           />
@@ -128,8 +133,10 @@ export default function Home() {
             color={NODE_COLORS.venue}
             switchChecked={visibleNodeTypes.includes('venue')}
             onSwitchChange={(checked) => {
-              setVisibleNodeTypes(prev =>
-                checked ? [...prev, 'venue'] : prev.filter(t => t !== 'venue')
+              setVisibleNodeTypes((prev) =>
+                checked
+                  ? [...prev, 'venue']
+                  : prev.filter((t) => t !== 'venue'),
               );
             }}
           />
@@ -140,12 +147,18 @@ export default function Home() {
             关系网络
           </h2>
           <div className="h-[800px]">
-            <NetworkGraph data={data.network} visibleNodeTypes={visibleNodeTypes} />
+            <NetworkGraph
+              data={data.network}
+              visibleNodeTypes={visibleNodeTypes}
+            />
           </div>
         </section>
 
         <footer className="mt-12 text-center text-zinc-600">
-          <p>版本 {process.env.NEXT_PUBLIC_VERSION} · 构建于 {process.env.NEXT_PUBLIC_BUILD_DATE}</p>
+          <p>
+            版本 {process.env.NEXT_PUBLIC_VERSION} · 构建于{' '}
+            {process.env.NEXT_PUBLIC_BUILD_DATE}
+          </p>
         </footer>
       </div>
     </div>

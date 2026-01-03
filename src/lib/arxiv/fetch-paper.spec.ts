@@ -1,7 +1,9 @@
-import { describe, it, expect, beforeEach, jest } from '@jest/globals';
+import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { XMLParser } from 'fast-xml-parser';
-import { prismaMock } from '@/__mocks__/prisma-mock';
+
 import { createMockResponse } from '@/__mocks__/fetch-mock';
+import { prismaMock } from '@/__mocks__/prisma-mock';
+
 import { fetchArxivPaper } from './fetch-paper';
 
 jest.mock('../prisma', () => ({
@@ -20,21 +22,24 @@ describe('fetchArxivPaper 函数', () => {
   });
 
   it('应该成功获取并解析 arXiv 论文数据', async () => {
-    mockXMLParser.mockImplementation(() => ({
-      parse: jest.fn().mockReturnValue({
-        feed: {
-          entry: {
-            title: 'Test Paper',
-            summary: 'Test abstract',
-            published: '2024-01-01T00:00:00Z',
-            updated: '2024-01-02T00:00:00Z',
-            author: { name: 'Author 1' },
-            category: { '@_term': 'cs.AI' },
-            'arxiv:primary_category': { '@_term': 'cs.AI' },
-          },
-        },
-      }),
-    }) as any);
+    mockXMLParser.mockImplementation(
+      () =>
+        ({
+          parse: jest.fn().mockReturnValue({
+            feed: {
+              entry: {
+                title: 'Test Paper',
+                summary: 'Test abstract',
+                published: '2024-01-01T00:00:00Z',
+                updated: '2024-01-02T00:00:00Z',
+                author: { name: 'Author 1' },
+                category: { '@_term': 'cs.AI' },
+                'arxiv:primary_category': { '@_term': 'cs.AI' },
+              },
+            },
+          }),
+        }) as any,
+    );
 
     const { recordNetworkRequest } = require('../network-request');
     recordNetworkRequest.mockResolvedValue(
@@ -59,34 +64,39 @@ describe('fetchArxivPaper 函数', () => {
   });
 
   it('应该抛出错误当未找到论文数据', async () => {
-    mockXMLParser.mockImplementation(() => ({
-      parse: jest.fn().mockReturnValue({ feed: {} }),
-    }) as any);
+    mockXMLParser.mockImplementation(
+      () =>
+        ({
+          parse: jest.fn().mockReturnValue({ feed: {} }),
+        }) as any,
+    );
 
     const { recordNetworkRequest } = require('../network-request');
     recordNetworkRequest.mockResolvedValue(
       createMockResponse(true, 200, '<feed></feed>'),
     );
 
-    await expect(fetchArxivPaper('2401.00001')).rejects.toThrow('未找到论文数据');
+    await expect(fetchArxivPaper('2401.00001')).rejects.toThrow(
+      '未找到论文数据',
+    );
   });
 
   it('应该正确处理多个作者', async () => {
-    mockXMLParser.mockImplementation(() => ({
-      parse: jest.fn().mockReturnValue({
-        feed: {
-          entry: {
-            title: 'Test Paper',
-            summary: 'Test abstract',
-            published: '2024-01-01T00:00:00Z',
-            author: [
-              { name: 'Author 1' },
-              { name: 'Author 2' },
-            ],
-          },
-        },
-      }),
-    }) as any);
+    mockXMLParser.mockImplementation(
+      () =>
+        ({
+          parse: jest.fn().mockReturnValue({
+            feed: {
+              entry: {
+                title: 'Test Paper',
+                summary: 'Test abstract',
+                published: '2024-01-01T00:00:00Z',
+                author: [{ name: 'Author 1' }, { name: 'Author 2' }],
+              },
+            },
+          }),
+        }) as any,
+    );
 
     const { recordNetworkRequest } = require('../network-request');
     recordNetworkRequest.mockResolvedValue(
@@ -105,21 +115,21 @@ describe('fetchArxivPaper 函数', () => {
   });
 
   it('应该正确处理多个分类', async () => {
-    mockXMLParser.mockImplementation(() => ({
-      parse: jest.fn().mockReturnValue({
-        feed: {
-          entry: {
-            title: 'Test Paper',
-            summary: 'Test abstract',
-            published: '2024-01-01T00:00:00Z',
-            category: [
-              { '@_term': 'cs.AI' },
-              { '@_term': 'cs.LG' },
-            ],
-          },
-        },
-      }),
-    }) as any);
+    mockXMLParser.mockImplementation(
+      () =>
+        ({
+          parse: jest.fn().mockReturnValue({
+            feed: {
+              entry: {
+                title: 'Test Paper',
+                summary: 'Test abstract',
+                published: '2024-01-01T00:00:00Z',
+                category: [{ '@_term': 'cs.AI' }, { '@_term': 'cs.LG' }],
+              },
+            },
+          }),
+        }) as any,
+    );
 
     const { recordNetworkRequest } = require('../network-request');
     recordNetworkRequest.mockResolvedValue(
@@ -136,21 +146,24 @@ describe('fetchArxivPaper 函数', () => {
   });
 
   it('应该正确处理作者机构信息', async () => {
-    mockXMLParser.mockImplementation(() => ({
-      parse: jest.fn().mockReturnValue({
-        feed: {
-          entry: {
-            title: 'Test Paper',
-            summary: 'Test abstract',
-            published: '2024-01-01T00:00:00Z',
-            author: {
-              name: 'Author 1',
-              'arxiv:affiliation': 'Test University',
+    mockXMLParser.mockImplementation(
+      () =>
+        ({
+          parse: jest.fn().mockReturnValue({
+            feed: {
+              entry: {
+                title: 'Test Paper',
+                summary: 'Test abstract',
+                published: '2024-01-01T00:00:00Z',
+                author: {
+                  name: 'Author 1',
+                  'arxiv:affiliation': 'Test University',
+                },
+              },
             },
-          },
-        },
-      }),
-    }) as any);
+          }),
+        }) as any,
+    );
 
     const { recordNetworkRequest } = require('../network-request');
     recordNetworkRequest.mockResolvedValue(
@@ -167,21 +180,24 @@ describe('fetchArxivPaper 函数', () => {
   });
 
   it('应该正确处理可选字段', async () => {
-    mockXMLParser.mockImplementation(() => ({
-      parse: jest.fn().mockReturnValue({
-        feed: {
-          entry: {
-            title: 'Test Paper',
-            summary: 'Test abstract',
-            published: '2024-01-01T00:00:00Z',
-            license: 'test license',
-            comment: 'test comment',
-            'arxiv:journal_ref': 'Test Journal',
-            'arxiv:doi': '10.1234/test',
-          },
-        },
-      }),
-    }) as any);
+    mockXMLParser.mockImplementation(
+      () =>
+        ({
+          parse: jest.fn().mockReturnValue({
+            feed: {
+              entry: {
+                title: 'Test Paper',
+                summary: 'Test abstract',
+                published: '2024-01-01T00:00:00Z',
+                license: 'test license',
+                comment: 'test comment',
+                'arxiv:journal_ref': 'Test Journal',
+                'arxiv:doi': '10.1234/test',
+              },
+            },
+          }),
+        }) as any,
+    );
 
     const { recordNetworkRequest } = require('../network-request');
     recordNetworkRequest.mockResolvedValue(

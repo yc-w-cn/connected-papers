@@ -1,6 +1,9 @@
-import { fetchArxivReferences } from '../../src/lib/semantic-scholar';
 import { prisma } from '../../src/lib/prisma';
-import { saveSemanticScholarData, createReferenceRelation } from '../../src/lib/reference';
+import {
+  createReferenceRelation,
+  saveSemanticScholarData,
+} from '../../src/lib/reference';
+import { fetchArxivReferences } from '../../src/lib/semantic-scholar';
 
 const args = process.argv.slice(2);
 const targetArxivId = args[0];
@@ -81,7 +84,10 @@ async function fetchAndStoreReferences(arxivId: string) {
       existingCount++;
     }
 
-    const relationCreated = await createReferenceRelation(paper.id, refPaper.id);
+    const relationCreated = await createReferenceRelation(
+      paper.id,
+      refPaper.id,
+    );
     if (relationCreated) {
       linkedCount++;
     }

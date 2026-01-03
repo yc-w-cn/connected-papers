@@ -8,7 +8,13 @@ interface StatCardProps {
   onSwitchChange?: (checked: boolean) => void;
 }
 
-export function StatCard({ label, value, color, switchChecked, onSwitchChange }: StatCardProps) {
+export function StatCard({
+  label,
+  value,
+  color,
+  switchChecked,
+  onSwitchChange,
+}: StatCardProps) {
   return (
     <div className="flex flex-col items-start p-8 bg-white border border-black relative">
       {onSwitchChange && (
@@ -17,7 +23,12 @@ export function StatCard({ label, value, color, switchChecked, onSwitchChange }:
         </div>
       )}
       <div className="flex items-center gap-2">
-        {color && <div className="w-2 h-2 rounded-full" style={{ backgroundColor: color }} />}
+        {color && (
+          <div
+            className="w-2 h-2 rounded-full"
+            style={{ backgroundColor: color }}
+          />
+        )}
         <span className="text-sm font-medium text-zinc-600 uppercase tracking-wider">
           {label}
         </span>

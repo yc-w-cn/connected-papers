@@ -1,7 +1,10 @@
 import { prisma } from '../prisma';
 import { ArxivCitation } from '../semantic-scholar';
 
-export async function saveCitationSemanticScholarData(arxivPaperId: string, cit: ArxivCitation) {
+export async function saveCitationSemanticScholarData(
+  arxivPaperId: string,
+  cit: ArxivCitation,
+) {
   if (!cit.paperId) {
     console.log(`  跳过 Semantic Scholar 数据保存（无 paperId）`);
     return;
@@ -74,7 +77,10 @@ export async function saveCitationSemanticScholarData(arxivPaperId: string, cit:
   }
 }
 
-export async function createCitationRelation(citingPaperId: string, citedPaperId: string) {
+export async function createCitationRelation(
+  citingPaperId: string,
+  citedPaperId: string,
+) {
   const existingCitation = await prisma.reference.findUnique({
     where: {
       paperId_referenceId: {

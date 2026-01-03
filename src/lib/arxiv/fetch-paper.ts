@@ -1,4 +1,5 @@
 import { XMLParser } from 'fast-xml-parser';
+
 import { recordNetworkRequest } from '../network-request';
 
 export interface ArxivAuthor {
@@ -25,9 +26,7 @@ export async function fetchArxivPaper(
 ): Promise<ArxivPaperData> {
   console.log(`  [1/3] 正在从 arXiv API 获取论文数据...`);
   const apiUrl = `https://export.arxiv.org/api/query?id_list=${arxivId}`;
-  console.log(
-    `  [1/3] 请求 URL: ${apiUrl}`,
-  );
+  console.log(`  [1/3] 请求 URL: ${apiUrl}`);
 
   const response = await recordNetworkRequest(
     'arxiv',
@@ -37,7 +36,7 @@ export async function fetchArxivPaper(
     {
       requestMethod: 'GET',
       requestHeaders: {
-        'Accept': 'application/xml',
+        Accept: 'application/xml',
         'User-Agent': 'Connected-Papers/1.0',
       },
     },
@@ -78,7 +77,7 @@ export async function fetchArxivPaper(
   const doi = entry['arxiv:doi'];
 
   const primaryCategory = entry['arxiv:primary_category']?.['@_term'];
-  
+
   const categories: string[] = [];
   if (entry.category) {
     const categoryArray = Array.isArray(entry.category)
@@ -122,7 +121,7 @@ export async function fetchArxivPaper(
 
   console.log(`  [3/3] 提取完成:`);
   console.log(`      标题: ${title}`);
-  console.log(`      作者: ${authors.map(a => a.name).join(', ')}`);
+  console.log(`      作者: ${authors.map((a) => a.name).join(', ')}`);
   console.log(`      发布日期: ${resultData.publishedDate}`);
   console.log(`      主分类: ${primaryCategory || '无'}`);
   console.log(`      所有分类: ${categories.join(', ') || '无'}`);

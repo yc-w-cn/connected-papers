@@ -13,15 +13,17 @@ export interface ArxivCitation {
   influentialCitationCount?: number;
   openAccessPdfUrl?: string;
   publicationTypes?: string;
-  s2FieldsOfStudy?: Array<{ category?: string; field: string }>;
+  s2FieldsOfStudy?: { category?: string; field: string }[];
   venue?: string;
   volume?: string;
   issue?: string;
   pages?: string;
-  authorDetails?: Array<{ authorId?: string; name: string }>;
+  authorDetails?: { authorId?: string; name: string }[];
 }
 
-export async function fetchArxivCitations(arxivId: string): Promise<ArxivCitation[]> {
+export async function fetchArxivCitations(
+  arxivId: string,
+): Promise<ArxivCitation[]> {
   console.log(`正在获取论文 ${arxivId} 的被引用情况...`);
 
   const apiUrl = `https://api.semanticscholar.org/graph/v1/paper/arXiv:${arxivId}?fields=citations.title,citations.authors,citations.externalIds,citations.year,citations.publicationDate,citations.abstract,citations.venue,citations.citationCount,citations.influentialCitationCount,citations.s2FieldsOfStudy,citations.openAccessPdf,citations.publicationTypes,citations.url,citations.paperId`;
@@ -40,7 +42,7 @@ export async function fetchArxivCitations(arxivId: string): Promise<ArxivCitatio
       {
         requestMethod: 'GET',
         requestHeaders: {
-          'Accept': 'application/json',
+          Accept: 'application/json',
           'User-Agent': 'Connected-Papers/1.0',
         },
       },
@@ -51,8 +53,10 @@ export async function fetchArxivCitations(arxivId: string): Promise<ArxivCitatio
     }
 
     if (response.status === 429 && retryCount < maxRetries) {
-      console.log(`遇到 429 错误，等待 1 秒后重试 (${retryCount + 1}/${maxRetries})...`);
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      console.log(
+        `遇到 429 错误，等待 1 秒后重试 (${retryCount + 1}/${maxRetries})...`,
+      );
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       retryCount++;
       continue;
     }
@@ -91,7 +95,7 @@ export async function fetchArxivCitations(arxivId: string): Promise<ArxivCitatio
         venue: cit.venue,
         authorDetails: cit.authors?.map((a: any) => ({
           authorId: a.authorId,
-          name: a.name
+          name: a.name,
         })),
       });
     }

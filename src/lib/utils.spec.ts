@@ -1,4 +1,5 @@
-import { describe, it, expect } from '@jest/globals';
+import { describe, expect, it } from '@jest/globals';
+
 import { cn } from './utils';
 
 describe('cn 工具函数', () => {

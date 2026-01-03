@@ -1,6 +1,9 @@
-import { describe, it, expect, beforeEach, jest } from '@jest/globals';
+import { beforeEach, describe, expect, it, jest } from '@jest/globals';
+
+import { mockJsonResponse, mockSuccessResponse } from '@/__mocks__/fetch-mock';
 import { prismaMock } from '@/__mocks__/prisma-mock';
-import { mockSuccessResponse, mockJsonResponse } from '@/__mocks__/fetch-mock';
+
+import { recordNetworkRequest, saveNetworkRequest } from './save-request';
 
 jest.mock('../prisma', () => ({
   prisma: prismaMock,
@@ -9,10 +12,7 @@ jest.mock('../network-request', () => ({
   recordNetworkRequest: jest.fn(),
 }));
 
-import { saveNetworkRequest, recordNetworkRequest } from './save-request';
-
 describe('网络请求记录模块', () => {
-
   beforeEach(() => {
     jest.clearAllMocks();
   });
@@ -52,9 +52,13 @@ describe('网络请求记录模块', () => {
         source: 'arxiv' as const,
       };
 
-      prismaMock.networkRequest.create.mockRejectedValue(new Error('Database error'));
+      prismaMock.networkRequest.create.mockRejectedValue(
+        new Error('Database error'),
+      );
 
-      await expect(saveNetworkRequest(mockData)).rejects.toThrow('Database error');
+      await expect(saveNetworkRequest(mockData)).rejects.toThrow(
+        'Database error',
+      );
     });
 
     it('应该保存完整的请求信息', async () => {
@@ -102,10 +106,8 @@ describe('网络请求记录模块', () => {
       prismaMock.networkRequest.create.mockResolvedValue({ id: '1' } as any);
 
       await expect(
-        recordNetworkRequest(
-          'arxiv',
-          'https://example.com',
-          () => Promise.reject(mockError),
+        recordNetworkRequest('arxiv', 'https://example.com', () =>
+          Promise.reject(mockError),
         ),
       ).rejects.toThrow('Network error');
 

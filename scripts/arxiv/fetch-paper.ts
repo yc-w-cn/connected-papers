@@ -25,7 +25,7 @@ async function fetchPaper(arxivId: string) {
     console.log(`论文 ${arxivId} 已创建`);
   }
 
-  console.log(`\n[${1}/1] 获取论文 arXiv 数据: ${paper.arxivId}`);
+  console.log(`\n[1/1] 获取论文 arXiv 数据: ${paper.arxivId}`);
   console.log('-'.repeat(60));
 
   try {

@@ -58,8 +58,10 @@ export async function recordNetworkRequest(
     const response = await requestFn();
     const duration = Date.now() - startTime;
 
-    const responseHeaders = JSON.stringify(Object.fromEntries(response.headers.entries()));
-    
+    const responseHeaders = JSON.stringify(
+      Object.fromEntries(response.headers.entries()),
+    );
+
     let responseBody: string | undefined;
     try {
       const clonedResponse = response.clone();
@@ -72,13 +74,17 @@ export async function recordNetworkRequest(
       requestUrl,
       requestMethod: options?.requestMethod || 'GET',
       requestBody: options?.requestBody,
-      requestHeaders: options?.requestHeaders ? JSON.stringify(options.requestHeaders) : undefined,
+      requestHeaders: options?.requestHeaders
+        ? JSON.stringify(options.requestHeaders)
+        : undefined,
       responseStatus: response.status,
       responseHeaders,
       responseBody,
       duration,
       success: response.ok,
-      errorMessage: response.ok ? undefined : `HTTP ${response.status} ${response.statusText}`,
+      errorMessage: response.ok
+        ? undefined
+        : `HTTP ${response.status} ${response.statusText}`,
       source,
       arxivPaperId,
     });
@@ -92,7 +98,9 @@ export async function recordNetworkRequest(
       requestUrl,
       requestMethod: options?.requestMethod || 'GET',
       requestBody: options?.requestBody,
-      requestHeaders: options?.requestHeaders ? JSON.stringify(options.requestHeaders) : undefined,
+      requestHeaders: options?.requestHeaders
+        ? JSON.stringify(options.requestHeaders)
+        : undefined,
       duration,
       success: false,
       errorMessage,

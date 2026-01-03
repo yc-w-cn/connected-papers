@@ -1,6 +1,12 @@
-import { fetchArxivCitations, ArxivCitation } from '../../src/lib/semantic-scholar';
 import { prisma } from '../../src/lib/prisma';
-import { saveCitationSemanticScholarData, createCitationRelation } from '../../src/lib/reference';
+import {
+  createCitationRelation,
+  saveCitationSemanticScholarData,
+} from '../../src/lib/reference';
+import {
+  ArxivCitation,
+  fetchArxivCitations,
+} from '../../src/lib/semantic-scholar';
 
 const args = process.argv.slice(2);
 const targetArxivId = args[0];

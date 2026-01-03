@@ -1,7 +1,15 @@
-import { prisma } from '@/lib/prisma';
 import fs from 'fs';
 import path from 'path';
-import type { Node, Link, AuthorData, PaperData, VenueData, DataManifest } from '@/types/data';
+
+import { prisma } from '@/lib/prisma';
+import type {
+  AuthorData,
+  DataManifest,
+  Link,
+  Node,
+  PaperData,
+  VenueData,
+} from '@/types/data';
 
 function chunkArray<T>(array: T[], chunkSize: number): T[][] {
   const chunks: T[][] = [];
@@ -138,7 +146,11 @@ async function exportData() {
     fs.mkdirSync(outputDir, { recursive: true });
   }
 
-  const statisticsChunk = writeChunkFile('statistics.json', statistics, outputDir);
+  const statisticsChunk = writeChunkFile(
+    'statistics.json',
+    statistics,
+    outputDir,
+  );
 
   const nodeChunks = chunkArray(nodes, 5000);
   const networkNodesChunks = nodeChunks.map((chunk, index) =>
@@ -200,7 +212,9 @@ async function exportData() {
   console.log(`期刊数量: ${statistics.venueCount}`);
   console.log(`节点数量: ${nodes.length}`);
   console.log(`连接数量: ${links.length}`);
-  console.log(`总分片数量: ${1 + networkNodesChunks.length + networkLinksChunks.length + authorsChunks.length + papersChunks.length + venuesChunks.length}`);
+  console.log(
+    `总分片数量: ${1 + networkNodesChunks.length + networkLinksChunks.length + authorsChunks.length + papersChunks.length + venuesChunks.length}`,
+  );
   console.log(`总大小: ${(totalSize / 1024 / 1024).toFixed(2)} MB`);
 }
 
