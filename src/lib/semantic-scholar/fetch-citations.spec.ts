@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach, jest } from '@jest/globals';
 import { prismaMock } from '@/__mocks__/prisma-mock';
+import { createMockResponse } from '@/__mocks__/fetch-mock';
 
 jest.mock('../prisma', () => ({
   prisma: prismaMock,
@@ -16,9 +17,11 @@ describe('fetchArxivCitations 函数', () => {
   });
 
   it('应该成功获取 arXiv 被引用情况', async () => {
-    const mockResponse = {
-      ok: true,
-      json: () => Promise.resolve({
+    const mockResponse = createMockResponse(
+      true,
+      200,
+      '',
+      {
         citations: [
           {
             externalIds: { ArXiv: '2401.00002' },
@@ -38,8 +41,8 @@ describe('fetchArxivCitations 函数', () => {
             pages: '1-10',
           },
         ],
-      }),
-    } as any;
+      },
+    );
 
     const { recordNetworkRequest } = require('../network-request');
     recordNetworkRequest.mockResolvedValue(mockResponse);
@@ -52,10 +55,12 @@ describe('fetchArxivCitations 函数', () => {
   });
 
   it('应该返回空数组当没有被引用情况', async () => {
-    const mockResponse = {
-      ok: true,
-      json: () => Promise.resolve({ citations: [] }),
-    } as any;
+    const mockResponse = createMockResponse(
+      true,
+      200,
+      '',
+      { citations: [] },
+    );
 
     const { recordNetworkRequest } = require('../network-request');
     recordNetworkRequest.mockResolvedValue(mockResponse);
@@ -66,9 +71,11 @@ describe('fetchArxivCitations 函数', () => {
   });
 
   it('应该只包含有 arXiv ID 的被引用', async () => {
-    const mockResponse = {
-      ok: true,
-      json: () => Promise.resolve({
+    const mockResponse = createMockResponse(
+      true,
+      200,
+      '',
+      {
         citations: [
           {
             externalIds: { ArXiv: '2401.00002' },
@@ -79,8 +86,8 @@ describe('fetchArxivCitations 函数', () => {
             title: 'Non-ArXiv Paper',
           },
         ],
-      }),
-    } as any;
+      },
+    );
 
     const { recordNetworkRequest } = require('../network-request');
     recordNetworkRequest.mockResolvedValue(mockResponse);
@@ -92,9 +99,11 @@ describe('fetchArxivCitations 函数', () => {
   });
 
   it('应该正确处理多个作者', async () => {
-    const mockResponse = {
-      ok: true,
-      json: () => Promise.resolve({
+    const mockResponse = createMockResponse(
+      true,
+      200,
+      '',
+      {
         citations: [
           {
             externalIds: { ArXiv: '2401.00002' },
@@ -106,8 +115,8 @@ describe('fetchArxivCitations 函数', () => {
             ],
           },
         ],
-      }),
-    } as any;
+      },
+    );
 
     const { recordNetworkRequest } = require('../network-request');
     recordNetworkRequest.mockResolvedValue(mockResponse);
@@ -119,17 +128,19 @@ describe('fetchArxivCitations 函数', () => {
   });
 
   it('应该正确处理可选字段', async () => {
-    const mockResponse = {
-      ok: true,
-      json: () => Promise.resolve({
+    const mockResponse = createMockResponse(
+      true,
+      200,
+      '',
+      {
         citations: [
           {
             externalIds: { ArXiv: '2401.00002' },
             title: 'Paper',
           },
         ],
-      }),
-    } as any;
+      },
+    );
 
     const { recordNetworkRequest } = require('../network-request');
     recordNetworkRequest.mockResolvedValue(mockResponse);
@@ -142,9 +153,11 @@ describe('fetchArxivCitations 函数', () => {
   });
 
   it('应该正确处理作者详细信息', async () => {
-    const mockResponse = {
-      ok: true,
-      json: () => Promise.resolve({
+    const mockResponse = createMockResponse(
+      true,
+      200,
+      '',
+      {
         citations: [
           {
             externalIds: { ArXiv: '2401.00002' },
@@ -155,8 +168,8 @@ describe('fetchArxivCitations 函数', () => {
             ],
           },
         ],
-      }),
-    } as any;
+      },
+    );
 
     const { recordNetworkRequest } = require('../network-request');
     recordNetworkRequest.mockResolvedValue(mockResponse);
@@ -170,9 +183,11 @@ describe('fetchArxivCitations 函数', () => {
   });
 
   it('应该正确处理发表日期', async () => {
-    const mockResponse = {
-      ok: true,
-      json: () => Promise.resolve({
+    const mockResponse = createMockResponse(
+      true,
+      200,
+      '',
+      {
         citations: [
           {
             externalIds: { ArXiv: '2401.00002' },
@@ -180,8 +195,8 @@ describe('fetchArxivCitations 函数', () => {
             year: 2023,
           },
         ],
-      }),
-    } as any;
+      },
+    );
 
     const { recordNetworkRequest } = require('../network-request');
     recordNetworkRequest.mockResolvedValue(mockResponse);
@@ -192,9 +207,11 @@ describe('fetchArxivCitations 函数', () => {
   });
 
   it('应该正确处理多个研究领域', async () => {
-    const mockResponse = {
-      ok: true,
-      json: () => Promise.resolve({
+    const mockResponse = createMockResponse(
+      true,
+      200,
+      '',
+      {
         citations: [
           {
             externalIds: { ArXiv: '2401.00002' },
@@ -205,8 +222,8 @@ describe('fetchArxivCitations 函数', () => {
             ],
           },
         ],
-      }),
-    } as any;
+      },
+    );
 
     const { recordNetworkRequest } = require('../network-request');
     recordNetworkRequest.mockResolvedValue(mockResponse);

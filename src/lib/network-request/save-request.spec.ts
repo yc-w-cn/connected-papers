@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach, jest } from '@jest/globals';
 import { prismaMock } from '@/__mocks__/prisma-mock';
+import { mockSuccessResponse, mockJsonResponse } from '@/__mocks__/fetch-mock';
 
 jest.mock('../prisma', () => ({
   prisma: prismaMock,
@@ -83,26 +84,15 @@ describe('网络请求记录模块', () => {
 
   describe('recordNetworkRequest', () => {
     it('应该记录成功的请求', async () => {
-      const mockResponse = {
-        ok: true,
-        status: 200,
-        headers: {
-          entries: () => [['content-type', 'application/json']],
-        },
-        clone: () => ({
-          text: () => Promise.resolve('{"success": true}'),
-        }),
-      } as any;
-
       prismaMock.networkRequest.create.mockResolvedValue({ id: '1' } as any);
 
       const result = await recordNetworkRequest(
         'arxiv',
         'https://example.com',
-        () => Promise.resolve(mockResponse),
+        () => Promise.resolve(mockJsonResponse),
       );
 
-      expect(result).toBe(mockResponse);
+      expect(result).toBe(mockJsonResponse);
       expect(prismaMock.networkRequest.create).toHaveBeenCalled();
     });
 
@@ -123,23 +113,12 @@ describe('网络请求记录模块', () => {
     });
 
     it('应该计算请求持续时间', async () => {
-      const mockResponse = {
-        ok: true,
-        status: 200,
-        headers: {
-          entries: () => [],
-        },
-        clone: () => ({
-          text: () => Promise.resolve(''),
-        }),
-      } as any;
-
       prismaMock.networkRequest.create.mockResolvedValue({ id: '1' } as any);
 
       await recordNetworkRequest(
         'semantic-scholar',
         'https://example.com',
-        () => Promise.resolve(mockResponse),
+        () => Promise.resolve(mockSuccessResponse),
       );
 
       const createCall = prismaMock.networkRequest.create.mock.calls[0];
@@ -147,23 +126,12 @@ describe('网络请求记录模块', () => {
     });
 
     it('应该记录 arxivPaperId', async () => {
-      const mockResponse = {
-        ok: true,
-        status: 200,
-        headers: {
-          entries: () => [],
-        },
-        clone: () => ({
-          text: () => Promise.resolve(''),
-        }),
-      } as any;
-
       prismaMock.networkRequest.create.mockResolvedValue({ id: '1' } as any);
 
       await recordNetworkRequest(
         'arxiv',
         'https://example.com',
-        () => Promise.resolve(mockResponse),
+        () => Promise.resolve(mockSuccessResponse),
         '2401.00001',
       );
 
