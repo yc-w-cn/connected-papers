@@ -14,6 +14,7 @@
     "prisma:migrate": "prisma migrate dev",
     "prisma:seed": "tsx prisma/seed.ts",
     "prisma:studio": "prisma studio",
+    "rebuild-native": "pnpm rebuild better-sqlite3",
     "fetch-papers": "tsx scripts/arxiv/fetch-papers.ts",
     "fetch-paper": "tsx scripts/arxiv/fetch-paper.ts",
     "fetch-reference": "tsx scripts/semantic-scholar/fetch-reference.ts",
