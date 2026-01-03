@@ -1,16 +1,16 @@
-# fetch-references 使用说明
+# fetch-citations 使用说明
 
 ## 概述
 
-`fetch-references` 脚本用于批量获取数据库中所有未获取引用文献的论文的引用文献，并将这些引用文献添加到数据库中，同时建立论文之间的引用关系。
+`fetch-citations` 脚本用于批量获取数据库中所有未获取被引用情况的论文的被引用情况，并将这些被引用的论文添加到数据库中，同时建立论文之间的被引用关系。
 
 ## 功能特性
 
-- 自动查找所有未获取引用文献的论文（`referencesStatus = 'pending'`）
-- 批量获取这些论文的引用文献
+- 自动查找所有未获取被引用情况的论文（`citationsStatus = 'pending'`）
+- 批量获取这些论文的被引用情况
 - 智能识别 arXiv 论文并过滤非 arXiv 引用
 - 自动创建不存在的论文记录
-- 建立论文之间的引用关系
+- 建立论文之间的被引用关系
 - 保存完整的 Semantic Scholar 数据：
   - 论文基本信息（标题、摘要、URL）
   - 作者信息（含 Semantic Scholar 作者 ID）
@@ -19,8 +19,8 @@
   - 引用统计（citationCount、influentialCitationCount）
   - 开放访问 PDF 链接
   - 发表类型
-- 避免重复创建论文和引用关系
-- 避免重复获取同一篇论文的引用文献
+- 避免重复创建论文和被引用关系
+- 避免重复获取同一篇论文的被引用情况
 - 详细的处理日志输出
 
 ## 使用方法
@@ -28,21 +28,21 @@
 ### 基本用法
 
 ```bash
-pnpm run fetch-references
+pnpm run fetch-citations
 ```
 
 ### 使用示例
 
 ```bash
-# 批量获取所有未获取引用文献的论文
-pnpm run fetch-references
+# 批量获取所有未获取被引用情况的论文
+pnpm run fetch-citations
 ```
 
 ## 处理流程
 
-### 1. 查找未获取引用文献的论文
+### 1. 查找未获取被引用情况的论文
 
-脚本首先查找数据库中所有 `referencesStatus = 'pending'` 的论文：
+脚本首先查找数据库中所有 `citationsStatus = 'pending'` 的论文：
 
 - 按创建时间升序排列
 - 如果没有找到，提示并退出
@@ -51,26 +51,26 @@ pnpm run fetch-references
 
 对每篇论文执行以下操作：
 
-#### 2.1 获取引用文献
+#### 2.1 获取被引用情况
 
-从 Semantic Scholar API 获取论文的引用文献列表：
+从 Semantic Scholar API 获取论文的被引用情况列表：
 
 - API 端点: `https://api.semanticscholar.org/graph/v1/paper/arXiv:{arxivId}`
 - 获取字段: 标题、作者、arXiv ID、年份、发布日期、摘要、发表场所、引用统计、研究领域、开放访问 PDF、发表类型等
 
-#### 2.2 处理每篇引用文献
+#### 2.2 处理每篇被引用的论文
 
-对每篇引用文献执行以下操作：
+对每篇被引用的论文执行以下操作：
 
 ##### 2.2.1 检查论文是否已存在
 
 - 如果存在：跳过创建，使用现有记录
 - 如果不存在：创建新的论文记录，状态为 `pending`
 
-##### 2.2.2 创建引用关系
+##### 2.2.2 创建被引用关系
 
-- 检查引用关系是否已存在
-- 如果不存在：创建新的引用关系
+- 检查被引用关系是否已存在
+- 如果不存在：创建新的被引用关系
 - 如果已存在：跳过创建
 
 ##### 2.2.3 保存 Semantic Scholar 数据
@@ -81,54 +81,52 @@ pnpm run fetch-references
 - 保存研究领域信息
 - 保存发表场所信息（venue、volume、issue、pages）
 
-#### 2.3 更新引用文献获取状态
+#### 2.3 更新被引用情况获取状态
 
-处理完成后，将论文的 `referencesStatus` 状态更新为 `'completed'`
+处理完成后，将论文的 `citationsStatus` 状态更新为 `completed`
 
 ### 3. 输出处理结果
 
 脚本会输出以下统计信息：
 
 - 处理论文数量
-- 跳过论文数量（没有引用文献的论文）
+- 跳过论文数量（没有被引用情况的论文）
 - 新增论文总数
 - 已存在论文总数
-- 新增引用关系总数
+- 新增被引用关系总数
 
 ## 输出示例
 
-### 批量获取引用文献
+### 批量获取被引用情况
 
 ```
 ============================================================
-开始批量获取论文引用文献
+开始批量获取论文被引用情况
 ============================================================
-找到 5 篇需要获取引用文献的论文
+找到 5 篇需要获取被引用情况的论文
 ============================================================
 
 处理论文: 2503.15888
 ------------------------------------------------------------
-正在获取论文 2503.15888 的引用文献...
-找到 15 篇 arXiv 引用文献
-  找到 15 篇引用文献
+找到 15 篇 arXiv 被引用情况
+  找到 15 篇被引用情况
   新增论文: 12
   已存在论文: 3
-  新增引用关系: 15
+  新增被引用关系: 15
 
 处理论文: 2401.12345
 ------------------------------------------------------------
-正在获取论文 2401.12345 的引用文献...
-找到 8 篇 arXiv 引用文献
-  找到 8 篇引用文献
+找到 8 篇 arXiv 被引用情况
+  找到 8 篇被引用情况
   新增论文: 6
   已存在论文: 2
-  新增引用关系: 8
+  新增被引用关系: 8
 
 处理论文: 2312.56789
 ------------------------------------------------------------
-正在获取论文 2312.56789 的引用文献...
-论文 2312.56789 没有找到引用文献
-  没有找到引用文献
+论文 2312.56789 没有找到被引用情况
+  没有找到被引用情况
+  跳过论文
 
 ...
 
@@ -138,30 +136,30 @@ pnpm run fetch-references
   跳过论文: 1
   新增论文: 45
   已存在论文: 12
-  新增引用关系: 57
+  新增被引用关系: 57
 ============================================================
 ```
 
-### 没有需要获取引用文献的论文
+### 没有需要获取被引用情况的论文
 
 ```
 ============================================================
-开始批量获取论文引用文献
+开始批量获取论文被引用情况
 ============================================================
-没有需要获取引用文献的论文
+没有需要获取被引用情况的论文
 ```
 
 ## 数据结构
 
-### 论文引用关系
+### 论文被引用关系
 
-数据库使用 `Reference` 表维护论文之间的引用关系：
+数据库使用 `Reference` 表维护论文之间的被引用关系：
 
 ```typescript
 {
   id: string;              // UUID
-  paperId: string;        // 源论文 ID
-  referenceId: string;     // 引用论文 ID
+  paperId: string;        // 被引用的论文 ID（引用其他论文的论文）
+  referenceId: string;     // 引用该论文的论文（被引用的论文）
   createdAt: Date;        // 创建时间
 }
 ```
@@ -227,8 +225,8 @@ pnpm run fetch-references
 
 ### 关系说明
 
-- `paperId`: 引用其他论文的论文（源论文）
-- `referenceId`: 被引用的论文
+- `paperId`: 被引用的论文（引用其他论文的论文）
+- `referenceId`: 引用该论文的论文（被引用的论文）
 - 一篇论文可以引用多篇论文
 - 一篇论文可以被多篇论文引用
 - `arxivId` 在 `Paper` 表中是唯一的，确保全局唯一性
@@ -249,13 +247,13 @@ pnpm run fetch-references
 
 - 只有 arXiv 论文会被添加到数据库
 - 非 arXiv 引用会被自动过滤
-- 论文状态默认为 `pending`，需要使用 `process-papers` 脚本处理
+- 论文状态默认为 `pending`，需要使用 `fetch-papers` 脚本处理
 
 ### 3. 重复执行
 
 - 脚本可以安全地重复执行
-- 已获取过引用文献的论文会被自动跳过
-- 已存在的论文和引用关系不会被重复创建
+- 已获取过被引用情况的论文会被自动跳过
+- 已存在的论文和被引用关系不会被重复创建
 - 每次执行都会输出详细的处理日志
 
 ### 4. 错误处理
@@ -264,11 +262,11 @@ pnpm run fetch-references
 - 建议检查网络连接和 API 可用性
 - 查看错误日志以了解具体问题
 
-### 5. 引用文献获取状态
+### 5. 被引用情况获取状态
 
-- 论文的 `referencesStatus` 字段用于标记引用文献的获取状态
-- 避免重复获取同一篇论文的引用文献
-- 如需重新获取，需要手动将 `referencesStatus` 设置为 `'pending'`
+- 论文的 `citationsStatus` 字段用于标记是否已获取过被引用情况
+- 避免重复获取同一篇论文的被引用情况
+- 如需重新获取，需要手动将 `citationsStatus` 设置为 `pending`
 
 ### 6. 处理顺序
 
@@ -277,25 +275,37 @@ pnpm run fetch-references
 
 ## 相关命令
 
-### 获取单篇论文的引用文献
+### 获取单篇论文的被引用情况
 
-如果需要获取单篇论文的引用文献，使用以下命令：
+如果需要获取单篇论文的被引用情况，使用以下命令：
+
+```bash
+# 获取指定论文的被引用情况
+pnpm run fetch-citation <arxivId>
+```
+
+### 获取论文 arXiv 数据
+
+获取被引用情况后，使用以下命令获取论文 arXiv 数据：
+
+```bash
+# 获取所有待获取 arXiv 数据的论文
+pnpm run fetch-papers
+
+# 获取指定的论文
+pnpm run fetch-paper <arxivId>
+```
+
+### 获取引用文献
+
+如果需要获取论文引用的其他论文，使用以下命令：
 
 ```bash
 # 获取指定论文的引用文献
 pnpm run fetch-reference <arxivId>
-```
 
-### 处理论文数据
-
-获取引用文献后，使用以下命令处理论文数据：
-
-```bash
-# 处理所有待处理的论文
-pnpm run process-papers
-
-# 处理指定的论文
-pnpm run process-paper <arxivId>
+# 批量获取未获取引用文献的论文
+pnpm run fetch-references
 ```
 
 ### 查看数据库
@@ -309,48 +319,48 @@ pnpm run prisma:studio
 
 ### Q: 为什么有些论文没有被处理？
 
-A: 脚本只处理 `referencesStatus = 'pending'` 的论文。如果论文已经获取过引用文献，会被自动跳过。
+A: 脚本只处理 `citationsStatus = 'pending'` 的论文。如果论文已经获取过被引用情况，会被自动跳过。
 
-### Q: 如何查看哪些论文还没有获取引用文献？
+### Q: 如何查看哪些论文还没有获取被引用情况？
 
-A: 使用 Prisma Studio 打开数据库，查看 `ArxivPaper` 表中的 `referencesStatus` 字段。
+A: 使用 Prisma Studio 打开数据库，查看 `ArxivPaper` 表中的 `citationsStatus` 字段。
 
-### Q: 如何重新获取某篇论文的引用文献？
+### Q: 如何重新获取某篇论文的被引用情况？
 
-A: 使用 Prisma Studio 或 SQL 将该论文的 `referencesStatus` 字段设置为 `'pending'`，然后重新运行脚本。
+A: 使用 Prisma Studio 或 SQL 将该论文的 `citationsStatus` 字段设置为 `pending`，然后重新运行脚本。
 
-### Q: 为什么有些引用文献没有被添加？
+### Q: 为什么有些被引用的论文没有被添加？
 
 A: 脚本只添加 arXiv 论文，非 arXiv 引用会被自动过滤。
 
-### Q: 如何查看论文的引用关系？
+### Q: 如何查看论文的被引用关系？
 
 A: 使用 Prisma Studio 打开数据库，查看 `Reference` 表中的记录。
 
 ### Q: 如果论文已经存在，会更新其数据吗？
 
-A: 不会。如果论文已存在，脚本会跳过创建，使用现有记录。如需更新数据，请使用 `process-papers` 脚本。
+A: 不会。如果论文已存在，脚本会跳过创建，使用现有记录。如需更新数据，请使用 `fetch-papers` 脚本。
 
-### Q: 引用关系是双向的吗？
+### Q: 被引用关系是双向的吗？
 
-A: 不是。引用关系是单向的：论文 A 引用论文 B，只表示 A -> B 的关系。如果 B 也引用 A，需要单独获取 B 的引用文献。
+A: 不是。被引用关系是单向的：论文 A 引用论文 B，只表示 A -> B 的关系。如果 B 也引用 A，需要单独获取 B 的被引用情况。
 
-### Q: 可以同时运行 fetch-reference 和 fetch-references 吗？
+### Q: 可以同时运行 fetch-citation 和 fetch-citations 吗？
 
-A: 不建议。虽然两个脚本都会检查 `referencesStatus` 状态，但为了避免潜在的并发问题，建议不要同时运行。
+A: 不建议。虽然两个脚本都会检查 `citationsStatus` 状态，但为了避免潜在的并发问题，建议不要同时运行。
 
 ## 相关文档
 
-- [fetch-reference 使用说明](./fetch-reference.md) - 获取单篇论文的引用文献
+- [fetch-citation 使用说明](./fetch-citation.md) - 获取单篇论文的被引用情况
 - [数据库文档](../../database/README.md)
 - [错误处理](../../architecture/error-handling.md)
 
 ## 相关文件
 
-- [scripts/semantic-scholar/fetch-reference.ts](../../scripts/semantic-scholar/fetch-reference.ts) - 单篇论文引用文献获取脚本
-- [scripts/semantic-scholar/fetch-references.ts](../../scripts/semantic-scholar/fetch-references.ts) - 批量引用文献获取脚本
-- [src/lib/semantic-scholar/fetch-references.ts](../../src/lib/semantic-scholar/fetch-references.ts) - 引用文献获取逻辑
-- [src/lib/reference/save-reference.ts](../../src/lib/reference/save-reference.ts) - 引用关系保存逻辑
+- [scripts/semantic-scholar/fetch-citation.ts](../../scripts/semantic-scholar/fetch-citation.ts) - 单篇论文被引用情况获取脚本
+- [scripts/semantic-scholar/fetch-citations.ts](../../scripts/semantic-scholar/fetch-citations.ts) - 批量被引用情况获取脚本
+- [src/lib/semantic-scholar/fetch-citations.ts](../../src/lib/semantic-scholar/fetch-citations.ts) - 被引用情况获取逻辑
+- [src/lib/reference/save-citation.ts](../../src/lib/reference/save-citation.ts) - 被引用关系保存逻辑
 - [prisma/schema.prisma](../../prisma/schema.prisma) - 数据库模型定义
 
 ## 依赖说明

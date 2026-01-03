@@ -1,12 +1,12 @@
-# process-paper 使用说明
+# fetch-paper 使用说明
 
 ## 概述
 
-`process-paper` 脚本用于处理单个 arXiv 论文，从 arXiv API 获取论文元数据并存储到数据库中。
+`fetch-paper` 脚本用于获取单个 arXiv 论文的详细信息，从 arXiv API 获取论文元数据并存储到数据库中。
 
 ## 功能特性
 
-- 支持处理指定的单个论文
+- 支持获取指定的单个论文
 - 如果论文不存在则自动创建
 - 自动处理状态管理（pending → processing → completed/failed）
 - 详细的处理日志输出
@@ -17,32 +17,32 @@
 ### 基本用法
 
 ```bash
-pnpm run process-paper <arxivId>
+pnpm run fetch-paper <arxivId>
 ```
 
 ### 参数说明
 
-- `arxivId`: 必需参数，指定要处理的论文 arXiv ID
+- `arxivId`: 必需参数，指定要获取的论文 arXiv ID
   - 示例: `2503.15888`
   - 示例: `2401.12345`
 
 ## 使用示例
 
-### 示例 1：处理指定的论文
+### 示例 1：获取指定的论文
 
 ```bash
-pnpm run process-paper 2503.15888
+pnpm run fetch-paper 2503.15888
 ```
 
 **输出示例**：
 ```
 ============================================================
-开始处理论文: 2503.15888
+开始获取论文 arXiv 数据: 2503.15888
 ============================================================
 论文 2503.15888 不存在于数据库中，正在创建...
 论文 2503.15888 已创建
 
-[1/1] 处理论文: 2503.15888
+[1/1] 获取论文 arXiv 数据: 2503.15888
 ------------------------------------------------------------
 更新状态为: processing
   [1/3] 正在从 arXiv API 获取论文数据...
@@ -62,26 +62,26 @@ pnpm run process-paper 2503.15888
 保存论文数据到数据库...
 保存作者信息...
 保存分类信息...
-论文处理完成: 2503.15888
+论文 arXiv 数据获取完成: 2503.15888
 ------------------------------------------------------------
 
 ============================================================
-论文处理完成
+论文 arXiv 数据获取完成
 ============================================================
 ```
 
-### 示例 2：处理已存在的论文
+### 示例 2：获取已存在的论文
 
 ```bash
-pnpm run process-paper 2503.15888
+pnpm run fetch-paper 2503.15888
 ```
 
 **输出示例**：
 ```
 ============================================================
-开始处理论文: 2503.15888
+开始获取论文 arXiv 数据: 2503.15888
 ============================================================
-[1/1] 处理论文: 2503.15888
+[1/1] 获取论文 arXiv 数据: 2503.15888
 ------------------------------------------------------------
 更新状态为: processing
   [1/3] 正在从 arXiv API 获取论文数据...
@@ -101,11 +101,11 @@ pnpm run process-paper 2503.15888
 保存论文数据到数据库...
 保存作者信息...
 保存分类信息...
-论文处理完成: 2503.15888
+论文 arXiv 数据获取完成: 2503.15888
 ------------------------------------------------------------
 
 ============================================================
-论文处理完成
+论文 arXiv 数据获取完成
 ============================================================
 ```
 
@@ -121,7 +121,7 @@ pnpm run process-paper 2503.15888
 ```typescript
 await prisma.arxivPaper.update({
   where: { id: paper.id },
-  data: { status: 'processing' }
+  data: { arxivDataStatus: 'processing' }
 });
 ```
 
@@ -156,10 +156,10 @@ await prisma.arxivPaper.update({
 
 | 状态 | 说明 | 是否处理 |
 |------|------|----------|
-| `pending` | 待处理 | 是 |
-| `processing` | 处理中 | 否（跳过） |
-| `completed` | 已完成 | 否（跳过） |
-| `failed` | 失败 | 是（重试） |
+| `pending` | 待获取 arXiv 数据 | 是 |
+| `processing` | 正在从 arXiv API 获取数据 | 否（跳过） |
+| `completed` | arXiv 数据获取成功 | 否（跳过） |
+| `failed` | arXiv 数据获取失败 | 是（重试） |
 
 ## 错误处理
 
@@ -185,11 +185,11 @@ await prisma.arxivPaper.update({
 
 ### 重试失败论文
 
-如果论文处理失败，可以手动重试：
+如果论文获取失败，可以手动重试：
 
 ```bash
 # 直接重新运行命令
-pnpm run process-paper {arxivId}
+pnpm run fetch-paper {arxivId}
 ```
 
 ## 查看处理结果
@@ -202,7 +202,7 @@ pnpm run prisma:studio
 
 在浏览器中打开 `http://localhost:5555`，可以：
 - 查看所有论文记录
-- 查看处理状态
+- 查看 arXiv 数据获取状态
 - 手动修改状态
 - 查看论文元数据
 
@@ -227,13 +227,13 @@ pnpm run prisma:studio
 
 ## 相关文档
 
-- [批量处理论文](./process-papers.md)
+- [批量获取论文 arXiv 数据](./fetch-papers.md)
 - [数据库文档](../../database/README.md)
 - [状态机设计](../../database/state-machine.md)
 - [错误处理](../../architecture/error-handling.md)
 
 ## 相关文件
 
-- [scripts/arxiv/process-paper.ts](../../scripts/arxiv/process-paper.ts) - 处理脚本主文件
+- [scripts/arxiv/fetch-paper.ts](../../scripts/arxiv/fetch-paper.ts) - 获取脚本主文件
 - [src/lib/arxiv/fetch-paper.ts](../../src/lib/arxiv/fetch-paper.ts) - arXiv API 调用逻辑
 - [prisma/schema.prisma](../../prisma/schema.prisma) - 数据库模型定义
