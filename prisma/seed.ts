@@ -22,7 +22,7 @@ async function main() {
     data: {
       arxivId: arxivId,
       arxivUrl: startPaper,
-      status: 'pending',
+      arxivDataStatus: 'pending',
     },
   });
 
