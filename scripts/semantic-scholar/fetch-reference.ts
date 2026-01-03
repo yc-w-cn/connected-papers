@@ -1,4 +1,4 @@
-import { fetchArxivReferences, ArxivReference } from '../../src/lib/semantic-scholar';
+import { fetchArxivReferences } from '../../src/lib/semantic-scholar';
 import { prisma } from '../../src/lib/prisma';
 import { saveSemanticScholarData, createReferenceRelation } from '../../src/lib/reference';
 
@@ -20,25 +20,30 @@ async function fetchAndStoreReferences(arxivId: string) {
       data: {
         arxivId,
         arxivUrl: `https://arxiv.org/abs/${arxivId}`,
-        status: 'pending',
+        arxivDataStatus: 'pending',
       },
     });
     console.log(`论文 ${arxivId} 已创建`);
   }
 
-  if (paper.referencesFetched) {
+  if (paper.referencesStatus === 'completed') {
     console.log(`论文 ${arxivId} 的引用文献已获取过，跳过`);
     return;
   }
 
   console.log(`\n正在获取引用文献...`);
+  await prisma.arxivPaper.update({
+    where: { id: paper.id },
+    data: { referencesStatus: 'processing' },
+  });
+
   const references = await fetchArxivReferences(arxivId);
 
   if (references.length === 0) {
     console.log(`没有找到引用文献`);
     await prisma.arxivPaper.update({
       where: { id: paper.id },
-      data: { referencesFetched: true },
+      data: { referencesStatus: 'completed', referencesFetchedAt: new Date() },
     });
     return;
   }
@@ -66,7 +71,7 @@ async function fetchAndStoreReferences(arxivId: string) {
           title: ref.title,
           abstract: ref.abstract,
           publishedDate: ref.publishedDate,
-          status: 'pending',
+          arxivDataStatus: 'pending',
         },
       });
       addedCount++;
@@ -86,7 +91,7 @@ async function fetchAndStoreReferences(arxivId: string) {
 
   await prisma.arxivPaper.update({
     where: { id: paper.id },
-    data: { referencesFetched: true },
+    data: { referencesStatus: 'completed', referencesFetchedAt: new Date() },
   });
 
   console.log('\n' + '='.repeat(60));

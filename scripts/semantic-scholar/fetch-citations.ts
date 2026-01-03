@@ -1,23 +1,23 @@
-import { fetchArxivReferences } from '../../src/lib/semantic-scholar';
+import { fetchArxivCitations, ArxivCitation } from '../../src/lib/semantic-scholar';
 import { prisma } from '../../src/lib/prisma';
-import { saveSemanticScholarData, createReferenceRelation } from '../../src/lib/reference';
+import { saveCitationSemanticScholarData, createCitationRelation } from '../../src/lib/reference';
 
-async function fetchAndStoreReferencesForAll() {
+async function fetchAndStoreCitationsForAll() {
   console.log('='.repeat(60));
-  console.log('开始批量获取论文引用文献');
+  console.log('开始批量获取论文被引用情况');
   console.log('='.repeat(60));
 
   const papers = await prisma.arxivPaper.findMany({
-    where: { referencesStatus: 'pending' },
+    where: { citationsStatus: 'pending' },
     orderBy: { createdAt: 'asc' },
   });
 
   if (papers.length === 0) {
-    console.log('没有需要获取引用文献的论文');
+    console.log('没有需要获取被引用情况的论文');
     return;
   }
 
-  console.log(`找到 ${papers.length} 篇需要获取引用文献的论文`);
+  console.log(`找到 ${papers.length} 篇需要获取被引用情况的论文`);
   console.log('='.repeat(60));
 
   let totalAddedCount = 0;
@@ -32,40 +32,40 @@ async function fetchAndStoreReferencesForAll() {
 
     await prisma.arxivPaper.update({
       where: { id: paper.id },
-      data: { referencesStatus: 'processing' },
+      data: { citationsStatus: 'processing' },
     });
 
-    const references = await fetchArxivReferences(paper.arxivId);
+    const citations = await fetchArxivCitations(paper.arxivId);
 
-    if (references.length === 0) {
-      console.log(`  没有找到引用文献`);
+    if (citations.length === 0) {
+      console.log(`  没有找到被引用情况`);
       await prisma.arxivPaper.update({
         where: { id: paper.id },
-        data: { referencesStatus: 'completed', referencesFetchedAt: new Date() },
+        data: { citationsStatus: 'completed', citationsFetchedAt: new Date() },
       });
       skippedCount++;
       continue;
     }
 
-    console.log(`  找到 ${references.length} 篇引用文献`);
+    console.log(`  找到 ${citations.length} 篇被引用情况`);
 
     let addedCount = 0;
     let existingCount = 0;
     let linkedCount = 0;
 
-    for (const ref of references) {
-      let refPaper = await prisma.arxivPaper.findUnique({
-        where: { arxivId: ref.arxivId },
+    for (const cit of citations) {
+      let citPaper = await prisma.arxivPaper.findUnique({
+        where: { arxivId: cit.arxivId },
       });
 
-      if (!refPaper) {
-        refPaper = await prisma.arxivPaper.create({
+      if (!citPaper) {
+        citPaper = await prisma.arxivPaper.create({
           data: {
-            arxivId: ref.arxivId,
-            arxivUrl: ref.arxivUrl,
-            title: ref.title,
-            abstract: ref.abstract,
-            publishedDate: ref.publishedDate,
+            arxivId: cit.arxivId,
+            arxivUrl: cit.arxivUrl,
+            title: cit.title,
+            abstract: cit.abstract,
+            publishedDate: cit.publishedDate,
             arxivDataStatus: 'pending',
           },
         });
@@ -74,22 +74,22 @@ async function fetchAndStoreReferencesForAll() {
         existingCount++;
       }
 
-      const relationCreated = await createReferenceRelation(paper.id, refPaper.id);
+      const relationCreated = await createCitationRelation(citPaper.id, paper.id);
       if (relationCreated) {
         linkedCount++;
       }
 
-      await saveSemanticScholarData(refPaper.id, ref);
+      await saveCitationSemanticScholarData(citPaper.id, cit);
     }
 
     await prisma.arxivPaper.update({
       where: { id: paper.id },
-      data: { referencesStatus: 'completed', referencesFetchedAt: new Date() },
+      data: { citationsStatus: 'completed', citationsFetchedAt: new Date() },
     });
 
     console.log(`  新增论文: ${addedCount}`);
     console.log(`  已存在论文: ${existingCount}`);
-    console.log(`  新增引用关系: ${linkedCount}`);
+    console.log(`  新增被引用关系: ${linkedCount}`);
 
     totalAddedCount += addedCount;
     totalExistingCount += existingCount;
@@ -103,11 +103,11 @@ async function fetchAndStoreReferencesForAll() {
   console.log(`  跳过论文: ${skippedCount}`);
   console.log(`  新增论文: ${totalAddedCount}`);
   console.log(`  已存在论文: ${totalExistingCount}`);
-  console.log(`  新增引用关系: ${totalLinkedCount}`);
+  console.log(`  新增被引用关系: ${totalLinkedCount}`);
   console.log('='.repeat(60));
 }
 
-fetchAndStoreReferencesForAll()
+fetchAndStoreCitationsForAll()
   .catch((e: unknown) => {
     console.error('\n发生未捕获的错误:');
     console.error(e);
