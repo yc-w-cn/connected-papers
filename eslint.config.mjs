@@ -134,6 +134,8 @@ export default defineConfig(
       '@typescript-eslint/no-empty-function': 'off',
       // 允许使用点表示法而非可选链
       '@typescript-eslint/prefer-optional-chain': 'off',
+      // 允许未绑定的方法（用于 jest mock）
+      '@typescript-eslint/unbound-method': 'off',
       // 导入排序规则配置
       'simple-import-sort/imports': [
         'error',
