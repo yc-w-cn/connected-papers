@@ -3,6 +3,7 @@ export default {
   testEnvironment: 'node',
   roots: ['<rootDir>/src'],
   testMatch: ['**/*.spec.ts'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@prisma/adapter-better-sqlite3$': '<rootDir>/src/__mocks__/prisma-adapter.ts',
